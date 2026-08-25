@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Timestamp Converter — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
+.container{max-width:650px;margin:auto}
+input{width:100%;padding:16px;margin:10px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
+button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px;margin-top:10px}
+.result{margin-top:20px;padding:20px;background:#111a30;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>⏱️ Timestamp Converter</h1>
+<p>Convert Unix timestamps into readable dates.</p>
+<input id="timestamp" type="number" placeholder="Unix timestamp">
+<button onclick="convert()">Convert</button>
+<div class="result" id="result">Result will appear here.</div>
+</div>
+<script>
+function convert(){
+let value=Number(timestamp.value);
+let date=new Date(value<10000000000?value*1000:value);
+result.textContent=isNaN(date)?"Invalid timestamp":date.toString();
+}
+</script>
+</body>
+</html>
