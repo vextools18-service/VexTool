@@ -1,1 +1,31 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>URL Encoder — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
+.container{max-width:800px;margin:auto}
+textarea{width:100%;height:220px;margin:15px 0;padding:20px;background:#111a30;color:white;border:1px solid #27304a;border-radius:12px}
+button{padding:13px 22px;background:#7c3aed;color:white;border:0;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🔗 URL Encoder</h1>
+<p>Encode or decode URL text safely.</p>
+<textarea id="input" placeholder="Enter URL or text..."></textarea>
+<button onclick="encodeURL()">Encode</button>
+<button onclick="decodeURL()">Decode</button>
+<textarea id="output" placeholder="Result..." readonly></textarea>
+</div>
+<script>
+function encodeURL(){output.value=encodeURIComponent(input.value)}
+function decodeURL(){
+try{output.value=decodeURIComponent(input.value)}
+catch(e){output.value="Invalid encoded URL"}
+}
+</script>
+</body>
+</html>
