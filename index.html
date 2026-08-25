@@ -505,23 +505,27 @@ section{
 }
 
 .open{
+    display:block;
     width:100%;
-
     border:0;
     border-radius:11px;
-
     padding:11px;
 
-    background:linear-gradient(90deg,#7c3aed,#6366f1);
-    color:white;
+    background:linear-gradient(
+        90deg,
+        #7c3aed,
+        #6366f1
+    );
 
+    color:white;
     font-weight:800;
 
-    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
 
+    cursor:pointer;
     transition:.25s;
 }
-
 .open:hover{
     transform:scale(1.03);
     box-shadow:0 8px 25px var(--glow);
@@ -905,7 +909,9 @@ footer{
             <div class="icon">🔢</div>
             <h3>Word Counter</h3>
             <p>Count words and characters instantly.</p>
-            <button class="open">Open Tool</button>
+            <a class="open" href="tools/word-counter.html">
+    Open Tool
+</a>
         </div>
 
         <div class="tool" data-category="text" data-name="case converter">
