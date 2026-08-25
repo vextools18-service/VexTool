@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JPG to PDF — VexTools</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:#f8fafc;
+min-height:100vh;
+padding:30px 15px;
+}
+
+.container{
+max-width:850px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin:25px 0 35px;
+}
+
+.header h1{
+font-size:42px;
+}
+
+.header span{
+color:#22d3ee;
+}
+
+.header p{
+color:#94a3b8;
+margin-top:10px;
+}
+
+.card{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+}
+
+.drop{
+display:block;
+border:2px dashed #06b6d4;
+border-radius:16px;
+padding:45px 20px;
+text-align:center;
+cursor:pointer;
+background:rgba(6,182,212,.07);
+}
+
+.drop p{
+color:#94a3b8;
+margin-top:8px;
+}
+
+input{
+display:none;
+}
+
+.preview{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-top:20px;
+}
+
+.image{
+position:relative;
+background:#18223a;
+border-radius:12px;
+overflow:hidden;
+}
+
+.image img{
+display:block;
+width:100%;
+height:170px;
+object-fit:cover;
+}
+
+.remove{
+position:absolute;
+right:7px;
+top:7px;
+border:0;
+background:#ef4444;
+color:white;
+width:30px;
+height:30px;
+border-radius:50%;
+cursor:pointer;
+}
+
+button.convert{
+width:100%;
+margin-top:20px;
+padding:14px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+button.convert:disabled{
+opacity:.5;
+}
+
+.status{
+text-align:center;
+margin-top:15px;
+color:#94a3b8;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+
+@media(max-width:600px){
+.preview{
+grid-template-columns:repeat(2,1fr);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>JPG to <span>PDF</span></h1>
+<p>Convert multiple JPG images into one PDF.</p>
+</div>
+
+<div class="card">
+
+<label class="drop" for="files">
+<h3>🖼️ Select JPG Images</h3>
+<p>You can select multiple images</p>
+</label>
+
+<input
+id="files"
+type="file"
+accept="image/jpeg,image/jpg"
+multiple
+>
+
+<div id="preview" class="preview"></div>
+
+<button
+class="convert"
+id="convert"
+disabled
+>
+Convert to PDF
+</button>
+
+<div id="status" class="status"></div>
+
+</div>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+</div>
+
+<script>
+
+const input=document.getElementById("files");
+const preview=document.getElementById("preview");
+const convert=document.getElementById("convert");
+const status=document.getElementById("status");
+
+let images=[];
+
+input.addEventListener("change",()=>{
+
+images=[
+...images,
+...Array.from(input.files)
+];
+
+render();
+
+input.value="";
+
+});
+
+function render(){
+
+preview.innerHTML="";
+
+images.forEach((file,index)=>{
+
+const box=document.createElement("div");
+
+box.className="image";
+
+const img=document.createElement("img");
+
+img.src=URL.createObjectURL(file);
+
+const remove=document.createElement("button");
+
+remove.className="remove";
+remove.textContent="×";
+
+remove.onclick=()=>{
+images.splice(index,1);
+render();
+};
+
+box.appendChild(img);
+box.appendChild(remove);
+
+preview.appendChild(box);
+
+});
+
+convert.disabled=images.length===0;
+
+}
+
+convert.onclick=async()=>{
+
+if(!images.length)return;
+
+try{
+
+status.textContent="Creating PDF...";
+
+const {jsPDF}=window.jspdf;
+
+const pdf=new jsPDF({
+orientation:"p",
+unit:"mm",
+format:"a4"
+});
+
+for(let i=0;i<images.length;i++){
+
+const file=images[i];
+
+const dataUrl=await readImage(file);
+
+const img=await loadImage(dataUrl);
+
+const pageWidth=210;
+const pageHeight=297;
+
+const margin=10;
+
+const maxWidth=pageWidth-margin*2;
+const maxHeight=pageHeight-margin*2;
+
+let width=img.width;
+let height=img.height;
+
+const ratio=Math.min(
+maxWidth/width,
+maxHeight/height
+);
+
+width*=ratio;
+height*=ratio;
+
+const x=(pageWidth-width)/2;
+const y=(pageHeight-height)/2;
+
+if(i>0){
+pdf.addPage();
+}
+
+pdf.addImage(
+dataUrl,
+"JPEG",
+x,
+y,
+width,
+height
+);
+
+}
+
+pdf.save("images.pdf");
+
+status.textContent=
+"✅ PDF created successfully!";
+
+}catch(error){
+
+console.error(error);
+
+status.textContent=
+"❌ Could not create PDF.";
+
+}
+
+};
+
+function readImage(file){
+
+return new Promise((resolve,reject)=>{
+
+const reader=new FileReader();
+
+reader.onload=()=>{
+resolve(reader.result);
+};
+
+reader.onerror=reject;
+
+reader.readAsDataURL(file);
+
+});
+
+}
+
+function loadImage(src){
+
+return new Promise((resolve,reject)=>{
+
+const img=new Image();
+
+img.onload=()=>{
+resolve(img);
+};
+
+img.onerror=reject;
+
+img.src=src;
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
