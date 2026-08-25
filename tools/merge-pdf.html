@@ -1,200 +1,1795 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Merge PDF — VexTools</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<!-- =====================================================
+     PRIMARY SEO
+===================================================== -->
+
+<title>Merge PDF Online Free — Combine PDF Files | VexTools</title>
+
+<meta name="description"
+      content="Merge PDF files online for free with VexTools. Combine multiple PDF documents into one PDF directly in your browser. Fast, private and easy to use.">
+
+<meta name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<meta name="googlebot"
+      content="index, follow">
+
+<meta name="author"
+      content="VexTools">
+
+<meta name="keywords"
+      content="merge PDF, merge PDF online, combine PDF, combine PDF files, PDF merger, merge PDFs free, free PDF merger, online PDF tools">
+
+<meta name="application-name"
+      content="VexTools">
+
+
+<!-- =====================================================
+     CANONICAL
+===================================================== -->
+
+<link rel="canonical"
+      href="https://vextools18-service.github.io/VexTool/tools/merge-pdf.html">
+
+
+<!-- =====================================================
+     OPEN GRAPH
+===================================================== -->
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:title"
+      content="Merge PDF Online Free — VexTools">
+
+<meta property="og:description"
+      content="Combine multiple PDF files into one PDF online for free with VexTools.">
+
+<meta property="og:url"
+      content="https://vextools18-service.github.io/VexTool/tools/merge-pdf.html">
+
+<meta property="og:site_name"
+      content="VexTools">
+
+<meta property="og:locale"
+      content="en_US">
+
+
+<!-- =====================================================
+     TWITTER / X
+===================================================== -->
+
+<meta name="twitter:card"
+      content="summary">
+
+<meta name="twitter:title"
+      content="Merge PDF Online Free — VexTools">
+
+<meta name="twitter:description"
+      content="Combine multiple PDF files into one PDF directly in your browser.">
+
+
+<!-- =====================================================
+     THEME
+===================================================== -->
+
+<meta name="theme-color"
+      content="#070b18">
+
+
+<!-- =====================================================
+     PERFORMANCE
+===================================================== -->
+
+<link rel="preconnect"
+      href="https://cdnjs.cloudflare.com">
+
+<link rel="dns-prefetch"
+      href="https://cdnjs.cloudflare.com">
+
+
+<!-- =====================================================
+     PDF LIBRARY
+===================================================== -->
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"
+    defer>
+</script>
+
+
+<!-- =====================================================
+     STRUCTURED DATA — WEB APPLICATION
+===================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Merge PDF",
+  "url": "https://vextools18-service.github.io/VexTool/tools/merge-pdf.html",
+  "description": "Free online PDF merger that combines multiple PDF files into one PDF document.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools18-service.github.io/VexTool/"
+  }
+}
+</script>
+
+
+<!-- =====================================================
+     STRUCTURED DATA — BREADCRUMB
+===================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "VexTools",
+      "item": "https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "PDF Tools",
+      "item": "https://vextools18-service.github.io/VexTool/#categories"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Merge PDF",
+      "item": "https://vextools18-service.github.io/VexTool/tools/merge-pdf.html"
+    }
+  ]
+}
+</script>
+
+
+<!-- =====================================================
+     STRUCTURED DATA — FAQ
+===================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I merge PDF files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select two or more PDF files using the upload area, then click the Merge PDFs button. VexTools combines the selected files into one PDF that you can download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I merge multiple PDF files for free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VexTools provides a free online PDF merger that lets you combine multiple PDF files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install software to merge PDFs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The VexTools PDF merger works directly in a modern web browser and does not require desktop software."
+      }
+    }
+  ]
+}
+</script>
+
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+
+    --bg:#070b18;
+
+    --card:#11192d;
+
+    --card2:#18223a;
+
+    --text:#f8fafc;
+
+    --muted:#94a3b8;
+
+    --border:rgba(255,255,255,.10);
+
+    --primary:#7c3aed;
+
+    --secondary:#06b6d4;
+
+    --danger:#ef4444;
+
+    --glow:rgba(124,58,237,.30);
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+html{
+    scroll-behavior:smooth;
+}
+
+
 body{
-font-family:Arial,sans-serif;
-background:#070b18;
-color:#f8fafc;
-min-height:100vh;
-padding:30px 15px;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    padding:30px 15px;
+
+    line-height:1.6;
+
 }
-.container{max-width:800px;margin:auto}
-.header{text-align:center;margin:25px 0 35px}
-.header h1{font-size:42px}
-.header span{color:#a78bfa}
-.header p{color:#94a3b8;margin-top:10px}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    max-width:850px;
+
+    margin:0 auto;
+
+}
+
+
+/* =====================================================
+   TOP NAV
+===================================================== */
+
+.top-nav{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.logo{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:var(--text);
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    font-weight:900;
+
+}
+
+
+.logo-icon{
+
+    width:38px;
+
+    height:38px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    box-shadow:
+        0 0 25px var(--glow);
+
+}
+
+
+.home-link{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+
+.home-link:hover{
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb{
+
+    margin:10px 0 28px;
+
+    font-size:13px;
+
+    color:var(--muted);
+
+}
+
+
+.breadcrumb a{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+}
+
+
+.breadcrumb span{
+
+    margin:0 6px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    text-align:center;
+
+    margin:20px 0 35px;
+
+}
+
+
+.header h1{
+
+    font-size:
+        clamp(36px,7vw,54px);
+
+    line-height:1.1;
+
+    letter-spacing:-1.5px;
+
+}
+
+
+.header h1 span{
+
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #22d3ee
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+}
+
+
+.header p{
+
+    color:var(--muted);
+
+    margin-top:12px;
+
+    font-size:17px;
+
+}
+
+
+/* =====================================================
+   MAIN TOOL CARD
+===================================================== */
+
 .card{
-background:#11192d;
-border:1px solid rgba(255,255,255,.1);
-border-radius:20px;
-padding:25px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.18);
+
 }
+
+
+/* =====================================================
+   DROP AREA
+===================================================== */
+
 .drop{
-border:2px dashed #7c3aed;
-border-radius:16px;
-padding:45px 20px;
-text-align:center;
-cursor:pointer;
-background:rgba(124,58,237,.08);
+
+    display:block;
+
+    border:
+        2px dashed
+        var(--primary);
+
+    border-radius:16px;
+
+    padding:45px 20px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    background:
+        rgba(124,58,237,.08);
+
+    transition:
+        .25s;
+
 }
-.drop:hover{background:rgba(124,58,237,.15)}
-.drop h3{margin-bottom:8px}
-.drop p{color:#94a3b8}
-input{display:none}
-.file-list{margin-top:20px}
+
+
+.drop:hover{
+
+    background:
+        rgba(124,58,237,.15);
+
+    transform:translateY(-2px);
+
+}
+
+
+.drop:focus-within{
+
+    outline:3px solid
+        rgba(124,58,237,.35);
+
+    outline-offset:3px;
+
+}
+
+
+.drop-icon{
+
+    font-size:40px;
+
+    margin-bottom:8px;
+
+}
+
+
+.drop h2{
+
+    font-size:20px;
+
+    margin-bottom:7px;
+
+}
+
+
+.drop p{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+   FILE INPUT
+===================================================== */
+
+input[type="file"]{
+
+    display:none;
+
+}
+
+
+/* =====================================================
+   FILE LIST
+===================================================== */
+
+.file-list{
+
+    margin-top:20px;
+
+}
+
+
 .file{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:13px;
-margin:8px 0;
-background:#18223a;
-border-radius:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    padding:13px;
+
+    margin:8px 0;
+
+    background:var(--card2);
+
+    border-radius:10px;
+
+    border:1px solid transparent;
+
 }
-.file button{
-background:#ef4444;
-border:0;
-color:white;
-padding:7px 10px;
-border-radius:7px;
-cursor:pointer;
+
+
+.file-name{
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+    color:#e2e8f0;
+
+    font-size:14px;
+
 }
-.actions{display:flex;gap:10px;margin-top:20px}
+
+
+.remove-button{
+
+    flex-shrink:0;
+
+    background:var(--danger);
+
+    border:0;
+
+    color:white;
+
+    padding:7px 10px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+}
+
+
+.remove-button:hover{
+
+    opacity:.85;
+
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.actions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+
 button.main{
-flex:1;
-padding:14px;
-border:0;
-border-radius:10px;
-background:linear-gradient(90deg,#7c3aed,#06b6d4);
-color:white;
-font-weight:bold;
-cursor:pointer;
+
+    flex:1;
+
+    padding:14px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
 }
-button.main:disabled{opacity:.5;cursor:not-allowed}
-.status{text-align:center;margin-top:15px;color:#94a3b8}
+
+
+button.main:hover:not(:disabled){
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px var(--glow);
+
+}
+
+
+button.main:disabled{
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+
+    text-align:center;
+
+    margin-top:15px;
+
+    color:var(--muted);
+
+    min-height:24px;
+
+}
+
+
+/* =====================================================
+   SEO CONTENT
+===================================================== */
+
+.info-section{
+
+    margin-top:55px;
+
+}
+
+
+.info-section h2{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+
+.info-section p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:14px;
+
+}
+
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+
+.benefits{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+
+    margin-top:22px;
+
+}
+
+
+.benefit{
+
+    padding:18px;
+
+    border:1px solid var(--border);
+
+    background:rgba(17,25,45,.7);
+
+    border-radius:15px;
+
+}
+
+
+.benefit-icon{
+
+    font-size:25px;
+
+    margin-bottom:7px;
+
+}
+
+
+.benefit h3{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+}
+
+
+.benefit p{
+
+    font-size:13px;
+
+    margin:0;
+
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+
+    margin-top:45px;
+
+}
+
+
+.faq h2{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+}
+
+
+.faq-item{
+
+    border:1px solid var(--border);
+
+    border-radius:13px;
+
+    margin-bottom:10px;
+
+    overflow:hidden;
+
+    background:rgba(17,25,45,.7);
+
+}
+
+
+.faq-item summary{
+
+    cursor:pointer;
+
+    padding:17px;
+
+    font-weight:700;
+
+    list-style:none;
+
+}
+
+
+.faq-item summary::-webkit-details-marker{
+
+    display:none;
+
+}
+
+
+.faq-item p{
+
+    padding:
+        0 17px 17px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+   RELATED TOOLS
+===================================================== */
+
+.related{
+
+    margin-top:45px;
+
+}
+
+
+.related h2{
+
+    font-size:25px;
+
+    margin-bottom:15px;
+
+}
+
+
+.related-links{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+
+.related-links a{
+
+    color:#c4b5fd;
+
+    text-decoration:none;
+
+    padding:9px 13px;
+
+    border-radius:9px;
+
+    background:rgba(124,58,237,.10);
+
+    border:1px solid var(--border);
+
+    font-size:13px;
+
+}
+
+
+.related-links a:hover{
+
+    border-color:#8b5cf6;
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
 .back{
-display:inline-block;
-margin-top:20px;
-color:#a78bfa;
-text-decoration:none;
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-weight:700;
+
 }
+
+
+.back:hover{
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:55px;
+
+    padding-top:25px;
+
+    border-top:1px solid var(--border);
+
+}
+
+
+.footer a{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:650px){
+
+    body{
+
+        padding:
+            20px 12px;
+
+    }
+
+
+    .top-nav{
+
+        margin-bottom:18px;
+
+    }
+
+
+    .header{
+
+        margin-bottom:25px;
+
+    }
+
+
+    .card{
+
+        padding:18px;
+
+    }
+
+
+    .actions{
+
+        flex-direction:column;
+
+    }
+
+
+    .benefits{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .drop{
+
+        padding:35px 15px;
+
+    }
+
+
+    .file{
+
+        align-items:flex-start;
+
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        scroll-behavior:auto!important;
+
+        transition:none!important;
+
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-<div class="header">
-<h1>Merge <span>PDF</span></h1>
-<p>Combine multiple PDF files into one PDF.</p>
+
+<!-- =====================================================
+     TOP NAVIGATION
+===================================================== -->
+
+<header class="top-nav">
+
+    <a
+        class="logo"
+        href="../index.html"
+        aria-label="VexTools home">
+
+        <span class="logo-icon">
+            V
+        </span>
+
+        VexTools
+
+    </a>
+
+
+    <a
+        class="home-link"
+        href="../index.html">
+
+        All Tools →
+
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     BREADCRUMBS
+===================================================== -->
+
+<nav
+    class="breadcrumb"
+    aria-label="Breadcrumb">
+
+    <a href="../index.html">
+        VexTools
+    </a>
+
+    <span>›</span>
+
+    <a href="../index.html#categories">
+        PDF Tools
+    </a>
+
+    <span>›</span>
+
+    <span>
+        Merge PDF
+    </span>
+
+</nav>
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<header class="header">
+
+    <h1>
+        Merge <span>PDF</span> Online
+    </h1>
+
+    <p>
+        Combine multiple PDF files into one PDF document quickly and easily.
+    </p>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN TOOL
+===================================================== -->
+
+<main>
+
+
+<section
+    class="card"
+    aria-labelledby="merge-tool-title">
+
+    <h2
+        id="merge-tool-title"
+        style="position:absolute;left:-9999px;">
+        Free Online PDF Merger
+    </h2>
+
+
+    <label
+        class="drop"
+        for="files">
+
+        <div class="drop-icon">
+            📄
+        </div>
+
+        <h3>
+            Select PDF Files
+        </h3>
+
+        <p>
+            Click here to choose two or more PDF files
+        </p>
+
+    </label>
+
+
+    <input
+        id="files"
+        type="file"
+        accept=".pdf,application/pdf"
+        multiple
+        aria-label="Select PDF files to merge">
+
+
+    <div
+        id="list"
+        class="file-list"
+        aria-live="polite">
+    </div>
+
+
+    <div class="actions">
+
+        <button
+            class="main"
+            id="merge"
+            type="button"
+            disabled>
+
+            Merge PDFs
+
+        </button>
+
+
+        <button
+            class="main"
+            id="clear"
+            type="button">
+
+            Clear
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="status"
+        class="status"
+        role="status"
+        aria-live="polite">
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SEO CONTENT
+===================================================== -->
+
+<section
+    class="info-section"
+    aria-labelledby="about-merge-pdf">
+
+    <h2 id="about-merge-pdf">
+        Merge PDF Files Online for Free
+    </h2>
+
+    <p>
+        VexTools Merge PDF is a free online tool that lets you
+        combine multiple PDF files into a single document.
+        Select your PDF files, arrange them in the order you
+        want, and merge them into one downloadable PDF.
+    </p>
+
+    <p>
+        The tool works directly in your web browser and is
+        designed to make combining documents quick and simple.
+        It can be useful for students, businesses, developers,
+        and anyone who needs to combine PDF documents.
+    </p>
+
+
+    <div class="benefits">
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Fast
+            </h3>
+
+            <p>
+                Merge multiple PDF files quickly from your browser.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🆓
+            </div>
+
+            <h3>
+                Free
+            </h3>
+
+            <p>
+                Use the PDF merger without a paid subscription.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🌐
+            </div>
+
+            <h3>
+                Online
+            </h3>
+
+            <p>
+                No desktop PDF software is required.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOW TO USE
+===================================================== -->
+
+<section
+    class="info-section"
+    aria-labelledby="how-to-merge">
+
+    <h2 id="how-to-merge">
+        How to Merge PDF Files
+    </h2>
+
+    <p>
+        <strong>1.</strong>
+        Click the Select PDF Files area and choose two or more PDF files.
+    </p>
+
+    <p>
+        <strong>2.</strong>
+        Review the selected files before merging them.
+    </p>
+
+    <p>
+        <strong>3.</strong>
+        Click the Merge PDFs button.
+    </p>
+
+    <p>
+        <strong>4.</strong>
+        Your combined PDF will be generated and downloaded.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section
+    class="faq"
+    aria-labelledby="faq-title">
+
+    <h2 id="faq-title">
+        Frequently Asked Questions
+    </h2>
+
+
+    <details class="faq-item">
+
+        <summary>
+            How do I merge PDF files?
+        </summary>
+
+        <p>
+            Select two or more PDF files using the upload area,
+            then click Merge PDFs. VexTools combines the selected
+            documents into one PDF.
+        </p>
+
+    </details>
+
+
+    <details class="faq-item">
+
+        <summary>
+            Can I merge multiple PDF files for free?
+        </summary>
+
+        <p>
+            Yes. VexTools provides a free online PDF merger for
+            combining multiple PDF documents.
+        </p>
+
+    </details>
+
+
+    <details class="faq-item">
+
+        <summary>
+            Do I need to install software?
+        </summary>
+
+        <p>
+            No. The tool works directly in a modern web browser,
+            so you do not need to install a desktop PDF application.
+        </p>
+
+    </details>
+
+
+</section>
+
+
+<!-- =====================================================
+     RELATED TOOLS
+===================================================== -->
+
+<section
+    class="related"
+    aria-labelledby="related-title">
+
+    <h2 id="related-title">
+        Related PDF Tools
+    </h2>
+
+
+    <div class="related-links">
+
+        <a href="split-pdf.html">
+            Split PDF
+        </a>
+
+        <a href="compress-pdf.html">
+            Compress PDF
+        </a>
+
+        <a href="jpg-to-pdf.html">
+            JPG to PDF
+        </a>
+
+        <a href="../index.html">
+            More Free Tools
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     BACK TO HOME
+===================================================== -->
+
+<a
+    class="back"
+    href="../index.html">
+
+    ← Back to VexTools
+
+</a>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <p>
+        © <span id="year"></span>
+        VexTools. Free online tools for everyone.
+    </p>
+
+    <p>
+        <a href="../index.html">
+            VexTools Home
+        </a>
+    </p>
+
+</footer>
+
+
 </div>
 
-<div class="card">
 
-<label class="drop" for="files">
-<h3>📄 Select PDF Files</h3>
-<p>Click here to choose multiple PDF files</p>
-</label>
-
-<input id="files" type="file" accept=".pdf,application/pdf" multiple>
-
-<div id="list" class="file-list"></div>
-
-<div class="actions">
-<button class="main" id="merge" disabled>Merge PDFs</button>
-<button class="main" id="clear">Clear</button>
-</div>
-
-<div id="status" class="status"></div>
-
-</div>
-
-<a class="back" href="../index.html">← Back to VexTools</a>
-
-</div>
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
-const input=document.getElementById("files");
-const list=document.getElementById("list");
-const merge=document.getElementById("merge");
-const clear=document.getElementById("clear");
-const status=document.getElementById("status");
 
-let selected=[];
+/* =====================================================
+   YEAR
+===================================================== */
 
-input.addEventListener("change",()=>{
-selected=[...selected,...input.files];
-render();
-input.value="";
-});
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
-function render(){
-list.innerHTML="";
 
-selected.forEach((file,index)=>{
-const div=document.createElement("div");
-div.className="file";
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-div.innerHTML=`
-<span>📄 ${file.name}</span>
-<button onclick="removeFile(${index})">Remove</button>
-`;
+const input =
+    document.getElementById("files");
 
-list.appendChild(div);
-});
+const list =
+    document.getElementById("list");
 
-merge.disabled=selected.length<2;
-}
+const merge =
+    document.getElementById("merge");
 
-function removeFile(index){
-selected.splice(index,1);
-render();
-}
+const clear =
+    document.getElementById("clear");
 
-clear.onclick=()=>{
-selected=[];
-render();
-status.textContent="";
-};
+const status =
+    document.getElementById("status");
 
-merge.onclick=async()=>{
-if(selected.length<2)return;
 
-try{
-status.textContent="Merging PDFs...";
+/* =====================================================
+   SELECTED FILES
+===================================================== */
 
-const merged=await PDFLib.PDFDocument.create();
+let selected = [];
 
-for(const file of selected){
-const bytes=await file.arrayBuffer();
-const pdf=await PDFLib.PDFDocument.load(bytes);
 
-const pages=await merged.copyPages(
-pdf,
-pdf.getPageIndices()
+/* =====================================================
+   FILE INPUT
+===================================================== */
+
+input.addEventListener(
+    "change",
+    () => {
+
+        selected = [
+            ...selected,
+            ...Array.from(input.files)
+        ];
+
+        render();
+
+        input.value = "";
+
+    }
 );
 
-pages.forEach(page=>merged.addPage(page));
+
+/* =====================================================
+   RENDER FILES
+===================================================== */
+
+function render(){
+
+    list.innerHTML = "";
+
+
+    selected.forEach(
+        (file,index) => {
+
+            const div =
+                document.createElement("div");
+
+            div.className = "file";
+
+
+            const name =
+                document.createElement("span");
+
+            name.className =
+                "file-name";
+
+            name.textContent =
+                "📄 " + file.name;
+
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "remove-button";
+
+            button.type =
+                "button";
+
+            button.textContent =
+                "Remove";
+
+            button.setAttribute(
+                "aria-label",
+                "Remove " + file.name
+            );
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    removeFile(index);
+
+                }
+            );
+
+
+            div.appendChild(name);
+
+            div.appendChild(button);
+
+            list.appendChild(div);
+
+        }
+    );
+
+
+    merge.disabled =
+        selected.length < 2;
+
 }
 
-const result=await merged.save();
 
-const blob=new Blob([result],{type:"application/pdf"});
-const url=URL.createObjectURL(blob);
+/* =====================================================
+   REMOVE FILE
+===================================================== */
 
-const a=document.createElement("a");
-a.href=url;
-a.download="merged.pdf";
-a.click();
+function removeFile(index){
 
-URL.revokeObjectURL(url);
+    selected.splice(index,1);
 
-status.textContent="✅ PDF merged successfully!";
-}catch(error){
-console.error(error);
-status.textContent="❌ Could not merge the PDFs.";
+    render();
+
 }
-};
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+clear.addEventListener(
+    "click",
+    () => {
+
+        selected = [];
+
+        render();
+
+        status.textContent = "";
+
+    }
+);
+
+
+/* =====================================================
+   MERGE PDF
+===================================================== */
+
+merge.addEventListener(
+    "click",
+    async () => {
+
+        if(selected.length < 2){
+
+            return;
+
+        }
+
+
+        try{
+
+            status.textContent =
+                "Merging PDFs...";
+
+
+            merge.disabled = true;
+
+
+            const merged =
+                await PDFLib.PDFDocument.create();
+
+
+            for(const file of selected){
+
+                const bytes =
+                    await file.arrayBuffer();
+
+
+                const pdf =
+                    await PDFLib.PDFDocument.load(
+                        bytes
+                    );
+
+
+                const pages =
+                    await merged.copyPages(
+                        pdf,
+                        pdf.getPageIndices()
+                    );
+
+
+                pages.forEach(
+                    page =>
+                        merged.addPage(page)
+                );
+
+            }
+
+
+            const result =
+                await merged.save();
+
+
+            const blob =
+                new Blob(
+                    [result],
+                    {
+                        type:"application/pdf"
+                    }
+                );
+
+
+            const url =
+                URL.createObjectURL(blob);
+
+
+            const a =
+                document.createElement("a");
+
+
+            a.href = url;
+
+            a.download =
+                "merged.pdf";
+
+
+            document.body.appendChild(a);
+
+            a.click();
+
+            a.remove();
+
+
+            setTimeout(
+                () => {
+
+                    URL.revokeObjectURL(url);
+
+                },
+                1000
+            );
+
+
+            status.textContent =
+                "✅ PDF merged successfully!";
+
+
+        }
+        catch(error){
+
+            console.error(error);
+
+
+            status.textContent =
+                "❌ Could not merge the PDFs. Please check that all selected files are valid PDF documents.";
+
+
+        }
+        finally{
+
+            merge.disabled =
+                selected.length < 2;
+
+        }
+
+    }
+);
+
 </script>
+
 
 </body>
 </html>
