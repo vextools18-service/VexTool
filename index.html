@@ -1,1159 +1,1294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="VexTools - Free online PDF, image, text, student, calculator and developer tools.">
-  <meta name="keywords" content="free online tools, PDF tools, image tools, text tools, calculators, developer tools">
-  <meta name="author" content="VexTools">
+<title>VexTools — Free Online Tools</title>
+<meta name="description" content="VexTools - Free online PDF, image, text, calculator and developer tools.">
 
-  <title>VexTools — Free Online Tools</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+:root{
+    --bg:#070b18;
+    --card:rgba(17,25,45,.72);
+    --card2:#111a30;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --border:rgba(255,255,255,.09);
+    --primary:#7c3aed;
+    --secondary:#06b6d4;
+    --glow:rgba(124,58,237,.35);
+}
+
+body.light{
+    --bg:#f5f7ff;
+    --card:rgba(255,255,255,.8);
+    --card2:#fff;
+    --text:#101828;
+    --muted:#64748b;
+    --border:rgba(15,23,42,.1);
+    --primary:#6d28d9;
+    --secondary:#0891b2;
+    --glow:rgba(109,40,217,.2);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    transition:background .4s,color .4s;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-2;
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.35;
+    animation:float 12s ease-in-out infinite;
+}
+
+.orb.one{
+    width:420px;
+    height:420px;
+    background:#7c3aed;
+    top:-150px;
+    left:-120px;
+}
+
+.orb.two{
+    width:350px;
+    height:350px;
+    background:#06b6d4;
+    right:-100px;
+    top:35%;
+    animation-delay:2s;
+}
+
+.orb.three{
+    width:300px;
+    height:300px;
+    background:#ec4899;
+    bottom:-120px;
+    left:35%;
+    animation-delay:4s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translate(0,0) scale(1);
+    }
+    50%{
+        transform:translate(40px,-30px) scale(1.1);
+    }
+}
+
+/* ================= HEADER ================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    background:rgba(7,11,24,.55);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+
+body.light header{
+    background:rgba(245,247,255,.65);
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    min-height:72px;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    font-size:22px;
+    font-weight:900;
+}
+
+.logoIcon{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:13px;
+
+    color:white;
+    background:linear-gradient(135deg,#7c3aed,#06b6d4);
+
+    box-shadow:0 0 30px var(--glow);
+
+    animation:logoPulse 3s infinite;
+}
+
+@keyframes logoPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08) rotate(3deg);
+    }
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+nav a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+nav a:hover{
+    color:var(--text);
+}
+
+.theme{
+    width:42px;
+    height:42px;
+
+    border:1px solid var(--border);
+    border-radius:12px;
+
+    background:var(--card);
+    color:var(--text);
+
+    cursor:pointer;
+    transition:.25s;
+}
+
+.theme:hover{
+    transform:rotate(15deg) scale(1.08);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    max-width:1000px;
+    margin:auto;
+
+    padding:170px 20px 100px;
+
+    text-align:center;
+}
+
+.badge{
+    display:inline-flex;
+    padding:9px 16px;
+
+    border:1px solid var(--border);
+    border-radius:999px;
+
+    background:var(--card);
+
+    color:#a78bfa;
+
+    font-size:13px;
+    font-weight:800;
+
+    animation:fadeUp .8s ease both;
+}
+
+.hero h1{
+    margin-top:25px;
+
+    font-size:clamp(48px,8vw,88px);
+    line-height:.98;
+
+    letter-spacing:-4px;
+
+    animation:fadeUp .9s .1s ease both;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#a78bfa,#22d3ee,#f472b6,#a78bfa);
+    background-size:300% 100%;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    animation:gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0%}
+    100%{background-position:300%}
+}
+
+.hero p{
+    max-width:650px;
+    margin:25px auto;
+
+    color:var(--muted);
+    font-size:18px;
+
+    animation:fadeUp 1s .2s ease both;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= SEARCH ================= */
+
+.search{
+    max-width:700px;
+    margin:35px auto 0;
+
+    display:flex;
+    align-items:center;
+
+    padding:7px;
+
+    border:1px solid var(--border);
+    border-radius:18px;
+
+    background:var(--card);
+
+    box-shadow:0 15px 50px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+    animation:fadeUp 1s .3s ease both;
+}
+
+.search:focus-within{
+    transform:translateY(-4px);
+    border-color:#8b5cf6;
+    box-shadow:0 0 35px var(--glow);
+}
+
+.search span{
+    font-size:21px;
+    padding-left:14px;
+}
+
+.search input{
+    width:100%;
+    padding:16px;
+
+    border:0;
+    outline:0;
+
+    background:transparent;
+    color:var(--text);
+
+    font-size:16px;
+}
+
+/* ================= SECTION ================= */
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 20px;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:35px;
+
+    opacity:0;
+    transform:translateY(25px);
+    transition:.7s;
+}
+
+.heading.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.heading h2{
+    font-size:36px;
+}
+
+.heading p{
+    color:var(--muted);
+    margin-top:8px;
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+}
+
+.category{
+    padding:17px 10px;
+
+    border:1px solid var(--border);
+    border-radius:16px;
+
+    background:var(--card);
+    color:var(--text);
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.category:hover{
+    transform:translateY(-7px);
+    border-color:#8b5cf6;
+    box-shadow:0 10px 35px var(--glow);
+}
+
+.category.active{
+    background:linear-gradient(135deg,#7c3aed,#06b6d4);
+    color:white;
+    border-color:transparent;
+}
+
+.categoryIcon{
+    display:block;
+    font-size:26px;
+    margin-bottom:6px;
+}
+
+.categoryName{
+    font-size:13px;
+    font-weight:800;
+}
+
+/* ================= TOOLS ================= */
+
+.tools{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.tool{
+    position:relative;
+    overflow:hidden;
+
+    padding:23px;
+
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+
+    opacity:0;
+    transform:translateY(30px);
+
+    transition:
+        opacity .6s,
+        transform .35s,
+        border .3s,
+        box-shadow .3s;
+}
+
+.tool.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.tool:hover{
+    transform:translateY(-9px) scale(1.015);
+    border-color:#8b5cf6;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+.tool::before{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    right:-50px;
+    top:-50px;
+
+    border-radius:50%;
+
+    background:#7c3aed;
+
+    filter:blur(45px);
+
+    opacity:.15;
+
+    transition:.4s;
+}
+
+.tool:hover::before{
+    opacity:.4;
+    transform:scale(1.7);
+}
+
+.icon{
+    width:50px;
+    height:50px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:15px;
+
+    background:rgba(124,58,237,.13);
+
+    font-size:23px;
+
+    margin-bottom:15px;
+
+    transition:.3s;
+}
+
+.tool:hover .icon{
+    transform:rotate(-5deg) scale(1.1);
+}
+
+.tool h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.tool p{
+    min-height:40px;
+
+    color:var(--muted);
+    font-size:13px;
+
+    margin-bottom:18px;
+}
+
+.open{
+    width:100%;
+
+    border:0;
+    border-radius:11px;
+
+    padding:11px;
+
+    background:linear-gradient(90deg,#7c3aed,#6366f1);
+    color:white;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.open:hover{
+    transform:scale(1.03);
+    box-shadow:0 8px 25px var(--glow);
+}
+
+.noResults{
+    display:none;
+    grid-column:1/-1;
+
+    text-align:center;
+    color:var(--muted);
+
+    padding:40px;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    max-width:1160px;
+    margin:40px auto 80px;
+
+    padding:70px 25px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(135deg,#7c3aed,#06b6d4);
+
+    position:relative;
+    overflow:hidden;
+}
+
+.cta::before{
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    background:white;
+
+    border-radius:50%;
+
+    opacity:.08;
+
+    top:-120px;
+    right:-80px;
+
+    animation:float 7s infinite;
+}
+
+.cta h2{
+    font-size:38px;
+}
+
+.cta p{
+    margin-top:10px;
+    opacity:.9;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid var(--border);
+    background:var(--card);
+}
+
+.footer{
+    max-width:1200px;
+    margin:auto;
+
+    padding:50px 20px;
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:35px;
+}
+
+.footer p,
+.footer a{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.footer p{
+    margin-top:12px;
+    max-width:350px;
+}
+
+.footer h4{
+    margin-bottom:13px;
+}
+
+.footer a{
+    display:block;
+    margin:8px 0;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.footer a:hover{
+    color:var(--text);
+    transform:translateX(3px);
+}
+
+.copy{
+    border-top:1px solid var(--border);
+    text-align:center;
+
+    padding:18px;
+
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .tools{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    :root {
-      --bg: #f6f8fc;
-      --card: #ffffff;
-      --text: #111827;
-      --muted: #64748b;
-      --border: #e5e7eb;
-      --primary: #6366f1;
-      --primary-dark: #4f46e5;
-      --header: rgba(255,255,255,.86);
-      --shadow: 0 10px 30px rgba(15,23,42,.07);
+    .categories{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    body.dark {
-      --bg: #0b1020;
-      --card: #121a2d;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --border: #24304a;
-      --header: rgba(11,16,32,.88);
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    .footer{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    nav a{
+        display:none;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .hero{
+        padding-top:130px;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      transition: .25s;
-      line-height: 1.5;
+    .hero h1{
+        letter-spacing:-2px;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .tools{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    button,
-    input {
-      font: inherit;
+    .categories{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    /* ================= HEADER ================= */
+    .footer{
+        grid-template-columns:1fr;
+    }
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: var(--header);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+@media(max-width:480px){
+
+    .tools{
+        grid-template-columns:1fr;
     }
 
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      min-height: 72px;
-      padding: 0 20px;
+    .hero p{
+        font-size:16px;
+    }
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+/* ================= REDUCED MOTION ================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        transition:none!important;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -.5px;
+    .tool,
+    .heading{
+        opacity:1;
+        transform:none;
     }
-
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-
-      display: grid;
-      place-items: center;
-
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      color: white;
-      box-shadow: 0 8px 20px rgba(99,102,241,.3);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-    }
-
-    nav a {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-      transition: .2s;
-    }
-
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    .theme-btn {
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    .theme-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* ================= HERO ================= */
-
-    .hero {
-      max-width: 1000px;
-      margin: auto;
-      padding: 95px 20px 70px;
-      text-align: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-
-      padding: 8px 14px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-
-      color: var(--primary);
-      background: var(--card);
-
-      font-size: 13px;
-      font-weight: 700;
-
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1;
-      letter-spacing: -3px;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 span {
-      color: var(--primary);
-    }
-
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    /* ================= SEARCH ================= */
-
-    .search-box {
-      max-width: 700px;
-      margin: 35px auto 0;
-
-      display: flex;
-      align-items: center;
-
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-
-      padding: 7px;
-
-      box-shadow: var(--shadow);
-    }
-
-    .search-icon {
-      padding-left: 15px;
-      font-size: 20px;
-    }
-
-    .search-box input {
-      width: 100%;
-      border: 0;
-      outline: none;
-      background: transparent;
-      color: var(--text);
-
-      padding: 15px;
-      font-size: 16px;
-    }
-
-    /* ================= SECTION ================= */
-
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 55px 20px;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .section-heading h2 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-    }
-
-    /* ================= CATEGORIES ================= */
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-    }
-
-    .category {
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-
-      border-radius: 14px;
-      padding: 15px 10px;
-
-      text-align: center;
-      cursor: pointer;
-
-      transition: .2s;
-    }
-
-    .category:hover,
-    .category.active {
-      border-color: var(--primary);
-      color: var(--primary);
-      transform: translateY(-3px);
-    }
-
-    .category-icon {
-      display: block;
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
-
-    .category-name {
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    /* ================= TOOLS ================= */
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .tool-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-
-      padding: 22px;
-
-      box-shadow: 0 5px 20px rgba(15,23,42,.04);
-
-      transition: .25s;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-      border-color: rgba(99,102,241,.4);
-    }
-
-    .tool-icon {
-      width: 48px;
-      height: 48px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 14px;
-      background: rgba(99,102,241,.1);
-
-      font-size: 23px;
-      margin-bottom: 15px;
-    }
-
-    .tool-card h3 {
-      font-size: 17px;
-      margin-bottom: 7px;
-    }
-
-    .tool-card p {
-      color: var(--muted);
-      font-size: 13px;
-      min-height: 40px;
-      margin-bottom: 18px;
-    }
-
-    .tool-btn {
-      width: 100%;
-      border: 0;
-
-      background: var(--primary);
-      color: white;
-
-      padding: 11px;
-      border-radius: 11px;
-
-      cursor: pointer;
-      font-weight: 700;
-
-      transition: .2s;
-    }
-
-    .tool-btn:hover {
-      background: var(--primary-dark);
-    }
-
-    .no-results {
-      display: none;
-      text-align: center;
-      padding: 40px;
-      color: var(--muted);
-      grid-column: 1 / -1;
-    }
-
-    /* ================= CTA ================= */
-
-    .cta {
-      max-width: 1160px;
-      margin: 30px auto 70px;
-      padding: 55px 25px;
-
-      text-align: center;
-
-      border-radius: 25px;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      color: white;
-    }
-
-    .cta h2 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    .cta p {
-      opacity: .9;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    /* ================= FOOTER ================= */
-
-    footer {
-      border-top: 1px solid var(--border);
-      background: var(--card);
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: auto;
-      padding: 45px 20px;
-
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 35px;
-    }
-
-    .footer-brand p {
-      color: var(--muted);
-      margin-top: 12px;
-      max-width: 350px;
-      font-size: 14px;
-    }
-
-    .footer-col h4 {
-      margin-bottom: 13px;
-    }
-
-    .footer-col a {
-      display: block;
-      color: var(--muted);
-      font-size: 14px;
-      margin: 8px 0;
-    }
-
-    .footer-col a:hover {
-      color: var(--primary);
-    }
-
-    .copyright {
-      border-top: 1px solid var(--border);
-      padding: 18px 20px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* ================= RESPONSIVE ================= */
-
-    @media (max-width: 1000px) {
-      .tools-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .categories {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .footer-inner {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 700px) {
-      .nav {
-        min-height: 64px;
-      }
-
-      nav a {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 65px;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .tools-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .tools-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .section {
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<div class="background">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+</div>
+
+<!-- HEADER -->
 
 <header>
-  <div class="nav">
+<div class="nav">
 
-    <a href="#" class="logo">
-      <div class="logo-icon">V</div>
-      <span>VexTools</span>
+    <a class="logo" href="#">
+        <div class="logoIcon">V</div>
+        VexTools
     </a>
 
     <nav>
-      <a href="#tools">All Tools</a>
-      <a href="#categories">Categories</a>
-      <a href="#about">About</a>
+        <a href="#tools">Tools</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
 
-      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-        🌙
-      </button>
+        <button class="theme" id="theme">🌙</button>
     </nav>
 
-  </div>
+</div>
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <main>
 
 <section class="hero">
 
-  <div class="badge">
-    ⚡ 100% Free Online Tools
-  </div>
+    <div class="badge">
+        ⚡ 50+ Free Tools Coming
+    </div>
 
-  <h1>
-    Powerful Tools.<br>
-    <span>Simple & Free.</span>
-  </h1>
+    <h1>
+        One Place.<br>
+        <span class="gradient">Every Tool.</span>
+    </h1>
 
-  <p>
-    VexTools gives you fast, simple and free online tools
-    for PDFs, images, text, students, calculations and development.
-  </p>
+    <p>
+        VexTools brings powerful free online tools for PDFs,
+        images, text, students, calculations and developers.
+    </p>
 
-  <div class="search-box">
-    <div class="search-icon">🔎</div>
+    <div class="search">
+        <span>🔎</span>
 
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="Search for a tool..."
-      autocomplete="off"
-    >
-  </div>
+        <input
+            id="search"
+            type="text"
+            placeholder="Search any tool..."
+        >
+    </div>
 
 </section>
 
 
-<!-- ================= CATEGORIES ================= -->
+<!-- CATEGORIES -->
 
-<section class="section" id="categories">
+<section id="categories">
 
-  <div class="section-heading">
-    <h2>Explore Categories</h2>
-    <p>Find the right tool for what you need.</p>
-  </div>
+    <div class="heading reveal">
+        <h2>Explore Categories</h2>
+        <p>Choose a category and find the tool you need.</p>
+    </div>
 
-  <div class="categories">
+    <div class="categories">
 
-    <button class="category active" data-category="all">
-      <span class="category-icon">🧰</span>
-      <span class="category-name">All Tools</span>
-    </button>
+        <button class="category active" data-category="all">
+            <span class="categoryIcon">🧰</span>
+            <span class="categoryName">All Tools</span>
+        </button>
 
-    <button class="category" data-category="pdf">
-      <span class="category-icon">📄</span>
-      <span class="category-name">PDF</span>
-    </button>
+        <button class="category" data-category="pdf">
+            <span class="categoryIcon">📄</span>
+            <span class="categoryName">PDF</span>
+        </button>
 
-    <button class="category" data-category="image">
-      <span class="category-icon">🖼️</span>
-      <span class="category-name">Image</span>
-    </button>
+        <button class="category" data-category="image">
+            <span class="categoryIcon">🖼️</span>
+            <span class="categoryName">Image</span>
+        </button>
 
-    <button class="category" data-category="text">
-      <span class="category-icon">📝</span>
-      <span class="category-name">Text</span>
-    </button>
+        <button class="category" data-category="text">
+            <span class="categoryIcon">📝</span>
+            <span class="categoryName">Text</span>
+        </button>
 
-    <button class="category" data-category="student">
-      <span class="category-icon">🎓</span>
-      <span class="category-name">Student</span>
-    </button>
+        <button class="category" data-category="student">
+            <span class="categoryIcon">🎓</span>
+            <span class="categoryName">Student</span>
+        </button>
 
-    <button class="category" data-category="developer">
-      <span class="category-icon">💻</span>
-      <span class="category-name">Developer</span>
-    </button>
+        <button class="category" data-category="developer">
+            <span class="categoryIcon">💻</span>
+            <span class="categoryName">Developer</span>
+        </button>
 
-  </div>
+    </div>
 
 </section>
 
 
-<!-- ================= TOOLS ================= -->
+<!-- TOOLS -->
 
-<section class="section" id="tools">
+<section id="tools">
 
-  <div class="section-heading">
-    <h2>All Tools</h2>
-    <p>Free tools designed to make everyday tasks easier.</p>
-  </div>
-
-  <div class="tools-grid" id="toolsGrid">
-
-    <!-- PDF -->
-
-    <div class="tool-card" data-category="pdf" data-name="merge pdf">
-      <div class="tool-icon">📑</div>
-      <h3>Merge PDF</h3>
-      <p>Combine multiple PDF files into one document.</p>
-      <button class="tool-btn">Open Tool</button>
+    <div class="heading reveal">
+        <h2>Popular Tools</h2>
+        <p>Useful tools, completely free.</p>
     </div>
 
-    <div class="tool-card" data-category="pdf" data-name="split pdf">
-      <div class="tool-icon">✂️</div>
-      <h3>Split PDF</h3>
-      <p>Split a PDF into separate pages or files.</p>
-      <button class="tool-btn">Open Tool</button>
+    <div class="tools" id="toolGrid">
+
+
+        <!-- PDF -->
+
+        <div class="tool" data-category="pdf" data-name="merge pdf">
+            <div class="icon">📑</div>
+            <h3>Merge PDF</h3>
+            <p>Combine multiple PDF files into one.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="pdf" data-name="split pdf">
+            <div class="icon">✂️</div>
+            <h3>Split PDF</h3>
+            <p>Split a PDF into separate pages.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="pdf" data-name="compress pdf">
+            <div class="icon">🗜️</div>
+            <h3>Compress PDF</h3>
+            <p>Reduce the size of PDF files.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="pdf" data-name="jpg pdf">
+            <div class="icon">🖼️</div>
+            <h3>JPG to PDF</h3>
+            <p>Convert JPG images into PDF.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+
+        <!-- IMAGE -->
+
+        <div class="tool" data-category="image" data-name="image compressor">
+            <div class="icon">🗜️</div>
+            <h3>Image Compressor</h3>
+            <p>Compress images without complicated software.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="image" data-name="image resizer">
+            <div class="icon">📐</div>
+            <h3>Image Resizer</h3>
+            <p>Resize images to any dimensions.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="image" data-name="jpg png">
+            <div class="icon">🔄</div>
+            <h3>JPG to PNG</h3>
+            <p>Convert JPG images to PNG.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="image" data-name="image cropper">
+            <div class="icon">✂️</div>
+            <h3>Image Cropper</h3>
+            <p>Crop images directly in your browser.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+
+        <!-- TEXT -->
+
+        <div class="tool" data-category="text" data-name="word counter">
+            <div class="icon">🔢</div>
+            <h3>Word Counter</h3>
+            <p>Count words and characters instantly.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="text" data-name="case converter">
+            <div class="icon">Aa</div>
+            <h3>Case Converter</h3>
+            <p>Convert text between different cases.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="text" data-name="text reverser">
+            <div class="icon">🔁</div>
+            <h3>Text Reverser</h3>
+            <p>Reverse any text instantly.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="text" data-name="slug generator">
+            <div class="icon">🔗</div>
+            <h3>Slug Generator</h3>
+            <p>Create clean URL-friendly slugs.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+
+        <!-- STUDENT -->
+
+        <div class="tool" data-category="student" data-name="percentage calculator">
+            <div class="icon">%</div>
+            <h3>Percentage Calculator</h3>
+            <p>Calculate percentages quickly.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="student" data-name="gpa calculator">
+            <div class="icon">🎓</div>
+            <h3>GPA Calculator</h3>
+            <p>Calculate GPA easily.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="student" data-name="age calculator">
+            <div class="icon">🎂</div>
+            <h3>Age Calculator</h3>
+            <p>Calculate exact age from your birthday.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="student" data-name="discount calculator">
+            <div class="icon">🏷️</div>
+            <h3>Discount Calculator</h3>
+            <p>Calculate discounts and final prices.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+
+        <!-- DEVELOPER -->
+
+        <div class="tool" data-category="developer" data-name="json formatter">
+            <div class="icon">{ }</div>
+            <h3>JSON Formatter</h3>
+            <p>Format JSON into readable code.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="developer" data-name="json validator">
+            <div class="icon">✓</div>
+            <h3>JSON Validator</h3>
+            <p>Validate JSON instantly.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="developer" data-name="base64 encoder">
+            <div class="icon">🔐</div>
+            <h3>Base64 Encoder</h3>
+            <p>Encode text into Base64.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="tool" data-category="developer" data-name="uuid generator">
+            <div class="icon">🆔</div>
+            <h3>UUID Generator</h3>
+            <p>Generate unique UUIDs instantly.</p>
+            <button class="open">Open Tool</button>
+        </div>
+
+        <div class="noResults" id="noResults">
+            😕 No matching tools found.
+        </div>
+
     </div>
-
-    <div class="tool-card" data-category="pdf" data-name="compress pdf">
-      <div class="tool-icon">🗜️</div>
-      <h3>Compress PDF</h3>
-      <p>Reduce PDF file size quickly and easily.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="pdf" data-name="jpg to pdf">
-      <div class="tool-icon">🖼️</div>
-      <h3>JPG to PDF</h3>
-      <p>Convert JPG images into a PDF document.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="pdf" data-name="png to pdf">
-      <div class="tool-icon">🖼️</div>
-      <h3>PNG to PDF</h3>
-      <p>Convert PNG images into PDF files.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="pdf" data-name="pdf to jpg">
-      <div class="tool-icon">📷</div>
-      <h3>PDF to JPG</h3>
-      <p>Turn PDF pages into JPG images.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="pdf" data-name="pdf page extractor">
-      <div class="tool-icon">📄</div>
-      <h3>PDF Page Extractor</h3>
-      <p>Extract selected pages from a PDF.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="pdf" data-name="pdf rotate">
-      <div class="tool-icon">🔄</div>
-      <h3>PDF Rotator</h3>
-      <p>Rotate PDF pages in seconds.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-
-    <!-- IMAGE -->
-
-    <div class="tool-card" data-category="image" data-name="image compressor">
-      <div class="tool-icon">🗜️</div>
-      <h3>Image Compressor</h3>
-      <p>Compress images while keeping good quality.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="image" data-name="image resizer">
-      <div class="tool-icon">📐</div>
-      <h3>Image Resizer</h3>
-      <p>Resize images to your desired dimensions.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="image" data-name="jpg to png">
-      <div class="tool-icon">🔄</div>
-      <h3>JPG to PNG</h3>
-      <p>Convert JPG images to PNG format.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="image" data-name="png to jpg">
-      <div class="tool-icon">🔄</div>
-      <h3>PNG to JPG</h3>
-      <p>Convert PNG images to JPG format.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="image" data-name="jpg to webp">
-      <div class="tool-icon">🌐</div>
-      <h3>JPG to WebP</h3>
-      <p>Convert JPG images to modern WebP format.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="image" data-name="webp to jpg">
-      <div class="tool-icon">🌐</div>
-      <h3>WebP to JPG</h3>
-      <p>Convert WebP images into JPG files.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="image" data-name="image cropper">
-      <div class="tool-icon">✂️</div>
-      <h3>Image Cropper</h3>
-      <p>Crop your images to any size.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="image" data-name="image rotator">
-      <div class="tool-icon">🔄</div>
-      <h3>Image Rotator</h3>
-      <p>Rotate images quickly in your browser.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-
-    <!-- TEXT -->
-
-    <div class="tool-card" data-category="text" data-name="word counter">
-      <div class="tool-icon">🔢</div>
-      <h3>Word Counter</h3>
-      <p>Count words and characters in your text.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="text" data-name="character counter">
-      <div class="tool-icon">🔤</div>
-      <h3>Character Counter</h3>
-      <p>Count characters instantly.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="text" data-name="case converter">
-      <div class="tool-icon">Aa</div>
-      <h3>Case Converter</h3>
-      <p>Convert text to uppercase or lowercase.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="text" data-name="remove spaces">
-      <div class="tool-icon">🧹</div>
-      <h3>Remove Extra Spaces</h3>
-      <p>Clean unnecessary spaces from text.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="text" data-name="duplicate line remover">
-      <div class="tool-icon">🧹</div>
-      <h3>Duplicate Line Remover</h3>
-      <p>Remove repeated lines from your text.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="text" data-name="text sorter">
-      <div class="tool-icon">↕️</div>
-      <h3>Text Sorter</h3>
-      <p>Sort lines alphabetically or numerically.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="text" data-name="text reverser">
-      <div class="tool-icon">🔁</div>
-      <h3>Text Reverser</h3>
-      <p>Reverse text instantly.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="text" data-name="slug generator">
-      <div class="tool-icon">🔗</div>
-      <h3>Slug Generator</h3>
-      <p>Create clean URL-friendly slugs.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-
-    <!-- STUDENT / CALCULATORS -->
-
-    <div class="tool-card" data-category="student" data-name="percentage calculator">
-      <div class="tool-icon">%</div>
-      <h3>Percentage Calculator</h3>
-      <p>Calculate percentages quickly.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="student" data-name="gpa calculator">
-      <div class="tool-icon">🎓</div>
-      <h3>GPA Calculator</h3>
-      <p>Calculate your GPA easily.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="student" data-name="grade calculator">
-      <div class="tool-icon">📊</div>
-      <h3>Grade Calculator</h3>
-      <p>Calculate grades from marks and scores.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="student" data-name="average calculator">
-      <div class="tool-icon">➗</div>
-      <h3>Average Calculator</h3>
-      <p>Find the average of multiple numbers.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="student" data-name="age calculator">
-      <div class="tool-icon">🎂</div>
-      <h3>Age Calculator</h3>
-      <p>Calculate exact age from date of birth.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="student" data-name="discount calculator">
-      <div class="tool-icon">🏷️</div>
-      <h3>Discount Calculator</h3>
-      <p>Calculate discounts and final prices.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="student" data-name="profit loss calculator">
-      <div class="tool-icon">💰</div>
-      <h3>Profit/Loss Calculator</h3>
-      <p>Calculate profit or loss from prices.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="student" data-name="study timer">
-      <div class="tool-icon">⏱️</div>
-      <h3>Study Timer</h3>
-      <p>Use a simple timer for focused study sessions.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-
-    <!-- DEVELOPER -->
-
-    <div class="tool-card" data-category="developer" data-name="json formatter">
-      <div class="tool-icon">{ }</div>
-      <h3>JSON Formatter</h3>
-      <p>Format messy JSON into readable code.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="developer" data-name="json validator">
-      <div class="tool-icon">✓</div>
-      <h3>JSON Validator</h3>
-      <p>Check whether JSON is valid.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="developer" data-name="base64 encoder">
-      <div class="tool-icon">🔐</div>
-      <h3>Base64 Encoder</h3>
-      <p>Encode text into Base64 format.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="developer" data-name="base64 decoder">
-      <div class="tool-icon">🔓</div>
-      <h3>Base64 Decoder</h3>
-      <p>Decode Base64 text instantly.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="developer" data-name="url encoder">
-      <div class="tool-icon">🔗</div>
-      <h3>URL Encoder</h3>
-      <p>Encode URLs safely.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="developer" data-name="url decoder">
-      <div class="tool-icon">🔗</div>
-      <h3>URL Decoder</h3>
-      <p>Decode encoded URLs.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="developer" data-name="uuid generator">
-      <div class="tool-icon">🆔</div>
-      <h3>UUID Generator</h3>
-      <p>Generate random UUIDs instantly.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="tool-card" data-category="developer" data-name="markdown previewer">
-      <div class="tool-icon">M↓</div>
-      <h3>Markdown Previewer</h3>
-      <p>Preview Markdown content in your browser.</p>
-      <button class="tool-btn">Open Tool</button>
-    </div>
-
-    <div class="no-results" id="noResults">
-      😕 No tools found. Try another search.
-    </div>
-
-  </div>
 
 </section>
 
 
-<!-- ================= CTA ================= -->
+<!-- CTA -->
 
-<section class="cta">
-  <h2>Everything You Need, In One Place.</h2>
-
-  <p>
-    VexTools is being built to provide simple,
-    fast and free utilities for everyone.
-  </p>
-</section>
+<div class="cta">
+    <h2>More Tools Are Coming 🚀</h2>
+    <p>
+        VexTools is being built with 50+ free online utilities.
+    </p>
+</div>
 
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer id="about">
 
-  <div class="footer-inner">
+<div class="footer">
 
-    <div class="footer-brand">
+    <div>
+        <div class="logo">
+            <div class="logoIcon">V</div>
+            VexTools
+        </div>
 
-      <div class="logo">
-        <div class="logo-icon">V</div>
-        <span>VexTools</span>
-      </div>
-
-      <p>
-        Free online tools designed to make everyday
-        tasks faster, easier and simpler.
-      </p>
-
+        <p>
+            Free, fast and useful online tools
+            for everyone.
+        </p>
     </div>
 
-
-    <div class="footer-col">
-
-      <h4>Tools</h4>
-
-      <a href="#tools">All Tools</a>
-      <a href="#categories">PDF Tools</a>
-      <a href="#categories">Image Tools</a>
-      <a href="#categories">Text Tools</a>
-
+    <div>
+        <h4>Tools</h4>
+        <a href="#tools">All Tools</a>
+        <a href="#categories">PDF Tools</a>
+        <a href="#categories">Image Tools</a>
     </div>
 
-
-    <div class="footer-col">
-
-      <h4>More</h4>
-
-      <a href="#tools">Student Tools</a>
-      <a href="#tools">Calculators</a>
-      <a href="#tools">Developer Tools</a>
-
+    <div>
+        <h4>Categories</h4>
+        <a href="#categories">Text Tools</a>
+        <a href="#categories">Student Tools</a>
+        <a href="#categories">Developer Tools</a>
     </div>
 
-
-    <div class="footer-col">
-
-      <h4>Information</h4>
-
-      <a href="#">About Us</a>
-      <a href="#">Contact</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-
+    <div>
+        <h4>Information</h4>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
     </div>
 
-  </div>
+</div>
 
-
-  <div class="copyright">
+<div class="copy">
     © <span id="year"></span> VexTools. All rights reserved.
-  </div>
+</div>
 
 </footer>
 
 
 <script>
 
-  /* ================= YEAR ================= */
+/* YEAR */
 
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
 
-  /* ================= THEME ================= */
+/* THEME */
 
-  const themeBtn = document.getElementById("themeBtn");
+const themeButton =
+document.getElementById("theme");
 
-  const savedTheme = localStorage.getItem("vextools-theme");
+const saved =
+localStorage.getItem("vextools-theme");
 
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-    themeBtn.textContent = "☀️";
-  }
+if(saved === "light"){
+    document.body.classList.add("light");
+    themeButton.textContent = "🌙";
+}
 
-  themeBtn.addEventListener("click", () => {
+themeButton.onclick = () => {
 
-    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
 
-    const dark =
-      document.body.classList.contains("dark");
+    const light =
+    document.body.classList.contains("light");
 
     localStorage.setItem(
-      "vextools-theme",
-      dark ? "dark" : "light"
+        "vextools-theme",
+        light ? "light" : "dark"
     );
 
-    themeBtn.textContent =
-      dark ? "☀️" : "🌙";
+    themeButton.textContent =
+    light ? "🌙" : "☀️";
+};
 
-  });
+
+/* TOOL REVEAL */
+
+const tools =
+document.querySelectorAll(".tool");
+
+const headings =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:.12
+});
+
+headings.forEach(x => observer.observe(x));
 
 
-  /* ================= SEARCH ================= */
+const toolObserver =
+new IntersectionObserver(entries => {
 
-  const searchInput =
-    document.getElementById("searchInput");
+    entries.forEach(entry => {
 
-  const toolCards =
-    document.querySelectorAll(".tool-card");
+        if(entry.isIntersecting){
 
-  const noResults =
-    document.getElementById("noResults");
+            const visibleTools =
+            Array.from(tools)
+            .filter(t =>
+                t.style.display !== "none"
+            );
 
-  searchInput.addEventListener("input", () => {
+            visibleTools.forEach((tool,index)=>{
+
+                setTimeout(()=>{
+                    tool.classList.add("show");
+                },index * 70);
+
+            });
+
+        }
+
+    });
+
+},{
+    threshold:.05
+});
+
+const grid =
+document.getElementById("toolGrid");
+
+toolObserver.observe(grid);
+
+
+/* SEARCH */
+
+const search =
+document.getElementById("search");
+
+const noResults =
+document.getElementById("noResults");
+
+search.addEventListener("input",()=>{
 
     const query =
-      searchInput.value.toLowerCase().trim();
+    search.value.toLowerCase().trim();
 
-    let visible = 0;
+    let count = 0;
 
-    toolCards.forEach(card => {
+    tools.forEach(tool=>{
 
-      const name =
-        card.dataset.name.toLowerCase();
+        const name =
+        tool.dataset.name.toLowerCase();
 
-      const description =
-        card.querySelector("p").textContent.toLowerCase();
+        const text =
+        tool.innerText.toLowerCase();
 
-      if (
-        name.includes(query) ||
-        description.includes(query)
-      ) {
+        if(
+            name.includes(query) ||
+            text.includes(query)
+        ){
 
-        card.style.display = "";
+            tool.style.display="";
+            count++;
 
-        visible++;
+            setTimeout(()=>{
+                tool.classList.add("show");
+            },20);
 
-      } else {
+        }else{
 
-        card.style.display = "none";
+            tool.style.display="none";
 
-      }
+        }
 
     });
 
     noResults.style.display =
-      visible === 0 ? "block" : "none";
+    count === 0 ? "block" : "none";
 
-  });
+});
 
 
-  /* ================= CATEGORY FILTER ================= */
+/* CATEGORY FILTER */
 
-  const categories =
-    document.querySelectorAll(".category");
+document.querySelectorAll(".category")
+.forEach(button=>{
 
-  categories.forEach(category => {
+    button.addEventListener("click",()=>{
 
-    category.addEventListener("click", () => {
+        document
+        .querySelectorAll(".category")
+        .forEach(x =>
+            x.classList.remove("active")
+        );
 
-      categories.forEach(item =>
-        item.classList.remove("active")
-      );
+        button.classList.add("active");
 
-      category.classList.add("active");
+        search.value="";
 
-      const selected =
-        category.dataset.category;
+        const category =
+        button.dataset.category;
 
-      searchInput.value = "";
+        let count=0;
 
-      let visible = 0;
+        tools.forEach(tool=>{
 
-      toolCards.forEach(card => {
+            if(
+                category === "all" ||
+                tool.dataset.category === category
+            ){
 
-        if (
-          selected === "all" ||
-          card.dataset.category === selected
-        ) {
+                tool.style.display="";
+                count++;
 
-          card.style.display = "";
-          visible++;
+                setTimeout(()=>{
+                    tool.classList.add("show");
+                },50);
 
-        } else {
+            }else{
 
-          card.style.display = "none";
+                tool.style.display="none";
 
-        }
+            }
 
-      });
+        });
 
-      noResults.style.display =
-        visible === 0 ? "block" : "none";
+        noResults.style.display =
+        count === 0 ? "block" : "none";
 
-      document
+        document
         .getElementById("tools")
         .scrollIntoView({
-          behavior: "smooth"
+            behavior:"smooth"
         });
 
     });
 
-  });
+});
 
 
-  /* ================= TOOL BUTTONS ================= */
+/* BUTTON */
 
-  document.querySelectorAll(".tool-btn").forEach(button => {
+document.querySelectorAll(".open")
+.forEach(button=>{
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click",()=>{
 
-      const card = button.closest(".tool-card");
+        const name =
+        button.parentElement
+        .querySelector("h3")
+        .textContent;
 
-      const tool =
-        card.querySelector("h3").textContent;
-
-      alert(
-        tool +
-        " is coming in the next VexTools update! 🚀"
-      );
+        alert(
+            name +
+            " will be available soon 🚀"
+        );
 
     });
 
-  });
+});
 
 </script>
 
