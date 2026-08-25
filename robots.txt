@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vextools18-service.github.io/VexTool/sitemap.xml
