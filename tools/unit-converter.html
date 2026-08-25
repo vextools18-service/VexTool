@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit Converter — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
+.container{max-width:650px;margin:auto}
+input,select{width:100%;padding:15px;margin:8px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
+.result{margin-top:20px;padding:20px;background:#111a30;border-radius:12px}
+button{width:100%;padding:14px;background:#7c3aed;color:white;border:0;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📏 Unit Converter</h1>
+<p>Convert common length units.</p>
+
+<input id="value" type="number" placeholder="Value">
+
+<select id="from">
+<option value="m">Meters</option>
+<option value="km">Kilometers</option>
+<option value="cm">Centimeters</option>
+<option value="ft">Feet</option>
+<option value="in">Inches</option>
+</select>
+
+<select id="to">
+<option value="m">Meters</option>
+<option value="km">Kilometers</option>
+<option value="cm">Centimeters</option>
+<option value="ft">Feet</option>
+<option value="in">Inches</option>
+</select>
+
+<button onclick="convert()">Convert</button>
+<div class="result" id="result">Result</div>
+</div>
+
+<script>
+const factors={m:1,km:1000,cm:.01,ft:.3048,in:.0254};
+
+function convert(){
+let v=Number(value.value);
+let meters=v*factors[from.value];
+let answer=meters/factors[to.value];
+result.textContent=answer;
+}
+</script>
+</body>
+</html>
