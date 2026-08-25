@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Remove Extra Spaces — VexTools</title>
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:30px 15px;
+}
+
+.container{max-width:850px;margin:auto}
+
+.header{text-align:center;margin-bottom:25px}
+
+.logo{
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+}
+
+h1{margin:15px 0 8px}
+
+p{color:#94a3b8}
+
+.card{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:22px;
+}
+
+textarea{
+width:100%;
+height:300px;
+padding:18px;
+background:#0d1427;
+color:white;
+border:1px solid #29344f;
+border-radius:14px;
+resize:vertical;
+outline:none;
+font-size:16px;
+line-height:1.6;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+button{
+flex:1;
+padding:13px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+@media(max-width:600px){
+.buttons{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<a class="logo" href="../index.html">VexTools</a>
+<h1>Remove Extra Spaces</h1>
+<p>Clean unnecessary spaces from your text.</p>
+</div>
+
+<div class="card">
+
+<textarea id="text" placeholder="Paste text here..."></textarea>
+
+<div class="buttons">
+<button onclick="clean()">Remove Spaces</button>
+<button onclick="copyText()">Copy</button>
+<button onclick="clearText()">Clear</button>
+</div>
+
+</div>
+</div>
+
+<script>
+function clean(){
+const box=document.getElementById("text");
+box.value=box.value
+.replace(/[ \t]+/g," ")
+.replace(/\n\s+/g,"\n")
+.trim();
+}
+
+function copyText(){
+navigator.clipboard.writeText(document.getElementById("text").value);
+}
+
+function clearText(){
+document.getElementById("text").value="";
+}
+</script>
+
+</body>
+</html>
