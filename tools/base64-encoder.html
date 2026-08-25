@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Base64 Encoder — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
+.container{max-width:800px;margin:auto}
+textarea{width:100%;height:220px;margin:15px 0;padding:20px;background:#111a30;color:white;border:1px solid #27304a;border-radius:12px}
+button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px;margin-right:8px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🔐 Base64 Encoder</h1>
+<p>Encode and decode text using Base64.</p>
+<textarea id="input" placeholder="Enter text..."></textarea>
+<button onclick="encode()">Encode</button>
+<button onclick="decode()">Decode</button>
+<textarea id="output" placeholder="Result..." readonly></textarea>
+</div>
+<script>
+function encode(){output.value=btoa(unescape(encodeURIComponent(input.value)))}
+function decode(){
+try{output.value=decodeURIComponent(escape(atob(input.value)))}
+catch(e){output.value="Invalid Base64"}
+}
+</script>
+</body>
+</html>
