@@ -54,7 +54,7 @@ body{
 }
 
 
-/* ================= ANIMATED BACKGROUND ================= */
+/* ================= BACKGROUND ================= */
 
 .background{
     position:fixed;
@@ -98,7 +98,6 @@ body{
 }
 
 @keyframes float{
-
     0%,100%{
         transform:translate(0,0) scale(1);
     }
@@ -106,7 +105,6 @@ body{
     50%{
         transform:translate(40px,-30px) scale(1.1);
     }
-
 }
 
 
@@ -118,11 +116,8 @@ header{
     left:0;
     right:0;
     z-index:1000;
-
     background:rgba(7,11,24,.55);
-
     backdrop-filter:blur(18px);
-
     border-bottom:1px solid var(--border);
 }
 
@@ -133,11 +128,8 @@ body.light header{
 .nav{
     max-width:1200px;
     margin:auto;
-
     min-height:72px;
-
     padding:0 20px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -147,11 +139,8 @@ body.light header{
     display:flex;
     align-items:center;
     gap:11px;
-
     color:var(--text);
-
     text-decoration:none;
-
     font-size:22px;
     font-weight:900;
 }
@@ -159,42 +148,23 @@ body.light header{
 .logoIcon{
     width:42px;
     height:42px;
-
     display:grid;
     place-items:center;
-
     border-radius:13px;
-
     color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #7c3aed,
-            #06b6d4
-        );
-
-    box-shadow:
-        0 0 30px
-        var(--glow);
-
-    animation:
-        logoPulse
-        3s
-        infinite;
+    background:linear-gradient(135deg,#7c3aed,#06b6d4);
+    box-shadow:0 0 30px var(--glow);
+    animation:logoPulse 3s infinite;
 }
 
 @keyframes logoPulse{
-
     0%,100%{
         transform:scale(1);
     }
 
     50%{
-        transform:scale(1.08)
-        rotate(3deg);
+        transform:scale(1.08) rotate(3deg);
     }
-
 }
 
 nav{
@@ -205,12 +175,9 @@ nav{
 
 nav a{
     color:var(--muted);
-
     text-decoration:none;
-
     font-size:14px;
     font-weight:700;
-
     transition:.25s;
 }
 
@@ -221,24 +188,16 @@ nav a:hover{
 .theme{
     width:42px;
     height:42px;
-
     border:1px solid var(--border);
-
     border-radius:12px;
-
     background:var(--card);
-
     color:var(--text);
-
     cursor:pointer;
-
     transition:.25s;
 }
 
 .theme:hover{
-    transform:
-        rotate(15deg)
-        scale(1.08);
+    transform:rotate(15deg) scale(1.08);
 }
 
 
@@ -247,79 +206,47 @@ nav a:hover{
 .hero{
     max-width:1000px;
     margin:auto;
-
     padding:170px 20px 100px;
-
     text-align:center;
 }
 
 .badge{
     display:inline-flex;
-
     padding:9px 16px;
-
     border:1px solid var(--border);
-
     border-radius:999px;
-
     background:var(--card);
-
     color:#a78bfa;
-
     font-size:13px;
     font-weight:800;
-
-    animation:
-        fadeUp
-        .8s
-        ease
-        both;
+    animation:fadeUp .8s ease both;
 }
 
 .hero h1{
     margin-top:25px;
-
-    font-size:
-        clamp(48px,8vw,88px);
-
+    font-size:clamp(48px,8vw,88px);
     line-height:.98;
-
     letter-spacing:-4px;
-
-    animation:
-        fadeUp
-        .9s
-        .1s
-        ease
-        both;
+    animation:fadeUp .9s .1s ease both;
 }
 
 .gradient{
-    background:
-        linear-gradient(
-            90deg,
-            #a78bfa,
-            #22d3ee,
-            #f472b6,
-            #a78bfa
-        );
+    background:linear-gradient(
+        90deg,
+        #a78bfa,
+        #22d3ee,
+        #f472b6,
+        #a78bfa
+    );
 
     background-size:300% 100%;
-
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
-
-    animation:
-        gradientMove
-        5s
-        linear
-        infinite;
+    animation:gradientMove 5s linear infinite;
 }
 
 @keyframes gradientMove{
-
     0%{
         background-position:0%;
     }
@@ -327,30 +254,18 @@ nav a:hover{
     100%{
         background-position:300%;
     }
-
 }
 
 .hero p{
     max-width:650px;
-
     margin:25px auto;
-
     color:var(--muted);
-
     font-size:18px;
-
     line-height:1.6;
-
-    animation:
-        fadeUp
-        1s
-        .2s
-        ease
-        both;
+    animation:fadeUp 1s .2s ease both;
 }
 
 @keyframes fadeUp{
-
     from{
         opacity:0;
         transform:translateY(30px);
@@ -360,7 +275,6 @@ nav a:hover{
         opacity:1;
         transform:translateY(0);
     }
-
 }
 
 
@@ -368,66 +282,36 @@ nav a:hover{
 
 .search{
     max-width:700px;
-
     margin:35px auto 0;
-
     display:flex;
     align-items:center;
-
     padding:7px;
-
     border:1px solid var(--border);
-
     border-radius:18px;
-
     background:var(--card);
-
-    box-shadow:
-        0 15px 50px
-        rgba(0,0,0,.15);
-
+    box-shadow:0 15px 50px rgba(0,0,0,.15);
     transition:.3s;
-
-    animation:
-        fadeUp
-        1s
-        .3s
-        ease
-        both;
+    animation:fadeUp 1s .3s ease both;
 }
 
 .search:focus-within{
-
-    transform:
-        translateY(-4px);
-
+    transform:translateY(-4px);
     border-color:#8b5cf6;
-
-    box-shadow:
-        0 0 35px
-        var(--glow);
+    box-shadow:0 0 35px var(--glow);
 }
 
 .search span{
     font-size:21px;
-
     padding-left:14px;
 }
 
 .search input{
-
     width:100%;
-
     padding:16px;
-
     border:0;
-
     outline:0;
-
     background:transparent;
-
     color:var(--text);
-
     font-size:16px;
 }
 
@@ -436,27 +320,20 @@ nav a:hover{
 
 section{
     max-width:1200px;
-
     margin:auto;
-
     padding:70px 20px;
 }
 
 .heading{
     text-align:center;
-
     margin-bottom:35px;
-
     opacity:0;
-
     transform:translateY(25px);
-
     transition:.7s;
 }
 
 .heading.show{
     opacity:1;
-
     transform:translateY(0);
 }
 
@@ -466,7 +343,6 @@ section{
 
 .heading p{
     color:var(--muted);
-
     margin-top:8px;
 }
 
@@ -474,71 +350,41 @@ section{
 /* ================= CATEGORIES ================= */
 
 .categories{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(6,1fr);
-
+    grid-template-columns:repeat(6,1fr);
     gap:12px;
 }
 
 .category{
-
     padding:17px 10px;
-
     border:1px solid var(--border);
-
     border-radius:16px;
-
     background:var(--card);
-
     color:var(--text);
-
     cursor:pointer;
-
     transition:.3s;
 }
 
 .category:hover{
-
-    transform:
-        translateY(-7px);
-
+    transform:translateY(-7px);
     border-color:#8b5cf6;
-
-    box-shadow:
-        0 10px 35px
-        var(--glow);
+    box-shadow:0 10px 35px var(--glow);
 }
 
 .category.active{
-
-    background:
-        linear-gradient(
-            135deg,
-            #7c3aed,
-            #06b6d4
-        );
-
+    background:linear-gradient(135deg,#7c3aed,#06b6d4);
     color:white;
-
     border-color:transparent;
 }
 
 .categoryIcon{
-
     display:block;
-
     font-size:26px;
-
     margin-bottom:6px;
 }
 
 .categoryName{
-
     font-size:13px;
-
     font-weight:800;
 }
 
@@ -546,35 +392,21 @@ section{
 /* ================= TOOLS ================= */
 
 .tools{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:18px;
 }
 
 .tool{
-
     position:relative;
-
     overflow:hidden;
-
     padding:23px;
-
     background:var(--card);
-
     border:1px solid var(--border);
-
     border-radius:20px;
-
     backdrop-filter:blur(10px);
-
     opacity:0;
-
     transform:translateY(30px);
-
     transition:
         opacity .6s,
         transform .35s,
@@ -583,160 +415,95 @@ section{
 }
 
 .tool.show{
-
     opacity:1;
-
     transform:translateY(0);
 }
 
 .tool:hover{
-
-    transform:
-        translateY(-9px)
-        scale(1.015);
-
+    transform:translateY(-9px) scale(1.015);
     border-color:#8b5cf6;
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.2);
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
 }
 
 .tool::before{
-
     content:"";
-
     position:absolute;
-
     width:100px;
     height:100px;
-
     right:-50px;
     top:-50px;
-
     border-radius:50%;
-
     background:#7c3aed;
-
     filter:blur(45px);
-
     opacity:.15;
-
     transition:.4s;
 }
 
 .tool:hover::before{
-
     opacity:.4;
-
     transform:scale(1.7);
 }
 
 .icon{
-
     width:50px;
     height:50px;
-
     display:grid;
-
     place-items:center;
-
     border-radius:15px;
-
-    background:
-        rgba(124,58,237,.13);
-
+    background:rgba(124,58,237,.13);
     font-size:23px;
-
     margin-bottom:15px;
-
     transition:.3s;
 }
 
 .tool:hover .icon{
-
-    transform:
-        rotate(-5deg)
-        scale(1.1);
+    transform:rotate(-5deg) scale(1.1);
 }
 
 .tool h3{
-
     font-size:17px;
-
     margin-bottom:7px;
 }
 
 .tool p{
-
     min-height:40px;
-
     color:var(--muted);
-
     font-size:13px;
-
     line-height:1.6;
-
     margin-bottom:18px;
 }
 
 
-/* OPEN BUTTON */
+/* ================= OPEN BUTTON ================= */
 
 .open{
-
     display:block;
-
     width:100%;
-
     border:0;
-
     border-radius:11px;
-
     padding:11px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #7c3aed,
-            #6366f1
-        );
-
+    background:linear-gradient(90deg,#7c3aed,#6366f1);
     color:white;
-
     font-weight:800;
-
     text-align:center;
-
     text-decoration:none;
-
     cursor:pointer;
-
     transition:.25s;
 }
 
 .open:hover{
-
     transform:scale(1.03);
-
-    box-shadow:
-        0 8px 25px
-        var(--glow);
+    box-shadow:0 8px 25px var(--glow);
 }
 
 
-/* NO RESULTS */
+/* ================= NO RESULTS ================= */
 
 .noResults{
-
     display:none;
-
     grid-column:1/-1;
-
     text-align:center;
-
     color:var(--muted);
-
     padding:40px;
 }
 
@@ -744,63 +511,35 @@ section{
 /* ================= CTA ================= */
 
 .cta{
-
     max-width:1160px;
-
     margin:40px auto 80px;
-
     padding:70px 25px;
-
     text-align:center;
-
     border-radius:30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #7c3aed,
-            #06b6d4
-        );
-
+    background:linear-gradient(135deg,#7c3aed,#06b6d4);
     position:relative;
-
     overflow:hidden;
 }
 
 .cta::before{
-
     content:"";
-
     position:absolute;
-
     width:250px;
     height:250px;
-
     background:white;
-
     border-radius:50%;
-
     opacity:.08;
-
     top:-120px;
-
     right:-80px;
-
-    animation:
-        float
-        7s
-        infinite;
+    animation:float 7s infinite;
 }
 
 .cta h2{
-
     font-size:38px;
 }
 
 .cta p{
-
     margin-top:10px;
-
     opacity:.9;
 }
 
@@ -808,83 +547,52 @@ section{
 /* ================= FOOTER ================= */
 
 footer{
-
-    border-top:
-        1px solid
-        var(--border);
-
+    border-top:1px solid var(--border);
     background:var(--card);
 }
 
 .footer{
-
     max-width:1200px;
-
     margin:auto;
-
     padding:50px 20px;
-
     display:grid;
-
-    grid-template-columns:
-        2fr 1fr 1fr 1fr;
-
+    grid-template-columns:2fr 1fr 1fr 1fr;
     gap:35px;
 }
 
 .footer p,
 .footer a{
-
     color:var(--muted);
-
     font-size:14px;
 }
 
 .footer p{
-
     margin-top:12px;
-
     max-width:350px;
-
     line-height:1.6;
 }
 
 .footer h4{
-
     margin-bottom:13px;
 }
 
 .footer a{
-
     display:block;
-
     margin:8px 0;
-
     text-decoration:none;
-
     transition:.2s;
 }
 
 .footer a:hover{
-
     color:var(--text);
-
-    transform:
-        translateX(3px);
+    transform:translateX(3px);
 }
 
 .copy{
-
-    border-top:
-        1px solid
-        var(--border);
-
+    border-top:1px solid var(--border);
     text-align:center;
-
     padding:18px;
-
     color:var(--muted);
-
     font-size:13px;
 }
 
@@ -894,21 +602,15 @@ footer{
 @media(max-width:1000px){
 
     .tools{
-
-        grid-template-columns:
-            repeat(3,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
     .categories{
-
-        grid-template-columns:
-            repeat(3,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
     .footer{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
@@ -916,34 +618,26 @@ footer{
 @media(max-width:700px){
 
     nav a{
-
         display:none;
     }
 
     .hero{
-
         padding-top:130px;
     }
 
     .hero h1{
-
         letter-spacing:-2px;
     }
 
     .tools{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .categories{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .footer{
-
         grid-template-columns:1fr;
     }
 
@@ -952,12 +646,10 @@ footer{
 @media(max-width:480px){
 
     .tools{
-
         grid-template-columns:1fr;
     }
 
     .hero p{
-
         font-size:16px;
     }
 
@@ -971,17 +663,13 @@ footer{
     *,
     *::before,
     *::after{
-
         animation:none!important;
-
         transition:none!important;
     }
 
     .tool,
     .heading{
-
         opacity:1;
-
         transform:none;
     }
 
@@ -990,31 +678,22 @@ footer{
 </style>
 </head>
 
-
 <body>
 
-
 <div class="background">
-
     <div class="orb one"></div>
-
     <div class="orb two"></div>
-
     <div class="orb three"></div>
-
 </div>
 
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
 <div class="nav">
 
-    <a
-        class="logo"
-        href="#"
-    >
+    <a class="logo" href="#">
 
         <div class="logoIcon">
             V
@@ -1023,7 +702,6 @@ footer{
         VexTools
 
     </a>
-
 
     <nav>
 
@@ -1039,10 +717,7 @@ footer{
             About
         </a>
 
-        <button
-            class="theme"
-            id="theme"
-        >
+        <button class="theme" id="theme">
             🌙
         </button>
 
@@ -1053,15 +728,14 @@ footer{
 </header>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <main>
-
 
 <section class="hero">
 
     <div class="badge">
-        ⚡ 50+ Free Tools Coming
+        ⚡ 50+ Free Tools
     </div>
 
     <h1>
@@ -1075,13 +749,10 @@ footer{
     </h1>
 
     <p>
-
         VexTools brings powerful free online
         tools for PDFs, images, text,
         students, calculations and developers.
-
     </p>
-
 
     <div class="search">
 
@@ -1100,7 +771,7 @@ footer{
 </section>
 
 
-<!-- CATEGORIES -->
+<!-- ================= CATEGORIES ================= -->
 
 <section id="categories">
 
@@ -1119,15 +790,9 @@ footer{
 
     <div class="categories">
 
+        <button class="category active" data-category="all">
 
-        <button
-            class="category active"
-            data-category="all"
-        >
-
-            <span class="categoryIcon">
-                🧰
-            </span>
+            <span class="categoryIcon">🧰</span>
 
             <span class="categoryName">
                 All Tools
@@ -1136,14 +801,9 @@ footer{
         </button>
 
 
-        <button
-            class="category"
-            data-category="pdf"
-        >
+        <button class="category" data-category="pdf">
 
-            <span class="categoryIcon">
-                📄
-            </span>
+            <span class="categoryIcon">📄</span>
 
             <span class="categoryName">
                 PDF
@@ -1152,14 +812,9 @@ footer{
         </button>
 
 
-        <button
-            class="category"
-            data-category="image"
-        >
+        <button class="category" data-category="image">
 
-            <span class="categoryIcon">
-                🖼️
-            </span>
+            <span class="categoryIcon">🖼️</span>
 
             <span class="categoryName">
                 Image
@@ -1168,14 +823,9 @@ footer{
         </button>
 
 
-        <button
-            class="category"
-            data-category="text"
-        >
+        <button class="category" data-category="text">
 
-            <span class="categoryIcon">
-                📝
-            </span>
+            <span class="categoryIcon">📝</span>
 
             <span class="categoryName">
                 Text
@@ -1184,14 +834,9 @@ footer{
         </button>
 
 
-        <button
-            class="category"
-            data-category="student"
-        >
+        <button class="category" data-category="student">
 
-            <span class="categoryIcon">
-                🎓
-            </span>
+            <span class="categoryIcon">🎓</span>
 
             <span class="categoryName">
                 Student
@@ -1200,14 +845,9 @@ footer{
         </button>
 
 
-        <button
-            class="category"
-            data-category="developer"
-        >
+        <button class="category" data-category="developer">
 
-            <span class="categoryIcon">
-                💻
-            </span>
+            <span class="categoryIcon">💻</span>
 
             <span class="categoryName">
                 Developer
@@ -1215,21 +855,19 @@ footer{
 
         </button>
 
-
     </div>
 
 </section>
 
 
-<!-- TOOLS -->
+<!-- ================= TOOLS ================= -->
 
 <section id="tools">
-
 
     <div class="heading reveal">
 
         <h2>
-            Popular Tools
+            All Tools
         </h2>
 
         <p>
@@ -1239,567 +877,1141 @@ footer{
     </div>
 
 
-    <div
-        class="tools"
-        id="toolGrid"
-    >
+    <div class="tools" id="toolGrid">
 
 
-        <!-- PDF -->
+<!-- =====================================================
+     PDF TOOLS
+===================================================== -->
 
-        <div
-            class="tool"
-            data-category="pdf"
-            data-name="merge pdf"
-        >
+<div class="tool"
+data-category="pdf"
+data-name="merge pdf">
 
-            <div class="icon">
-                📑
-            </div>
+    <div class="icon">📑</div>
 
-            <h3>
-                Merge PDF
-            </h3>
+    <h3>Merge PDF</h3>
 
-            <p>
-                Combine multiple PDF files into one.
-            </p>
+    <p>
+        Combine multiple PDF files into one.
+    </p>
 
-            <button class="open">
-                Open Tool
-            </button>
+    <a class="open" href="tools/merge-pdf.html">
+        Open Tool
+    </a>
 
-        </div>
+</div>
 
 
-        <div
-            class="tool"
-            data-category="pdf"
-            data-name="split pdf"
-        >
+<div class="tool"
+data-category="pdf"
+data-name="split pdf">
 
-            <div class="icon">
-                ✂️
-            </div>
+    <div class="icon">✂️</div>
 
-            <h3>
-                Split PDF
-            </h3>
+    <h3>Split PDF</h3>
 
-            <p>
-                Split a PDF into separate pages.
-            </p>
+    <p>
+        Split a PDF into separate pages.
+    </p>
 
-            <button class="open">
-                Open Tool
-            </button>
+    <a class="open" href="tools/split-pdf.html">
+        Open Tool
+    </a>
 
-        </div>
+</div>
 
 
-        <div
-            class="tool"
-            data-category="pdf"
-            data-name="compress pdf"
-        >
+<div class="tool"
+data-category="pdf"
+data-name="compress pdf">
 
-            <div class="icon">
-                🗜️
-            </div>
+    <div class="icon">🗜️</div>
 
-            <h3>
-                Compress PDF
-            </h3>
+    <h3>Compress PDF</h3>
 
-            <p>
-                Reduce the size of PDF files.
-            </p>
+    <p>
+        Reduce the size of PDF files.
+    </p>
 
-            <button class="open">
-                Open Tool
-            </button>
+    <a class="open" href="tools/compress-pdf.html">
+        Open Tool
+    </a>
 
-        </div>
+</div>
 
 
-        <div
-            class="tool"
-            data-category="pdf"
-            data-name="jpg pdf"
-        >
+<div class="tool"
+data-category="pdf"
+data-name="jpg to pdf">
 
-            <div class="icon">
-                🖼️
-            </div>
+    <div class="icon">🖼️</div>
 
-            <h3>
-                JPG to PDF
-            </h3>
+    <h3>JPG to PDF</h3>
 
-            <p>
-                Convert JPG images into PDF.
-            </p>
+    <p>
+        Convert JPG images into PDF.
+    </p>
 
-            <button class="open">
-                Open Tool
-            </button>
+    <a class="open" href="tools/jpg-to-pdf.html">
+        Open Tool
+    </a>
 
-        </div>
+</div>
 
 
-        <!-- IMAGE -->
+<!-- =====================================================
+     IMAGE TOOLS
+===================================================== -->
 
-        <div
-            class="tool"
-            data-category="image"
-            data-name="image compressor"
-        >
+<div class="tool"
+data-category="image"
+data-name="image compressor">
 
-            <div class="icon">
-                🗜️
-            </div>
+    <div class="icon">🗜️</div>
 
-            <h3>
-                Image Compressor
-            </h3>
+    <h3>Image Compressor</h3>
 
-            <p>
-                Compress images without complicated software.
-            </p>
+    <p>
+        Compress images directly in your browser.
+    </p>
 
-            <button class="open">
-                Open Tool
-            </button>
+    <a class="open" href="tools/image-compressor.html">
+        Open Tool
+    </a>
 
-        </div>
+</div>
 
 
-        <div
-            class="tool"
-            data-category="image"
-            data-name="image resizer"
-        >
+<div class="tool"
+data-category="image"
+data-name="image cropper">
 
-            <div class="icon">
-                📐
-            </div>
+    <div class="icon">✂️</div>
 
-            <h3>
-                Image Resizer
-            </h3>
+    <h3>Image Cropper</h3>
 
-            <p>
-                Resize images to any dimensions.
-            </p>
+    <p>
+        Crop images directly in your browser.
+    </p>
 
-            <button class="open">
-                Open Tool
-            </button>
+    <a class="open" href="tools/image-cropper.html">
+        Open Tool
+    </a>
 
-        </div>
+</div>
 
 
-        <div
-            class="tool"
-            data-category="image"
-            data-name="jpg png"
-        >
+<div class="tool"
+data-category="image"
+data-name="image resizer">
 
-            <div class="icon">
-                🔄
-            </div>
+    <div class="icon">📐</div>
 
-            <h3>
-                JPG to PNG
-            </h3>
+    <h3>Image Resizer</h3>
 
-            <p>
-                Convert JPG images to PNG.
-            </p>
+    <p>
+        Resize images to any dimensions.
+    </p>
 
-            <button class="open">
-                Open Tool
-            </button>
+    <a class="open" href="tools/image-resizer.html">
+        Open Tool
+    </a>
 
-        </div>
+</div>
 
 
-        <div
-            class="tool"
-            data-category="image"
-            data-name="image cropper"
-        >
+<div class="tool"
+data-category="image"
+data-name="image text editor">
 
-            <div class="icon">
-                ✂️
-            </div>
+    <div class="icon">🖊️</div>
 
-            <h3>
-                Image Cropper
-            </h3>
+    <h3>Image Text Editor</h3>
 
-            <p>
-                Crop images directly in your browser.
-            </p>
+    <p>
+        Add and edit text on images.
+    </p>
 
-            <button class="open">
-                Open Tool
-            </button>
+    <a class="open" href="tools/image-text-editor.html">
+        Open Tool
+    </a>
 
-        </div>
+</div>
 
 
-        <!-- TEXT -->
+<div class="tool"
+data-category="image"
+data-name="jpg to png">
 
-        <div
-            class="tool"
-            data-category="text"
-            data-name="word counter"
-        >
+    <div class="icon">🔄</div>
 
-            <div class="icon">
-                🔢
-            </div>
+    <h3>JPG to PNG</h3>
 
-            <h3>
-                Word Counter
-            </h3>
+    <p>
+        Convert JPG images to PNG.
+    </p>
 
-            <p>
-                Count words and characters instantly.
-            </p>
+    <a class="open" href="tools/jpg-to-png.html">
+        Open Tool
+    </a>
 
-            <a
-                class="open"
-                href="tools/word-counter.html"
-            >
-                Open Tool
-            </a>
+</div>
 
-        </div>
 
+<div class="tool"
+data-category="image"
+data-name="png to jpg">
 
-        <div
-            class="tool"
-            data-category="text"
-            data-name="character counter"
-        >
+    <div class="icon">🔄</div>
 
-            <div class="icon">
-                🔤
-            </div>
+    <h3>PNG to JPG</h3>
 
-            <h3>
-                Character Counter
-            </h3>
+    <p>
+        Convert PNG images to JPG.
+    </p>
 
-            <p>
-                Count characters, spaces, words and lines instantly.
-            </p>
+    <a class="open" href="tools/png-to-jpg.html">
+        Open Tool
+    </a>
 
-            <a
-                class="open"
-                href="tools/character-counter.html"
-            >
-                Open Tool
-            </a>
+</div>
 
-        </div>
 
+<div class="tool"
+data-category="image"
+data-name="image to base64">
 
-        <div
-            class="tool"
-            data-category="text"
-            data-name="case converter"
-        >
+    <div class="icon">🔐</div>
 
-            <div class="icon">
-                Aa
-            </div>
+    <h3>Image to Base64</h3>
 
-            <h3>
-                Case Converter
-            </h3>
+    <p>
+        Convert images into Base64.
+    </p>
 
-            <p>
-                Convert text between different cases.
-            </p>
+    <a class="open" href="tools/image-to-base64.html">
+        Open Tool
+    </a>
 
-            <button class="open">
-                Open Tool
-            </button>
+</div>
 
-        </div>
 
+<div class="tool"
+data-category="image"
+data-name="base64 to image">
 
-        <div
-            class="tool"
-            data-category="text"
-            data-name="text reverser"
-        >
+    <div class="icon">🖼️</div>
 
-            <div class="icon">
-                🔁
-            </div>
+    <h3>Base64 to Image</h3>
 
-            <h3>
-                Text Reverser
-            </h3>
+    <p>
+        Convert Base64 data into an image.
+    </p>
 
-            <p>
-                Reverse any text instantly.
-            </p>
+    <a class="open" href="tools/base64-to-image.html">
+        Open Tool
+    </a>
 
-            <button class="open">
-                Open Tool
-            </button>
+</div>
 
-        </div>
 
+<div class="tool"
+data-category="image"
+data-name="color picker">
 
-        <div
-            class="tool"
-            data-category="text"
-            data-name="slug generator"
-        >
+    <div class="icon">🎨</div>
 
-            <div class="icon">
-                🔗
-            </div>
+    <h3>Color Picker</h3>
 
-            <h3>
-                Slug Generator
-            </h3>
+    <p>
+        Pick colors and get their values.
+    </p>
 
-            <p>
-                Create clean URL-friendly slugs.
-            </p>
+    <a class="open" href="tools/color-picker.html">
+        Open Tool
+    </a>
 
-            <button class="open">
-                Open Tool
-            </button>
+</div>
 
-        </div>
 
+<div class="tool"
+data-category="image"
+data-name="color converter">
 
-        <!-- STUDENT -->
+    <div class="icon">🌈</div>
 
-        <div
-            class="tool"
-            data-category="student"
-            data-name="percentage calculator"
-        >
+    <h3>Color Converter</h3>
 
-            <div class="icon">
-                %
-            </div>
+    <p>
+        Convert colors between different formats.
+    </p>
 
-            <h3>
-                Percentage Calculator
-            </h3>
+    <a class="open" href="tools/color-converter.html">
+        Open Tool
+    </a>
 
-            <p>
-                Calculate percentages quickly.
-            </p>
+</div>
 
-            <button class="open">
-                Open Tool
-            </button>
 
-        </div>
+<div class="tool"
+data-category="image"
+data-name="color palette generator">
 
+    <div class="icon">🎨</div>
 
-        <div
-            class="tool"
-            data-category="student"
-            data-name="gpa calculator"
-        >
+    <h3>Color Palette Generator</h3>
 
-            <div class="icon">
-                🎓
-            </div>
+    <p>
+        Generate beautiful color palettes.
+    </p>
 
-            <h3>
-                GPA Calculator
-            </h3>
+    <a class="open" href="tools/color-palette-generator.html">
+        Open Tool
+    </a>
 
-            <p>
-                Calculate GPA easily.
-            </p>
+</div>
 
-            <button class="open">
-                Open Tool
-            </button>
 
-        </div>
+<!-- =====================================================
+     TEXT TOOLS
+===================================================== -->
 
+<div class="tool"
+data-category="text"
+data-name="word counter">
 
-        <div
-            class="tool"
-            data-category="student"
-            data-name="age calculator"
-        >
+    <div class="icon">🔢</div>
 
-            <div class="icon">
-                🎂
-            </div>
+    <h3>Word Counter</h3>
 
-            <h3>
-                Age Calculator
-            </h3>
+    <p>
+        Count words and characters instantly.
+    </p>
 
-            <p>
-                Calculate exact age from your birthday.
-            </p>
+    <a class="open" href="tools/word-counter.html">
+        Open Tool
+    </a>
 
-            <button class="open">
-                Open Tool
-            </button>
+</div>
 
-        </div>
 
+<div class="tool"
+data-category="text"
+data-name="character counter">
 
-        <div
-            class="tool"
-            data-category="student"
-            data-name="discount calculator"
-        >
+    <div class="icon">🔤</div>
 
-            <div class="icon">
-                🏷️
-            </div>
+    <h3>Character Counter</h3>
 
-            <h3>
-                Discount Calculator
-            </h3>
+    <p>
+        Count characters, spaces, words and lines.
+    </p>
 
-            <p>
-                Calculate discounts and final prices.
-            </p>
+    <a class="open" href="tools/character-counter.html">
+        Open Tool
+    </a>
 
-            <button class="open">
-                Open Tool
-            </button>
+</div>
 
-        </div>
 
+<div class="tool"
+data-category="text"
+data-name="case converter">
 
-        <!-- DEVELOPER -->
+    <div class="icon">Aa</div>
 
-        <div
-            class="tool"
-            data-category="developer"
-            data-name="json formatter"
-        >
+    <h3>Case Converter</h3>
 
-            <div class="icon">
-                { }
-            </div>
+    <p>
+        Convert text between different cases.
+    </p>
 
-            <h3>
-                JSON Formatter
-            </h3>
+    <a class="open" href="tools/case-converter.html">
+        Open Tool
+    </a>
 
-            <p>
-                Format JSON into readable code.
-            </p>
+</div>
 
-            <button class="open">
-                Open Tool
-            </button>
 
-        </div>
+<div class="tool"
+data-category="text"
+data-name="text cleaner">
 
+    <div class="icon">🧹</div>
 
-        <div
-            class="tool"
-            data-category="developer"
-            data-name="json validator"
-        >
+    <h3>Text Cleaner</h3>
 
-            <div class="icon">
-                ✓
-            </div>
+    <p>
+        Clean and normalize messy text.
+    </p>
 
-            <h3>
-                JSON Validator
-            </h3>
+    <a class="open" href="tools/text-cleaner.html">
+        Open Tool
+    </a>
 
-            <p>
-                Validate JSON instantly.
-            </p>
+</div>
 
-            <button class="open">
-                Open Tool
-            </button>
 
-        </div>
+<div class="tool"
+data-category="text"
+data-name="text reverser">
 
+    <div class="icon">🔁</div>
 
-        <div
-            class="tool"
-            data-category="developer"
-            data-name="base64 encoder"
-        >
+    <h3>Text Reverser</h3>
 
-            <div class="icon">
-                🔐
-            </div>
+    <p>
+        Reverse any text instantly.
+    </p>
 
-            <h3>
-                Base64 Encoder
-            </h3>
+    <a class="open" href="tools/text-reverser.html">
+        Open Tool
+    </a>
 
-            <p>
-                Encode text into Base64.
-            </p>
+</div>
 
-            <button class="open">
-                Open Tool
-            </button>
 
-        </div>
+<div class="tool"
+data-category="text"
+data-name="text sorter">
 
+    <div class="icon">↕️</div>
 
-        <div
-            class="tool"
-            data-category="developer"
-            data-name="uuid generator"
-        >
+    <h3>Text Sorter</h3>
 
-            <div class="icon">
-                🆔
-            </div>
+    <p>
+        Sort lines of text quickly.
+    </p>
 
-            <h3>
-                UUID Generator
-            </h3>
+    <a class="open" href="tools/text-sorter.html">
+        Open Tool
+    </a>
 
-            <p>
-                Generate unique UUIDs instantly.
-            </p>
+</div>
 
-            <button class="open">
-                Open Tool
-            </button>
 
-        </div>
+<div class="tool"
+data-category="text"
+data-name="text statistics">
 
+    <div class="icon">📊</div>
 
-        <div
-            class="noResults"
-            id="noResults"
-        >
-            😕 No matching tools found.
-        </div>
+    <h3>Text Statistics</h3>
 
+    <p>
+        Analyze words, characters and lines.
+    </p>
+
+    <a class="open" href="tools/text-statistics.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="text"
+data-name="remove duplicate lines">
+
+    <div class="icon">🧹</div>
+
+    <h3>Remove Duplicate Lines</h3>
+
+    <p>
+        Remove repeated lines from text.
+    </p>
+
+    <a class="open" href="tools/remove-duplicate-lines.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="text"
+data-name="remove extra spaces">
+
+    <div class="icon">🧽</div>
+
+    <h3>Remove Extra Spaces</h3>
+
+    <p>
+        Remove unnecessary spaces from text.
+    </p>
+
+    <a class="open" href="tools/remove-extra-spaces.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="text"
+data-name="text to binary">
+
+    <div class="icon">01</div>
+
+    <h3>Text to Binary</h3>
+
+    <p>
+        Convert text into binary.
+    </p>
+
+    <a class="open" href="tools/text-to-binary.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="text"
+data-name="text to hex">
+
+    <div class="icon">#</div>
+
+    <h3>Text to Hex</h3>
+
+    <p>
+        Convert text into hexadecimal.
+    </p>
+
+    <a class="open" href="tools/text-to-hex.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="text"
+data-name="text to slug">
+
+    <div class="icon">🔗</div>
+
+    <h3>Text to Slug</h3>
+
+    <p>
+        Convert text into URL-friendly slugs.
+    </p>
+
+    <a class="open" href="tools/text-to-slug.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="text"
+data-name="slug generator">
+
+    <div class="icon">🔗</div>
+
+    <h3>Slug Generator</h3>
+
+    <p>
+        Create clean URL-friendly slugs.
+    </p>
+
+    <a class="open" href="tools/slug-generator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="text"
+data-name="lorem ipsum generator">
+
+    <div class="icon">📜</div>
+
+    <h3>Lorem Ipsum Generator</h3>
+
+    <p>
+        Generate placeholder text instantly.
+    </p>
+
+    <a class="open" href="tools/lorem-ipsum-generator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="text"
+data-name="number to words">
+
+    <div class="icon">🔢</div>
+
+    <h3>Number to Words</h3>
+
+    <p>
+        Convert numbers into words.
+    </p>
+
+    <a class="open" href="tools/number-to-words.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<!-- =====================================================
+     STUDENT / CALCULATOR TOOLS
+===================================================== -->
+
+<div class="tool"
+data-category="student"
+data-name="percentage calculator">
+
+    <div class="icon">%</div>
+
+    <h3>Percentage Calculator</h3>
+
+    <p>
+        Calculate percentages quickly.
+    </p>
+
+    <a class="open" href="tools/percentage-calculator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="student"
+data-name="age calculator">
+
+    <div class="icon">🎂</div>
+
+    <h3>Age Calculator</h3>
+
+    <p>
+        Calculate exact age from your birthday.
+    </p>
+
+    <a class="open" href="tools/age-calculator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="student"
+data-name="discount calculator">
+
+    <div class="icon">🏷️</div>
+
+    <h3>Discount Calculator</h3>
+
+    <p>
+        Calculate discounts and final prices.
+    </p>
+
+    <a class="open" href="tools/discount-calculator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="student"
+data-name="loan calculator">
+
+    <div class="icon">💰</div>
+
+    <h3>Loan Calculator</h3>
+
+    <p>
+        Calculate loan payments and interest.
+    </p>
+
+    <a class="open" href="tools/loan-calculator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="student"
+data-name="date difference">
+
+    <div class="icon">📅</div>
+
+    <h3>Date Difference</h3>
+
+    <p>
+        Calculate the difference between two dates.
+    </p>
+
+    <a class="open" href="tools/date-difference.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="student"
+data-name="speed converter">
+
+    <div class="icon">🏎️</div>
+
+    <h3>Speed Converter</h3>
+
+    <p>
+        Convert speed between different units.
+    </p>
+
+    <a class="open" href="tools/speed-converter.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="student"
+data-name="temperature converter">
+
+    <div class="icon">🌡️</div>
+
+    <h3>Temperature Converter</h3>
+
+    <p>
+        Convert Celsius, Fahrenheit and Kelvin.
+    </p>
+
+    <a class="open" href="tools/temperature-converter.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="student"
+data-name="unit converter">
+
+    <div class="icon">📏</div>
+
+    <h3>Unit Converter</h3>
+
+    <p>
+        Convert common measurement units.
+    </p>
+
+    <a class="open" href="tools/unit-converter.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="student"
+data-name="stopwatch">
+
+    <div class="icon">⏱️</div>
+
+    <h3>Stopwatch</h3>
+
+    <p>
+        Use a simple online stopwatch.
+    </p>
+
+    <a class="open" href="tools/stopwatch.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="student"
+data-name="random number generator">
+
+    <div class="icon">🎲</div>
+
+    <h3>Random Number Generator</h3>
+
+    <p>
+        Generate random numbers instantly.
+    </p>
+
+    <a class="open" href="tools/random-number-generator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<!-- =====================================================
+     DEVELOPER TOOLS
+===================================================== -->
+
+<div class="tool"
+data-category="developer"
+data-name="json formatter">
+
+    <div class="icon">{ }</div>
+
+    <h3>JSON Formatter</h3>
+
+    <p>
+        Format JSON into readable code.
+    </p>
+
+    <a class="open" href="tools/json-formatter.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="json validator">
+
+    <div class="icon">✓</div>
+
+    <h3>JSON Validator</h3>
+
+    <p>
+        Validate JSON instantly.
+    </p>
+
+    <a class="open" href="tools/json-validator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="base64 encoder">
+
+    <div class="icon">🔐</div>
+
+    <h3>Base64 Encoder</h3>
+
+    <p>
+        Encode text into Base64.
+    </p>
+
+    <a class="open" href="tools/base64-encoder.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="hex converter">
+
+    <div class="icon">#</div>
+
+    <h3>Hex Converter</h3>
+
+    <p>
+        Convert values between hexadecimal formats.
+    </p>
+
+    <a class="open" href="tools/hex-converter.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="binary converter">
+
+    <div class="icon">01</div>
+
+    <h3>Binary Converter</h3>
+
+    <p>
+        Convert numbers and text to binary.
+    </p>
+
+    <a class="open" href="tools/binary-converter.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="css minifier">
+
+    <div class="icon">🎨</div>
+
+    <h3>CSS Minifier</h3>
+
+    <p>
+        Minify CSS code quickly.
+    </p>
+
+    <a class="open" href="tools/css-minifier.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="js minifier">
+
+    <div class="icon">JS</div>
+
+    <h3>JS Minifier</h3>
+
+    <p>
+        Minify JavaScript code.
+    </p>
+
+    <a class="open" href="tools/js-minifier.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="html formatter">
+
+    <div class="icon">HTML</div>
+
+    <h3>HTML Formatter</h3>
+
+    <p>
+        Format HTML code for readability.
+    </p>
+
+    <a class="open" href="tools/html-formatter.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="url encoder">
+
+    <div class="icon">🔗</div>
+
+    <h3>URL Encoder</h3>
+
+    <p>
+        Encode and decode URLs.
+    </p>
+
+    <a class="open" href="tools/url-encoder.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="uuid generator">
+
+    <div class="icon">🆔</div>
+
+    <h3>UUID Generator</h3>
+
+    <p>
+        Generate unique UUIDs instantly.
+    </p>
+
+    <a class="open" href="tools/uuid-generator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="password generator">
+
+    <div class="icon">🔑</div>
+
+    <h3>Password Generator</h3>
+
+    <p>
+        Generate strong random passwords.
+    </p>
+
+    <a class="open" href="tools/password-generator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="username generator">
+
+    <div class="icon">👤</div>
+
+    <h3>Username Generator</h3>
+
+    <p>
+        Generate random username ideas.
+    </p>
+
+    <a class="open" href="tools/username-generator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="qr code generator">
+
+    <div class="icon">▦</div>
+
+    <h3>QR Code Generator</h3>
+
+    <p>
+        Generate QR codes quickly.
+    </p>
+
+    <a class="open" href="tools/qr-code-generator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="timestamp converter">
+
+    <div class="icon">🕐</div>
+
+    <h3>Timestamp Converter</h3>
+
+    <p>
+        Convert Unix timestamps and dates.
+    </p>
+
+    <a class="open" href="tools/timestamp-converter.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="timezone converter">
+
+    <div class="icon">🌍</div>
+
+    <h3>Timezone Converter</h3>
+
+    <p>
+        Convert time between different timezones.
+    </p>
+
+    <a class="open" href="tools/timezone-converter.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="email validator">
+
+    <div class="icon">✉️</div>
+
+    <h3>Email Validator</h3>
+
+    <p>
+        Check whether an email address is valid.
+    </p>
+
+    <a class="open" href="tools/email-validator.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="ip address info">
+
+    <div class="icon">🌐</div>
+
+    <h3>IP Address Info</h3>
+
+    <p>
+        Get information about an IP address.
+    </p>
+
+    <a class="open" href="tools/ip-address-info.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="tool"
+data-category="developer"
+data-name="base64 to image">
+
+    <div class="icon">🖼️</div>
+
+    <h3>Base64 to Image</h3>
+
+    <p>
+        Convert Base64 data into an image.
+    </p>
+
+    <a class="open" href="tools/base64-to-image.html">
+        Open Tool
+    </a>
+
+</div>
+
+
+<div class="noResults" id="noResults">
+    😕 No matching tools found.
+</div>
 
     </div>
 
 </section>
 
 
-<!-- CTA -->
+<!-- ================= CTA ================= -->
 
 <div class="cta">
 
@@ -1814,17 +2026,14 @@ footer{
 
 </div>
 
-
 </main>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer id="about">
 
-
 <div class="footer">
-
 
     <div>
 
@@ -1912,7 +2121,6 @@ footer{
 
     </div>
 
-
 </div>
 
 
@@ -1923,12 +2131,10 @@ footer{
 
 </div>
 
-
 </footer>
 
 
 <script>
-
 
 /* ================= YEAR ================= */
 
@@ -1952,6 +2158,11 @@ if(saved === "light"){
     themeButton.textContent = "🌙";
 
 }
+else{
+
+    themeButton.textContent = "☀️";
+
+}
 
 
 themeButton.onclick = () => {
@@ -1972,14 +2183,10 @@ themeButton.onclick = () => {
 };
 
 
-/* ================= TOOL REVEAL ================= */
-
-const tools =
-document.querySelectorAll(".tool");
+/* ================= HEADINGS REVEAL ================= */
 
 const headings =
 document.querySelectorAll(".reveal");
-
 
 const observer =
 new IntersectionObserver(
@@ -2001,11 +2208,18 @@ new IntersectionObserver(
     }
 );
 
-
 headings.forEach(
     x => observer.observe(x)
 );
 
+
+/* ================= TOOLS REVEAL ================= */
+
+const tools =
+document.querySelectorAll(".tool");
+
+const grid =
+document.getElementById("toolGrid");
 
 const toolObserver =
 new IntersectionObserver(
@@ -2015,24 +2229,22 @@ new IntersectionObserver(
 
             if(entry.isIntersecting){
 
-                const visibleTools =
-                    Array.from(tools)
-                    .filter(
-                        t =>
-                        t.style.display !== "none"
-                    );
-
-
-                visibleTools.forEach(
+                tools.forEach(
                     (tool,index) => {
 
                         setTimeout(
                             () => {
 
-                                tool.classList.add("show");
+                                if(
+                                    tool.style.display !== "none"
+                                ){
+
+                                    tool.classList.add("show");
+
+                                }
 
                             },
-                            index * 70
+                            index * 35
                         );
 
                     }
@@ -2047,10 +2259,6 @@ new IntersectionObserver(
         threshold:.05
     }
 );
-
-
-const grid =
-document.getElementById("toolGrid");
 
 toolObserver.observe(grid);
 
@@ -2075,7 +2283,6 @@ search.addEventListener(
 
         let count = 0;
 
-
         tools.forEach(tool => {
 
             const name =
@@ -2086,7 +2293,6 @@ search.addEventListener(
                 tool.innerText
                 .toLowerCase();
 
-
             if(
                 name.includes(query) ||
                 text.includes(query)
@@ -2096,12 +2302,9 @@ search.addEventListener(
 
                 count++;
 
-
                 setTimeout(
                     () => {
-
                         tool.classList.add("show");
-
                     },
                     20
                 );
@@ -2165,14 +2368,13 @@ document
 
                     count++;
 
-
                     setTimeout(
                         () => {
 
                             tool.classList.add("show");
 
                         },
-                        50
+                        30
                     );
 
                 }
@@ -2201,49 +2403,6 @@ document
     );
 
 });
-
-
-/* ================= COMING SOON ================= */
-
-/*
-    IMPORTANT:
-
-    Only buttons are selected here.
-
-    Word Counter and Character Counter
-    use <a class="open"> links, so they
-    will NOT trigger Coming Soon.
-
-    All remaining tools use
-    <button class="open"> and therefore
-    show the Coming Soon message.
-*/
-
-document
-.querySelectorAll("button.open")
-.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            const name =
-                button
-                .parentElement
-                .querySelector("h3")
-                .textContent;
-
-
-            alert(
-                name +
-                " will be available soon 🚀"
-            );
-
-        }
-    );
-
-});
-
 
 </script>
 
