@@ -2,22 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Word Counter — VexTools</title>
+<title>Word Counter - VexTools</title>
 
-<meta
-name="description"
-content="Free online word counter. Count words, characters, sentences, paragraphs and reading time instantly."
->
+<meta name="description" content="Free online word counter. Count words, characters, sentences and paragraphs instantly.">
 
 <style>
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 :root{
@@ -25,21 +20,19 @@ content="Free online word counter. Count words, characters, sentences, paragraph
     --card:rgba(17,25,45,.78);
     --text:#f8fafc;
     --muted:#94a3b8;
-    --border:rgba(255,255,255,.09);
+    --border:rgba(255,255,255,.1);
     --primary:#7c3aed;
     --secondary:#06b6d4;
     --input:#0d1427;
-    --glow:rgba(124,58,237,.3);
 }
 
 body.light{
     --bg:#f5f7ff;
-    --card:rgba(255,255,255,.86);
+    --card:rgba(255,255,255,.85);
     --text:#101828;
     --muted:#64748b;
     --border:rgba(15,23,42,.1);
-    --input:#ffffff;
-    --glow:rgba(109,40,217,.2);
+    --input:#fff;
 }
 
 html{
@@ -48,103 +41,75 @@ html{
 
 body{
     min-height:100vh;
-
     font-family:Arial,Helvetica,sans-serif;
-
     background:var(--bg);
     color:var(--text);
-
-    transition:
-        background .4s,
-        color .4s;
-
+    transition:.4s;
     overflow-x:hidden;
 }
 
-
-/* ================= BACKGROUND ================= */
+/* BACKGROUND */
 
 .background{
     position:fixed;
     inset:0;
-    z-index:-2;
     overflow:hidden;
+    z-index:-1;
 }
 
 .orb{
     position:absolute;
-
     border-radius:50%;
-
     filter:blur(90px);
-
     opacity:.3;
-
     animation:float 12s ease-in-out infinite;
 }
 
 .orb1{
     width:400px;
     height:400px;
-
     background:#7c3aed;
-
-    top:-160px;
-    left:-130px;
+    top:-150px;
+    left:-120px;
 }
 
 .orb2{
     width:350px;
     height:350px;
-
     background:#06b6d4;
-
     right:-120px;
-    top:45%;
-
+    top:40%;
     animation-delay:2s;
 }
 
 .orb3{
     width:300px;
     height:300px;
-
     background:#ec4899;
-
-    bottom:-140px;
+    bottom:-150px;
     left:35%;
-
     animation-delay:4s;
 }
 
 @keyframes float{
-
     0%,100%{
         transform:translate(0,0) scale(1);
     }
-
     50%{
         transform:translate(35px,-30px) scale(1.1);
     }
-
 }
 
-
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
     position:fixed;
-
     top:0;
     left:0;
     right:0;
-
-    z-index:1000;
-
+    z-index:100;
     background:rgba(7,11,24,.6);
-
     backdrop-filter:blur(18px);
-
     border-bottom:1px solid var(--border);
 }
 
@@ -153,34 +118,25 @@ body.light header{
 }
 
 .nav{
-    max-width:1200px;
-
+    max-width:1100px;
     min-height:72px;
-
     margin:auto;
-
     padding:0 20px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 }
 
 .logo{
     display:flex;
-
     align-items:center;
-
-    gap:11px;
+    gap:10px;
 
     color:var(--text);
-
     text-decoration:none;
 
     font-size:22px;
-
     font-weight:900;
 }
 
@@ -189,56 +145,41 @@ body.light header{
     height:42px;
 
     display:grid;
-
     place-items:center;
 
     border-radius:13px;
 
-    color:white;
+    color:#fff;
 
-    background:
-        linear-gradient(
-            135deg,
-            #7c3aed,
-            #06b6d4
-        );
-
-    box-shadow:
-        0 0 30px var(--glow);
+    background:linear-gradient(
+        135deg,
+        #7c3aed,
+        #06b6d4
+    );
 
     animation:logoPulse 3s infinite;
 }
 
 @keyframes logoPulse{
-
     0%,100%{
         transform:scale(1);
     }
-
     50%{
-        transform:scale(1.07) rotate(3deg);
+        transform:scale(1.08) rotate(3deg);
     }
-
 }
 
-.nav-right{
+.navRight{
     display:flex;
-
     align-items:center;
-
     gap:15px;
 }
 
 .back{
     color:var(--muted);
-
     text-decoration:none;
-
     font-size:14px;
-
-    font-weight:700;
-
-    transition:.2s;
+    font-weight:bold;
 }
 
 .back:hover{
@@ -250,11 +191,9 @@ body.light header{
     height:42px;
 
     border:1px solid var(--border);
-
     border-radius:12px;
 
     background:var(--card);
-
     color:var(--text);
 
     cursor:pointer;
@@ -263,43 +202,30 @@ body.light header{
 }
 
 .theme:hover{
-    transform:
-        rotate(12deg)
-        scale(1.08);
+    transform:rotate(12deg) scale(1.08);
 }
 
-
-/* ================= MAIN ================= */
+/* MAIN */
 
 main{
-    max-width:1000px;
-
+    max-width:950px;
     margin:auto;
-
-    padding:
-        140px
-        20px
-        80px;
+    padding:140px 20px 70px;
 }
 
-
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
     text-align:center;
-
     margin-bottom:35px;
 }
 
 .badge{
-    display:inline-flex;
+    display:inline-block;
 
-    padding:8px 15px;
+    padding:9px 16px;
 
-    border:
-        1px solid
-        var(--border);
-
+    border:1px solid var(--border);
     border-radius:999px;
 
     background:var(--card);
@@ -307,165 +233,107 @@ main{
     color:#a78bfa;
 
     font-size:13px;
-
-    font-weight:800;
+    font-weight:bold;
 
     animation:fadeUp .7s ease both;
 }
 
-.hero h1{
-
+h1{
     margin-top:20px;
 
-    font-size:
-        clamp(
-            40px,
-            7vw,
-            65px
-        );
+    font-size:clamp(42px,7vw,70px);
 
     letter-spacing:-3px;
 
-    animation:
-        fadeUp
-        .8s
-        .1s
-        ease
-        both;
+    animation:fadeUp .8s .1s ease both;
 }
 
 .gradient{
-    background:
-        linear-gradient(
-            90deg,
-            #a78bfa,
-            #22d3ee,
-            #f472b6,
-            #a78bfa
-        );
+    background:linear-gradient(
+        90deg,
+        #a78bfa,
+        #22d3ee,
+        #f472b6,
+        #a78bfa
+    );
 
     background-size:300% 100%;
 
     -webkit-background-clip:text;
-
     background-clip:text;
 
     color:transparent;
 
-    animation:
-        gradientMove
-        5s
-        linear
-        infinite;
+    animation:gradientMove 5s linear infinite;
 }
 
 @keyframes gradientMove{
-
     0%{
         background-position:0%;
     }
-
     100%{
         background-position:300%;
     }
-
 }
 
 .hero p{
-
     max-width:650px;
-
-    margin:
-        18px
-        auto
-        0;
+    margin:18px auto 0;
 
     color:var(--muted);
 
     font-size:17px;
+    line-height:1.6;
 
-    animation:
-        fadeUp
-        .9s
-        .2s
-        ease
-        both;
+    animation:fadeUp .9s .2s ease both;
 }
 
 @keyframes fadeUp{
-
     from{
         opacity:0;
-
-        transform:
-            translateY(25px);
+        transform:translateY(25px);
     }
-
     to{
         opacity:1;
-
-        transform:
-            translateY(0);
+        transform:translateY(0);
     }
-
 }
 
-
-/* ================= TOOL BOX ================= */
+/* TOOL */
 
 .toolBox{
+    padding:25px;
 
     background:var(--card);
 
-    border:
-        1px solid
-        var(--border);
-
+    border:1px solid var(--border);
     border-radius:25px;
-
-    padding:25px;
 
     backdrop-filter:blur(15px);
 
-    box-shadow:
-        0 20px 70px
-        rgba(0,0,0,.15);
+    box-shadow:0 20px 70px rgba(0,0,0,.2);
 
-    animation:
-        fadeUp
-        1s
-        .25s
-        ease
-        both;
+    animation:fadeUp 1s .25s ease both;
 }
 
-
-/* ================= TEXT AREA ================= */
-
 textarea{
-
     width:100%;
-
     min-height:330px;
 
     resize:vertical;
 
     padding:20px;
 
-    border:
-        1px solid
-        var(--border);
-
+    border:1px solid var(--border);
     border-radius:18px;
 
     outline:none;
 
     background:var(--input);
-
     color:var(--text);
 
+    font-family:Arial,Helvetica,sans-serif;
     font-size:16px;
-
     line-height:1.7;
 
     transition:.3s;
@@ -476,251 +344,161 @@ textarea::placeholder{
 }
 
 textarea:focus{
-
-    border-color:
-        var(--primary);
+    border-color:var(--primary);
 
     box-shadow:
         0 0 30px
-        var(--glow);
+        rgba(124,58,237,.3);
 }
 
-
-/* ================= BUTTONS ================= */
+/* BUTTONS */
 
 .actions{
-
     display:flex;
-
     gap:12px;
-
     margin-top:15px;
 }
 
-button.action{
+.action{
+    padding:12px 20px;
 
     border:0;
-
-    padding:
-        12px
-        20px;
-
     border-radius:12px;
 
     cursor:pointer;
 
-    font-weight:800;
+    font-weight:bold;
 
     transition:.25s;
 }
 
-.copyBtn{
+.copy{
+    background:linear-gradient(
+        90deg,
+        #7c3aed,
+        #6366f1
+    );
 
-    background:
-        linear-gradient(
-            90deg,
-            #7c3aed,
-            #6366f1
-        );
-
-    color:white;
+    color:#fff;
 }
 
-.clearBtn{
-
-    background:
-        rgba(
-            239,
-            68,
-            68,
-            .1
-        );
-
+.clear{
+    background:rgba(239,68,68,.1);
     color:#f87171;
 
-    border:
-        1px solid
-        rgba(
-            239,
-            68,
-            68,
-            .2
-        ) !important;
+    border:1px solid rgba(239,68,68,.2);
 }
 
-button.action:hover{
-
-    transform:
-        translateY(-3px);
-
+.action:hover{
+    transform:translateY(-3px);
 }
 
-.copyBtn:hover{
-
-    box-shadow:
-        0 8px 25px
-        var(--glow);
-
+.copy:hover{
+    box-shadow:0 8px 25px rgba(124,58,237,.35);
 }
 
-
-/* ================= STATS ================= */
+/* STATS */
 
 .stats{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
+    grid-template-columns:repeat(5,1fr);
     gap:12px;
 
     margin-top:22px;
 }
 
 .stat{
-
-    padding:18px 12px;
+    padding:18px 10px;
 
     text-align:center;
 
-    border:
-        1px solid
-        var(--border);
-
+    border:1px solid var(--border);
     border-radius:17px;
 
-    background:
-        rgba(
-            124,
-            58,
-            237,
-            .06
-        );
+    background:rgba(124,58,237,.06);
 
     transition:.25s;
 }
 
 .stat:hover{
+    transform:translateY(-5px);
 
-    transform:
-        translateY(-5px);
-
-    border-color:
-        var(--primary);
+    border-color:var(--primary);
 
     box-shadow:
         0 10px 30px
-        var(--glow);
+        rgba(124,58,237,.2);
 }
 
 .number{
-
     font-size:26px;
-
     font-weight:900;
-
-    color:var(--text);
 }
 
 .label{
-
     margin-top:5px;
 
     color:var(--muted);
 
     font-size:12px;
-
-    font-weight:700;
+    font-weight:bold;
 }
 
-
-/* ================= INFO ================= */
+/* INFO */
 
 .info{
-
-    margin-top:55px;
+    margin-top:35px;
 
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:20px;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
 }
 
 .infoCard{
-
-    padding:25px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:20px;
+    padding:24px;
 
     background:var(--card);
 
-    animation:
-        fadeUp
-        .8s
-        ease
-        both;
+    border:1px solid var(--border);
+    border-radius:20px;
 }
 
 .infoCard h2{
-
-    font-size:21px;
-
     margin-bottom:10px;
+    font-size:20px;
 }
 
 .infoCard p{
-
     color:var(--muted);
-
     font-size:14px;
-
-    line-height:1.8;
+    line-height:1.7;
 }
 
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
-
-    border-top:
-        1px solid
-        var(--border);
-
-    padding:
-        25px
-        20px;
+    padding:25px 20px;
 
     text-align:center;
+
+    border-top:1px solid var(--border);
 
     color:var(--muted);
 
     font-size:13px;
 }
 
-
-/* ================= RESPONSIVE ================= */
+/* MOBILE */
 
 @media(max-width:800px){
 
     .stats{
-
-        grid-template-columns:
-            repeat(3,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
     .info{
-
-        grid-template-columns:
-            1fr;
+        grid-template-columns:1fr;
     }
-
 }
 
 @media(max-width:600px){
@@ -730,11 +508,7 @@ footer{
     }
 
     main{
-
-        padding:
-            120px
-            15px
-            60px;
+        padding:120px 15px 60px;
     }
 
     .toolBox{
@@ -746,42 +520,29 @@ footer{
     }
 
     .stats{
-
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .actions{
         flex-direction:column;
     }
 
-    button.action{
+    .action{
         width:100%;
     }
-
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- BACKGROUND -->
-
 <div class="background">
-
     <div class="orb orb1"></div>
-
     <div class="orb orb2"></div>
-
     <div class="orb orb3"></div>
-
 </div>
 
-
-<!-- HEADER -->
 
 <header>
 
@@ -791,17 +552,11 @@ footer{
         href="../index.html"
         class="logo"
     >
-
-        <div class="logoIcon">
-            V
-        </div>
-
+        <div class="logoIcon">V</div>
         VexTools
-
     </a>
 
-
-    <div class="nav-right">
+    <div class="navRight">
 
         <a
             href="../index.html"
@@ -824,56 +579,48 @@ footer{
 </header>
 
 
-<!-- MAIN -->
-
 <main>
-
-
-<!-- HERO -->
 
 <div class="hero">
 
     <div class="badge">
-        📝 Text Tool
+        📝 Free Text Tool
     </div>
 
     <h1>
-        Word <span class="gradient">
-        Counter
+        Word
+        <span class="gradient">
+            Counter
         </span>
     </h1>
 
     <p>
         Count words, characters, sentences,
-        paragraphs and estimated reading time
-        instantly.
+        paragraphs and reading time instantly.
     </p>
 
 </div>
 
 
-<!-- TOOL -->
-
 <div class="toolBox">
-
 
 <textarea
     id="text"
-    placeholder="Start typing or paste your text here..."
+    placeholder="Type or paste your text here..."
 ></textarea>
 
 
 <div class="actions">
 
     <button
-        class="action copyBtn"
+        class="action copy"
         id="copy"
     >
         📋 Copy Text
     </button>
 
     <button
-        class="action clearBtn"
+        class="action clear"
         id="clear"
     >
         🗑️ Clear
@@ -882,141 +629,68 @@ footer{
 </div>
 
 
-<!-- STATS -->
-
 <div class="stats">
 
-
     <div class="stat">
-
-        <div
-            class="number"
-            id="words"
-        >
-            0
-        </div>
-
-        <div class="label">
-            Words
-        </div>
-
+        <div class="number" id="words">0</div>
+        <div class="label">Words</div>
     </div>
 
-
     <div class="stat">
-
-        <div
-            class="number"
-            id="characters"
-        >
-            0
-        </div>
-
-        <div class="label">
-            Characters
-        </div>
-
+        <div class="number" id="characters">0</div>
+        <div class="label">Characters</div>
     </div>
 
-
     <div class="stat">
-
-        <div
-            class="number"
-            id="noSpaces"
-        >
-            0
-        </div>
-
-        <div class="label">
-            No Spaces
-        </div>
-
+        <div class="number" id="noSpaces">0</div>
+        <div class="label">No Spaces</div>
     </div>
 
-
     <div class="stat">
-
-        <div
-            class="number"
-            id="sentences"
-        >
-            0
-        </div>
-
-        <div class="label">
-            Sentences
-        </div>
-
+        <div class="number" id="sentences">0</div>
+        <div class="label">Sentences</div>
     </div>
 
-
     <div class="stat">
-
-        <div
-            class="number"
-            id="paragraphs"
-        >
-            0
-        </div>
-
-        <div class="label">
-            Paragraphs
-        </div>
-
+        <div class="number" id="paragraphs">0</div>
+        <div class="label">Paragraphs</div>
     </div>
-
 
 </div>
 
 </div>
 
-
-<!-- INFO -->
 
 <div class="info">
 
-
     <div class="infoCard">
 
-        <h2>
-            📖 Reading Time
-        </h2>
+        <h2>📖 Reading Time</h2>
 
         <p>
             Estimated reading time:
-            <strong id="readingTime">
-                0 min
-            </strong>
+            <strong id="readingTime">0 min</strong>
         </p>
 
     </div>
 
-
     <div class="infoCard">
 
-        <h2>
-            💡 How to use
-        </h2>
+        <h2>💡 How to Use</h2>
 
         <p>
-            Type or paste your text into
-            the box above. VexTools will
-            automatically calculate your
-            words, characters, sentences
+            Type or paste your text above.
+            VexTools automatically counts
+            your words, characters, sentences
             and paragraphs.
         </p>
 
     </div>
 
-
 </div>
-
 
 </main>
 
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -1028,64 +702,47 @@ footer{
 
 <script>
 
+/* YEAR */
 
-/* ================= YEAR ================= */
-
-document.getElementById("year")
-.textContent =
+document.getElementById("year").textContent =
 new Date().getFullYear();
 
 
-/* ================= THEME ================= */
+/* THEME */
 
 const theme =
 document.getElementById("theme");
 
 const savedTheme =
-localStorage.getItem(
-    "vextools-theme"
-);
+localStorage.getItem("vextools-theme");
 
 if(savedTheme === "light"){
 
-    document.body
-    .classList
-    .add("light");
+    document.body.classList.add("light");
 
     theme.textContent="🌙";
 
 }
 
-theme.addEventListener(
-    "click",
-    ()=>{
+theme.addEventListener("click",()=>{
 
-        document.body
-        .classList
-        .toggle("light");
+    document.body.classList.toggle("light");
 
-        const light =
-            document.body
-            .classList
-            .contains("light");
+    const light =
+    document.body.classList.contains("light");
 
-        localStorage.setItem(
-            "vextools-theme",
-            light
-                ? "light"
-                : "dark"
-        );
+    localStorage.setItem(
+        "vextools-theme",
+        light ? "light" : "dark"
+    );
 
-        theme.textContent =
-            light
-                ? "🌙"
-                : "☀️";
+    theme.textContent =
+    light ? "🌙" : "☀️";
 
-    }
-);
+});
 
 
-/* ================= WORD COUNTER ================= */
+/* ELEMENTS */
 
 const text =
 document.getElementById("text");
@@ -1109,101 +766,81 @@ const readingTime =
 document.getElementById("readingTime");
 
 
+/* UPDATE COUNTER */
+
 function updateStats(){
 
     const value =
-        text.value;
-
-    /* Characters */
+    text.value;
 
     characters.textContent =
-        value.length;
-
-
-    /* Characters without spaces */
+    value.length;
 
     noSpaces.textContent =
-        value
-        .replace(/\s/g,"")
-        .length;
+    value.replace(/\s/g,"").length;
 
-
-    /* Words */
 
     const trimmed =
-        value.trim();
+    value.trim();
 
     const wordCount =
-        trimmed === ""
-            ? 0
-            : trimmed
-                .split(/\s+/)
-                .length;
+    trimmed === ""
+    ? 0
+    : trimmed.split(/\s+/).length;
 
     words.textContent =
-        wordCount;
+    wordCount;
 
-
-    /* Sentences */
 
     const sentenceMatches =
-        value.match(
-            /[^.!?]+[.!?]+/g
-        );
+    value.match(
+        /[^.!?]+[.!?]+/g
+    );
 
     sentences.textContent =
-        sentenceMatches
-            ? sentenceMatches.length
-            : (
-                trimmed
-                    ? 1
-                    : 0
-            );
+    sentenceMatches
+    ? sentenceMatches.length
+    : trimmed
+        ? 1
+        : 0;
 
-
-    /* Paragraphs */
 
     const paragraphMatches =
-        value
-        .trim()
-        .split(/\n\s*\n/)
-        .filter(Boolean);
+    value
+    .trim()
+    .split(/\n\s*\n/)
+    .filter(Boolean);
 
     paragraphs.textContent =
-        trimmed
-            ? paragraphMatches.length
-            : 0;
+    trimmed
+    ? paragraphMatches.length
+    : 0;
 
-
-    /* Reading Time */
 
     const minutes =
-        wordCount / 200;
+    wordCount / 200;
 
     if(wordCount === 0){
 
         readingTime.textContent =
-            "0 min";
+        "0 min";
 
-    }
-    else if(minutes < 1){
-
-        readingTime.textContent =
-            "< 1 min";
-
-    }
-    else{
+    }else if(minutes < 1){
 
         readingTime.textContent =
-            Math.ceil(minutes)
-            + " min";
+        "< 1 min";
+
+    }else{
+
+        readingTime.textContent =
+        Math.ceil(minutes) + " min";
 
     }
 
 }
 
 
-/* LIVE UPDATE */
+/* LIVE COUNT */
 
 text.addEventListener(
     "input",
@@ -1211,79 +848,66 @@ text.addEventListener(
 );
 
 
-/* ================= CLEAR ================= */
+/* CLEAR */
 
 document
 .getElementById("clear")
-.addEventListener(
-    "click",
-    ()=>{
+.addEventListener("click",()=>{
 
-        text.value="";
+    text.value="";
 
-        updateStats();
+    updateStats();
 
-        text.focus();
+    text.focus();
 
-    }
-);
+});
 
 
-/* ================= COPY ================= */
+/* COPY */
 
 document
 .getElementById("copy")
-.addEventListener(
-    "click",
-    async ()=>{
+.addEventListener("click",async()=>{
 
-        if(!text.value){
+    if(!text.value){
 
-            alert(
-                "There is no text to copy."
-            );
+        alert("There is no text to copy.");
 
-            return;
-
-        }
-
-        try{
-
-            await navigator
-            .clipboard
-            .writeText(
-                text.value
-            );
-
-            const button =
-                document
-                .getElementById("copy");
-
-            const oldText =
-                button.textContent;
-
-            button.textContent =
-                "✅ Copied!";
-
-            setTimeout(()=>{
-
-                button.textContent =
-                    oldText;
-
-            },1500);
-
-        }
-        catch(error){
-
-            alert(
-                "Copy failed. Please copy the text manually."
-            );
-
-        }
+        return;
 
     }
-);
 
+    try{
+
+        await navigator.clipboard.writeText(
+            text.value
+        );
+
+        const button =
+        document.getElementById("copy");
+
+        const old =
+        button.textContent;
+
+        button.textContent =
+        "✅ Copied!";
+
+        setTimeout(()=>{
+
+            button.textContent =
+            old;
+
+        },1500);
+
+    }catch(error){
+
+        alert(
+            "Copy failed. Please copy manually."
+        );
+
+    }
+
+});
 
 </script>
 
