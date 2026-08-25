@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JS Minifier - VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:30px;text-align:center}
+.box{max-width:900px;margin:auto;background:#111a30;padding:25px;border-radius:20px}
+textarea{width:95%;height:350px;padding:15px;font-family:monospace}
+button{padding:12px 25px;margin:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>JavaScript Minifier</h1>
+<textarea id="code" placeholder="Paste JavaScript here..."></textarea>
+<br><button onclick="minify()">Minify JS</button>
+</div>
+<script>
+function minify(){
+let x=document.getElementById("code").value;
+x=x.replace(/\/\*[\s\S]*?\*\//g,"")
+.replace(/\/\/.*$/gm,"")
+.replace(/\s+/g," ")
+.trim();
+document.getElementById("code").value=x;
+}
+</script>
+</body>
+</html>
