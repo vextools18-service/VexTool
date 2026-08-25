@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Random Number Generator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:50px 20px;text-align:center}
+.container{max-width:600px;margin:auto}
+input{padding:15px;width:100%;margin:10px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
+button{padding:15px 30px;background:#7c3aed;color:white;border:0;border-radius:10px;margin-top:10px;cursor:pointer}
+.result{font-size:35px;font-weight:bold;padding:30px;margin:25px 0;background:#111a30;border-radius:15px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎲 Random Number Generator</h1>
+<p>Generate a random number between your chosen range.</p>
+<input id="min" type="number" placeholder="Minimum">
+<input id="max" type="number" placeholder="Maximum">
+<button onclick="generate()">Generate</button>
+<div class="result" id="result">?</div>
+</div>
+<script>
+function generate(){
+let a=Number(min.value),b=Number(max.value);
+if(a>b)[a,b]=[b,a];
+result.textContent=Math.floor(Math.random()*(b-a+1))+a;
+}
+</script>
+</body>
+</html>
