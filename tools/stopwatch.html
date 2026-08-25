@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stopwatch - VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;text-align:center;padding:80px}
+#time{font-size:70px;margin:30px}
+button{padding:14px 25px;margin:5px;border:0;border-radius:10px;background:#7c3aed;color:white}
+</style>
+</head>
+<body>
+<h1>Stopwatch</h1>
+<div id="time">00:00:00</div>
+<button onclick="start()">Start</button>
+<button onclick="stop()">Stop</button>
+<button onclick="reset()">Reset</button>
+<script>
+let sec=0,timer=null;
+function update(){
+let h=Math.floor(sec/3600);
+let m=Math.floor(sec%3600/60);
+let s=sec%60;
+document.getElementById("time").textContent=
+[h,m,s].map(x=>String(x).padStart(2,"0")).join(":");
+}
+function start(){if(!timer)timer=setInterval(()=>{sec++;update()},1000)}
+function stop(){clearInterval(timer);timer=null}
+function reset(){stop();sec=0;update()}
+</script>
+</body>
+</html>
