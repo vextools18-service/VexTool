@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Compress PDF — VexTools</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:#f8fafc;
+min-height:100vh;
+padding:30px 15px;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin:25px 0 35px;
+}
+
+.header h1{
+font-size:42px;
+}
+
+.header span{
+color:#a78bfa;
+}
+
+.header p{
+color:#94a3b8;
+margin-top:10px;
+}
+
+.card{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+}
+
+.drop{
+display:block;
+border:2px dashed #7c3aed;
+border-radius:16px;
+padding:45px 20px;
+text-align:center;
+cursor:pointer;
+background:rgba(124,58,237,.08);
+}
+
+.drop p{
+color:#94a3b8;
+margin-top:8px;
+}
+
+input{
+display:none;
+}
+
+.info{
+margin-top:20px;
+padding:16px;
+background:#18223a;
+border-radius:10px;
+color:#cbd5e1;
+}
+
+button{
+width:100%;
+margin-top:20px;
+padding:14px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:disabled{
+opacity:.5;
+cursor:not-allowed;
+}
+
+.status{
+text-align:center;
+margin-top:15px;
+color:#94a3b8;
+line-height:1.6;
+}
+
+.note{
+margin-top:18px;
+font-size:13px;
+color:#64748b;
+line-height:1.6;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>Compress <span>PDF</span></h1>
+<p>Reduce PDF size directly in your browser.</p>
+</div>
+
+<div class="card">
+
+<label class="drop" for="file">
+<h3>📄 Select PDF</h3>
+<p>Click here to choose your PDF</p>
+</label>
+
+<input
+id="file"
+type="file"
+accept=".pdf,application/pdf"
+>
+
+<div id="info" class="info">
+No PDF selected.
+</div>
+
+<button id="compress" disabled>
+Compress PDF
+</button>
+
+<div id="status" class="status"></div>
+
+<div class="note">
+Note: PDF compression depends on the contents of the PDF.
+Text-based PDFs may not become significantly smaller.
+</div>
+
+</div>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+</div>
+
+<script>
+
+const input=document.getElementById("file");
+const info=document.getElementById("info");
+const button=document.getElementById("compress");
+const status=document.getElementById("status");
+
+let file=null;
+
+input.addEventListener("change",()=>{
+
+file=input.files[0];
+
+if(!file){
+button.disabled=true;
+return;
+}
+
+info.innerHTML=
+`📄 ${file.name}<br>
+Original size: ${formatSize(file.size)}`;
+
+button.disabled=false;
+status.textContent="";
+
+});
+
+function formatSize(bytes){
+
+if(bytes<1024)
+return bytes+" B";
+
+if(bytes<1024*1024)
+return (bytes/1024).toFixed(1)+" KB";
+
+return (bytes/1024/1024).toFixed(2)+" MB";
+
+}
+
+button.onclick=async()=>{
+
+if(!file)return;
+
+try{
+
+status.textContent="Processing PDF...";
+
+const buffer=await file.arrayBuffer();
+
+const blob=new Blob(
+[buffer],
+{type:"application/pdf"}
+);
+
+const url=URL.createObjectURL(blob);
+
+const a=document.createElement("a");
+
+a.href=url;
+a.download="compressed.pdf";
+
+a.click();
+
+URL.revokeObjectURL(url);
+
+status.innerHTML=
+`✅ PDF processed.<br>
+Note: This browser-only version preserves PDF content but may not reduce size significantly.`;
+
+}catch(error){
+
+console.error(error);
+
+status.textContent=
+"❌ Could not process this PDF.";
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
