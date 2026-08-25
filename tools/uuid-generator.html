@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UUID Generator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:60px 20px;text-align:center}
+.container{max-width:700px;margin:auto}
+.result{margin:30px 0;padding:25px;background:#111a30;border-radius:12px;font-family:monospace;font-size:18px;word-break:break-all}
+button{padding:15px 25px;background:#7c3aed;color:white;border:0;border-radius:10px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🆔 UUID Generator</h1>
+<p>Generate unique UUIDs instantly.</p>
+<div class="result" id="result">Click Generate</div>
+<button onclick="generate()">Generate UUID</button>
+<button onclick="copy()">Copy</button>
+</div>
+<script>
+function generate(){
+result.textContent=crypto.randomUUID();
+}
+function copy(){
+navigator.clipboard.writeText(result.textContent);
+alert("UUID copied!");
+}
+</script>
+</body>
+</html>
