@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loan Calculator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
+.container{max-width:650px;margin:auto}
+input{width:100%;padding:15px;margin:8px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
+button{width:100%;padding:15px;background:#7c3aed;color:white;border:0;border-radius:10px;margin-top:10px}
+.result{margin-top:20px;padding:20px;background:#111a30;border-radius:10px;line-height:2}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>💰 Loan Calculator</h1>
+<p>Estimate monthly loan payments.</p>
+
+<input id="amount" type="number" placeholder="Loan Amount">
+<input id="rate" type="number" placeholder="Annual Interest Rate (%)">
+<input id="months" type="number" placeholder="Loan Term (Months)">
+
+<button onclick="calculate()">Calculate</button>
+<div class="result" id="result">Result</div>
+</div>
+
+<script>
+function calculate(){
+let P=Number(amount.value);
+let annual=Number(rate.value);
+let n=Number(months.value);
+
+if(!P||!n){
+result.textContent="Enter valid values.";
+return;
+}
+
+let r=annual/100/12;
+let payment=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+let total=payment*n;
+
+result.innerHTML=
+"Monthly Payment: "+payment.toFixed(2)+
+"<br>Total Payment: "+total.toFixed(2)+
+"<br>Total Interest: "+(total-P).toFixed(2);
+}
+</script>
+</body>
+</html>
