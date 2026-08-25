@@ -1,38 +1,1019 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JSON Formatter — VexTools</title>
-<style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
-.container{max-width:900px;margin:auto}
-textarea{width:100%;height:350px;padding:20px;background:#111a30;color:#22d3ee;border:1px solid #27304a;border-radius:12px;font-family:monospace}
-button{padding:14px 25px;margin-top:15px;background:#7c3aed;color:white;border:0;border-radius:10px;cursor:pointer}
-#status{margin-top:15px}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>{ } JSON Formatter</h1>
-<p>Format JSON into readable code.</p>
-<textarea id="json" placeholder='{"name":"VexTools"}'></textarea>
-<br>
-<button onclick="formatJSON()">Format JSON</button>
-<button onclick="minify()">Minify</button>
-<div id="status"></div>
-</div>
-<script>
-function formatJSON(){
-try{
-json.value=JSON.stringify(JSON.parse(json.value),null,4);
-status.textContent="✓ Valid JSON";
-}catch(e){status.textContent="❌ Invalid JSON";}
-}
-function minify(){
-try{json.value=JSON.stringify(JSON.parse(json.value));status.textContent="✓ Minified";}
-catch(e){status.textContent="❌ Invalid JSON";}
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>JSON Formatter & Validator Online — VexTools</title>
+
+<meta name="description"
+      content="Free online JSON Formatter and Validator. Format, beautify and minify JSON instantly in your browser with clear error messages.">
+
+<meta name="keywords"
+      content="JSON formatter, JSON validator, JSON beautifier, format JSON online, minify JSON, JSON tool, developer tools, VexTools">
+
+<meta name="author"
+      content="VexTools">
+
+<meta name="robots"
+      content="index, follow">
+
+<meta name="googlebot"
+      content="index, follow">
+
+<link rel="canonical"
+      href="https://vextools18-service.github.io/VexTool/tools/json-formatter.html">
+
+
+<!-- Open Graph -->
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:title"
+      content="JSON Formatter & Validator Online — VexTools">
+
+<meta property="og:description"
+      content="Format, validate and minify JSON online for free with VexTools.">
+
+<meta property="og:url"
+      content="https://vextools18-service.github.io/VexTool/tools/json-formatter.html">
+
+<meta property="og:site_name"
+      content="VexTools">
+
+
+<!-- Twitter -->
+
+<meta name="twitter:card"
+      content="summary">
+
+<meta name="twitter:title"
+      content="JSON Formatter & Validator Online — VexTools">
+
+<meta name="twitter:description"
+      content="Free online JSON formatter, validator and minifier.">
+
+
+<!-- Theme -->
+
+<meta name="theme-color"
+      content="#070b18">
+
+
+<!-- Structured Data -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "JSON Formatter",
+  "url": "https://vextools18-service.github.io/VexTool/tools/json-formatter.html",
+  "description": "Free online JSON formatter, validator and minifier.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
 }
 </script>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background:#070b18;
+
+    color:#f8fafc;
+
+    min-height:100vh;
+
+    padding:30px 15px;
+
+}
+
+
+.container{
+
+    max-width:950px;
+
+    margin:auto;
+
+}
+
+
+/* HEADER */
+
+.header{
+
+    text-align:center;
+
+    margin:30px 0 35px;
+
+}
+
+
+.header h1{
+
+    font-size:clamp(32px,6vw,48px);
+
+    margin-bottom:12px;
+
+}
+
+
+.header h1 span{
+
+    color:#a78bfa;
+
+}
+
+
+.header p{
+
+    color:#94a3b8;
+
+    line-height:1.6;
+
+}
+
+
+/* CARD */
+
+.card{
+
+    background:#111a30;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25);
+
+}
+
+
+/* TEXTAREA */
+
+textarea{
+
+    width:100%;
+
+    min-height:380px;
+
+    resize:vertical;
+
+    padding:20px;
+
+    background:#080d1d;
+
+    color:#22d3ee;
+
+    border:1px solid #27304a;
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-family:
+        Consolas,
+        Monaco,
+        monospace;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    transition:.25s;
+
+}
+
+
+textarea:focus{
+
+    border-color:#8b5cf6;
+
+    box-shadow:
+        0 0 25px rgba(124,58,237,.2);
+
+}
+
+
+textarea.error{
+
+    border-color:#ef4444;
+
+    box-shadow:
+        0 0 20px rgba(239,68,68,.15);
+
+}
+
+
+/* BUTTONS */
+
+.actions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+button{
+
+    flex:1;
+
+    min-width:140px;
+
+    padding:14px 20px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #06b6d4
+        );
+
+    color:white;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(124,58,237,.3);
+
+}
+
+
+button.secondary{
+
+    background:#202a43;
+
+}
+
+
+button.clear{
+
+    background:#374151;
+
+}
+
+
+/* STATUS */
+
+.status{
+
+    margin-top:18px;
+
+    padding:13px 15px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    display:none;
+
+}
+
+
+.status.success{
+
+    display:block;
+
+    background:rgba(34,197,94,.1);
+
+    border:1px solid rgba(34,197,94,.25);
+
+    color:#86efac;
+
+}
+
+
+.status.error{
+
+    display:block;
+
+    background:rgba(239,68,68,.1);
+
+    border:1px solid rgba(239,68,68,.3);
+
+    color:#fca5a5;
+
+}
+
+
+.error-detail{
+
+    margin-top:6px;
+
+    font-family:monospace;
+
+    font-size:13px;
+
+    word-break:break-word;
+
+}
+
+
+/* INFO */
+
+.info{
+
+    margin-top:45px;
+
+}
+
+
+.info h2{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+
+.info p{
+
+    color:#94a3b8;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+.feature{
+
+    background:#111a30;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+
+.feature-icon{
+
+    font-size:27px;
+
+    margin-bottom:10px;
+
+}
+
+
+.feature h3{
+
+    margin-bottom:7px;
+
+}
+
+
+.feature p{
+
+    font-size:13px;
+
+    margin:0;
+
+}
+
+
+/* FAQ */
+
+.faq{
+
+    margin-top:45px;
+
+}
+
+
+.faq h2{
+
+    margin-bottom:20px;
+
+}
+
+
+.faq-item{
+
+    margin-bottom:15px;
+
+    padding:18px;
+
+    background:#111a30;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:13px;
+
+}
+
+
+.faq-item h3{
+
+    font-size:16px;
+
+    margin-bottom:8px;
+
+}
+
+
+.faq-item p{
+
+    color:#94a3b8;
+
+    line-height:1.6;
+
+    font-size:14px;
+
+}
+
+
+/* BACK */
+
+.back{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}
+
+
+.back:hover{
+
+    color:#c4b5fd;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    body{
+
+        padding:20px 12px;
+
+    }
+
+    .card{
+
+        padding:16px;
+
+    }
+
+    textarea{
+
+        min-height:300px;
+
+        font-size:14px;
+
+    }
+
+    .actions{
+
+        flex-direction:column;
+
+    }
+
+    button{
+
+        width:100%;
+
+    }
+
+    .features{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/* REDUCED MOTION */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        scroll-behavior:auto!important;
+
+        transition:none!important;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <h1>
+        { } JSON <span>Formatter</span>
+    </h1>
+
+    <p>
+        Format, validate and minify JSON online for free.
+    </p>
+
+</header>
+
+
+<!-- TOOL -->
+
+<main class="card">
+
+    <textarea
+        id="json"
+        spellcheck="false"
+        autocomplete="off"
+        placeholder='Paste your JSON here...
+
+Example:
+{
+    "name": "VexTools",
+    "free": true,
+    "tools": 50
+}'></textarea>
+
+
+    <div class="actions">
+
+        <button onclick="formatJSON()">
+            ✨ Format JSON
+        </button>
+
+        <button
+            class="secondary"
+            onclick="minifyJSON()">
+
+            ⚡ Minify JSON
+
+        </button>
+
+        <button
+            class="clear"
+            onclick="clearJSON()">
+
+            🗑️ Clear
+
+        </button>
+
+    </div>
+
+
+    <div
+        id="status"
+        class="status"
+        role="status"
+        aria-live="polite">
+    </div>
+
+</main>
+
+
+<!-- DESCRIPTION -->
+
+<section class="info">
+
+    <h2>
+        Free Online JSON Formatter
+    </h2>
+
+    <p>
+        VexTools JSON Formatter is a free online developer
+        tool that lets you format, beautify, validate and
+        minify JSON directly in your browser.
+        No software installation is required.
+    </p>
+
+    <p>
+        Paste your JSON into the editor and click
+        <strong>Format JSON</strong> to make the data easier
+        to read. If the JSON is invalid, the tool will show
+        an error message explaining the problem.
+    </p>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ✨
+            </div>
+
+            <h3>
+                Format JSON
+            </h3>
+
+            <p>
+                Beautify JSON and make nested data
+                easier to read.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ✓
+            </div>
+
+            <h3>
+                Validate JSON
+            </h3>
+
+            <p>
+                Detect invalid JSON and receive
+                clear error feedback.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Minify JSON
+            </h3>
+
+            <p>
+                Remove unnecessary spaces and
+                create compact JSON.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="faq">
+
+    <h2>
+        Frequently Asked Questions
+    </h2>
+
+
+    <div class="faq-item">
+
+        <h3>
+            What is a JSON formatter?
+        </h3>
+
+        <p>
+            A JSON formatter makes JSON data easier to
+            read by adding indentation and line breaks.
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            How do I format JSON online?
+        </h3>
+
+        <p>
+            Paste your JSON into the editor and click
+            the Format JSON button. Valid JSON will be
+            automatically formatted.
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            What happens if my JSON is invalid?
+        </h3>
+
+        <p>
+            VexTools will display an error message instead
+            of silently failing, helping you identify that
+            the submitted JSON is not valid.
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            Is this JSON formatter free?
+        </h3>
+
+        <p>
+            Yes. The VexTools JSON Formatter is free to use
+            directly in your browser.
+        </p>
+
+    </div>
+
+</section>
+
+
+<a
+    class="back"
+    href="../index.html">
+
+    ← Back to VexTools
+
+</a>
+
+
+</div>
+
+
+<script>
+
+const json =
+    document.getElementById("json");
+
+const status =
+    document.getElementById("status");
+
+
+/* SHOW SUCCESS */
+
+function showSuccess(message){
+
+    status.className =
+        "status success";
+
+    status.textContent =
+        "✓ " + message;
+
+}
+
+
+/* SHOW ERROR */
+
+function showError(error){
+
+    status.className =
+        "status error";
+
+    status.innerHTML =
+        "❌ Invalid JSON" +
+        '<div class="error-detail">' +
+        escapeHTML(error.message) +
+        "</div>";
+
+}
+
+
+/* ESCAPE ERROR TEXT */
+
+function escapeHTML(text){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* FORMAT */
+
+function formatJSON(){
+
+    const value =
+        json.value.trim();
+
+
+    if(!value){
+
+        status.className =
+            "status error";
+
+        status.textContent =
+            "❌ Please enter some JSON first.";
+
+        json.classList.add("error");
+
+        return;
+
+    }
+
+
+    try{
+
+        const parsed =
+            JSON.parse(value);
+
+
+        json.value =
+            JSON.stringify(
+                parsed,
+                null,
+                4
+            );
+
+
+        json.classList.remove("error");
+
+        showSuccess(
+            "Valid JSON — formatted successfully!"
+        );
+
+    }
+
+    catch(error){
+
+        json.classList.add("error");
+
+        showError(error);
+
+    }
+
+}
+
+
+/* MINIFY */
+
+function minifyJSON(){
+
+    const value =
+        json.value.trim();
+
+
+    if(!value){
+
+        status.className =
+            "status error";
+
+        status.textContent =
+            "❌ Please enter some JSON first.";
+
+        json.classList.add("error");
+
+        return;
+
+    }
+
+
+    try{
+
+        const parsed =
+            JSON.parse(value);
+
+
+        json.value =
+            JSON.stringify(parsed);
+
+
+        json.classList.remove("error");
+
+        showSuccess(
+            "Valid JSON — minified successfully!"
+        );
+
+    }
+
+    catch(error){
+
+        json.classList.add("error");
+
+        showError(error);
+
+    }
+
+}
+
+
+/* CLEAR */
+
+function clearJSON(){
+
+    json.value = "";
+
+    json.classList.remove("error");
+
+    status.className =
+        "status";
+
+    status.textContent = "";
+
+}
+
+
+/* CTRL + ENTER = FORMAT */
+
+json.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.ctrlKey &&
+            event.key === "Enter"
+        ){
+
+            event.preventDefault();
+
+            formatJSON();
+
+        }
+
+    }
+);
+
+</script>
+
+
 </body>
+
 </html>
