@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Email Validator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
+.container{max-width:600px;margin:auto}
+input{width:100%;padding:17px;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px;margin:20px 0}
+button{width:100%;padding:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
+.result{margin-top:20px;padding:20px;background:#111a30;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📧 Email Validator</h1>
+<p>Check whether an email address has a valid format.</p>
+<input id="email" type="email" placeholder="example@email.com">
+<button onclick="validate()">Validate Email</button>
+<div class="result" id="result">Enter an email address.</div>
+</div>
+
+<script>
+function validate(){
+let pattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+result.textContent=pattern.test(email.value)
+?"✅ Valid email format"
+:"❌ Invalid email format";
+}
+</script>
+</body>
+</html>
