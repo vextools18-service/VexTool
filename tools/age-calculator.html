@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Age Calculator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
+.container{max-width:600px;margin:auto;text-align:center}
+input{padding:15px;width:100%;margin:20px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
+button{padding:14px 30px;background:#7c3aed;color:white;border:0;border-radius:10px}
+.result{margin-top:25px;padding:20px;background:#111a30;border-radius:12px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎂 Age Calculator</h1>
+<p>Calculate your exact age.</p>
+<input id="dob" type="date">
+<button onclick="calculate()">Calculate Age</button>
+<div class="result" id="result">Your age will appear here.</div>
+</div>
+<script>
+function calculate(){
+let birth=new Date(dob.value);
+let today=new Date();
+if(!dob.value)return;
+let age=today.getFullYear()-birth.getFullYear();
+let m=today.getMonth()-birth.getMonth();
+if(m<0||(m===0&&today.getDate()<birth.getDate()))age--;
+result.textContent="Your age is "+age+" years.";
+}
+</script>
+</body>
+</html>
