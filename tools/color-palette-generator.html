@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Color Palette Generator - VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;text-align:center;padding:40px}
+button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px;margin:20px}
+#palette{display:flex;max-width:900px;margin:auto;height:300px}
+.color{flex:1;display:flex;align-items:end;justify-content:center;padding:15px;font-weight:bold}
+</style>
+</head>
+<body>
+<h1>Color Palette Generator</h1>
+<button onclick="generate()">Generate Palette</button>
+<div id="palette"></div>
+<script>
+function generate(){
+let p=document.getElementById("palette");
+p.innerHTML="";
+for(let i=0;i<5;i++){
+let c="#"+Math.floor(Math.random()*16777215).toString(16).padStart(6,"0");
+p.innerHTML+=`<div class="color" style="background:${c}">${c}</div>`;
+}
+}
+generate();
+</script>
+</body>
+</html>
