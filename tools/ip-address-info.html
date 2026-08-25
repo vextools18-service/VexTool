@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IP Address Info - VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;text-align:center;padding:60px}
+.box{max-width:600px;margin:auto;background:#111a30;padding:30px;border-radius:20px}
+button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px}
+#result{margin-top:25px;line-height:2}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>IP Address Info</h1>
+<button onclick="getIP()">Check My IP</button>
+<div id="result"></div>
+</div>
+<script>
+async function getIP(){
+let r=document.getElementById("result");
+r.textContent="Loading...";
+try{
+let x=await fetch("https://ipapi.co/json/").then(a=>a.json());
+r.innerHTML=`IP: <b>${x.ip}</b><br>Country: ${x.country_name}<br>City: ${x.city}<br>ISP: ${x.org}`;
+}catch(e){r.textContent="Unable to get IP information."}
+}
+</script>
+</body>
+</html>
