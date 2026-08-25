@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Merge PDF — VexTools</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:#f8fafc;
+min-height:100vh;
+padding:30px 15px;
+}
+.container{max-width:800px;margin:auto}
+.header{text-align:center;margin:25px 0 35px}
+.header h1{font-size:42px}
+.header span{color:#a78bfa}
+.header p{color:#94a3b8;margin-top:10px}
+.card{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+}
+.drop{
+border:2px dashed #7c3aed;
+border-radius:16px;
+padding:45px 20px;
+text-align:center;
+cursor:pointer;
+background:rgba(124,58,237,.08);
+}
+.drop:hover{background:rgba(124,58,237,.15)}
+.drop h3{margin-bottom:8px}
+.drop p{color:#94a3b8}
+input{display:none}
+.file-list{margin-top:20px}
+.file{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:13px;
+margin:8px 0;
+background:#18223a;
+border-radius:10px;
+}
+.file button{
+background:#ef4444;
+border:0;
+color:white;
+padding:7px 10px;
+border-radius:7px;
+cursor:pointer;
+}
+.actions{display:flex;gap:10px;margin-top:20px}
+button.main{
+flex:1;
+padding:14px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+button.main:disabled{opacity:.5;cursor:not-allowed}
+.status{text-align:center;margin-top:15px;color:#94a3b8}
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>Merge <span>PDF</span></h1>
+<p>Combine multiple PDF files into one PDF.</p>
+</div>
+
+<div class="card">
+
+<label class="drop" for="files">
+<h3>📄 Select PDF Files</h3>
+<p>Click here to choose multiple PDF files</p>
+</label>
+
+<input id="files" type="file" accept=".pdf,application/pdf" multiple>
+
+<div id="list" class="file-list"></div>
+
+<div class="actions">
+<button class="main" id="merge" disabled>Merge PDFs</button>
+<button class="main" id="clear">Clear</button>
+</div>
+
+<div id="status" class="status"></div>
+
+</div>
+
+<a class="back" href="../index.html">← Back to VexTools</a>
+
+</div>
+
+<script>
+const input=document.getElementById("files");
+const list=document.getElementById("list");
+const merge=document.getElementById("merge");
+const clear=document.getElementById("clear");
+const status=document.getElementById("status");
+
+let selected=[];
+
+input.addEventListener("change",()=>{
+selected=[...selected,...input.files];
+render();
+input.value="";
+});
+
+function render(){
+list.innerHTML="";
+
+selected.forEach((file,index)=>{
+const div=document.createElement("div");
+div.className="file";
+
+div.innerHTML=`
+<span>📄 ${file.name}</span>
+<button onclick="removeFile(${index})">Remove</button>
+`;
+
+list.appendChild(div);
+});
+
+merge.disabled=selected.length<2;
+}
+
+function removeFile(index){
+selected.splice(index,1);
+render();
+}
+
+clear.onclick=()=>{
+selected=[];
+render();
+status.textContent="";
+};
+
+merge.onclick=async()=>{
+if(selected.length<2)return;
+
+try{
+status.textContent="Merging PDFs...";
+
+const merged=await PDFLib.PDFDocument.create();
+
+for(const file of selected){
+const bytes=await file.arrayBuffer();
+const pdf=await PDFLib.PDFDocument.load(bytes);
+
+const pages=await merged.copyPages(
+pdf,
+pdf.getPageIndices()
+);
+
+pages.forEach(page=>merged.addPage(page));
+}
+
+const result=await merged.save();
+
+const blob=new Blob([result],{type:"application/pdf"});
+const url=URL.createObjectURL(blob);
+
+const a=document.createElement("a");
+a.href=url;
+a.download="merged.pdf";
+a.click();
+
+URL.revokeObjectURL(url);
+
+status.textContent="✅ PDF merged successfully!";
+}catch(error){
+console.error(error);
+status.textContent="❌ Could not merge the PDFs.";
+}
+};
+</script>
+
+</body>
+</html>
