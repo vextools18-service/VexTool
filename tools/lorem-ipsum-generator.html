@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lorem Ipsum Generator — VexTools</title>
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:30px 15px;
+}
+
+.container{max-width:850px;margin:auto}
+
+.header{text-align:center;margin-bottom:25px}
+
+.logo{
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+}
+
+h1{margin:15px 0 8px}
+
+p{color:#94a3b8}
+
+.card{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:22px;
+}
+
+.controls{
+display:flex;
+gap:10px;
+margin-bottom:15px;
+}
+
+input{
+width:100px;
+padding:12px;
+background:#0d1427;
+color:white;
+border:1px solid #29344f;
+border-radius:10px;
+}
+
+button{
+padding:12px 18px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+textarea{
+width:100%;
+height:350px;
+padding:18px;
+background:#0d1427;
+color:white;
+border:1px solid #29344f;
+border-radius:14px;
+resize:vertical;
+line-height:1.7;
+}
+
+@media(max-width:500px){
+.controls{flex-wrap:wrap}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<a class="logo" href="../index.html">VexTools</a>
+<h1>Lorem Ipsum Generator</h1>
+<p>Generate placeholder text instantly.</p>
+</div>
+
+<div class="card">
+
+<div class="controls">
+<input id="count" type="number" min="1" max="100" value="3">
+<button onclick="generate()">Generate</button>
+<button onclick="copyText()">Copy</button>
+</div>
+
+<textarea id="output" readonly></textarea>
+
+</div>
+</div>
+
+<script>
+const words=`lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum`.split(" ");
+
+function generate(){
+let paragraphs=[];
+let count=Math.min(100,Math.max(1,Number(document.getElementById("count").value)));
+
+for(let p=0;p<count;p++){
+let sentence=[];
+for(let i=0;i<45;i++){
+sentence.push(words[Math.floor(Math.random()*words.length)]);
+}
+let text=sentence.join(" ");
+text=text.charAt(0).toUpperCase()+text.slice(1)+".";
+paragraphs.push(text);
+}
+
+document.getElementById("output").value=paragraphs.join("\n\n");
+}
+
+function copyText(){
+navigator.clipboard.writeText(document.getElementById("output").value);
+}
+
+generate();
+</script>
+
+</body>
+</html>
