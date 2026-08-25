@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Converter — VexTools</title>
+<meta name="description" content="Free online text case converter. Convert text to uppercase, lowercase, title case and sentence case.">
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Arial,sans-serif;
+    min-height:100vh;
+    background:#070b18;
+    color:#f8fafc;
+    padding:30px 15px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo{
+    display:inline-block;
+    color:#a78bfa;
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+    margin-bottom:10px;
+}
+
+h1{
+    font-size:36px;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#94a3b8;
+}
+
+.card{
+    background:rgba(17,25,45,.85);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:22px;
+}
+
+textarea{
+    width:100%;
+    min-height:300px;
+    resize:vertical;
+    padding:18px;
+    border-radius:14px;
+    border:1px solid #29344f;
+    outline:none;
+    background:#0d1427;
+    color:white;
+    font-size:16px;
+    line-height:1.6;
+}
+
+textarea:focus{
+    border-color:#7c3aed;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+button{
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(90deg,#7c3aed,#6366f1);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.stats{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+@media(max-width:600px){
+    .buttons{grid-template-columns:1fr 1fr}
+    h1{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<a class="logo" href="../index.html">VexTools</a>
+<h1>Case Converter</h1>
+<p>Convert your text into different cases instantly.</p>
+</div>
+
+<div class="card">
+
+<textarea id="text" placeholder="Type or paste your text here..."></textarea>
+
+<div class="buttons">
+<button onclick="upper()">UPPERCASE</button>
+<button onclick="lower()">lowercase</button>
+<button onclick="titleCase()">Title Case</button>
+<button onclick="sentenceCase()">Sentence case</button>
+<button onclick="alternate()">aLtErNaTe CaSe</button>
+<button onclick="copyText()">Copy Text</button>
+<button onclick="clearText()">Clear</button>
+</div>
+
+<div class="stats">
+<span id="words">Words: 0</span>
+<span id="chars">Characters: 0</span>
+</div>
+
+</div>
+</div>
+
+<script>
+const text=document.getElementById("text");
+
+function upper(){
+    text.value=text.value.toUpperCase();
+    update();
+}
+
+function lower(){
+    text.value=text.value.toLowerCase();
+    update();
+}
+
+function titleCase(){
+    text.value=text.value.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+    update();
+}
+
+function sentenceCase(){
+    text.value=text.value.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g,c=>c.toUpperCase());
+    update();
+}
+
+function alternate(){
+    text.value=[...text.value].map((c,i)=>i%2?c.toLowerCase():c.toUpperCase()).join("");
+    update();
+}
+
+function copyText(){
+    navigator.clipboard.writeText(text.value);
+}
+
+function clearText(){
+    text.value="";
+    update();
+}
+
+function update(){
+    const value=text.value.trim();
+    document.getElementById("words").textContent="Words: "+(value?value.split(/\s+/).length:0);
+    document.getElementById("chars").textContent="Characters: "+text.value.length;
+}
+
+text.addEventListener("input",update);
+</script>
+
+</body>
+</html>
