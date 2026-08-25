@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Discount Calculator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
+.container{max-width:600px;margin:auto}
+input{width:100%;padding:16px;margin:10px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
+button{width:100%;padding:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
+.result{margin-top:20px;padding:20px;background:#111a30;border-radius:10px;line-height:2}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🏷️ Discount Calculator</h1>
+<p>Calculate discount and final price.</p>
+<input id="price" type="number" placeholder="Original Price">
+<input id="discount" type="number" placeholder="Discount %">
+<button onclick="calculate()">Calculate</button>
+<div class="result" id="result">Enter values above.</div>
+</div>
+<script>
+function calculate(){
+let p=Number(price.value),d=Number(discount.value);
+let saved=p*d/100;
+result.innerHTML="Discount: "+saved.toFixed(2)+"<br>Final Price: "+(p-saved).toFixed(2);
+}
+</script>
+</body>
+</html>
