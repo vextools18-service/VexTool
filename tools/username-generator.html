@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Username Generator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:50px 20px;text-align:center}
+.container{max-width:650px;margin:auto}
+input{width:100%;padding:15px;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px;margin:20px 0}
+button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px}
+.result{font-size:24px;margin:25px 0;padding:25px;background:#111a30;border-radius:12px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>👤 Username Generator</h1>
+<p>Create random username ideas.</p>
+<input id="word" placeholder="Optional word">
+<button onclick="generate()">Generate</button>
+<div class="result" id="result">Your username</div>
+</div>
+
+<script>
+const adjectives=["Cool","Smart","Epic","Fast","Dark","Pro","Mega","Lucky"];
+const nouns=["Tiger","Wolf","Dragon","Coder","Ninja","Fox","Player","Master"];
+
+function generate(){
+let base=word.value.trim();
+let a=adjectives[Math.floor(Math.random()*adjectives.length)];
+let n=nouns[Math.floor(Math.random()*nouns.length)];
+let num=Math.floor(Math.random()*9999);
+
+result.textContent=(base||a+n)+num;
+}
+</script>
+</body>
+</html>
