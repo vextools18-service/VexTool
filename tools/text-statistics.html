@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Text Statistics - VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:40px;text-align:center}
+.box{max-width:700px;margin:auto;background:#111a30;padding:25px;border-radius:20px}
+textarea{width:95%;height:250px;padding:15px;border-radius:12px}
+.stats{display:flex;justify-content:space-around;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Text Statistics</h1>
+<textarea id="text" placeholder="Type or paste text..."></textarea>
+<div class="stats">
+<div>Words<br><b id="words">0</b></div>
+<div>Characters<br><b id="chars">0</b></div>
+<div>Lines<br><b id="lines">0</b></div>
+</div>
+</div>
+<script>
+let t=document.getElementById("text");
+t.oninput=()=>{
+let x=t.value;
+document.getElementById("chars").textContent=x.length;
+document.getElementById("words").textContent=x.trim()?x.trim().split(/\s+/).length:0;
+document.getElementById("lines").textContent=x?x.split("\n").length:0;
+};
+</script>
+</body>
+</html>
