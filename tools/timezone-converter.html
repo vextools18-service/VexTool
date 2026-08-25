@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Timezone Converter - VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;text-align:center;padding:50px}
+.box{max-width:600px;margin:auto;background:#111a30;padding:30px;border-radius:20px}
+input,select,button{padding:13px;margin:8px;border-radius:10px;border:0}
+button{background:#7c3aed;color:white}
+#result{margin-top:20px;font-size:20px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Timezone Converter</h1>
+<input type="datetime-local" id="date">
+<select id="zone">
+<option value="UTC">UTC</option>
+<option value="Asia/Karachi">Pakistan</option>
+<option value="Asia/Kolkata">India</option>
+<option value="Europe/London">London</option>
+<option value="America/New_York">New York</option>
+<option value="America/Los_Angeles">Los Angeles</option>
+<option value="Asia/Tokyo">Tokyo</option>
+</select>
+<button onclick="convert()">Convert</button>
+<div id="result"></div>
+</div>
+<script>
+function convert(){
+let d=document.getElementById("date").value;
+let z=document.getElementById("zone").value;
+if(!d)return;
+let x=new Date(d);
+document.getElementById("result").textContent=
+x.toLocaleString("en-US",{timeZone:z,dateStyle:"full",timeStyle:"long"});
+}
+</script>
+</body>
+</html>
