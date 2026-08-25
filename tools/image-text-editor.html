@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Image Text Editor — VexTools</title>
+<meta name="description" content="Add and edit text on images directly in your browser.">
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#070b18;
+    color:#f8fafc;
+    min-height:100vh;
+    padding:30px 15px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:36px;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#94a3b8;
+}
+
+.editor{
+    background:#111a30;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:20px;
+}
+
+.controls{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.control{
+    background:#070b18;
+    border:1px solid #27304a;
+    border-radius:10px;
+    padding:10px;
+}
+
+.control label{
+    display:block;
+    font-size:12px;
+    color:#94a3b8;
+    margin-bottom:6px;
+}
+
+input,
+select{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #27304a;
+    background:#111a30;
+    color:white;
+}
+
+input[type="color"]{
+    height:40px;
+    padding:3px;
+    cursor:pointer;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+button{
+    border:0;
+    border-radius:10px;
+    padding:12px 18px;
+    background:#7c3aed;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+.upload{
+    background:#06b6d4;
+}
+
+.download{
+    background:#16a34a;
+}
+
+.clear{
+    background:#dc2626;
+}
+
+.canvas-wrap{
+    width:100%;
+    min-height:350px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    background:
+        repeating-conic-gradient(
+            #1b2438 0% 25%,
+            #111827 0% 50%
+        ) 50% / 20px 20px;
+    
+    overflow:auto;
+}
+
+canvas{
+    max-width:100%;
+    height:auto;
+    background:white;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.status{
+    text-align:center;
+    color:#94a3b8;
+    margin-top:15px;
+    font-size:13px;
+}
+
+@media(max-width:800px){
+
+    .controls{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:500px){
+
+    .controls{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:28px;
+    }
+
+    .buttons button{
+        width:100%;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🖼️ Image Text Editor</h1>
+        <p>Upload an image and add customizable text directly in your browser.</p>
+    </div>
+
+    <div class="editor">
+
+        <div class="buttons">
+
+            <label>
+                <input
+                    id="imageInput"
+                    type="file"
+                    accept="image/*"
+                    hidden
+                >
+
+                <button
+                    type="button"
+                    class="upload"
+                    onclick="document.getElementById('imageInput').click()"
+                >
+                    📁 Upload Image
+                </button>
+            </label>
+
+            <button onclick="addText()">
+                ➕ Add Text
+            </button>
+
+            <button onclick="clearCanvas()" class="clear">
+                🗑️ Clear
+            </button>
+
+            <button onclick="downloadImage()" class="download">
+                ⬇️ Download Image
+            </button>
+
+        </div>
+
+        <div class="controls">
+
+            <div class="control">
+                <label>Text</label>
+                <input
+                    id="textInput"
+                    type="text"
+                    value="VexTools"
+                    placeholder="Enter text"
+                >
+            </div>
+
+            <div class="control">
+                <label>Font Size</label>
+                <input
+                    id="fontSize"
+                    type="number"
+                    value="40"
+                    min="8"
+                    max="300"
+                >
+            </div>
+
+            <div class="control">
+                <label>Text Color</label>
+                <input
+                    id="textColor"
+                    type="color"
+                    value="#ffffff"
+                >
+            </div>
+
+            <div class="control">
+                <label>Font</label>
+
+                <select id="fontFamily">
+
+                    <option value="Arial">
+                        Arial
+                    </option>
+
+                    <option value="Georgia">
+                        Georgia
+                    </option>
+
+                    <option value="Verdana">
+                        Verdana
+                    </option>
+
+                    <option value="Courier New">
+                        Courier New
+                    </option>
+
+                    <option value="Impact">
+                        Impact
+                    </option>
+
+                    <option value="Times New Roman">
+                        Times New Roman
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="canvas-wrap">
+
+            <canvas
+                id="canvas"
+                width="900"
+                height="500"
+            ></canvas>
+
+        </div>
+
+        <div class="status" id="status">
+            Upload an image to get started.
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const canvas =
+document.getElementById("canvas");
+
+const ctx =
+canvas.getContext("2d");
+
+const imageInput =
+document.getElementById("imageInput");
+
+const textInput =
+document.getElementById("textInput");
+
+const fontSize =
+document.getElementById("fontSize");
+
+const textColor =
+document.getElementById("textColor");
+
+const fontFamily =
+document.getElementById("fontFamily");
+
+const statusText =
+document.getElementById("status");
+
+
+let image = null;
+
+let textObjects = [];
+
+let selectedText = null;
+
+let dragging = false;
+
+let offsetX = 0;
+let offsetY = 0;
+
+
+/* =========================
+   DEFAULT CANVAS
+========================= */
+
+ctx.fillStyle = "#222";
+
+ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+);
+
+ctx.fillStyle = "#94a3b8";
+
+ctx.font = "30px Arial";
+
+ctx.textAlign = "center";
+
+ctx.fillText(
+    "Upload an image",
+    canvas.width / 2,
+    canvas.height / 2
+);
+
+
+/* =========================
+   UPLOAD IMAGE
+========================= */
+
+imageInput.addEventListener(
+    "change",
+    function(){
+
+        const file =
+        this.files[0];
+
+        if(!file){
+            return;
+        }
+
+        const reader =
+        new FileReader();
+
+        reader.onload =
+        function(e){
+
+            image =
+            new Image();
+
+            image.onload =
+            function(){
+
+                canvas.width =
+                image.width;
+
+                canvas.height =
+                image.height;
+
+                textObjects = [];
+
+                selectedText = null;
+
+                draw();
+
+                statusText.textContent =
+                "Image loaded. Add text using the button above.";
+
+            };
+
+            image.src =
+            e.target.result;
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+);
+
+
+/* =========================
+   ADD TEXT
+========================= */
+
+function addText(){
+
+    if(!image){
+
+        alert(
+            "Please upload an image first."
+        );
+
+        return;
+    }
+
+    const obj = {
+
+        text:
+        textInput.value ||
+        "New Text",
+
+        x:
+        canvas.width / 2,
+
+        y:
+        canvas.height / 2,
+
+        size:
+        Number(fontSize.value) || 40,
+
+        color:
+        textColor.value,
+
+        font:
+        fontFamily.value
+
+    };
+
+    textObjects.push(obj);
+
+    selectedText =
+    obj;
+
+    draw();
+
+    statusText.textContent =
+    "Drag the text to move it.";
+
+}
+
+
+/* =========================
+   DRAW
+========================= */
+
+function draw(){
+
+    if(!image){
+        return;
+    }
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    ctx.drawImage(
+        image,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    textObjects.forEach(
+        function(obj){
+
+            ctx.font =
+            obj.size +
+            "px " +
+            obj.font;
+
+            ctx.fillStyle =
+            obj.color;
+
+            ctx.textAlign =
+            "center";
+
+            ctx.textBaseline =
+            "middle";
+
+            ctx.fillText(
+                obj.text,
+                obj.x,
+                obj.y
+            );
+
+            if(
+                obj === selectedText
+            ){
+
+                const width =
+                ctx.measureText(
+                    obj.text
+                ).width;
+
+                ctx.strokeStyle =
+                "#22d3ee";
+
+                ctx.lineWidth = 2;
+
+                ctx.strokeRect(
+                    obj.x - width / 2 - 8,
+                    obj.y - obj.size / 2 - 8,
+                    width + 16,
+                    obj.size + 16
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================
+   CANVAS MOUSE
+========================= */
+
+canvas.addEventListener(
+    "mousedown",
+    function(e){
+
+        const rect =
+        canvas.getBoundingClientRect();
+
+        const scaleX =
+        canvas.width /
+        rect.width;
+
+        const scaleY =
+        canvas.height /
+        rect.height;
+
+        const x =
+        (e.clientX - rect.left) *
+        scaleX;
+
+        const y =
+        (e.clientY - rect.top) *
+        scaleY;
+
+
+        for(
+            let i =
+            textObjects.length - 1;
+
+            i >= 0;
+
+            i--
+        ){
+
+            const obj =
+            textObjects[i];
+
+            ctx.font =
+            obj.size +
+            "px " +
+            obj.font;
+
+            const width =
+            ctx.measureText(
+                obj.text
+            ).width;
+
+
+            if(
+                x >
+                obj.x - width / 2 - 10 &&
+
+                x <
+                obj.x + width / 2 + 10 &&
+
+                y >
+                obj.y - obj.size / 2 - 10 &&
+
+                y <
+                obj.y + obj.size / 2 + 10
+            ){
+
+                selectedText =
+                obj;
+
+                dragging =
+                true;
+
+                offsetX =
+                x - obj.x;
+
+                offsetY =
+                y - obj.y;
+
+                draw();
+
+                break;
+
+            }
+
+        }
+
+    }
+);
+
+
+canvas.addEventListener(
+    "mousemove",
+    function(e){
+
+        if(
+            !dragging ||
+            !selectedText
+        ){
+            return;
+        }
+
+        const rect =
+        canvas.getBoundingClientRect();
+
+        const scaleX =
+        canvas.width /
+        rect.width;
+
+        const scaleY =
+        canvas.height /
+        rect.height;
+
+        const x =
+        (e.clientX - rect.left) *
+        scaleX;
+
+        const y =
+        (e.clientY - rect.top) *
+        scaleY;
+
+
+        selectedText.x =
+        x - offsetX;
+
+        selectedText.y =
+        y - offsetY;
+
+        draw();
+
+    }
+);
+
+
+canvas.addEventListener(
+    "mouseup",
+    function(){
+
+        dragging =
+        false;
+
+    }
+);
+
+
+canvas.addEventListener(
+    "mouseleave",
+    function(){
+
+        dragging =
+        false;
+
+    }
+);
+
+
+/* =========================
+   EDIT SELECTED TEXT
+========================= */
+
+textInput.addEventListener(
+    "input",
+    function(){
+
+        if(!selectedText){
+            return;
+        }
+
+        selectedText.text =
+        this.value;
+
+        draw();
+
+    }
+);
+
+
+fontSize.addEventListener(
+    "input",
+    function(){
+
+        if(!selectedText){
+            return;
+        }
+
+        selectedText.size =
+        Number(this.value);
+
+        draw();
+
+    }
+);
+
+
+textColor.addEventListener(
+    "input",
+    function(){
+
+        if(!selectedText){
+            return;
+        }
+
+        selectedText.color =
+        this.value;
+
+        draw();
+
+    }
+);
+
+
+fontFamily.addEventListener(
+    "change",
+    function(){
+
+        if(!selectedText){
+            return;
+        }
+
+        selectedText.font =
+        this.value;
+
+        draw();
+
+    }
+);
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearCanvas(){
+
+    if(!image){
+
+        return;
+
+    }
+
+    textObjects = [];
+
+    selectedText = null;
+
+    draw();
+
+    statusText.textContent =
+    "All text removed.";
+
+}
+
+
+/* =========================
+   DOWNLOAD
+========================= */
+
+function downloadImage(){
+
+    if(!image){
+
+        alert(
+            "Please upload an image first."
+        );
+
+        return;
+
+    }
+
+    const link =
+    document.createElement("a");
+
+    link.download =
+    "vextools-edited-image.png";
+
+    link.href =
+    canvas.toDataURL(
+        "image/png"
+    );
+
+    link.click();
+
+}
+
+</script>
+
+</body>
+</html>
