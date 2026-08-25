@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Slug Generator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
+.container{max-width:700px;margin:auto}
+input{width:100%;padding:18px;border-radius:12px;border:1px solid #27304a;background:#111a30;color:white;font-size:16px;margin:20px 0}
+.result{padding:20px;background:#111a30;border-radius:12px;word-break:break-all;color:#22d3ee}
+button{margin-top:15px;padding:13px 20px;border:0;border-radius:10px;background:#7c3aed;color:white;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🔗 Slug Generator</h1>
+<p>Generate clean URL-friendly slugs.</p>
+<input id="input" placeholder="Enter title...">
+<div class="result" id="result">Your slug will appear here</div>
+<button onclick="copySlug()">Copy Slug</button>
+</div>
+<script>
+const input=document.getElementById("input");
+input.oninput=()=>{
+document.getElementById("result").textContent=
+input.value.toLowerCase().trim()
+.replace(/[^a-z0-9\s-]/g,"")
+.replace(/\s+/g,"-")
+.replace(/-+/g,"-");
+};
+function copySlug(){
+navigator.clipboard.writeText(document.getElementById("result").textContent);
+alert("Slug copied!");
+}
+</script>
+</body>
+</html>
