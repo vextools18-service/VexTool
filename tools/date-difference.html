@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Date Difference Calculator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
+.container{max-width:650px;margin:auto}
+input{width:100%;padding:15px;margin:10px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
+button{width:100%;padding:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
+.result{margin-top:20px;padding:20px;background:#111a30;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📅 Date Difference</h1>
+<p>Calculate the number of days between two dates.</p>
+
+<input id="date1" type="date">
+<input id="date2" type="date">
+
+<button onclick="calculate()">Calculate Difference</button>
+
+<div class="result" id="result">Result</div>
+</div>
+
+<script>
+function calculate(){
+let a=new Date(date1.value);
+let b=new Date(date2.value);
+
+if(isNaN(a)||isNaN(b)){
+result.textContent="Please select both dates.";
+return;
+}
+
+let days=Math.abs(b-a)/(1000*60*60*24);
+
+result.textContent="Difference: "+days+" days";
+}
+</script>
+</body>
+</html>
