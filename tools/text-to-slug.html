@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Text to Slug Generator — VexTools</title>
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:30px 15px;
+}
+
+.container{max-width:750px;margin:auto}
+
+.header{text-align:center;margin-bottom:25px}
+
+.logo{
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+}
+
+h1{margin:15px 0 8px}
+
+p{color:#94a3b8}
+
+.card{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:22px;
+}
+
+input{
+width:100%;
+padding:16px;
+background:#0d1427;
+border:1px solid #29344f;
+border-radius:12px;
+color:white;
+font-size:16px;
+outline:none;
+}
+
+.result{
+margin-top:15px;
+padding:18px;
+background:#0d1427;
+border-radius:12px;
+word-break:break-all;
+color:#22d3ee;
+}
+
+button{
+width:100%;
+margin-top:15px;
+padding:13px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<a class="logo" href="../index.html">VexTools</a>
+<h1>Text to Slug</h1>
+<p>Create clean URL-friendly slugs.</p>
+</div>
+
+<div class="card">
+
+<input id="input" placeholder="Enter your title...">
+
+<div class="result" id="result">
+Your slug will appear here
+</div>
+
+<button onclick="copySlug()">Copy Slug</button>
+
+</div>
+</div>
+
+<script>
+const input=document.getElementById("input");
+const result=document.getElementById("result");
+
+input.addEventListener("input",generate);
+
+function generate(){
+let slug=input.value
+.toLowerCase()
+.trim()
+.replace(/[^a-z0-9\s-]/g,"")
+.replace(/\s+/g,"-")
+.replace(/-+/g,"-");
+
+result.textContent=slug || "Your slug will appear here";
+}
+
+function copySlug(){
+navigator.clipboard.writeText(result.textContent);
+}
+</script>
+
+</body>
+</html>
