@@ -4,6 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+<meta name="description" content="Compress PDF files online for free with VexTools. Reduce PDF file size directly in your browser with adjustable compression levels. Fast, simple and privacy-friendly.">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="VexTools">
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/compress-pdf.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Compress PDF Online Free — VexTools">
+<meta property="og:description" content="Reduce PDF file size online for free directly in your browser with VexTools.">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/compress-pdf.html">
+<meta property="og:site_name" content="VexTools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Compress PDF Online Free — VexTools">
+<meta name="twitter:description" content="Reduce PDF file size online for free directly in your browser.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Compress PDF — VexTools",
+  "url":"https://vextools18-service.github.io/VexTool/tools/compress-pdf.html",
+  "description":"Free online PDF compression tool that reduces PDF file size directly in the browser.",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How do I compress a PDF online?",
+      "acceptedAnswer":{"@type":"Answer","text":"Select a PDF file, choose a compression level, and click Compress PDF. The compressed file can then be downloaded."}
+    },
+    {
+      "@type":"Question",
+      "name":"Is the VexTools PDF compressor free?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. VexTools provides this PDF compression tool free of charge."}
+    },
+    {
+      "@type":"Question",
+      "name":"Do I need to install software?",
+      "acceptedAnswer":{"@type":"Answer","text":"No. The tool runs directly in a modern web browser."}
+    }
+  ]
+}
+</script>
+
+
 <title>Compress PDF — VexTools</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfjs-dist/3.11.174/pdf.min.js"></script>
@@ -66,8 +120,11 @@ body{
     transition:.25s;
 }
 
-.drop:hover{
+.drop:hover,
+.drop.dragover{
     background:rgba(124,58,237,.15);
+    border-color:#a78bfa;
+    transform:translateY(-2px);
 }
 
 .drop h3{
@@ -79,7 +136,15 @@ body{
 }
 
 #file{
-    display:none;
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
 }
 
 .info{
@@ -190,6 +255,37 @@ select{
     text-decoration:none;
 }
 
+
+.seo-content{
+    margin-top:35px;
+    padding:25px;
+    background:#11192d;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    color:#cbd5e1;
+    line-height:1.7;
+}
+.seo-content h2{
+    color:#f8fafc;
+    margin-bottom:12px;
+    font-size:26px;
+}
+.seo-content h3{
+    color:#f8fafc;
+    margin:22px 0 8px;
+}
+.seo-content h4{
+    color:#e2e8f0;
+    margin-top:15px;
+}
+.seo-content p{
+    color:#94a3b8;
+}
+.seo-content ol{
+    padding-left:22px;
+    color:#94a3b8;
+}
+
 @media(max-width:500px){
 
     .header h1{
@@ -223,12 +319,19 @@ Reduce PDF file size directly in your browser.
 <div class="card">
 
 
-<label class="drop" for="file">
+<label
+    class="drop"
+    id="dropZone"
+    for="file"
+    tabindex="0"
+    role="button"
+    aria-label="Select a PDF file"
+>
 
 <h3>📄 Select PDF</h3>
 
-<p>
-Click here to choose your PDF file
+<p id="dropText">
+Click here to choose your PDF file, or drag and drop it here
 </p>
 
 </label>
@@ -237,7 +340,7 @@ Click here to choose your PDF file
 <input
     id="file"
     type="file"
-    accept=".pdf,application/pdf"
+    accept="application/pdf,.pdf"
 >
 
 
@@ -806,7 +909,7 @@ async () => {
         console.error(error);
 
         status.textContent =
-            "❌ Could not compress this PDF.";
+            "❌ Could not compress this PDF. Make sure the file is a valid, non-corrupted PDF.";
 
         progress.style.display =
             "none";
