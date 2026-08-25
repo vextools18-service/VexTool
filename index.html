@@ -10,13 +10,16 @@
 <title>VexTools – Free Online Tools for PDF, Image, Text & More</title>
 
 <meta name="description"
-      content="VexTools provides free online tools for PDF, images, text, calculators, converters, students and developers. Fast, simple and easy-to-use tools directly in your browser.">
+      content="VexTools offers free online tools for PDF, images, text, calculators, converters and developers. Fast, simple and easy-to-use tools that work directly in your browser.">
 
 <meta name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+      content="index, follow, max-image-preview:large">
 
 <meta name="googlebot"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+      content="index, follow">
+
+<meta name="bingbot"
+      content="index, follow">
 
 <meta name="author"
       content="VexTools">
@@ -25,10 +28,7 @@
       content="VexTools">
 
 <meta name="keywords"
-      content="VexTools, free online tools, PDF tools, image tools, text tools, calculator, converters, developer tools, student tools, online utilities">
-
-<meta http-equiv="content-language"
-      content="en">
+      content="VexTools, free online tools, PDF tools, image tools, text tools, calculator, converters, developer tools, online utilities">
 
 <meta name="theme-color"
       content="#070b18">
@@ -36,16 +36,20 @@
 <meta name="color-scheme"
       content="dark light">
 
-<meta name="format-detection"
-      content="telephone=no">
-
-
 <!-- =====================================================
      CANONICAL
 ===================================================== -->
 
 <link rel="canonical"
       href="https://vextools18-service.github.io/VexTool/">
+
+
+<!-- =====================================================
+     FAVICON
+===================================================== -->
+
+<link rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%237c3aed'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='65' fill='white' font-family='Arial'%3EV%3C/text%3E%3C/svg%3E">
 
 
 <!-- =====================================================
@@ -86,50 +90,46 @@
 
 
 <!-- =====================================================
-     FAVICON
-===================================================== -->
-
-<link rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%237c3aed'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='Arial' font-weight='900'%3EV%3C/text%3E%3C/svg%3E">
-
-
-<!-- =====================================================
-     STRUCTURED DATA - WEBSITE
+     STRUCTURED DATA — WEBSITE
 ===================================================== -->
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://vextools18-service.github.io/VexTool/#website",
   "name": "VexTools",
-  "alternateName": "Vex Tools",
   "url": "https://vextools18-service.github.io/VexTool/",
-  "description": "Free online tools for PDF, images, text, calculations, conversions, students and developers.",
-  "inLanguage": "en"
+  "description": "Free online tools for PDF, images, text, calculators, converters and developers.",
+  "inLanguage": "en",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://vextools18-service.github.io/VexTool/?search={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
 </script>
 
 
 <!-- =====================================================
-     STRUCTURED DATA - ORGANIZATION
+     STRUCTURED DATA — ORGANIZATION
 ===================================================== -->
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://vextools18-service.github.io/VexTool/#organization",
   "name": "VexTools",
   "url": "https://vextools18-service.github.io/VexTool/",
-  "description": "VexTools provides free online tools for everyone."
+  "description": "Free online tools for everyone."
 }
 </script>
 
 
 <!-- =====================================================
-     STRUCTURED DATA - WEB APPLICATION
+     STRUCTURED DATA — WEB APPLICATION
 ===================================================== -->
 
 <script type="application/ld+json">
@@ -138,10 +138,10 @@
   "@type": "WebApplication",
   "name": "VexTools",
   "url": "https://vextools18-service.github.io/VexTool/",
-  "description": "A collection of free online PDF, image, text, calculator, converter and developer tools.",
   "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
-  "browserRequirements": "Requires a modern web browser",
+  "operatingSystem": "Web Browser",
+  "browserRequirements": "Requires JavaScript",
+  "description": "A collection of free online tools for PDF, images, text, calculations, conversions and developers.",
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -199,27 +199,27 @@ body.light{
 
     --bg:#f5f7ff;
 
-    --card:rgba(255,255,255,.8);
+    --card:rgba(255,255,255,.85);
 
-    --card2:#fff;
+    --card2:#ffffff;
 
     --text:#101828;
 
     --muted:#64748b;
 
-    --border:rgba(15,23,42,.1);
+    --border:rgba(15,23,42,.10);
 
     --primary:#6d28d9;
 
     --secondary:#0891b2;
 
-    --glow:rgba(109,40,217,.2);
+    --glow:rgba(109,40,217,.20);
 
 }
 
 
 /* =====================================================
-   BODY
+   HTML
 ===================================================== */
 
 html{
@@ -229,12 +229,19 @@ html{
 }
 
 
+/* =====================================================
+   BODY
+===================================================== */
+
 body{
 
     font-family:
         Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
         Arial,
-        Helvetica,
         sans-serif;
 
     background:var(--bg);
@@ -244,8 +251,8 @@ body{
     overflow-x:hidden;
 
     transition:
-        background .4s,
-        color .4s;
+        background .35s ease,
+        color .35s ease;
 
 }
 
@@ -263,6 +270,8 @@ body{
     overflow:hidden;
 
     z-index:-2;
+
+    pointer-events:none;
 
 }
 
@@ -334,8 +343,7 @@ body{
 
 @keyframes float{
 
-    0%,
-    100%{
+    0%,100%{
 
         transform:
             translate(0,0)
@@ -376,6 +384,9 @@ header{
     backdrop-filter:
         blur(18px);
 
+    -webkit-backdrop-filter:
+        blur(18px);
+
     border-bottom:
         1px solid var(--border);
 
@@ -385,7 +396,7 @@ header{
 body.light header{
 
     background:
-        rgba(245,247,255,.65);
+        rgba(245,247,255,.70);
 
 }
 
@@ -460,8 +471,7 @@ body.light header{
 
 @keyframes logoPulse{
 
-    0%,
-    100%{
+    0%,100%{
 
         transform:scale(1);
 
@@ -527,6 +537,8 @@ nav a:hover{
     color:var(--text);
 
     cursor:pointer;
+
+    font-size:17px;
 
     transition:.25s;
 
@@ -654,10 +666,9 @@ nav a:hover{
 
 .hero p{
 
-    max-width:650px;
+    max-width:680px;
 
-    margin:
-        25px auto;
+    margin:25px auto;
 
     color:var(--muted);
 
@@ -702,8 +713,7 @@ nav a:hover{
 
     max-width:700px;
 
-    margin:
-        35px auto 0;
+    margin:35px auto 0;
 
     display:flex;
 
@@ -778,6 +788,50 @@ nav a:hover{
 }
 
 
+.searchClear{
+
+    width:38px;
+
+    height:38px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:transparent;
+
+    color:var(--muted);
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    display:none;
+
+}
+
+
+.searchClear:hover{
+
+    background:
+        rgba(124,58,237,.12);
+
+    color:var(--text);
+
+}
+
+
+.searchInfo{
+
+    margin-top:10px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+}
+
+
 /* =====================================================
    SECTIONS
 ===================================================== */
@@ -789,10 +843,15 @@ section{
     margin:auto;
 
     padding:
-        70px 20px;
+        70px
+        20px;
 
 }
 
+
+/* =====================================================
+   HEADINGS
+===================================================== */
 
 .heading{
 
@@ -855,7 +914,8 @@ section{
 .category{
 
     padding:
-        17px 10px;
+        17px
+        10px;
 
     border:
         1px solid var(--border);
@@ -881,8 +941,7 @@ section{
     border-color:#8b5cf6;
 
     box-shadow:
-        0 10px 35px
-        var(--glow);
+        0 10px 35px var(--glow);
 
 }
 
@@ -924,7 +983,7 @@ section{
 
 
 /* =====================================================
-   TOOLS
+   TOOL GRID
 ===================================================== */
 
 .tools{
@@ -938,6 +997,10 @@ section{
 
 }
 
+
+/* =====================================================
+   TOOL CARD
+===================================================== */
 
 .tool{
 
@@ -954,7 +1017,11 @@ section{
 
     border-radius:20px;
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
 
     opacity:0;
 
@@ -962,7 +1029,7 @@ section{
         translateY(30px);
 
     transition:
-        opacity .6s,
+        opacity .45s,
         transform .35s,
         border .3s,
         box-shadow .3s;
@@ -1128,12 +1195,10 @@ section{
 
 .open:hover{
 
-    transform:
-        scale(1.03);
+    transform:scale(1.03);
 
     box-shadow:
-        0 8px 25px
-        var(--glow);
+        0 8px 25px var(--glow);
 
 }
 
@@ -1152,7 +1217,42 @@ section{
 
     color:var(--muted);
 
-    padding:40px;
+    padding:50px 20px;
+
+}
+
+
+.noResults strong{
+
+    display:block;
+
+    color:var(--text);
+
+    font-size:18px;
+
+    margin-bottom:7px;
+
+}
+
+
+/* =====================================================
+   SEARCH RESULT COUNT
+===================================================== */
+
+.resultCount{
+
+    text-align:center;
+
+    min-height:22px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin:
+        -15px
+        0
+        25px;
 
 }
 
@@ -1166,10 +1266,13 @@ section{
     max-width:1160px;
 
     margin:
-        40px auto 80px;
+        40px
+        auto
+        80px;
 
     padding:
-        70px 25px;
+        70px
+        25px;
 
     text-align:center;
 
@@ -1219,6 +1322,8 @@ section{
 
     font-size:38px;
 
+    position:relative;
+
 }
 
 
@@ -1227,6 +1332,8 @@ section{
     margin-top:10px;
 
     opacity:.9;
+
+    position:relative;
 
 }
 
@@ -1252,7 +1359,8 @@ footer{
     margin:auto;
 
     padding:
-        50px 20px;
+        50px
+        20px;
 
     display:grid;
 
@@ -1418,6 +1526,30 @@ footer{
 
     }
 
+    .hero h1{
+
+        font-size:48px;
+
+    }
+
+    .search{
+
+        border-radius:15px;
+
+    }
+
+    .heading h2{
+
+        font-size:30px;
+
+    }
+
+    .cta h2{
+
+        font-size:30px;
+
+    }
+
 }
 
 
@@ -1434,6 +1566,8 @@ footer{
         animation:none!important;
 
         transition:none!important;
+
+        scroll-behavior:auto!important;
 
     }
 
@@ -1460,7 +1594,8 @@ footer{
      BACKGROUND
 ===================================================== -->
 
-<div class="background">
+<div class="background"
+     aria-hidden="true">
 
     <div class="orb one"></div>
 
@@ -1479,14 +1614,12 @@ footer{
 
 <div class="nav">
 
-    <a
-        class="logo"
-        href="#"
-        aria-label="VexTools Home">
+    <a class="logo"
+       href="./"
+       aria-label="VexTools Home">
 
-        <div
-            class="logoIcon"
-            aria-hidden="true">
+        <div class="logoIcon"
+             aria-hidden="true">
 
             V
 
@@ -1515,7 +1648,7 @@ footer{
             class="theme"
             id="theme"
             type="button"
-            aria-label="Toggle dark and light mode">
+            aria-label="Toggle color theme">
 
             🌙
 
@@ -1539,9 +1672,8 @@ footer{
      HERO
 ===================================================== -->
 
-<section
-    class="hero"
-    aria-labelledby="main-title">
+<section class="hero"
+         aria-labelledby="main-title">
 
     <div class="badge">
 
@@ -1555,7 +1687,9 @@ footer{
         One Place.<br>
 
         <span class="gradient">
+
             Every Tool.
+
         </span>
 
     </h1>
@@ -1570,20 +1704,42 @@ footer{
     </p>
 
 
-    <div
-        class="search"
-        role="search">
+    <div class="search"
+         role="search">
 
         <span aria-hidden="true">
             🔎
         </span>
 
+
         <input
             id="search"
             type="search"
-            placeholder="Search any tool..."
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Search tools..."
             aria-label="Search VexTools tools"
-            autocomplete="off">
+            aria-controls="toolGrid">
+
+
+        <button
+            class="searchClear"
+            id="searchClear"
+            type="button"
+            aria-label="Clear search">
+
+            ✕
+
+        </button>
+
+    </div>
+
+
+    <div class="searchInfo">
+
+        Tip: Press
+        <strong>Ctrl + K</strong>
+        to search quickly.
 
     </div>
 
@@ -1594,9 +1750,8 @@ footer{
      CATEGORIES
 ===================================================== -->
 
-<section
-    id="categories"
-    aria-labelledby="categories-title">
+<section id="categories"
+         aria-labelledby="categories-title">
 
     <div class="heading reveal">
 
@@ -1619,12 +1774,8 @@ footer{
             data-category="all"
             type="button">
 
-            <span
-                class="categoryIcon"
-                aria-hidden="true">
-
+            <span class="categoryIcon">
                 🧰
-
             </span>
 
             <span class="categoryName">
@@ -1639,12 +1790,8 @@ footer{
             data-category="pdf"
             type="button">
 
-            <span
-                class="categoryIcon"
-                aria-hidden="true">
-
+            <span class="categoryIcon">
                 📄
-
             </span>
 
             <span class="categoryName">
@@ -1659,12 +1806,8 @@ footer{
             data-category="image"
             type="button">
 
-            <span
-                class="categoryIcon"
-                aria-hidden="true">
-
+            <span class="categoryIcon">
                 🖼️
-
             </span>
 
             <span class="categoryName">
@@ -1679,12 +1822,8 @@ footer{
             data-category="text"
             type="button">
 
-            <span
-                class="categoryIcon"
-                aria-hidden="true">
-
+            <span class="categoryIcon">
                 📝
-
             </span>
 
             <span class="categoryName">
@@ -1699,12 +1838,8 @@ footer{
             data-category="student"
             type="button">
 
-            <span
-                class="categoryIcon"
-                aria-hidden="true">
-
+            <span class="categoryIcon">
                 🎓
-
             </span>
 
             <span class="categoryName">
@@ -1719,12 +1854,8 @@ footer{
             data-category="developer"
             type="button">
 
-            <span
-                class="categoryIcon"
-                aria-hidden="true">
-
+            <span class="categoryIcon">
                 💻
-
             </span>
 
             <span class="categoryName">
@@ -1732,7 +1863,6 @@ footer{
             </span>
 
         </button>
-
 
     </div>
 
@@ -1743,10 +1873,8 @@ footer{
      TOOLS
 ===================================================== -->
 
-<section
-    id="tools"
-    aria-labelledby="tools-title">
-
+<section id="tools"
+         aria-labelledby="tools-title">
 
     <div class="heading reveal">
 
@@ -1762,6 +1890,13 @@ footer{
 
 
     <div
+        class="resultCount"
+        id="resultCount"
+        aria-live="polite">
+    </div>
+
+
+    <div
         class="tools"
         id="toolGrid">
 
@@ -1770,25 +1905,19 @@ footer{
      PDF TOOLS
 ===================================================== -->
 
-<div
-    class="tool"
-    data-category="pdf"
-    data-name="merge pdf">
+<div class="tool"
+     data-category="pdf"
+     data-name="Merge PDF"
+     data-keywords="merge pdf combine pdf files join pdf documents pdf merger">
 
-    <div class="icon"
-         aria-hidden="true">
-        📑
-    </div>
+    <div class="icon">📑</div>
 
     <h3>Merge PDF</h3>
 
-    <p>
-        Combine multiple PDF files into one.
-    </p>
+    <p>Combine multiple PDF files into one document.</p>
 
-    <a
-        class="open"
-        href="tools/merge-pdf.html">
+    <a class="open"
+       href="tools/merge-pdf.html">
 
         Open Tool
 
@@ -1797,25 +1926,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="pdf"
-    data-name="split pdf">
+<div class="tool"
+     data-category="pdf"
+     data-name="Split PDF"
+     data-keywords="split pdf separate pdf pages extract pdf pages">
 
-    <div class="icon"
-         aria-hidden="true">
-        ✂️
-    </div>
+    <div class="icon">✂️</div>
 
     <h3>Split PDF</h3>
 
-    <p>
-        Split a PDF into separate pages.
-    </p>
+    <p>Split a PDF into separate pages or files.</p>
 
-    <a
-        class="open"
-        href="tools/split-pdf.html">
+    <a class="open"
+       href="tools/split-pdf.html">
 
         Open Tool
 
@@ -1824,25 +1947,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="pdf"
-    data-name="compress pdf">
+<div class="tool"
+     data-category="pdf"
+     data-name="Compress PDF"
+     data-keywords="compress pdf reduce pdf size optimize pdf">
 
-    <div class="icon"
-         aria-hidden="true">
-        🗜️
-    </div>
+    <div class="icon">🗜️</div>
 
     <h3>Compress PDF</h3>
 
-    <p>
-        Reduce the size of PDF files.
-    </p>
+    <p>Reduce the size of PDF files quickly.</p>
 
-    <a
-        class="open"
-        href="tools/compress-pdf.html">
+    <a class="open"
+       href="tools/compress-pdf.html">
 
         Open Tool
 
@@ -1851,25 +1968,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="pdf"
-    data-name="jpg to pdf">
+<div class="tool"
+     data-category="pdf"
+     data-name="JPG to PDF"
+     data-keywords="jpg pdf jpeg pdf image pdf convert jpg">
 
-    <div class="icon"
-         aria-hidden="true">
-        🖼️
-    </div>
+    <div class="icon">🖼️</div>
 
     <h3>JPG to PDF</h3>
 
-    <p>
-        Convert JPG images into PDF.
-    </p>
+    <p>Convert JPG and JPEG images into PDF.</p>
 
-    <a
-        class="open"
-        href="tools/jpg-to-pdf.html">
+    <a class="open"
+       href="tools/jpg-to-pdf.html">
 
         Open Tool
 
@@ -1882,25 +1993,19 @@ footer{
      IMAGE TOOLS
 ===================================================== -->
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="image compressor">
+<div class="tool"
+     data-category="image"
+     data-name="Image Compressor"
+     data-keywords="compress image photo compressor reduce image size jpg png webp">
 
-    <div class="icon"
-         aria-hidden="true">
-        🗜️
-    </div>
+    <div class="icon">🗜️</div>
 
     <h3>Image Compressor</h3>
 
-    <p>
-        Compress images directly in your browser.
-    </p>
+    <p>Compress images directly in your browser.</p>
 
-    <a
-        class="open"
-        href="tools/image-compressor.html">
+    <a class="open"
+       href="tools/image-compressor.html">
 
         Open Tool
 
@@ -1909,25 +2014,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="image cropper">
+<div class="tool"
+     data-category="image"
+     data-name="Image Cropper"
+     data-keywords="crop image photo cropper picture crop">
 
-    <div class="icon"
-         aria-hidden="true">
-        ✂️
-    </div>
+    <div class="icon">✂️</div>
 
     <h3>Image Cropper</h3>
 
-    <p>
-        Crop images directly in your browser.
-    </p>
+    <p>Crop images directly in your browser.</p>
 
-    <a
-        class="open"
-        href="tools/image-cropper.html">
+    <a class="open"
+       href="tools/image-cropper.html">
 
         Open Tool
 
@@ -1936,25 +2035,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="image resizer">
+<div class="tool"
+     data-category="image"
+     data-name="Image Resizer"
+     data-keywords="resize image photo image size dimensions">
 
-    <div class="icon"
-         aria-hidden="true">
-        📐
-    </div>
+    <div class="icon">📐</div>
 
     <h3>Image Resizer</h3>
 
-    <p>
-        Resize images to any dimensions.
-    </p>
+    <p>Resize images to any dimensions.</p>
 
-    <a
-        class="open"
-        href="tools/image-resizer.html">
+    <a class="open"
+       href="tools/image-resizer.html">
 
         Open Tool
 
@@ -1963,25 +2056,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="image text editor">
+<div class="tool"
+     data-category="image"
+     data-name="Image Text Editor"
+     data-keywords="add text image photo text editor image writing">
 
-    <div class="icon"
-         aria-hidden="true">
-        🖊️
-    </div>
+    <div class="icon">🖊️</div>
 
     <h3>Image Text Editor</h3>
 
-    <p>
-        Add and edit text on images.
-    </p>
+    <p>Add and edit text on images.</p>
 
-    <a
-        class="open"
-        href="tools/image-text-editor.html">
+    <a class="open"
+       href="tools/image-text-editor.html">
 
         Open Tool
 
@@ -1990,25 +2077,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="jpg to png">
+<div class="tool"
+     data-category="image"
+     data-name="JPG to PNG"
+     data-keywords="jpg png jpeg png image converter">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔄
-    </div>
+    <div class="icon">🔄</div>
 
     <h3>JPG to PNG</h3>
 
-    <p>
-        Convert JPG images to PNG.
-    </p>
+    <p>Convert JPG images to PNG format.</p>
 
-    <a
-        class="open"
-        href="tools/jpg-to-png.html">
+    <a class="open"
+       href="tools/jpg-to-png.html">
 
         Open Tool
 
@@ -2017,25 +2098,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="png to jpg">
+<div class="tool"
+     data-category="image"
+     data-name="PNG to JPG"
+     data-keywords="png jpg image converter jpeg">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔄
-    </div>
+    <div class="icon">🔄</div>
 
     <h3>PNG to JPG</h3>
 
-    <p>
-        Convert PNG images to JPG.
-    </p>
+    <p>Convert PNG images to JPG format.</p>
 
-    <a
-        class="open"
-        href="tools/png-to-jpg.html">
+    <a class="open"
+       href="tools/png-to-jpg.html">
 
         Open Tool
 
@@ -2044,25 +2119,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="image to base64">
+<div class="tool"
+     data-category="image"
+     data-name="Image to Base64"
+     data-keywords="image base64 encoder photo base64 convert image">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔐
-    </div>
+    <div class="icon">🔐</div>
 
     <h3>Image to Base64</h3>
 
-    <p>
-        Convert images into Base64.
-    </p>
+    <p>Convert images into Base64 data.</p>
 
-    <a
-        class="open"
-        href="tools/image-to-base64.html">
+    <a class="open"
+       href="tools/image-to-base64.html">
 
         Open Tool
 
@@ -2071,25 +2140,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="base64 to image">
+<div class="tool"
+     data-category="image"
+     data-name="Base64 to Image"
+     data-keywords="base64 image decoder convert base64 to jpg png">
 
-    <div class="icon"
-         aria-hidden="true">
-        🖼️
-    </div>
+    <div class="icon">🖼️</div>
 
     <h3>Base64 to Image</h3>
 
-    <p>
-        Convert Base64 data into an image.
-    </p>
+    <p>Convert Base64 data into an image.</p>
 
-    <a
-        class="open"
-        href="tools/base64-to-image.html">
+    <a class="open"
+       href="tools/base64-to-image.html">
 
         Open Tool
 
@@ -2098,25 +2161,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="color picker">
+<div class="tool"
+     data-category="image"
+     data-name="Color Picker"
+     data-keywords="color picker hex rgb color selector">
 
-    <div class="icon"
-         aria-hidden="true">
-        🎨
-    </div>
+    <div class="icon">🎨</div>
 
     <h3>Color Picker</h3>
 
-    <p>
-        Pick colors and get their values.
-    </p>
+    <p>Pick colors and get their values.</p>
 
-    <a
-        class="open"
-        href="tools/color-picker.html">
+    <a class="open"
+       href="tools/color-picker.html">
 
         Open Tool
 
@@ -2125,25 +2182,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="color converter">
+<div class="tool"
+     data-category="image"
+     data-name="Color Converter"
+     data-keywords="color converter hex rgb hsl hsv rgba color formats">
 
-    <div class="icon"
-         aria-hidden="true">
-        🌈
-    </div>
+    <div class="icon">🌈</div>
 
     <h3>Color Converter</h3>
 
-    <p>
-        Convert colors between different formats.
-    </p>
+    <p>Convert colors between different formats.</p>
 
-    <a
-        class="open"
-        href="tools/color-converter.html">
+    <a class="open"
+       href="tools/color-converter.html">
 
         Open Tool
 
@@ -2152,25 +2203,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="image"
-    data-name="color palette generator">
+<div class="tool"
+     data-category="image"
+     data-name="Color Palette Generator"
+     data-keywords="color palette generator palette colors design">
 
-    <div class="icon"
-         aria-hidden="true">
-        🎨
-    </div>
+    <div class="icon">🎨</div>
 
     <h3>Color Palette Generator</h3>
 
-    <p>
-        Generate beautiful color palettes.
-    </p>
+    <p>Generate beautiful color palettes.</p>
 
-    <a
-        class="open"
-        href="tools/color-palette-generator.html">
+    <a class="open"
+       href="tools/color-palette-generator.html">
 
         Open Tool
 
@@ -2183,25 +2228,19 @@ footer{
      TEXT TOOLS
 ===================================================== -->
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="word counter">
+<div class="tool"
+     data-category="text"
+     data-name="Word Counter"
+     data-keywords="word counter count words character counter writing">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔢
-    </div>
+    <div class="icon">🔢</div>
 
     <h3>Word Counter</h3>
 
-    <p>
-        Count words and characters instantly.
-    </p>
+    <p>Count words and characters instantly.</p>
 
-    <a
-        class="open"
-        href="tools/word-counter.html">
+    <a class="open"
+       href="tools/word-counter.html">
 
         Open Tool
 
@@ -2210,25 +2249,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="character counter">
+<div class="tool"
+     data-category="text"
+     data-name="Character Counter"
+     data-keywords="character counter count characters words spaces lines">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔤
-    </div>
+    <div class="icon">🔤</div>
 
     <h3>Character Counter</h3>
 
-    <p>
-        Count characters, spaces, words and lines.
-    </p>
+    <p>Count characters, spaces, words and lines.</p>
 
-    <a
-        class="open"
-        href="tools/character-counter.html">
+    <a class="open"
+       href="tools/character-counter.html">
 
         Open Tool
 
@@ -2237,25 +2270,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="case converter">
+<div class="tool"
+     data-category="text"
+     data-name="Case Converter"
+     data-keywords="case converter uppercase lowercase title case sentence case text">
 
-    <div class="icon"
-         aria-hidden="true">
-        Aa
-    </div>
+    <div class="icon">Aa</div>
 
     <h3>Case Converter</h3>
 
-    <p>
-        Convert text between different cases.
-    </p>
+    <p>Convert text between different cases.</p>
 
-    <a
-        class="open"
-        href="tools/case-converter.html">
+    <a class="open"
+       href="tools/case-converter.html">
 
         Open Tool
 
@@ -2264,25 +2291,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="text cleaner">
+<div class="tool"
+     data-category="text"
+     data-name="Text Cleaner"
+     data-keywords="clean text remove formatting normalize text">
 
-    <div class="icon"
-         aria-hidden="true">
-        🧹
-    </div>
+    <div class="icon">🧹</div>
 
     <h3>Text Cleaner</h3>
 
-    <p>
-        Clean and normalize messy text.
-    </p>
+    <p>Clean and normalize messy text.</p>
 
-    <a
-        class="open"
-        href="tools/text-cleaner.html">
+    <a class="open"
+       href="tools/text-cleaner.html">
 
         Open Tool
 
@@ -2291,25 +2312,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="text reverser">
+<div class="tool"
+     data-category="text"
+     data-name="Text Reverser"
+     data-keywords="reverse text string reverser">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔁
-    </div>
+    <div class="icon">🔁</div>
 
     <h3>Text Reverser</h3>
 
-    <p>
-        Reverse any text instantly.
-    </p>
+    <p>Reverse any text instantly.</p>
 
-    <a
-        class="open"
-        href="tools/text-reverser.html">
+    <a class="open"
+       href="tools/text-reverser.html">
 
         Open Tool
 
@@ -2318,25 +2333,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="text sorter">
+<div class="tool"
+     data-category="text"
+     data-name="Text Sorter"
+     data-keywords="sort text lines alphabetical sorter">
 
-    <div class="icon"
-         aria-hidden="true">
-        ↕️
-    </div>
+    <div class="icon">↕️</div>
 
     <h3>Text Sorter</h3>
 
-    <p>
-        Sort lines of text quickly.
-    </p>
+    <p>Sort lines of text quickly.</p>
 
-    <a
-        class="open"
-        href="tools/text-sorter.html">
+    <a class="open"
+       href="tools/text-sorter.html">
 
         Open Tool
 
@@ -2345,25 +2354,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="text statistics">
+<div class="tool"
+     data-category="text"
+     data-name="Text Statistics"
+     data-keywords="text statistics analyzer word character line analysis">
 
-    <div class="icon"
-         aria-hidden="true">
-        📊
-    </div>
+    <div class="icon">📊</div>
 
     <h3>Text Statistics</h3>
 
-    <p>
-        Analyze words, characters and lines.
-    </p>
+    <p>Analyze words, characters and lines.</p>
 
-    <a
-        class="open"
-        href="tools/text-statistics.html">
+    <a class="open"
+       href="tools/text-statistics.html">
 
         Open Tool
 
@@ -2372,25 +2375,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="remove duplicate lines">
+<div class="tool"
+     data-category="text"
+     data-name="Remove Duplicate Lines"
+     data-keywords="duplicate lines remove duplicates text cleaner">
 
-    <div class="icon"
-         aria-hidden="true">
-        🧹
-    </div>
+    <div class="icon">🧹</div>
 
     <h3>Remove Duplicate Lines</h3>
 
-    <p>
-        Remove repeated lines from text.
-    </p>
+    <p>Remove repeated lines from text.</p>
 
-    <a
-        class="open"
-        href="tools/remove-duplicate-lines.html">
+    <a class="open"
+       href="tools/remove-duplicate-lines.html">
 
         Open Tool
 
@@ -2399,25 +2396,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="remove extra spaces">
+<div class="tool"
+     data-category="text"
+     data-name="Remove Extra Spaces"
+     data-keywords="remove spaces extra whitespace text cleaner">
 
-    <div class="icon"
-         aria-hidden="true">
-        🧽
-    </div>
+    <div class="icon">🧽</div>
 
     <h3>Remove Extra Spaces</h3>
 
-    <p>
-        Remove unnecessary spaces from text.
-    </p>
+    <p>Remove unnecessary spaces from text.</p>
 
-    <a
-        class="open"
-        href="tools/remove-extra-spaces.html">
+    <a class="open"
+       href="tools/remove-extra-spaces.html">
 
         Open Tool
 
@@ -2426,25 +2417,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="text to binary">
+<div class="tool"
+     data-category="text"
+     data-name="Text to Binary"
+     data-keywords="text binary converter binary encoder">
 
-    <div class="icon"
-         aria-hidden="true">
-        01
-    </div>
+    <div class="icon">01</div>
 
     <h3>Text to Binary</h3>
 
-    <p>
-        Convert text into binary.
-    </p>
+    <p>Convert text into binary.</p>
 
-    <a
-        class="open"
-        href="tools/text-to-binary.html">
+    <a class="open"
+       href="tools/text-to-binary.html">
 
         Open Tool
 
@@ -2453,25 +2438,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="text to hex">
+<div class="tool"
+     data-category="text"
+     data-name="Text to Hex"
+     data-keywords="text hex hexadecimal converter">
 
-    <div class="icon"
-         aria-hidden="true">
-        #
-    </div>
+    <div class="icon">#</div>
 
     <h3>Text to Hex</h3>
 
-    <p>
-        Convert text into hexadecimal.
-    </p>
+    <p>Convert text into hexadecimal.</p>
 
-    <a
-        class="open"
-        href="tools/text-to-hex.html">
+    <a class="open"
+       href="tools/text-to-hex.html">
 
         Open Tool
 
@@ -2480,25 +2459,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="text to slug">
+<div class="tool"
+     data-category="text"
+     data-name="Text to Slug"
+     data-keywords="text slug url slug converter seo slug">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔗
-    </div>
+    <div class="icon">🔗</div>
 
     <h3>Text to Slug</h3>
 
-    <p>
-        Convert text into URL-friendly slugs.
-    </p>
+    <p>Convert text into URL-friendly slugs.</p>
 
-    <a
-        class="open"
-        href="tools/text-to-slug.html">
+    <a class="open"
+       href="tools/text-to-slug.html">
 
         Open Tool
 
@@ -2507,25 +2480,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="slug generator">
+<div class="tool"
+     data-category="text"
+     data-name="Slug Generator"
+     data-keywords="slug generator url friendly slug seo">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔗
-    </div>
+    <div class="icon">🔗</div>
 
     <h3>Slug Generator</h3>
 
-    <p>
-        Create clean URL-friendly slugs.
-    </p>
+    <p>Create clean URL-friendly slugs.</p>
 
-    <a
-        class="open"
-        href="tools/slug-generator.html">
+    <a class="open"
+       href="tools/slug-generator.html">
 
         Open Tool
 
@@ -2534,25 +2501,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="lorem ipsum generator">
+<div class="tool"
+     data-category="text"
+     data-name="Lorem Ipsum Generator"
+     data-keywords="lorem ipsum generator placeholder text dummy text">
 
-    <div class="icon"
-         aria-hidden="true">
-        📜
-    </div>
+    <div class="icon">📜</div>
 
     <h3>Lorem Ipsum Generator</h3>
 
-    <p>
-        Generate placeholder text instantly.
-    </p>
+    <p>Generate placeholder text instantly.</p>
 
-    <a
-        class="open"
-        href="tools/lorem-ipsum-generator.html">
+    <a class="open"
+       href="tools/lorem-ipsum-generator.html">
 
         Open Tool
 
@@ -2561,25 +2522,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="text"
-    data-name="number to words">
+<div class="tool"
+     data-category="text"
+     data-name="Number to Words"
+     data-keywords="number to words converter numbers text">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔢
-    </div>
+    <div class="icon">🔢</div>
 
     <h3>Number to Words</h3>
 
-    <p>
-        Convert numbers into words.
-    </p>
+    <p>Convert numbers into words.</p>
 
-    <a
-        class="open"
-        href="tools/number-to-words.html">
+    <a class="open"
+       href="tools/number-to-words.html">
 
         Open Tool
 
@@ -2592,25 +2547,19 @@ footer{
      STUDENT TOOLS
 ===================================================== -->
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="percentage calculator">
+<div class="tool"
+     data-category="student"
+     data-name="Percentage Calculator"
+     data-keywords="percentage calculator percent calculator math student">
 
-    <div class="icon"
-         aria-hidden="true">
-        %
-    </div>
+    <div class="icon">%</div>
 
     <h3>Percentage Calculator</h3>
 
-    <p>
-        Calculate percentages quickly.
-    </p>
+    <p>Calculate percentages quickly.</p>
 
-    <a
-        class="open"
-        href="tools/percentage-calculator.html">
+    <a class="open"
+       href="tools/percentage-calculator.html">
 
         Open Tool
 
@@ -2619,25 +2568,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="age calculator">
+<div class="tool"
+     data-category="student"
+     data-name="Age Calculator"
+     data-keywords="age calculator birthday date of birth age">
 
-    <div class="icon"
-         aria-hidden="true">
-        🎂
-    </div>
+    <div class="icon">🎂</div>
 
     <h3>Age Calculator</h3>
 
-    <p>
-        Calculate exact age from your birthday.
-    </p>
+    <p>Calculate exact age from your birthday.</p>
 
-    <a
-        class="open"
-        href="tools/age-calculator.html">
+    <a class="open"
+       href="tools/age-calculator.html">
 
         Open Tool
 
@@ -2646,25 +2589,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="discount calculator">
+<div class="tool"
+     data-category="student"
+     data-name="Discount Calculator"
+     data-keywords="discount calculator sale price percentage discount">
 
-    <div class="icon"
-         aria-hidden="true">
-        🏷️
-    </div>
+    <div class="icon">🏷️</div>
 
     <h3>Discount Calculator</h3>
 
-    <p>
-        Calculate discounts and final prices.
-    </p>
+    <p>Calculate discounts and final prices.</p>
 
-    <a
-        class="open"
-        href="tools/discount-calculator.html">
+    <a class="open"
+       href="tools/discount-calculator.html">
 
         Open Tool
 
@@ -2673,25 +2610,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="loan calculator">
+<div class="tool"
+     data-category="student"
+     data-name="Loan Calculator"
+     data-keywords="loan calculator interest payment monthly loan">
 
-    <div class="icon"
-         aria-hidden="true">
-        💰
-    </div>
+    <div class="icon">💰</div>
 
     <h3>Loan Calculator</h3>
 
-    <p>
-        Calculate loan payments and interest.
-    </p>
+    <p>Calculate loan payments and interest.</p>
 
-    <a
-        class="open"
-        href="tools/loan-calculator.html">
+    <a class="open"
+       href="tools/loan-calculator.html">
 
         Open Tool
 
@@ -2700,25 +2631,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="date difference">
+<div class="tool"
+     data-category="student"
+     data-name="Date Difference"
+     data-keywords="date difference calculator days between dates">
 
-    <div class="icon"
-         aria-hidden="true">
-        📅
-    </div>
+    <div class="icon">📅</div>
 
     <h3>Date Difference</h3>
 
-    <p>
-        Calculate the difference between two dates.
-    </p>
+    <p>Calculate the difference between two dates.</p>
 
-    <a
-        class="open"
-        href="tools/date-difference.html">
+    <a class="open"
+       href="tools/date-difference.html">
 
         Open Tool
 
@@ -2727,25 +2652,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="speed converter">
+<div class="tool"
+     data-category="student"
+     data-name="Speed Converter"
+     data-keywords="speed converter kmh mph kph miles kilometers">
 
-    <div class="icon"
-         aria-hidden="true">
-        🏎️
-    </div>
+    <div class="icon">🏎️</div>
 
     <h3>Speed Converter</h3>
 
-    <p>
-        Convert speed between different units.
-    </p>
+    <p>Convert speed between different units.</p>
 
-    <a
-        class="open"
-        href="tools/speed-converter.html">
+    <a class="open"
+       href="tools/speed-converter.html">
 
         Open Tool
 
@@ -2754,25 +2673,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="temperature converter">
+<div class="tool"
+     data-category="student"
+     data-name="Temperature Converter"
+     data-keywords="temperature converter celsius fahrenheit kelvin">
 
-    <div class="icon"
-         aria-hidden="true">
-        🌡️
-    </div>
+    <div class="icon">🌡️</div>
 
     <h3>Temperature Converter</h3>
 
-    <p>
-        Convert Celsius, Fahrenheit and Kelvin.
-    </p>
+    <p>Convert Celsius, Fahrenheit and Kelvin.</p>
 
-    <a
-        class="open"
-        href="tools/temperature-converter.html">
+    <a class="open"
+       href="tools/temperature-converter.html">
 
         Open Tool
 
@@ -2781,25 +2694,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="unit converter">
+<div class="tool"
+     data-category="student"
+     data-name="Unit Converter"
+     data-keywords="unit converter length weight distance measurement">
 
-    <div class="icon"
-         aria-hidden="true">
-        📏
-    </div>
+    <div class="icon">📏</div>
 
     <h3>Unit Converter</h3>
 
-    <p>
-        Convert common measurement units.
-    </p>
+    <p>Convert common measurement units.</p>
 
-    <a
-        class="open"
-        href="tools/unit-converter.html">
+    <a class="open"
+       href="tools/unit-converter.html">
 
         Open Tool
 
@@ -2808,25 +2715,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="stopwatch">
+<div class="tool"
+     data-category="student"
+     data-name="Stopwatch"
+     data-keywords="online stopwatch timer time">
 
-    <div class="icon"
-         aria-hidden="true">
-        ⏱️
-    </div>
+    <div class="icon">⏱️</div>
 
     <h3>Stopwatch</h3>
 
-    <p>
-        Use a simple online stopwatch.
-    </p>
+    <p>Use a simple online stopwatch.</p>
 
-    <a
-        class="open"
-        href="tools/stopwatch.html">
+    <a class="open"
+       href="tools/stopwatch.html">
 
         Open Tool
 
@@ -2835,25 +2736,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="student"
-    data-name="random number generator">
+<div class="tool"
+     data-category="student"
+     data-name="Random Number Generator"
+     data-keywords="random number generator random numbers dice">
 
-    <div class="icon"
-         aria-hidden="true">
-        🎲
-    </div>
+    <div class="icon">🎲</div>
 
     <h3>Random Number Generator</h3>
 
-    <p>
-        Generate random numbers instantly.
-    </p>
+    <p>Generate random numbers instantly.</p>
 
-    <a
-        class="open"
-        href="tools/random-number-generator.html">
+    <a class="open"
+       href="tools/random-number-generator.html">
 
         Open Tool
 
@@ -2866,25 +2761,19 @@ footer{
      DEVELOPER TOOLS
 ===================================================== -->
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="json formatter">
+<div class="tool"
+     data-category="developer"
+     data-name="JSON Formatter"
+     data-keywords="json formatter pretty print json beautifier developer">
 
-    <div class="icon"
-         aria-hidden="true">
-        { }
-    </div>
+    <div class="icon">{ }</div>
 
     <h3>JSON Formatter</h3>
 
-    <p>
-        Format JSON into readable code.
-    </p>
+    <p>Format JSON into readable code.</p>
 
-    <a
-        class="open"
-        href="tools/json-formatter.html">
+    <a class="open"
+       href="tools/json-formatter.html">
 
         Open Tool
 
@@ -2893,25 +2782,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="json validator">
+<div class="tool"
+     data-category="developer"
+     data-name="JSON Validator"
+     data-keywords="json validator validate json developer">
 
-    <div class="icon"
-         aria-hidden="true">
-        ✓
-    </div>
+    <div class="icon">✓</div>
 
     <h3>JSON Validator</h3>
 
-    <p>
-        Validate JSON instantly.
-    </p>
+    <p>Validate JSON instantly.</p>
 
-    <a
-        class="open"
-        href="tools/json-validator.html">
+    <a class="open"
+       href="tools/json-validator.html">
 
         Open Tool
 
@@ -2920,25 +2803,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="base64 encoder">
+<div class="tool"
+     data-category="developer"
+     data-name="Base64 Encoder"
+     data-keywords="base64 encoder encode text base64 developer">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔐
-    </div>
+    <div class="icon">🔐</div>
 
     <h3>Base64 Encoder</h3>
 
-    <p>
-        Encode text into Base64.
-    </p>
+    <p>Encode text into Base64.</p>
 
-    <a
-        class="open"
-        href="tools/base64-encoder.html">
+    <a class="open"
+       href="tools/base64-encoder.html">
 
         Open Tool
 
@@ -2947,25 +2824,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="hex converter">
+<div class="tool"
+     data-category="developer"
+     data-name="Hex Converter"
+     data-keywords="hex converter hexadecimal converter developer">
 
-    <div class="icon"
-         aria-hidden="true">
-        #
-    </div>
+    <div class="icon">#</div>
 
     <h3>Hex Converter</h3>
 
-    <p>
-        Convert values between hexadecimal formats.
-    </p>
+    <p>Convert values between hexadecimal formats.</p>
 
-    <a
-        class="open"
-        href="tools/hex-converter.html">
+    <a class="open"
+       href="tools/hex-converter.html">
 
         Open Tool
 
@@ -2974,25 +2845,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="binary converter">
+<div class="tool"
+     data-category="developer"
+     data-name="Binary Converter"
+     data-keywords="binary converter binary numbers text binary developer">
 
-    <div class="icon"
-         aria-hidden="true">
-        01
-    </div>
+    <div class="icon">01</div>
 
     <h3>Binary Converter</h3>
 
-    <p>
-        Convert numbers and text to binary.
-    </p>
+    <p>Convert numbers and text to binary.</p>
 
-    <a
-        class="open"
-        href="tools/binary-converter.html">
+    <a class="open"
+       href="tools/binary-converter.html">
 
         Open Tool
 
@@ -3001,25 +2866,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="css minifier">
+<div class="tool"
+     data-category="developer"
+     data-name="CSS Minifier"
+     data-keywords="css minifier minify css optimize stylesheet developer">
 
-    <div class="icon"
-         aria-hidden="true">
-        🎨
-    </div>
+    <div class="icon">🎨</div>
 
     <h3>CSS Minifier</h3>
 
-    <p>
-        Minify CSS code quickly.
-    </p>
+    <p>Minify CSS code quickly.</p>
 
-    <a
-        class="open"
-        href="tools/css-minifier.html">
+    <a class="open"
+       href="tools/css-minifier.html">
 
         Open Tool
 
@@ -3028,25 +2887,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="js minifier">
+<div class="tool"
+     data-category="developer"
+     data-name="JS Minifier"
+     data-keywords="javascript js minifier minify javascript code">
 
-    <div class="icon"
-         aria-hidden="true">
-        JS
-    </div>
+    <div class="icon">JS</div>
 
     <h3>JS Minifier</h3>
 
-    <p>
-        Minify JavaScript code.
-    </p>
+    <p>Minify JavaScript code.</p>
 
-    <a
-        class="open"
-        href="tools/js-minifier.html">
+    <a class="open"
+       href="tools/js-minifier.html">
 
         Open Tool
 
@@ -3055,25 +2908,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="html formatter">
+<div class="tool"
+     data-category="developer"
+     data-name="HTML Formatter"
+     data-keywords="html formatter beautify html code developer">
 
-    <div class="icon"
-         aria-hidden="true">
-        HTML
-    </div>
+    <div class="icon">HTML</div>
 
     <h3>HTML Formatter</h3>
 
-    <p>
-        Format HTML code for readability.
-    </p>
+    <p>Format HTML code for readability.</p>
 
-    <a
-        class="open"
-        href="tools/html-formatter.html">
+    <a class="open"
+       href="tools/html-formatter.html">
 
         Open Tool
 
@@ -3082,25 +2929,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="url encoder">
+<div class="tool"
+     data-category="developer"
+     data-name="URL Encoder"
+     data-keywords="url encoder decoder encode decode url developer">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔗
-    </div>
+    <div class="icon">🔗</div>
 
     <h3>URL Encoder</h3>
 
-    <p>
-        Encode and decode URLs.
-    </p>
+    <p>Encode and decode URLs.</p>
 
-    <a
-        class="open"
-        href="tools/url-encoder.html">
+    <a class="open"
+       href="tools/url-encoder.html">
 
         Open Tool
 
@@ -3109,25 +2950,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="uuid generator">
+<div class="tool"
+     data-category="developer"
+     data-name="UUID Generator"
+     data-keywords="uuid generator guid unique id developer">
 
-    <div class="icon"
-         aria-hidden="true">
-        🆔
-    </div>
+    <div class="icon">🆔</div>
 
     <h3>UUID Generator</h3>
 
-    <p>
-        Generate unique UUIDs instantly.
-    </p>
+    <p>Generate unique UUIDs instantly.</p>
 
-    <a
-        class="open"
-        href="tools/uuid-generator.html">
+    <a class="open"
+       href="tools/uuid-generator.html">
 
         Open Tool
 
@@ -3136,25 +2971,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="password generator">
+<div class="tool"
+     data-category="developer"
+     data-name="Password Generator"
+     data-keywords="password generator random password secure password">
 
-    <div class="icon"
-         aria-hidden="true">
-        🔑
-    </div>
+    <div class="icon">🔑</div>
 
     <h3>Password Generator</h3>
 
-    <p>
-        Generate strong random passwords.
-    </p>
+    <p>Generate strong random passwords.</p>
 
-    <a
-        class="open"
-        href="tools/password-generator.html">
+    <a class="open"
+       href="tools/password-generator.html">
 
         Open Tool
 
@@ -3163,25 +2992,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="username generator">
+<div class="tool"
+     data-category="developer"
+     data-name="Username Generator"
+     data-keywords="username generator random username name ideas">
 
-    <div class="icon"
-         aria-hidden="true">
-        👤
-    </div>
+    <div class="icon">👤</div>
 
     <h3>Username Generator</h3>
 
-    <p>
-        Generate random username ideas.
-    </p>
+    <p>Generate random username ideas.</p>
 
-    <a
-        class="open"
-        href="tools/username-generator.html">
+    <a class="open"
+       href="tools/username-generator.html">
 
         Open Tool
 
@@ -3190,25 +3013,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="qr code generator">
+<div class="tool"
+     data-category="developer"
+     data-name="QR Code Generator"
+     data-keywords="qr code generator qr maker barcode">
 
-    <div class="icon"
-         aria-hidden="true">
-        ▦
-    </div>
+    <div class="icon">▦</div>
 
     <h3>QR Code Generator</h3>
 
-    <p>
-        Generate QR codes quickly.
-    </p>
+    <p>Generate QR codes quickly.</p>
 
-    <a
-        class="open"
-        href="tools/qr-code-generator.html">
+    <a class="open"
+       href="tools/qr-code-generator.html">
 
         Open Tool
 
@@ -3217,25 +3034,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="timestamp converter">
+<div class="tool"
+     data-category="developer"
+     data-name="Timestamp Converter"
+     data-keywords="timestamp converter unix timestamp epoch date">
 
-    <div class="icon"
-         aria-hidden="true">
-        🕐
-    </div>
+    <div class="icon">🕐</div>
 
     <h3>Timestamp Converter</h3>
 
-    <p>
-        Convert Unix timestamps and dates.
-    </p>
+    <p>Convert Unix timestamps and dates.</p>
 
-    <a
-        class="open"
-        href="tools/timestamp-converter.html">
+    <a class="open"
+       href="tools/timestamp-converter.html">
 
         Open Tool
 
@@ -3244,25 +3055,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="timezone converter">
+<div class="tool"
+     data-category="developer"
+     data-name="Timezone Converter"
+     data-keywords="timezone converter time zones world clock">
 
-    <div class="icon"
-         aria-hidden="true">
-        🌍
-    </div>
+    <div class="icon">🌍</div>
 
     <h3>Timezone Converter</h3>
 
-    <p>
-        Convert time between different timezones.
-    </p>
+    <p>Convert time between different timezones.</p>
 
-    <a
-        class="open"
-        href="tools/timezone-converter.html">
+    <a class="open"
+       href="tools/timezone-converter.html">
 
         Open Tool
 
@@ -3271,25 +3076,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="email validator">
+<div class="tool"
+     data-category="developer"
+     data-name="Email Validator"
+     data-keywords="email validator email checker validate email">
 
-    <div class="icon"
-         aria-hidden="true">
-        ✉️
-    </div>
+    <div class="icon">✉️</div>
 
     <h3>Email Validator</h3>
 
-    <p>
-        Check whether an email address is valid.
-    </p>
+    <p>Check whether an email address is valid.</p>
 
-    <a
-        class="open"
-        href="tools/email-validator.html">
+    <a class="open"
+       href="tools/email-validator.html">
 
         Open Tool
 
@@ -3298,25 +3097,19 @@ footer{
 </div>
 
 
-<div
-    class="tool"
-    data-category="developer"
-    data-name="ip address info">
+<div class="tool"
+     data-category="developer"
+     data-name="IP Address Info"
+     data-keywords="ip address info ip lookup ip information network">
 
-    <div class="icon"
-         aria-hidden="true">
-        🌐
-    </div>
+    <div class="icon">🌐</div>
 
     <h3>IP Address Info</h3>
 
-    <p>
-        Get information about an IP address.
-    </p>
+    <p>Get information about an IP address.</p>
 
-    <a
-        class="open"
-        href="tools/ip-address-info.html">
+    <a class="open"
+       href="tools/ip-address-info.html">
 
         Open Tool
 
@@ -3331,10 +3124,13 @@ footer{
 
 <div
     class="noResults"
-    id="noResults"
-    role="status">
+    id="noResults">
 
-    😕 No matching tools found.
+    <strong>
+        😕 No matching tools found
+    </strong>
+
+    Try another keyword, category or tool name.
 
 </div>
 
@@ -3355,8 +3151,8 @@ footer{
     </h2>
 
     <p>
-        VexTools is being built with
-        50+ free online utilities.
+        VexTools is continuously growing
+        with more free online utilities.
     </p>
 
 </div>
@@ -3371,7 +3167,6 @@ footer{
 
 <footer id="about">
 
-
 <div class="footer">
 
 
@@ -3379,12 +3174,8 @@ footer{
 
         <div class="logo">
 
-            <div
-                class="logoIcon"
-                aria-hidden="true">
-
+            <div class="logoIcon">
                 V
-
             </div>
 
             VexTools
@@ -3393,7 +3184,8 @@ footer{
 
         <p>
             Free, fast and useful online tools
-            for everyone.
+            for students, creators, developers
+            and everyone.
         </p>
 
     </div>
@@ -3485,6 +3277,39 @@ footer{
 <script>
 
 /* =====================================================
+   ELEMENTS
+===================================================== */
+
+const searchInput =
+    document.getElementById("search");
+
+const searchClear =
+    document.getElementById("searchClear");
+
+const toolGrid =
+    document.getElementById("toolGrid");
+
+const noResults =
+    document.getElementById("noResults");
+
+const resultCount =
+    document.getElementById("resultCount");
+
+const tools =
+    Array.from(
+        document.querySelectorAll(".tool")
+    );
+
+const categories =
+    Array.from(
+        document.querySelectorAll(".category")
+    );
+
+const themeButton =
+    document.getElementById("theme");
+
+
+/* =====================================================
    YEAR
 ===================================================== */
 
@@ -3496,15 +3321,13 @@ document.getElementById("year").textContent =
    THEME
 ===================================================== */
 
-const themeButton =
-    document.getElementById("theme");
+const savedTheme =
+    localStorage.getItem(
+        "vextools-theme"
+    );
 
 
-const saved =
-    localStorage.getItem("vextools-theme");
-
-
-if(saved === "light"){
+if(savedTheme === "light"){
 
     document.body.classList.add("light");
 
@@ -3522,23 +3345,24 @@ themeButton.addEventListener(
     "click",
     () => {
 
-        document.body.classList.toggle("light");
+        document.body.classList.toggle(
+            "light"
+        );
 
-
-        const light =
-            document.body.classList.contains("light");
-
+        const isLight =
+            document.body.classList.contains(
+                "light"
+            );
 
         localStorage.setItem(
             "vextools-theme",
-            light
+            isLight
                 ? "light"
                 : "dark"
         );
 
-
         themeButton.textContent =
-            light
+            isLight
                 ? "🌙"
                 : "☀️";
 
@@ -3547,27 +3371,35 @@ themeButton.addEventListener(
 
 
 /* =====================================================
-   HEADINGS REVEAL
+   HEADING REVEAL
 ===================================================== */
 
 const headings =
-    document.querySelectorAll(".reveal");
+    document.querySelectorAll(
+        ".reveal"
+    );
 
 
-const observer =
+const headingObserver =
     new IntersectionObserver(
 
         entries => {
 
-            entries.forEach(entry => {
+            entries.forEach(
+                entry => {
 
-                if(entry.isIntersecting){
+                    if(
+                        entry.isIntersecting
+                    ){
 
-                    entry.target.classList.add("show");
+                        entry.target.classList.add(
+                            "show"
+                        );
+
+                    }
 
                 }
-
-            });
+            );
 
         },
 
@@ -3580,20 +3412,45 @@ const observer =
 
 headings.forEach(
     heading =>
-        observer.observe(heading)
+        headingObserver.observe(
+            heading
+        )
 );
 
 
 /* =====================================================
-   TOOLS REVEAL
+   TOOL REVEAL
 ===================================================== */
 
-const tools =
-    document.querySelectorAll(".tool");
+function revealTools(){
 
+    tools.forEach(
+        (tool,index) => {
 
-const grid =
-    document.getElementById("toolGrid");
+            if(
+                tool.style.display !== "none"
+            ){
+
+                setTimeout(
+                    () => {
+
+                        tool.classList.add(
+                            "show"
+                        );
+
+                    },
+                    Math.min(
+                        index * 20,
+                        500
+                    )
+                );
+
+            }
+
+        }
+    );
+
+}
 
 
 const toolObserver =
@@ -3601,123 +3458,475 @@ const toolObserver =
 
         entries => {
 
-            entries.forEach(entry => {
+            entries.forEach(
+                entry => {
 
-                if(entry.isIntersecting){
+                    if(
+                        entry.isIntersecting
+                    ){
 
-                    tools.forEach(
-                        (tool,index) => {
+                        revealTools();
 
-                            setTimeout(
+                        toolObserver.unobserve(
+                            entry.target
+                        );
 
-                                () => {
-
-                                    if(
-                                        tool.style.display !==
-                                        "none"
-                                    ){
-
-                                        tool.classList.add(
-                                            "show"
-                                        );
-
-                                    }
-
-                                },
-
-                                index * 35
-
-                            );
-
-                        }
-                    );
+                    }
 
                 }
-
-            });
+            );
 
         },
 
         {
-            threshold:.05
+            threshold:.03
         }
 
     );
 
 
-toolObserver.observe(grid);
+toolObserver.observe(
+    toolGrid
+);
 
 
 /* =====================================================
-   SEARCH
+   NORMALIZE SEARCH
 ===================================================== */
 
-const search =
-    document.getElementById("search");
+function normalizeText(text){
+
+    return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
+        )
+        .replace(
+            /[^a-z0-9\s]/g,
+            " "
+        )
+        .replace(
+            /\s+/g,
+            " "
+        )
+        .trim();
+
+}
 
 
-const noResults =
-    document.getElementById("noResults");
+/* =====================================================
+   SEARCH DATA
+===================================================== */
 
-
-search.addEventListener(
-    "input",
-    () => {
-
-        const query =
-            search.value
-            .toLowerCase()
-            .trim();
-
-
-        let count = 0;
-
-
-        tools.forEach(tool => {
+const toolData =
+    tools.map(
+        tool => {
 
             const name =
-                tool.dataset.name
-                .toLowerCase();
+                normalizeText(
+                    tool.dataset.name || ""
+                );
+
+            const category =
+                normalizeText(
+                    tool.dataset.category || ""
+                );
+
+            const keywords =
+                normalizeText(
+                    tool.dataset.keywords || ""
+                );
+
+            const description =
+                normalizeText(
+                    tool.querySelector("p")
+                        ?.textContent || ""
+                );
+
+            const fullText =
+                normalizeText(
+                    tool.textContent || ""
+                );
+
+            return {
+
+                element:tool,
+
+                name,
+
+                category,
+
+                keywords,
+
+                description,
+
+                fullText
+
+            };
+
+        }
+    );
 
 
-            const text =
-                tool.innerText
-                .toLowerCase();
+/* =====================================================
+   SEARCH RANKING
+===================================================== */
+
+function calculateScore(
+    item,
+    query
+){
+
+    if(!query){
+
+        return 1;
+
+    }
+
+
+    const words =
+        query
+            .split(" ")
+            .filter(Boolean);
+
+
+    let score = 0;
+
+
+    /* Exact name */
+
+    if(item.name === query){
+
+        score += 100;
+
+    }
+
+
+    /* Name starts with query */
+
+    if(
+        item.name.startsWith(query)
+    ){
+
+        score += 70;
+
+    }
+
+
+    /* Name contains query */
+
+    if(
+        item.name.includes(query)
+    ){
+
+        score += 50;
+
+    }
+
+
+    /* Keywords */
+
+    if(
+        item.keywords.includes(query)
+    ){
+
+        score += 40;
+
+    }
+
+
+    /* Category */
+
+    if(
+        item.category.includes(query)
+    ){
+
+        score += 30;
+
+    }
+
+
+    /* Description */
+
+    if(
+        item.description.includes(query)
+    ){
+
+        score += 20;
+
+    }
+
+
+    /* Individual search words */
+
+    words.forEach(
+        word => {
+
+            if(
+                item.name.includes(word)
+            ){
+
+                score += 20;
+
+            }
+
+            if(
+                item.keywords.includes(word)
+            ){
+
+                score += 12;
+
+            }
+
+            if(
+                item.description.includes(word)
+            ){
+
+                score += 8;
+
+            }
+
+            if(
+                item.category.includes(word)
+            ){
+
+                score += 8;
+
+            }
+
+        }
+    );
+
+
+    return score;
+
+}
+
+
+/* =====================================================
+   FILTER TOOLS
+===================================================== */
+
+let activeCategory = "all";
+
+
+function filterTools(){
+
+    const query =
+        normalizeText(
+            searchInput.value
+        );
+
+
+    const results = [];
+
+
+    toolData.forEach(
+        item => {
+
+            const categoryMatch =
+                activeCategory === "all" ||
+                item.category ===
+                    activeCategory;
+
+
+            if(!categoryMatch){
+
+                item.element.style.display =
+                    "none";
+
+                return;
+
+            }
+
+
+            const score =
+                calculateScore(
+                    item,
+                    query
+                );
 
 
             if(
-                name.includes(query) ||
-                text.includes(query)
+                query === "" ||
+                score > 0
             ){
 
-                tool.style.display = "";
+                item.element.style.display =
+                    "";
 
-                count++;
-
-
-                setTimeout(
-                    () => {
-
-                        tool.classList.add("show");
-
-                    },
-                    20
-                );
+                results.push({
+                    ...item,
+                    score
+                });
 
             }
             else{
 
-                tool.style.display = "none";
+                item.element.style.display =
+                    "none";
 
             }
 
-        });
+        }
+    );
 
 
-        noResults.style.display =
-            count === 0
-                ? "block"
-                : "none";
+    /* =================================================
+       SORT SEARCH RESULTS
+    ================================================= */
+
+    if(query){
+
+        results.sort(
+            (a,b) =>
+                b.score - a.score
+        );
+
+        results.forEach(
+            result =>
+                toolGrid.appendChild(
+                    result.element
+                )
+        );
+
+    }
+
+
+    /* =================================================
+       RESULT COUNT
+    ================================================= */
+
+    const total =
+        results.length;
+
+
+    if(query){
+
+        resultCount.textContent =
+            total === 0
+                ? ""
+                : `${total} tool${total === 1 ? "" : "s"} found`;
+
+    }
+    else if(
+        activeCategory !== "all"
+    ){
+
+        resultCount.textContent =
+            `${total} tool${total === 1 ? "" : "s"} in this category`;
+
+    }
+    else{
+
+        resultCount.textContent =
+            `${tools.length} tools available`;
+
+    }
+
+
+    /* =================================================
+       NO RESULTS
+    ================================================= */
+
+    noResults.style.display =
+        total === 0
+            ? "block"
+            : "none";
+
+
+    /* =================================================
+       CLEAR BUTTON
+    ================================================= */
+
+    searchClear.style.display =
+        searchInput.value.length > 0
+            ? "block"
+            : "none";
+
+
+    /* =================================================
+       REVEAL RESULTS
+    ================================================= */
+
+    results.forEach(
+        (item,index) => {
+
+            item.element.classList.remove(
+                "show"
+            );
+
+            setTimeout(
+                () => {
+
+                    item.element.classList.add(
+                        "show"
+                    );
+
+                },
+                Math.min(
+                    index * 25,
+                    400
+                )
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   SEARCH INPUT
+===================================================== */
+
+searchInput.addEventListener(
+    "input",
+    filterTools
+);
+
+
+/* =====================================================
+   CLEAR SEARCH
+===================================================== */
+
+searchClear.addEventListener(
+    "click",
+    () => {
+
+        searchInput.value = "";
+
+        activeCategory = "all";
+
+
+        categories.forEach(
+            button =>
+                button.classList.remove(
+                    "active"
+                )
+        );
+
+
+        const allButton =
+            document.querySelector(
+                '.category[data-category="all"]'
+            );
+
+
+        if(allButton){
+
+            allButton.classList.add(
+                "active"
+            );
+
+        }
+
+
+        filterTools();
+
+        searchInput.focus();
 
     }
 );
@@ -3727,94 +3936,188 @@ search.addEventListener(
    CATEGORY FILTER
 ===================================================== */
 
-document
-    .querySelectorAll(".category")
-    .forEach(button => {
-
+categories.forEach(
+    button => {
 
         button.addEventListener(
             "click",
             () => {
 
-
-                document
-                    .querySelectorAll(".category")
-                    .forEach(
-                        category =>
-                            category.classList.remove(
-                                "active"
-                            )
-                    );
+                categories.forEach(
+                    item =>
+                        item.classList.remove(
+                            "active"
+                        )
+                );
 
 
-                button.classList.add("active");
+                button.classList.add(
+                    "active"
+                );
 
 
-                search.value = "";
-
-
-                const category =
+                activeCategory =
                     button.dataset.category;
 
 
-                let count = 0;
+                searchInput.value = "";
 
 
-                tools.forEach(tool => {
-
-
-                    if(
-                        category === "all" ||
-                        tool.dataset.category === category
-                    ){
-
-                        tool.style.display = "";
-
-                        count++;
-
-
-                        setTimeout(
-
-                            () => {
-
-                                tool.classList.add(
-                                    "show"
-                                );
-
-                            },
-
-                            30
-
-                        );
-
-                    }
-                    else{
-
-                        tool.style.display = "none";
-
-                    }
-
-                });
-
-
-                noResults.style.display =
-                    count === 0
-                        ? "block"
-                        : "none";
+                filterTools();
 
 
                 document
                     .getElementById("tools")
                     .scrollIntoView({
-
-                        behavior:"smooth"
-
+                        behavior:"smooth",
+                        block:"start"
                     });
 
             }
         );
 
-    });
+    }
+);
+
+
+/* =====================================================
+   CTRL + K SEARCH
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            (event.ctrlKey ||
+             event.metaKey) &&
+            event.key.toLowerCase() === "k"
+        ){
+
+            event.preventDefault();
+
+            searchInput.focus();
+
+            searchInput.select();
+
+        }
+
+
+        if(
+            event.key === "Escape" &&
+            document.activeElement === searchInput
+        ){
+
+            searchInput.value = "";
+
+            filterTools();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   URL SEARCH SUPPORT
+===================================================== */
+
+function loadSearchFromURL(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const search =
+        params.get("search");
+
+
+    if(search){
+
+        searchInput.value =
+            search;
+
+        filterTools();
+
+        document
+            .getElementById("tools")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+    }
+
+}
+
+
+/* =====================================================
+   UPDATE URL
+===================================================== */
+
+let urlTimer;
+
+
+searchInput.addEventListener(
+    "input",
+    () => {
+
+        clearTimeout(urlTimer);
+
+
+        urlTimer =
+            setTimeout(
+                () => {
+
+                    const value =
+                        searchInput.value.trim();
+
+
+                    const url =
+                        new URL(
+                            window.location.href
+                        );
+
+
+                    if(value){
+
+                        url.searchParams.set(
+                            "search",
+                            value
+                        );
+
+                    }
+                    else{
+
+                        url.searchParams.delete(
+                            "search"
+                        );
+
+                    }
+
+
+                    window.history.replaceState(
+                        {},
+                        "",
+                        url
+                    );
+
+                },
+                250
+            );
+
+    }
+);
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+filterTools();
+
+loadSearchFromURL();
 
 
 </script>
