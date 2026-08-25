@@ -1,1 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta name="description" content="VexTools - Free online PDF, image, text, student, calculator and developer tools.">
+  <meta name="keywords" content="free online tools, PDF tools, image tools, text tools, calculators, developer tools">
+  <meta name="author" content="VexTools">
+
+  <title>VexTools — Free Online Tools</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #64748b;
+      --border: #e5e7eb;
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --header: rgba(255,255,255,.86);
+      --shadow: 0 10px 30px rgba(15,23,42,.07);
+    }
+
+    body.dark {
+      --bg: #0b1020;
+      --card: #121a2d;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #24304a;
+      --header: rgba(11,16,32,.88);
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: .25s;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--header);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 72px;
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+
+      display: grid;
+      place-items: center;
+
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      box-shadow: 0 8px 20px rgba(99,102,241,.3);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .theme-btn {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .theme-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      max-width: 1000px;
+      margin: auto;
+      padding: 95px 20px 70px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      color: var(--primary);
+      background: var(--card);
+
+      font-size: 13px;
+      font-weight: 700;
+
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    /* ================= SEARCH ================= */
+
+    .search-box {
+      max-width: 700px;
+      margin: 35px auto 0;
+
+      display: flex;
+      align-items: center;
+
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      padding: 7px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .search-icon {
+      padding-left: 15px;
+      font-size: 20px;
+    }
+
+    .search-box input {
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+
+      padding: 15px;
+      font-size: 16px;
+    }
+
+    /* ================= SECTION ================= */
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 20px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* ================= CATEGORIES ================= */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+
+    .category {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+
+      border-radius: 14px;
+      padding: 15px 10px;
+
+      text-align: center;
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+    .category:hover,
+    .category.active {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .category-icon {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .category-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ================= TOOLS ================= */
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .tool-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      padding: 22px;
+
+      box-shadow: 0 5px 20px rgba(15,23,42,.04);
+
+      transition: .25s;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: rgba(99,102,241,.4);
+    }
+
+    .tool-icon {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+      background: rgba(99,102,241,.1);
+
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    .tool-card h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 13px;
+      min-height: 40px;
+      margin-bottom: 18px;
+    }
+
+    .tool-btn {
+      width: 100%;
+      border: 0;
+
+      background: var(--primary);
+      color: white;
+
+      padding: 11px;
+      border-radius: 11px;
+
+      cursor: pointer;
+      font-weight: 700;
+
+      transition: .2s;
+    }
+
+    .tool-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      grid-column: 1 / -1;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      max-width: 1160px;
+      margin: 30px auto 70px;
+      padding: 55px 25px;
+
+      text-align: center;
+
+      border-radius: 25px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      opacity: .9;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 20px;
+
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      margin-top: 12px;
+      max-width: 350px;
+      font-size: 14px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 13px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      margin: 8px 0;
+    }
+
+    .footer-col a:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      border-top: 1px solid var(--border);
+      padding: 18px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 1000px) {
+      .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        min-height: 64px;
+      }
+
+      nav a {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+  <div class="nav">
+
+    <a href="#" class="logo">
+      <div class="logo-icon">V</div>
+      <span>VexTools</span>
+    </a>
+
+    <nav>
+      <a href="#tools">All Tools</a>
+      <a href="#categories">Categories</a>
+      <a href="#about">About</a>
+
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+        🌙
+      </button>
+    </nav>
+
+  </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<main>
+
+<section class="hero">
+
+  <div class="badge">
+    ⚡ 100% Free Online Tools
+  </div>
+
+  <h1>
+    Powerful Tools.<br>
+    <span>Simple & Free.</span>
+  </h1>
+
+  <p>
+    VexTools gives you fast, simple and free online tools
+    for PDFs, images, text, students, calculations and development.
+  </p>
+
+  <div class="search-box">
+    <div class="search-icon">🔎</div>
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search for a tool..."
+      autocomplete="off"
+    >
+  </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section" id="categories">
+
+  <div class="section-heading">
+    <h2>Explore Categories</h2>
+    <p>Find the right tool for what you need.</p>
+  </div>
+
+  <div class="categories">
+
+    <button class="category active" data-category="all">
+      <span class="category-icon">🧰</span>
+      <span class="category-name">All Tools</span>
+    </button>
+
+    <button class="category" data-category="pdf">
+      <span class="category-icon">📄</span>
+      <span class="category-name">PDF</span>
+    </button>
+
+    <button class="category" data-category="image">
+      <span class="category-icon">🖼️</span>
+      <span class="category-name">Image</span>
+    </button>
+
+    <button class="category" data-category="text">
+      <span class="category-icon">📝</span>
+      <span class="category-name">Text</span>
+    </button>
+
+    <button class="category" data-category="student">
+      <span class="category-icon">🎓</span>
+      <span class="category-name">Student</span>
+    </button>
+
+    <button class="category" data-category="developer">
+      <span class="category-icon">💻</span>
+      <span class="category-name">Developer</span>
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TOOLS ================= -->
+
+<section class="section" id="tools">
+
+  <div class="section-heading">
+    <h2>All Tools</h2>
+    <p>Free tools designed to make everyday tasks easier.</p>
+  </div>
+
+  <div class="tools-grid" id="toolsGrid">
+
+    <!-- PDF -->
+
+    <div class="tool-card" data-category="pdf" data-name="merge pdf">
+      <div class="tool-icon">📑</div>
+      <h3>Merge PDF</h3>
+      <p>Combine multiple PDF files into one document.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="pdf" data-name="split pdf">
+      <div class="tool-icon">✂️</div>
+      <h3>Split PDF</h3>
+      <p>Split a PDF into separate pages or files.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="pdf" data-name="compress pdf">
+      <div class="tool-icon">🗜️</div>
+      <h3>Compress PDF</h3>
+      <p>Reduce PDF file size quickly and easily.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="pdf" data-name="jpg to pdf">
+      <div class="tool-icon">🖼️</div>
+      <h3>JPG to PDF</h3>
+      <p>Convert JPG images into a PDF document.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="pdf" data-name="png to pdf">
+      <div class="tool-icon">🖼️</div>
+      <h3>PNG to PDF</h3>
+      <p>Convert PNG images into PDF files.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="pdf" data-name="pdf to jpg">
+      <div class="tool-icon">📷</div>
+      <h3>PDF to JPG</h3>
+      <p>Turn PDF pages into JPG images.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="pdf" data-name="pdf page extractor">
+      <div class="tool-icon">📄</div>
+      <h3>PDF Page Extractor</h3>
+      <p>Extract selected pages from a PDF.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="pdf" data-name="pdf rotate">
+      <div class="tool-icon">🔄</div>
+      <h3>PDF Rotator</h3>
+      <p>Rotate PDF pages in seconds.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+
+    <!-- IMAGE -->
+
+    <div class="tool-card" data-category="image" data-name="image compressor">
+      <div class="tool-icon">🗜️</div>
+      <h3>Image Compressor</h3>
+      <p>Compress images while keeping good quality.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="image" data-name="image resizer">
+      <div class="tool-icon">📐</div>
+      <h3>Image Resizer</h3>
+      <p>Resize images to your desired dimensions.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="image" data-name="jpg to png">
+      <div class="tool-icon">🔄</div>
+      <h3>JPG to PNG</h3>
+      <p>Convert JPG images to PNG format.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="image" data-name="png to jpg">
+      <div class="tool-icon">🔄</div>
+      <h3>PNG to JPG</h3>
+      <p>Convert PNG images to JPG format.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="image" data-name="jpg to webp">
+      <div class="tool-icon">🌐</div>
+      <h3>JPG to WebP</h3>
+      <p>Convert JPG images to modern WebP format.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="image" data-name="webp to jpg">
+      <div class="tool-icon">🌐</div>
+      <h3>WebP to JPG</h3>
+      <p>Convert WebP images into JPG files.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="image" data-name="image cropper">
+      <div class="tool-icon">✂️</div>
+      <h3>Image Cropper</h3>
+      <p>Crop your images to any size.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="image" data-name="image rotator">
+      <div class="tool-icon">🔄</div>
+      <h3>Image Rotator</h3>
+      <p>Rotate images quickly in your browser.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+
+    <!-- TEXT -->
+
+    <div class="tool-card" data-category="text" data-name="word counter">
+      <div class="tool-icon">🔢</div>
+      <h3>Word Counter</h3>
+      <p>Count words and characters in your text.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="text" data-name="character counter">
+      <div class="tool-icon">🔤</div>
+      <h3>Character Counter</h3>
+      <p>Count characters instantly.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="text" data-name="case converter">
+      <div class="tool-icon">Aa</div>
+      <h3>Case Converter</h3>
+      <p>Convert text to uppercase or lowercase.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="text" data-name="remove spaces">
+      <div class="tool-icon">🧹</div>
+      <h3>Remove Extra Spaces</h3>
+      <p>Clean unnecessary spaces from text.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="text" data-name="duplicate line remover">
+      <div class="tool-icon">🧹</div>
+      <h3>Duplicate Line Remover</h3>
+      <p>Remove repeated lines from your text.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="text" data-name="text sorter">
+      <div class="tool-icon">↕️</div>
+      <h3>Text Sorter</h3>
+      <p>Sort lines alphabetically or numerically.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="text" data-name="text reverser">
+      <div class="tool-icon">🔁</div>
+      <h3>Text Reverser</h3>
+      <p>Reverse text instantly.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="text" data-name="slug generator">
+      <div class="tool-icon">🔗</div>
+      <h3>Slug Generator</h3>
+      <p>Create clean URL-friendly slugs.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+
+    <!-- STUDENT / CALCULATORS -->
+
+    <div class="tool-card" data-category="student" data-name="percentage calculator">
+      <div class="tool-icon">%</div>
+      <h3>Percentage Calculator</h3>
+      <p>Calculate percentages quickly.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="student" data-name="gpa calculator">
+      <div class="tool-icon">🎓</div>
+      <h3>GPA Calculator</h3>
+      <p>Calculate your GPA easily.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="student" data-name="grade calculator">
+      <div class="tool-icon">📊</div>
+      <h3>Grade Calculator</h3>
+      <p>Calculate grades from marks and scores.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="student" data-name="average calculator">
+      <div class="tool-icon">➗</div>
+      <h3>Average Calculator</h3>
+      <p>Find the average of multiple numbers.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="student" data-name="age calculator">
+      <div class="tool-icon">🎂</div>
+      <h3>Age Calculator</h3>
+      <p>Calculate exact age from date of birth.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="student" data-name="discount calculator">
+      <div class="tool-icon">🏷️</div>
+      <h3>Discount Calculator</h3>
+      <p>Calculate discounts and final prices.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="student" data-name="profit loss calculator">
+      <div class="tool-icon">💰</div>
+      <h3>Profit/Loss Calculator</h3>
+      <p>Calculate profit or loss from prices.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="student" data-name="study timer">
+      <div class="tool-icon">⏱️</div>
+      <h3>Study Timer</h3>
+      <p>Use a simple timer for focused study sessions.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+
+    <!-- DEVELOPER -->
+
+    <div class="tool-card" data-category="developer" data-name="json formatter">
+      <div class="tool-icon">{ }</div>
+      <h3>JSON Formatter</h3>
+      <p>Format messy JSON into readable code.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="developer" data-name="json validator">
+      <div class="tool-icon">✓</div>
+      <h3>JSON Validator</h3>
+      <p>Check whether JSON is valid.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="developer" data-name="base64 encoder">
+      <div class="tool-icon">🔐</div>
+      <h3>Base64 Encoder</h3>
+      <p>Encode text into Base64 format.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="developer" data-name="base64 decoder">
+      <div class="tool-icon">🔓</div>
+      <h3>Base64 Decoder</h3>
+      <p>Decode Base64 text instantly.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="developer" data-name="url encoder">
+      <div class="tool-icon">🔗</div>
+      <h3>URL Encoder</h3>
+      <p>Encode URLs safely.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="developer" data-name="url decoder">
+      <div class="tool-icon">🔗</div>
+      <h3>URL Decoder</h3>
+      <p>Decode encoded URLs.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="developer" data-name="uuid generator">
+      <div class="tool-icon">🆔</div>
+      <h3>UUID Generator</h3>
+      <p>Generate random UUIDs instantly.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="tool-card" data-category="developer" data-name="markdown previewer">
+      <div class="tool-icon">M↓</div>
+      <h3>Markdown Previewer</h3>
+      <p>Preview Markdown content in your browser.</p>
+      <button class="tool-btn">Open Tool</button>
+    </div>
+
+    <div class="no-results" id="noResults">
+      😕 No tools found. Try another search.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+  <h2>Everything You Need, In One Place.</h2>
+
+  <p>
+    VexTools is being built to provide simple,
+    fast and free utilities for everyone.
+  </p>
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="about">
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+
+      <div class="logo">
+        <div class="logo-icon">V</div>
+        <span>VexTools</span>
+      </div>
+
+      <p>
+        Free online tools designed to make everyday
+        tasks faster, easier and simpler.
+      </p>
+
+    </div>
+
+
+    <div class="footer-col">
+
+      <h4>Tools</h4>
+
+      <a href="#tools">All Tools</a>
+      <a href="#categories">PDF Tools</a>
+      <a href="#categories">Image Tools</a>
+      <a href="#categories">Text Tools</a>
+
+    </div>
+
+
+    <div class="footer-col">
+
+      <h4>More</h4>
+
+      <a href="#tools">Student Tools</a>
+      <a href="#tools">Calculators</a>
+      <a href="#tools">Developer Tools</a>
+
+    </div>
+
+
+    <div class="footer-col">
+
+      <h4>Information</h4>
+
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+    © <span id="year"></span> VexTools. All rights reserved.
+  </div>
+
+</footer>
+
+
+<script>
+
+  /* ================= YEAR ================= */
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+  /* ================= THEME ================= */
+
+  const themeBtn = document.getElementById("themeBtn");
+
+  const savedTheme = localStorage.getItem("vextools-theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    themeBtn.textContent = "☀️";
+  }
+
+  themeBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    const dark =
+      document.body.classList.contains("dark");
+
+    localStorage.setItem(
+      "vextools-theme",
+      dark ? "dark" : "light"
+    );
+
+    themeBtn.textContent =
+      dark ? "☀️" : "🌙";
+
+  });
+
+
+  /* ================= SEARCH ================= */
+
+  const searchInput =
+    document.getElementById("searchInput");
+
+  const toolCards =
+    document.querySelectorAll(".tool-card");
+
+  const noResults =
+    document.getElementById("noResults");
+
+  searchInput.addEventListener("input", () => {
+
+    const query =
+      searchInput.value.toLowerCase().trim();
+
+    let visible = 0;
+
+    toolCards.forEach(card => {
+
+      const name =
+        card.dataset.name.toLowerCase();
+
+      const description =
+        card.querySelector("p").textContent.toLowerCase();
+
+      if (
+        name.includes(query) ||
+        description.includes(query)
+      ) {
+
+        card.style.display = "";
+
+        visible++;
+
+      } else {
+
+        card.style.display = "none";
+
+      }
+
+    });
+
+    noResults.style.display =
+      visible === 0 ? "block" : "none";
+
+  });
+
+
+  /* ================= CATEGORY FILTER ================= */
+
+  const categories =
+    document.querySelectorAll(".category");
+
+  categories.forEach(category => {
+
+    category.addEventListener("click", () => {
+
+      categories.forEach(item =>
+        item.classList.remove("active")
+      );
+
+      category.classList.add("active");
+
+      const selected =
+        category.dataset.category;
+
+      searchInput.value = "";
+
+      let visible = 0;
+
+      toolCards.forEach(card => {
+
+        if (
+          selected === "all" ||
+          card.dataset.category === selected
+        ) {
+
+          card.style.display = "";
+          visible++;
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+      noResults.style.display =
+        visible === 0 ? "block" : "none";
+
+      document
+        .getElementById("tools")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    });
+
+  });
+
+
+  /* ================= TOOL BUTTONS ================= */
+
+  document.querySelectorAll(".tool-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const card = button.closest(".tool-card");
+
+      const tool =
+        card.querySelector("h3").textContent;
+
+      alert(
+        tool +
+        " is coming in the next VexTools update! 🚀"
+      );
+
+    });
+
+  });
+
+</script>
+
+</body>
+</html>
