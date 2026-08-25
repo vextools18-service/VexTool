@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Image to Base64 — VexTools</title>
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:30px 15px;
+}
+
+.container{max-width:850px;margin:auto}
+
+.header{text-align:center;margin-bottom:25px}
+
+.logo{
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+}
+
+h1{margin:15px 0 8px}
+
+p{color:#94a3b8}
+
+.card{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:22px;
+}
+
+input{
+width:100%;
+padding:15px;
+background:#0d1427;
+color:white;
+border:1px solid #29344f;
+border-radius:12px;
+}
+
+textarea{
+width:100%;
+height:250px;
+margin-top:15px;
+padding:15px;
+background:#0d1427;
+color:#22d3ee;
+border:1px solid #29344f;
+border-radius:12px;
+resize:vertical;
+font-size:13px;
+}
+
+button{
+width:100%;
+margin-top:15px;
+padding:13px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<a class="logo" href="../index.html">VexTools</a>
+<h1>Image to Base64</h1>
+<p>Convert an image into a Base64 string.</p>
+</div>
+
+<div class="card">
+
+<input id="file" type="file" accept="image/*">
+
+<textarea id="output" readonly placeholder="Base64 output will appear here..."></textarea>
+
+<button onclick="copyText()">Copy Base64</button>
+
+</div>
+</div>
+
+<script>
+document.getElementById("file").addEventListener("change",e=>{
+
+const file=e.target.files[0];
+
+if(!file)return;
+
+const reader=new FileReader();
+
+reader.onload=()=>{
+document.getElementById("output").value=reader.result;
+};
+
+reader.readAsDataURL(file);
+
+});
+
+function copyText(){
+navigator.clipboard.writeText(
+document.getElementById("output").value
+);
+}
+</script>
+
+</body>
+</html>
