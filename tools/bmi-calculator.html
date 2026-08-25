@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BMI Calculator — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
+.container{max-width:600px;margin:auto}
+input{width:100%;padding:15px;margin:10px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
+button{width:100%;padding:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
+.result{margin-top:20px;padding:20px;background:#111a30;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>⚖️ BMI Calculator</h1>
+<p>Calculate BMI from height and weight.</p>
+
+<input id="weight" type="number" placeholder="Weight (kg)">
+<input id="height" type="number" placeholder="Height (cm)">
+
+<button onclick="calculate()">Calculate BMI</button>
+<div class="result" id="result">Result</div>
+</div>
+
+<script>
+function calculate(){
+let w=Number(weight.value);
+let h=Number(height.value)/100;
+
+if(!w||!h){
+result.textContent="Please enter valid values.";
+return;
+}
+
+let bmi=w/(h*h);
+result.textContent="BMI: "+bmi.toFixed(2);
+}
+</script>
+</body>
+</html>
