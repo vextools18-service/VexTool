@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Color Converter — VexTools</title>
+<style>
+body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
+.container{max-width:700px;margin:auto}
+input{width:100%;padding:15px;margin:10px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
+button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px}
+.result{margin-top:20px;background:#111a30;padding:20px;border-radius:12px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🌈 Color Converter</h1>
+<p>Convert HEX colors into RGB values.</p>
+
+<input id="hexInput" placeholder="#7c3aed">
+<button onclick="convert()">Convert</button>
+
+<div class="result" id="result">Result will appear here.</div>
+</div>
+
+<script>
+function convert(){
+let h=hexInput.value.trim().replace("#","");
+if(!/^[0-9a-fA-F]{6}$/.test(h)){
+result.textContent="Please enter a valid 6-digit HEX color.";
+return;
+}
+
+let r=parseInt(h.substring(0,2),16);
+let g=parseInt(h.substring(2,4),16);
+let b=parseInt(h.substring(4,6),16);
+
+result.innerHTML=`HEX: #${h.toUpperCase()}<br>RGB: rgb(${r}, ${g}, ${b})`;
+}
+</script>
+</body>
+</html>
