@@ -1,138 +1,842 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Speed Converter Online — VexTools</title>
+<title>Speed Converter Online Free — KM/H to MPH | VexTools</title>
 
-<meta name="description" content="Convert speed online for free with VexTools. Quickly convert between kilometers per hour (km/h) and miles per hour (mph).">
+<meta name="description" content="Convert speed online for free with VexTools. Quickly convert between kilometers per hour (km/h) and miles per hour (mph) with accurate results.">
 
-<meta name="keywords" content="speed converter, speed converter online, km/h to mph, mph to km/h, kmh to mph converter, mph to kmh converter, velocity converter">
+<meta name="keywords" content="speed converter, speed converter online, km/h to mph, mph to km/h, kmh to mph converter, mph to kmh converter, velocity converter, speed conversion">
 
 <meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://vextools.github.io/tools/speed-converter.html">
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/speed-converter.html">
 
-<meta property="og:title" content="Speed Converter Online — VexTools">
-<meta property="og:description" content="Convert between KM/H and MPH quickly and easily with the free VexTools Speed Converter.">
+<meta property="og:title" content="Speed Converter Online Free — VexTools">
+<meta property="og:description" content="Convert between KM/H and MPH quickly and accurately with the free VexTools Speed Converter.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://vextools.github.io/tools/speed-converter.html">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/speed-converter.html">
+<meta property="og:site_name" content="VexTools">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Speed Converter — VexTools">
 <meta name="twitter:description" content="Convert speed between km/h and mph online for free.">
 
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Speed Converter",
+  "url":"https://vextools18-service.github.io/VexTool/tools/speed-converter.html",
+  "description":"Free online speed converter for converting kilometers per hour and miles per hour.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "isAccessibleForFree":true,
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools18-service.github.io/VexTool/"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How do I convert km/h to mph?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter your speed, select KM/H as the source unit and MPH as the target unit, then click Convert."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I convert mph to km/h?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter your speed, select MPH as the source unit and KM/H as the target unit, then click Convert."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is the VexTools Speed Converter free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Speed Converter is free to use online and works directly in your browser."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+:root{
+--bg:#070b18;
+--card:#11192d;
+--card2:#0d1427;
+--text:#f8fafc;
+--muted:#94a3b8;
+--border:rgba(255,255,255,.1);
+--primary:#7c3aed;
+--secondary:#06b6d4;
+--glow:rgba(124,58,237,.3);
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
-font-family:Arial;
-background:#070b18;
-color:white;
-padding:50px 20px
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
+color:var(--text);
+min-height:100vh;
+padding:30px 15px;
+line-height:1.6;
 }
 
 .container{
-max-width:600px;
-margin:auto
+max-width:850px;
+margin:auto;
 }
 
-input,select{
+/* NAV */
+
+.top-nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.logo{
+display:inline-flex;
+align-items:center;
+gap:9px;
+color:var(--text);
+text-decoration:none;
+font-size:20px;
+font-weight:900;
+}
+
+.logo-icon{
+width:38px;
+height:38px;
+display:grid;
+place-items:center;
+border-radius:11px;
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+box-shadow:0 0 25px var(--glow);
+}
+
+.home-link{
+color:#a78bfa;
+text-decoration:none;
+font-size:14px;
+font-weight:700;
+}
+
+.home-link:hover{
+color:white;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb{
+margin:10px 0 28px;
+font-size:13px;
+color:var(--muted);
+}
+
+.breadcrumb a{
+color:#a78bfa;
+text-decoration:none;
+}
+
+.breadcrumb span{
+margin:0 6px;
+}
+
+/* HEADER */
+
+.header{
+text-align:center;
+margin:20px 0 35px;
+}
+
+.header h1{
+font-size:clamp(36px,7vw,54px);
+line-height:1.1;
+letter-spacing:-1.5px;
+}
+
+.header h1 span{
+background:linear-gradient(90deg,#a78bfa,#22d3ee);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.header p{
+color:var(--muted);
+margin-top:12px;
+font-size:17px;
+}
+
+/* TOOL CARD */
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:20px;
+padding:25px;
+box-shadow:0 20px 60px rgba(0,0,0,.18);
+}
+
+.field{
+margin-bottom:16px;
+}
+
+label{
+display:block;
+font-weight:700;
+margin-bottom:8px;
+}
+
+input,
+select{
 width:100%;
 padding:15px;
-margin:8px 0;
-background:#111a30;
+background:var(--card2);
 color:white;
-border:1px solid #27304a;
-border-radius:10px
+border:1px solid #29344f;
+border-radius:11px;
+font-size:16px;
+outline:none;
+}
+
+input:focus,
+select:focus{
+border-color:#8b5cf6;
+box-shadow:0 0 0 3px rgba(124,58,237,.15);
 }
 
 button{
 width:100%;
 padding:15px;
-background:#7c3aed;
-color:white;
 border:0;
 border-radius:10px;
+background:linear-gradient(90deg,var(--primary),#6366f1);
+color:white;
 font-weight:bold;
-cursor:pointer
+cursor:pointer;
+transition:.25s;
+margin-top:5px;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 25px var(--glow);
 }
 
 .result{
 margin-top:20px;
 padding:20px;
-background:#111a30;
-border-radius:10px;
-font-size:20px
+background:var(--card2);
+border:1px solid #29344f;
+border-radius:12px;
+text-align:center;
 }
+
+.result-label{
+color:var(--muted);
+font-size:14px;
+margin-bottom:5px;
+}
+
+.result-value{
+font-size:30px;
+font-weight:800;
+color:#22d3ee;
+word-break:break-word;
+}
+
+.swap{
+margin:10px 0;
+background:transparent;
+border:1px solid #29344f;
+color:#c4b5fd;
+}
+
+.swap:hover{
+background:rgba(124,58,237,.1);
+box-shadow:none;
+}
+
+/* INFO */
+
+.info-section{
+margin-top:55px;
+}
+
+.info-section h2{
+font-size:28px;
+margin-bottom:12px;
+}
+
+.info-section p{
+color:var(--muted);
+font-size:15px;
+line-height:1.8;
+margin-bottom:14px;
+}
+
+/* BENEFITS */
+
+.benefits{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:22px;
+}
+
+.benefit{
+padding:18px;
+border:1px solid var(--border);
+background:rgba(17,25,45,.7);
+border-radius:15px;
+}
+
+.benefit-icon{
+font-size:25px;
+margin-bottom:7px;
+}
+
+.benefit h3{
+font-size:15px;
+margin-bottom:5px;
+}
+
+.benefit p{
+font-size:13px;
+margin:0;
+}
+
+/* FAQ */
+
+.faq{
+margin-top:45px;
+}
+
+.faq h2{
+font-size:28px;
+margin-bottom:18px;
+}
+
+.faq-item{
+border:1px solid var(--border);
+border-radius:13px;
+margin-bottom:10px;
+overflow:hidden;
+background:rgba(17,25,45,.7);
+}
+
+.faq-item summary{
+cursor:pointer;
+padding:17px;
+font-weight:700;
+list-style:none;
+}
+
+.faq-item summary::-webkit-details-marker{
+display:none;
+}
+
+.faq-item p{
+padding:0 17px 17px;
+color:var(--muted);
+font-size:14px;
+}
+
+/* RELATED */
+
+.related{
+margin-top:45px;
+}
+
+.related h2{
+font-size:25px;
+margin-bottom:15px;
+}
+
+.related-links{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.related-links a{
+color:#c4b5fd;
+text-decoration:none;
+padding:9px 13px;
+border-radius:9px;
+background:rgba(124,58,237,.1);
+border:1px solid var(--border);
+font-size:13px;
+}
+
+.related-links a:hover{
+border-color:#8b5cf6;
+}
+
+/* BACK */
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:700;
+}
+
+.back:hover{
+color:white;
+}
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+color:var(--muted);
+font-size:13px;
+margin-top:55px;
+padding-top:25px;
+border-top:1px solid var(--border);
+}
+
+.footer a{
+color:#a78bfa;
+text-decoration:none;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+body{
+padding:20px 12px;
+}
+
+.card{
+padding:18px;
+}
+
+.benefits{
+grid-template-columns:1fr;
+}
+
+.header{
+margin-bottom:25px;
+}
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+scroll-behavior:auto!important;
+transition:none!important;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>🚗 Speed Converter</h1>
+<header class="top-nav">
+
+<a class="logo" href="../index.html" aria-label="VexTools home">
+
+<span class="logo-icon">V</span>
+
+VexTools
+
+</a>
+
+<a class="home-link" href="../index.html">
+All Tools →
+</a>
+
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+
+<a href="../index.html">
+VexTools
+</a>
+
+<span>›</span>
+
+<a href="../index.html#categories">
+Converters
+</a>
+
+<span>›</span>
+
+<span>Speed Converter</span>
+
+</nav>
+
+<header class="header">
+
+<h1>
+<span>Speed</span> Converter
+</h1>
 
 <p>
-Convert between kilometers per hour (KM/H) and miles per hour (MPH).
+Convert between kilometers per hour and miles per hour quickly and accurately.
 </p>
+
+</header>
+
+<main>
+
+<section class="card" aria-labelledby="speed-tool-title">
+
+<h2 id="speed-tool-title" style="position:absolute;left:-9999px;">
+Free Online Speed Converter
+</h2>
+
+<div class="field">
+
+<label for="value">
+Enter Speed
+</label>
 
 <input
 id="value"
 type="number"
-placeholder="Enter speed"
+step="any"
+placeholder="Example: 100"
 aria-label="Enter speed"
 >
+
+</div>
+
+<div class="field">
+
+<label for="from">
+Convert From
+</label>
 
 <select id="from" aria-label="Convert from">
 
 <option value="kmh">
-KM/H
+Kilometers per hour (KM/H)
 </option>
 
 <option value="mph">
-MPH
+Miles per hour (MPH)
 </option>
 
 </select>
+
+</div>
+
+<div class="field">
+
+<label for="to">
+Convert To
+</label>
 
 <select id="to" aria-label="Convert to">
 
 <option value="mph">
-MPH
+Miles per hour (MPH)
 </option>
 
 <option value="kmh">
-KM/H
+Kilometers per hour (KM/H)
 </option>
 
 </select>
 
-<button onclick="convert()">
-Convert
+</div>
+
+<button id="convert" type="button">
+Convert Speed
 </button>
 
-<div class="result" id="result">
-Result
+<button id="swap" class="swap" type="button">
+⇄ Swap Units
+</button>
+
+<div class="result">
+
+<div class="result-label">
+Converted Speed
 </div>
+
+<div
+class="result-value"
+id="result"
+aria-live="polite"
+>
+Result will appear here
+</div>
+
+</div>
+
+</section>
+
+<section class="info-section" aria-labelledby="about-speed">
+
+<h2 id="about-speed">
+Speed Converter Online
+</h2>
+
+<p>
+VexTools Speed Converter is a free online tool for converting
+speed measurements between kilometers per hour (km/h) and
+miles per hour (mph). Enter a value, choose the units and
+get your conversion instantly.
+</p>
+
+<p>
+The converter is useful for checking vehicle speeds, road
+speed limits, travel information, sports data and other
+situations where different speed units are used.
+</p>
+
+<div class="benefits">
+
+<div class="benefit">
+
+<div class="benefit-icon">⚡</div>
+
+<h3>Instant Results</h3>
+
+<p>
+Convert speeds quickly without manual calculations.
+</p>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit-icon">🎯</div>
+
+<h3>Accurate</h3>
+
+<p>
+Uses standard conversion factors for reliable results.
+</p>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit-icon">🆓</div>
+
+<h3>Free</h3>
+
+<p>
+Use the speed converter online without registration.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="info-section" aria-labelledby="how-to-use">
+
+<h2 id="how-to-use">
+How to Convert Speed
+</h2>
+
+<p>
+<strong>1.</strong>
+Enter the speed you want to convert.
+</p>
+
+<p>
+<strong>2.</strong>
+Select the original speed unit.
+</p>
+
+<p>
+<strong>3.</strong>
+Select the unit you want to convert to.
+</p>
+
+<p>
+<strong>4.</strong>
+Click Convert Speed to see the result.
+</p>
+
+</section>
+
+<section class="faq" aria-labelledby="faq-title">
+
+<h2 id="faq-title">
+Frequently Asked Questions
+</h2>
+
+<details class="faq-item">
+
+<summary>
+How do I convert km/h to mph?
+</summary>
+
+<p>
+Enter your speed, select KM/H as the source unit and
+MPH as the target unit, then click Convert Speed.
+</p>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+How do I convert mph to km/h?
+</summary>
+
+<p>
+Enter your speed, select MPH as the source unit and
+KM/H as the target unit, then click Convert Speed.
+</p>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+Is the VexTools Speed Converter free?
+</summary>
+
+<p>
+Yes. The VexTools Speed Converter is free to use online
+and works directly in your browser.
+</p>
+
+</details>
+
+</section>
+
+<section class="related" aria-labelledby="related-title">
+
+<h2 id="related-title">
+Related Tools
+</h2>
+
+<div class="related-links">
+
+<a href="length-converter.html">
+Length Converter
+</a>
+
+<a href="weight-converter.html">
+Weight Converter
+</a>
+
+<a href="temperature-converter.html">
+Temperature Converter
+</a>
+
+<a href="number-to-words.html">
+Number to Words
+</a>
+
+<a href="../index.html">
+More Free Tools
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+<footer class="footer">
+
+<p>
+© <span id="year"></span>
+VexTools. Free online tools for everyone.
+</p>
+
+<p>
+<a href="../index.html">
+VexTools Home
+</a>
+</p>
+
+</footer>
 
 </div>
 
 <script>
 
-function convert(){
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
-let v=Number(
-document.getElementById("value").value
-);
+const valueInput =
+document.getElementById("value");
 
-let from=document.getElementById("from").value;
-let to=document.getElementById("to").value;
+const fromUnit =
+document.getElementById("from");
 
-if(!Number.isFinite(v)){
+const toUnit =
+document.getElementById("to");
 
-document.getElementById("result").textContent=
+const result =
+document.getElementById("result");
+
+const convertButton =
+document.getElementById("convert");
+
+const swapButton =
+document.getElementById("swap");
+
+
+function convertSpeed(){
+
+const value =
+Number(valueInput.value);
+
+if(!Number.isFinite(value)){
+
+result.textContent =
 "Enter a valid speed.";
 
 return;
@@ -141,26 +845,87 @@ return;
 
 let answer;
 
-if(from==="kmh" && to==="mph"){
+if(
+fromUnit.value === "kmh" &&
+toUnit.value === "mph"
+){
 
-answer=v*0.621371;
+answer =
+value * 0.621371;
 
 }
-else if(from==="mph" && to==="kmh"){
+else if(
+fromUnit.value === "mph" &&
+toUnit.value === "kmh"
+){
 
-answer=v*1.60934;
+answer =
+value * 1.609344;
 
 }
 else{
 
-answer=v;
+answer =
+value;
 
 }
 
-document.getElementById("result").textContent=
-answer.toFixed(4);
+result.textContent =
+answer.toLocaleString(
+"en-US",
+{
+maximumFractionDigits:6
+}
+)
++
+" "
++
+(toUnit.value === "kmh" ? "KM/H" : "MPH");
 
 }
+
+
+convertButton.addEventListener(
+"click",
+convertSpeed
+);
+
+
+swapButton.addEventListener(
+"click",
+() => {
+
+const oldFrom =
+fromUnit.value;
+
+fromUnit.value =
+toUnit.value;
+
+toUnit.value =
+oldFrom;
+
+if(valueInput.value){
+
+convertSpeed();
+
+}
+
+}
+);
+
+
+valueInput.addEventListener(
+"keydown",
+event => {
+
+if(event.key === "Enter"){
+
+convertSpeed();
+
+}
+
+}
+);
 
 </script>
 
