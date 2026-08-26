@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<!-- Primary SEO -->
 <title>Timestamp Converter — Unix Timestamp to Date | VexTools</title>
 
 <meta
@@ -23,13 +22,11 @@ content="timestamp converter, unix timestamp converter, unix timestamp to date, 
 <meta name="author" content="VexTools">
 <meta name="theme-color" content="#070b18">
 
-<!-- Canonical -->
 <link
 rel="canonical"
 href="https://vextools.site/tools/timestamp-converter.html"
 >
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Timestamp Converter — VexTools">
 <meta
@@ -42,65 +39,59 @@ content="https://vextools.site/tools/timestamp-converter.html"
 >
 <meta property="og:site_name" content="VexTools">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
-<meta
-name="twitter:title"
-content="Timestamp Converter — VexTools"
->
+<meta name="twitter:title" content="Timestamp Converter — VexTools">
 <meta
 name="twitter:description"
 content="Convert Unix timestamps to readable dates and times online with VexTools."
 >
 
-<!-- Structured Data -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Timestamp Converter",
-  "url": "https://vextools.site/tools/timestamp-converter.html",
-  "description": "A free online tool for converting Unix timestamps into readable dates and times.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Any",
-  "browserRequirements": "Requires a modern web browser",
-  "isAccessibleForFree": true,
-  "publisher": {
-    "@type": "Organization",
-    "name": "VexTools",
-    "url": "https://vextools.site/"
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Timestamp Converter",
+  "url":"https://vextools.site/tools/timestamp-converter.html",
+  "description":"A free online tool for converting Unix timestamps into readable dates and times.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires a modern web browser",
+  "isAccessibleForFree":true,
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools.site/"
   }
 }
 </script>
 
-<!-- FAQ Structured Data -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
     {
-      "@type": "Question",
-      "name": "What is a Unix timestamp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A Unix timestamp represents a point in time as the number of seconds or milliseconds elapsed since January 1, 1970 UTC."
+      "@type":"Question",
+      "name":"What is a Unix timestamp?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A Unix timestamp represents a point in time as the number of seconds or milliseconds elapsed since January 1, 1970 UTC."
       }
     },
     {
-      "@type": "Question",
-      "name": "How do I convert a Unix timestamp to a date?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Enter the Unix timestamp into the Timestamp Converter and click Convert to get a readable date and time."
+      "@type":"Question",
+      "name":"How do I convert a Unix timestamp to a date?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter the Unix timestamp into the Timestamp Converter and click Convert to get a readable date and time."
       }
     },
     {
-      "@type": "Question",
-      "name": "Is the Timestamp Converter free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The VexTools Timestamp Converter is free to use online."
+      "@type":"Question",
+      "name":"Is the Timestamp Converter free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Timestamp Converter is free to use online."
       }
     }
   ]
@@ -121,6 +112,7 @@ font-family:Arial,sans-serif;
 background:#070b18;
 color:white;
 padding:30px 15px;
+min-height:100vh;
 }
 
 .container{
@@ -134,14 +126,17 @@ margin-bottom:25px;
 }
 
 .logo{
+display:inline-block;
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
 text-decoration:none;
+margin-bottom:5px;
 }
 
 h1{
 margin:15px 0 8px;
+font-size:36px;
 }
 
 p{
@@ -172,6 +167,13 @@ input:focus{
 border-color:#7c3aed;
 }
 
+.buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:10px;
+}
+
 button{
 width:100%;
 padding:14px;
@@ -179,13 +181,18 @@ background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 border:0;
 border-radius:10px;
-margin-top:10px;
 font-weight:bold;
 cursor:pointer;
+transition:.2s;
 }
 
 button:hover{
-opacity:.9;
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+button.secondary{
+background:#334155;
 }
 
 .result{
@@ -194,10 +201,29 @@ padding:20px;
 background:#0d1427;
 border:1px solid #29344f;
 border-radius:12px;
-line-height:1.6;
+line-height:1.7;
 word-break:break-word;
 color:#22d3ee;
-min-height:60px;
+min-height:70px;
+}
+
+.result.error{
+color:#f87171;
+}
+
+.result-title{
+display:block;
+color:#94a3b8;
+font-size:13px;
+margin-bottom:6px;
+}
+
+.status{
+text-align:center;
+color:#94a3b8;
+font-size:13px;
+min-height:18px;
+margin-top:12px;
 }
 
 .seo-content{
@@ -225,7 +251,11 @@ padding:25px 15px;
 }
 
 h1{
-font-size:28px;
+font-size:29px;
+}
+
+.buttons{
+grid-template-columns:1fr;
 }
 
 }
@@ -237,9 +267,9 @@ font-size:28px;
 
 <body>
 
-<div class="container">
+<main class="container">
 
-<div class="header">
+<header class="header">
 
 <a
 class="logo"
@@ -255,17 +285,23 @@ VexTools
 Convert Unix timestamps into readable dates and times.
 </p>
 
-</div>
+</header>
 
 
-<div class="card">
+<section
+class="card"
+aria-label="Unix Timestamp Converter"
+>
 
 <input
 id="timestamp"
 type="number"
 placeholder="Enter Unix timestamp"
 aria-label="Unix timestamp"
+inputmode="numeric"
 >
+
+<div class="buttons">
 
 <button
 onclick="convert()"
@@ -274,18 +310,55 @@ type="button"
 Convert Timestamp
 </button>
 
+<button
+onclick="currentTimestamp()"
+type="button"
+class="secondary"
+>
+Current Timestamp
+</button>
+
+</div>
+
+
 <div
 class="result"
 id="result"
 aria-live="polite"
 >
-Result will appear here.
+<span class="result-title">Result</span>
+Enter a Unix timestamp above.
 </div>
 
+
+<div class="buttons">
+
+<button
+onclick="copyResult()"
+type="button"
+>
+Copy Result
+</button>
+
+<button
+onclick="clearTool()"
+type="button"
+class="secondary"
+>
+Clear
+</button>
+
 </div>
 
 
-<!-- SEO Content -->
+<div
+class="status"
+id="status"
+aria-live="polite"
+></div>
+
+</section>
+
 
 <section class="seo-content">
 
@@ -294,7 +367,7 @@ Result will appear here.
 <p>
 Use the VexTools Timestamp Converter to quickly convert
 Unix timestamps into readable dates and times. The tool
-works with both common Unix timestamp formats: seconds
+supports both common Unix timestamp formats: seconds
 and milliseconds.
 </p>
 
@@ -319,16 +392,28 @@ and displays the corresponding readable date and time.
 </p>
 
 
+<h3>Seconds vs milliseconds</h3>
+
+<p>
+Unix timestamps are commonly represented in either
+seconds or milliseconds. Shorter timestamp values are
+typically seconds, while longer values are typically
+milliseconds. VexTools automatically detects the format
+for convenient conversion.
+</p>
+
+
 <h3>Where are Unix timestamps used?</h3>
 
 <p>
 Unix timestamps are commonly used in software development,
-web applications, APIs, databases and server systems to
-store and exchange time information in a consistent format.
+web applications, APIs, databases, logs and server systems
+to store and exchange time information consistently.
 </p>
 
 
 <h2>Frequently Asked Questions</h2>
+
 
 <h3>Is this Timestamp Converter free?</h3>
 
@@ -341,7 +426,7 @@ to use online.
 <h3>Does it support milliseconds?</h3>
 
 <p>
-Yes. The converter can handle timestamps represented in
+Yes. The converter supports timestamps represented in
 both seconds and milliseconds.
 </p>
 
@@ -355,43 +440,246 @@ from APIs, databases, logs and programming projects.
 
 </section>
 
-</div>
+</main>
 
 
 <script>
 
+const timestampInput =
+document.getElementById("timestamp");
+
+const result =
+document.getElementById("result");
+
+const status =
+document.getElementById("status");
+
+
+/* =========================
+   CONVERT TIMESTAMP
+========================= */
+
 function convert(){
 
-const value=Number(
-document.getElementById("timestamp").value
-);
+const raw =
+timestampInput.value.trim();
 
-const result=document.getElementById("result");
+
+if(!raw){
+
+showError("Please enter a timestamp.");
+
+return;
+
+}
+
+
+const value =
+Number(raw);
+
+
+if(!Number.isFinite(value)){
+
+showError("❌ Invalid timestamp.");
+
+return;
+
+}
+
+
+/*
+Detect seconds or milliseconds.
+Typical Unix timestamps in seconds
+are 10 digits or fewer.
+*/
+
+const milliseconds =
+Math.abs(value) < 10000000000
+? value * 1000
+: value;
+
+
+const date =
+new Date(milliseconds);
+
 
 if(
-document.getElementById("timestamp").value.trim()===""
+Number.isNaN(date.getTime())
 ){
-result.textContent="Please enter a timestamp.";
-return;
-}
 
-const date=new Date(
-value < 10000000000
-? value * 1000
-: value
-);
-
-if(isNaN(date.getTime())){
-
-result.textContent="❌ Invalid timestamp.";
+showError("❌ Invalid timestamp.");
 
 return;
 
 }
 
-result.textContent=date.toString();
+
+const local =
+date.toString();
+
+const utc =
+date.toUTCString();
+
+
+const iso =
+date.toISOString();
+
+
+const detected =
+Math.abs(value) < 10000000000
+? "Seconds"
+: "Milliseconds";
+
+
+result.classList.remove("error");
+
+result.innerHTML = `
+<span class="result-title">Converted Date</span>
+<strong>${escapeHTML(local)}</strong>
+<br><br>
+<span class="result-title">UTC</span>
+${escapeHTML(utc)}
+<br><br>
+<span class="result-title">ISO 8601</span>
+${escapeHTML(iso)}
+<br><br>
+<span class="result-title">Detected Format</span>
+${detected}
+`;
+
+status.textContent =
+"Timestamp converted successfully.";
 
 }
+
+
+/* =========================
+   CURRENT TIMESTAMP
+========================= */
+
+function currentTimestamp(){
+
+const now =
+Date.now();
+
+timestampInput.value =
+now;
+
+convert();
+
+}
+
+
+/* =========================
+   COPY RESULT
+========================= */
+
+async function copyResult(){
+
+const text =
+result.innerText.trim();
+
+
+if(
+!text ||
+text === "Result\nEnter a Unix timestamp above."
+){
+
+return;
+
+}
+
+
+try{
+
+await navigator.clipboard.writeText(text);
+
+status.textContent =
+"✓ Result copied!";
+
+setTimeout(()=>{
+status.textContent="";
+},2000);
+
+}catch{
+
+status.textContent =
+"Unable to copy result.";
+
+}
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearTool(){
+
+timestampInput.value="";
+
+result.classList.remove("error");
+
+result.innerHTML = `
+<span class="result-title">Result</span>
+Enter a Unix timestamp above.
+`;
+
+status.textContent="";
+
+timestampInput.focus();
+
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+function showError(message){
+
+result.classList.add("error");
+
+result.textContent =
+message;
+
+status.textContent="";
+
+}
+
+
+/* =========================
+   SAFE HTML
+========================= */
+
+function escapeHTML(value){
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+timestampInput.addEventListener(
+"keydown",
+event => {
+
+if(event.key === "Enter"){
+
+convert();
+
+}
+
+});
 
 </script>
 
