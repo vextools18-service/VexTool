@@ -1,30 +1,396 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Color Palette Generator - VexTools</title>
+
+<title>Color Palette Generator Online - Free | VexTools</title>
+
+<meta name="description" content="Generate beautiful random color palettes online for free. Create 5-color palettes instantly with VexTools Color Palette Generator.">
+
+<meta name="keywords" content="color palette generator, color palette generator online, random color palette, color scheme generator, free color palette generator, hex color palette">
+
+<meta name="author" content="VexTools">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/color-palette-generator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Color Palette Generator Online - Free | VexTools">
+<meta property="og:description" content="Generate beautiful random color palettes online for free with VexTools.">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/color-palette-generator.html">
+<meta property="og:site_name" content="VexTools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Color Palette Generator Online - VexTools">
+<meta name="twitter:description" content="Create random 5-color palettes instantly with this free online color palette generator.">
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;text-align:center;padding:40px}
-button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px;margin:20px}
-#palette{display:flex;max-width:900px;margin:auto;height:300px}
-.color{flex:1;display:flex;align-items:end;justify-content:center;padding:15px;font-weight:bold}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070b18;
+color:white;
+min-height:100vh;
+padding:40px 20px;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:30px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:20px;
+}
+
+h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.header p{
+color:#94a3b8;
+font-size:17px;
+line-height:1.6;
+}
+
+.card{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+}
+
+button{
+display:block;
+margin:0 auto 25px;
+padding:14px 28px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+#palette{
+display:flex;
+width:100%;
+min-height:300px;
+border-radius:15px;
+overflow:hidden;
+}
+
+.color{
+flex:1;
+display:flex;
+align-items:flex-end;
+justify-content:center;
+padding:18px 10px;
+font-weight:bold;
+font-size:15px;
+text-shadow:0 1px 4px rgba(0,0,0,.7);
+cursor:pointer;
+transition:.2s;
+}
+
+.color:hover{
+transform:scale(1.03);
+}
+
+.info{
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.infoCard{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:18px;
+padding:22px;
+}
+
+.infoCard h2{
+font-size:20px;
+margin-bottom:10px;
+}
+
+.infoCard p{
+color:#94a3b8;
+line-height:1.7;
+font-size:14px;
+}
+
+.faq{
+margin-top:30px;
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:18px;
+padding:25px;
+}
+
+.faq h2{
+margin-bottom:18px;
+}
+
+.faqItem{
+margin-bottom:18px;
+}
+
+.faqItem:last-child{
+margin-bottom:0;
+}
+
+.faqItem h3{
+font-size:16px;
+margin-bottom:7px;
+}
+
+.faqItem p{
+color:#94a3b8;
+line-height:1.6;
+font-size:14px;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+color:#64748b;
+font-size:13px;
+margin-top:40px;
+padding:20px;
+}
+
+@media(max-width:700px){
+
+body{
+padding:25px 15px;
+}
+
+h1{
+font-size:32px;
+}
+
+#palette{
+min-height:220px;
+}
+
+.color{
+font-size:12px;
+padding:12px 5px;
+}
+
+.info{
+grid-template-columns:1fr;
+}
+
+}
 </style>
 </head>
+
 <body>
+
+<div class="container">
+
+<div class="header">
+
+<a href="../index.html" class="logo">
+VexTools
+</a>
+
 <h1>Color Palette Generator</h1>
-<button onclick="generate()">Generate Palette</button>
+
+<p>
+Generate beautiful random color palettes instantly.
+Create a free 5-color palette for your designs, websites,
+graphics and creative projects.
+</p>
+
+</div>
+
+<div class="card">
+
+<button onclick="generate()">
+🎨 Generate New Palette
+</button>
+
 <div id="palette"></div>
+
+</div>
+
+<div class="info">
+
+<div class="infoCard">
+
+<h2>🎨 Free Color Palette Generator</h2>
+
+<p>
+VexTools Color Palette Generator creates five random
+HEX colors instantly. Use the generated colors for
+web design, graphic design, UI design, illustrations,
+branding and other creative projects.
+</p>
+
+</div>
+
+<div class="infoCard">
+
+<h2>💡 How to Use</h2>
+
+<p>
+Click the Generate New Palette button to create a new
+five-color palette. Each color includes its HEX value,
+making it easy to use the colors in your projects.
+</p>
+
+</div>
+
+</div>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faqItem">
+
+<h3>What is a color palette generator?</h3>
+
+<p>
+A color palette generator creates a collection of colors
+that can be used together in designs, websites and
+creative projects.
+</p>
+
+</div>
+
+<div class="faqItem">
+
+<h3>Is this color palette generator free?</h3>
+
+<p>
+Yes. VexTools provides this color palette generator
+completely free and directly in your web browser.
+</p>
+
+</div>
+
+<div class="faqItem">
+
+<h3>How many colors are generated?</h3>
+
+<p>
+The tool generates five random HEX colors in every palette.
+</p>
+
+</div>
+
+<div class="faqItem">
+
+<h3>Can I use the generated colors for websites?</h3>
+
+<p>
+Yes. Each generated color includes its HEX value,
+which can be used in CSS and other design tools.
+</p>
+
+</div>
+
+</div>
+
+<a href="../index.html" class="back">
+← Back to VexTools
+</a>
+
+<footer>
+© <span id="year"></span> VexTools — Free Online Tools
+</footer>
+
+</div>
+
 <script>
+
 function generate(){
-let p=document.getElementById("palette");
-p.innerHTML="";
+
+const palette=document.getElementById("palette");
+
+palette.innerHTML="";
+
 for(let i=0;i<5;i++){
-let c="#"+Math.floor(Math.random()*16777215).toString(16).padStart(6,"0");
-p.innerHTML+=`<div class="color" style="background:${c}">${c}</div>`;
+
+const color=
+"#"+
+Math.floor(Math.random()*16777215)
+.toString(16)
+.padStart(6,"0");
+
+const div=document.createElement("div");
+
+div.className="color";
+div.style.background=color;
+div.textContent=color.toUpperCase();
+
+div.title="Click to copy "+color;
+
+div.onclick=async()=>{
+
+try{
+
+await navigator.clipboard.writeText(color.toUpperCase());
+
+const old=div.textContent;
+
+div.textContent="✓ Copied!";
+
+setTimeout(()=>{
+div.textContent=old;
+},1000);
+
+}catch(e){}
+
+};
+
+palette.appendChild(div);
+
 }
+
 }
+
+document.getElementById("year").textContent=
+new Date().getFullYear();
+
 generate();
+
 </script>
+
 </body>
 </html>
