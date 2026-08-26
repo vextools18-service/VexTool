@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -7,21 +8,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- =========================
-     SEO
-========================= -->
+<title>Temperature Converter Online Free — Celsius, Fahrenheit & Kelvin | VexTools</title>
 
-<title>Temperature Converter — Celsius, Fahrenheit & Kelvin | VexTools</title>
+<meta name="description" content="Convert temperatures between Celsius, Fahrenheit and Kelvin online for free with VexTools. Fast, accurate and easy-to-use temperature converter.">
 
-<meta
-    name="description"
-    content="Free online temperature converter. Convert temperatures between Celsius, Fahrenheit, and Kelvin quickly and accurately with VexTools."
->
-
-<meta
-    name="keywords"
-    content="temperature converter, Celsius to Fahrenheit, Fahrenheit to Celsius, Celsius to Kelvin, Kelvin converter, temperature conversion, online temperature converter, VexTools"
->
+<meta name="keywords" content="temperature converter, temperature converter online, Celsius to Fahrenheit, Fahrenheit to Celsius, Celsius to Kelvin, Kelvin to Celsius, Fahrenheit to Kelvin, Kelvin to Fahrenheit, free temperature converter, VexTools">
 
 <meta name="robots" content="index, follow">
 
@@ -29,185 +20,230 @@
 
 <meta name="theme-color" content="#070b18">
 
+<link rel="canonical" href="https://vextools.github.io/tools/temperature-converter.html">
 
-<!-- =========================
-     Open Graph
-========================= -->
+<meta property="og:title" content="Temperature Converter Online Free — VexTools">
+
+<meta property="og:description" content="Convert Celsius, Fahrenheit and Kelvin temperatures instantly with the free VexTools Temperature Converter.">
 
 <meta property="og:type" content="website">
 
-<meta
-    property="og:title"
-    content="Temperature Converter — Celsius, Fahrenheit & Kelvin | VexTools"
->
-
-<meta
-    property="og:description"
-    content="Convert Celsius, Fahrenheit, and Kelvin instantly with this free online temperature converter."
->
+<meta property="og:url" content="https://vextools.github.io/tools/temperature-converter.html">
 
 <meta property="og:site_name" content="VexTools">
 
-
-<!-- =========================
-     Twitter / X
-========================= -->
-
 <meta name="twitter:card" content="summary">
 
-<meta
-    name="twitter:title"
-    content="Temperature Converter — VexTools"
->
+<meta name="twitter:title" content="Temperature Converter — VexTools">
 
-<meta
-    name="twitter:description"
-    content="Convert temperatures between Celsius, Fahrenheit, and Kelvin quickly and accurately."
->
-
-
-<!-- =========================
-     Structured Data
-========================= -->
+<meta name="twitter:description" content="Convert temperatures between Celsius, Fahrenheit and Kelvin online for free.">
 
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "VexTools Temperature Converter",
-    "description": "A free online temperature converter for converting Celsius, Fahrenheit, and Kelvin.",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-    }
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Temperature Converter",
+  "url":"https://vextools.github.io/tools/temperature-converter.html",
+  "description":"Free online temperature converter for converting Celsius, Fahrenheit and Kelvin.",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires JavaScript and a modern web browser",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools"
+  }
 }
 </script>
-
 
 <style>
 
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#070b18;
-    color:white;
-    min-height:100vh;
-    padding:50px 20px;
+font-family:Arial,sans-serif;
+background:#070b18;
+color:#f8fafc;
+min-height:100vh;
+padding:30px 15px;
 }
 
 .container{
-    max-width:600px;
-    margin:auto;
+max-width:700px;
+margin:auto;
 }
 
 .header{
-    text-align:center;
-    margin-bottom:25px;
+text-align:center;
+margin:25px 0 30px;
 }
 
 .logo{
-    display:inline-block;
-    color:#a78bfa;
-    font-size:28px;
-    font-weight:900;
-    text-decoration:none;
-    margin-bottom:10px;
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:15px;
 }
 
 h1{
-    margin:10px 0 8px;
-    font-size:36px;
+font-size:38px;
+margin-bottom:10px;
 }
 
 .header p{
-    color:#94a3b8;
-    line-height:1.6;
+color:#94a3b8;
+line-height:1.6;
 }
 
 .card{
-    background:rgba(17,25,45,.85);
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:20px;
-    padding:22px;
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+color:#cbd5e1;
 }
 
 input,
 select{
-    width:100%;
-    padding:15px;
-    margin:8px 0;
-    background:#111a30;
-    color:white;
-    border:1px solid #27304a;
-    border-radius:10px;
-    outline:none;
+width:100%;
+padding:15px;
+margin-bottom:15px;
+background:#0d1427;
+color:white;
+border:1px solid #27304a;
+border-radius:10px;
+outline:none;
+font-size:16px;
 }
 
 input:focus,
 select:focus{
-    border-color:#7c3aed;
+border-color:#7c3aed;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
 }
 
 button{
-    width:100%;
-    padding:15px;
-    margin-top:10px;
-    background:#7c3aed;
-    color:white;
-    border:0;
-    border-radius:10px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
+width:100%;
+padding:15px;
+margin-top:5px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+transition:.2s;
 }
 
 button:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(124,58,237,.3);
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(124,58,237,.3);
 }
 
 .result{
-    margin-top:20px;
-    padding:20px;
-    background:#111a30;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:10px;
-    text-align:center;
-    font-size:20px;
-    font-weight:bold;
-    color:#22d3ee;
-    min-height:60px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+margin-top:20px;
+padding:22px;
+background:#0d1427;
+border:1px solid rgba(34,211,238,.15);
+border-radius:12px;
+text-align:center;
+min-height:70px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:6px;
+}
+
+.result-main{
+font-size:26px;
+font-weight:bold;
+color:#22d3ee;
+}
+
+.result-sub{
+font-size:14px;
+color:#94a3b8;
 }
 
 .info{
-    margin-top:20px;
-    color:#94a3b8;
-    font-size:13px;
-    line-height:1.6;
-    text-align:center;
+margin-top:20px;
+padding:18px;
+background:#18223a;
+border-radius:10px;
+color:#94a3b8;
+font-size:14px;
+line-height:1.7;
 }
 
-@media(max-width:500px){
+.seo-content{
+margin-top:25px;
+padding:22px;
+background:#111a30;
+border:1px solid rgba(255,255,255,.08);
+border-radius:16px;
+}
 
-    body{
-        padding:30px 15px;
-    }
+.seo-content h2{
+font-size:22px;
+margin-bottom:10px;
+}
 
-    h1{
-        font-size:29px;
-    }
+.seo-content h3{
+font-size:18px;
+margin-top:18px;
+margin-bottom:8px;
+}
+
+.seo-content p{
+color:#94a3b8;
+line-height:1.7;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:30px;
+}
+
+.row{
+grid-template-columns:1fr;
+gap:0;
+}
+
+.card{
+padding:20px;
+}
 
 }
 
@@ -215,182 +251,252 @@ button:hover{
 
 </head>
 
-
 <body>
 
 <main class="container">
 
-    <header class="header">
+<header class="header">
 
-        <a
-            class="logo"
-            href="../index.html"
-            aria-label="VexTools Home"
-        >
-            VexTools
-        </a>
+<a class="logo" href="../index.html" aria-label="VexTools Home">
+VexTools
+</a>
 
-        <h1>🌡️ Temperature Converter</h1>
+<h1>🌡️ Temperature Converter</h1>
 
-        <p>
-            Convert temperatures between Celsius, Fahrenheit,
-            and Kelvin quickly and accurately.
-        </p>
+<p>
+Convert temperatures between Celsius, Fahrenheit and Kelvin quickly and accurately.
+</p>
 
-    </header>
+</header>
 
+<section class="card" aria-label="Temperature Converter">
 
-    <section class="card" aria-label="Temperature Converter">
+<label for="value">
+Temperature
+</label>
 
-        <input
-            id="value"
-            type="number"
-            placeholder="Enter temperature"
-            aria-label="Temperature value"
-        >
+<input
+id="value"
+type="number"
+step="any"
+placeholder="Enter temperature"
+aria-label="Enter temperature"
+>
 
+<div class="row">
 
-        <select
-            id="from"
-            aria-label="Convert from"
-        >
+<div>
 
-            <option value="c">
-                Celsius
-            </option>
+<label for="from">
+From
+</label>
 
-            <option value="f">
-                Fahrenheit
-            </option>
+<select id="from" aria-label="Convert from">
 
-            <option value="k">
-                Kelvin
-            </option>
+<option value="c">Celsius (°C)</option>
 
-        </select>
+<option value="f">Fahrenheit (°F)</option>
 
+<option value="k">Kelvin (K)</option>
 
-        <select
-            id="to"
-            aria-label="Convert to"
-        >
+</select>
 
-            <option value="f">
-                Fahrenheit
-            </option>
+</div>
 
-            <option value="c">
-                Celsius
-            </option>
+<div>
 
-            <option value="k">
-                Kelvin
-            </option>
+<label for="to">
+To
+</label>
 
-        </select>
+<select id="to" aria-label="Convert to">
 
+<option value="f">Fahrenheit (°F)</option>
 
-        <button
-            type="button"
-            onclick="convert()"
-        >
-            Convert Temperature
-        </button>
+<option value="c">Celsius (°C)</option>
 
+<option value="k">Kelvin (K)</option>
 
-        <div
-            class="result"
-            id="result"
-            aria-live="polite"
-        >
-            Result
-        </div>
+</select>
 
+</div>
 
-        <p class="info">
-            Convert Celsius (°C), Fahrenheit (°F), and Kelvin (K)
-            directly in your browser.
-        </p>
+</div>
 
-    </section>
+<button
+type="button"
+onclick="convert()"
+>
+Convert Temperature
+</button>
+
+<div
+class="result"
+id="result"
+aria-live="polite"
+>
+
+<div class="result-main">
+Result: —
+</div>
+
+<div class="result-sub">
+Enter a temperature to convert.
+</div>
+
+</div>
+
+<div class="info">
+
+<strong>Temperature conversions:</strong><br>
+
+Celsius to Fahrenheit: °F = (°C × 9/5) + 32<br>
+
+Fahrenheit to Celsius: °C = (°F − 32) × 5/9<br>
+
+Celsius to Kelvin: K = °C + 273.15
+
+</div>
+
+</section>
+
+<section class="seo-content">
+
+<h2>Temperature Converter Online</h2>
+
+<p>
+VexTools Temperature Converter is a free online tool for converting temperatures between Celsius, Fahrenheit and Kelvin. Enter a temperature, select the original unit and choose the unit you want to convert to.
+</p>
+
+<h3>Convert Celsius to Fahrenheit</h3>
+
+<p>
+Enter a Celsius temperature and select Fahrenheit to quickly calculate the equivalent temperature in degrees Fahrenheit.
+</p>
+
+<h3>Convert Fahrenheit to Celsius</h3>
+
+<p>
+Convert Fahrenheit temperatures to Celsius instantly using the VexTools online temperature converter.
+</p>
+
+<h3>Convert Celsius and Kelvin</h3>
+
+<p>
+You can also convert temperatures between Celsius and Kelvin accurately without installing any software.
+</p>
+
+</section>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
 
 </main>
 
-
 <script>
+
+const valueInput=document.getElementById("value");
+const fromInput=document.getElementById("from");
+const toInput=document.getElementById("to");
+const result=document.getElementById("result");
 
 function convert(){
 
-    const v =
-        Number(document.getElementById("value").value);
+const value=Number(valueInput.value);
 
-    const from =
-        document.getElementById("from").value;
+const from=fromInput.value;
 
-    const to =
-        document.getElementById("to").value;
+const to=toInput.value;
 
-    const result =
-        document.getElementById("result");
+if(!Number.isFinite(value)){
 
+result.innerHTML=`
+<div class="result-main">Please enter a valid temperature.</div>
+`;
 
-    if(!Number.isFinite(v)){
-
-        result.textContent =
-            "Please enter a valid temperature.";
-
-        return;
-
-    }
-
-
-    let c;
-
-
-    /* Convert input to Celsius */
-
-    if(from === "c"){
-        c = v;
-    }
-
-    else if(from === "f"){
-        c = (v - 32) * 5 / 9;
-    }
-
-    else if(from === "k"){
-        c = v - 273.15;
-    }
-
-
-    /* Convert Celsius to target */
-
-    let answer;
-
-
-    if(to === "c"){
-        answer = c;
-    }
-
-    else if(to === "f"){
-        answer = c * 9 / 5 + 32;
-    }
-
-    else if(to === "k"){
-        answer = c + 273.15;
-    }
-
-
-    const symbols = {
-        c: "°C",
-        f: "°F",
-        k: "K"
-    };
-
-
-    result.textContent =
-        answer.toFixed(2) + " " + symbols[to];
+return;
 
 }
+
+let celsius;
+
+if(from==="c"){
+
+celsius=value;
+
+}
+
+else if(from==="f"){
+
+celsius=(value-32)*5/9;
+
+}
+
+else{
+
+celsius=value-273.15;
+
+}
+
+if(
+celsius < -273.15
+){
+
+result.innerHTML=`
+<div class="result-main">Invalid temperature</div>
+<div class="result-sub">Temperature cannot be below absolute zero.</div>
+`;
+
+return;
+
+}
+
+let answer;
+
+if(to==="c"){
+
+answer=celsius;
+
+}
+
+else if(to==="f"){
+
+answer=(celsius*9/5)+32;
+
+}
+
+else{
+
+answer=celsius+273.15;
+
+}
+
+const units={
+c:"°C",
+f:"°F",
+k:"K"
+};
+
+result.innerHTML=`
+<div class="result-main">
+${answer.toFixed(2)} ${units[to]}
+</div>
+
+<div class="result-sub">
+${value} ${units[from]} = ${answer.toFixed(2)} ${units[to]}
+</div>
+`;
+
+}
+
+valueInput.addEventListener("keydown",function(e){
+
+if(e.key==="Enter"){
+convert();
+}
+
+});
 
 </script>
 
