@@ -1,34 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Binary Converter — VexTools</title>
-<style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
-.container{max-width:800px;margin:auto}
-textarea{width:100%;height:180px;margin:15px 0;padding:20px;background:#111a30;color:white;border:1px solid #27304a;border-radius:12px}
-button{padding:13px 22px;background:#7c3aed;color:white;border:0;border-radius:10px}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>💾 Binary Converter</h1>
-<p>Convert text to binary and binary back to text.</p>
-<textarea id="input" placeholder="Enter text or binary..."></textarea>
-<button onclick="toBinary()">Text → Binary</button>
-<button onclick="toText()">Binary → Text</button>
-<textarea id="output" placeholder="Result..." readonly></textarea>
-</div>
-<script>
-function toBinary(){
-output.value=[...input.value].map(c=>c.charCodeAt(0).toString(2).padStart(8,"0")).join(" ");
-}
-function toText(){
-try{
-output.value=input.value.trim().split(/\s+/).map(b=>String.fromCharCode(parseInt(b,2))).join("");
-}catch(e){output.value="Invalid binary";}
+
+<!-- =====================================================
+     SEO
+===================================================== -->
+
+<title>Binary Converter Online — Text to Binary & Binary to Text | VexTools</title>
+
+<meta name="description"
+content="Use VexTools free online Binary Converter to convert text to binary and binary back to text. Fast, simple and easy-to-use binary conversion tool.">
+
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="VexTools">
+
+<meta name="keywords"
+content="binary converter, binary converter online, text to binary, binary to text, binary translator, convert text to binary, convert binary to text, free binary converter, VexTools">
+
+
+<!-- =====================================================
+     CANONICAL
+===================================================== -->
+
+<link rel="canonical"
+href="https://vextools18-service.github.io/VexTool/tools/binary-converter.html">
+
+
+<!-- =====================================================
+     OPEN GRAPH
+===================================================== -->
+
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+content="Binary Converter Online — VexTools">
+
+<meta property="og:description"
+content="Convert text to binary or binary to text with the free VexTools online Binary Converter.">
+
+<meta property="og:url"
+content="https://vextools18-service.github.io/VexTool/tools/binary-converter.html">
+
+<meta property="og:site_name"
+content="VexTools">
+
+
+<!-- =====================================================
+     TWITTER / X
+===================================================== -->
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title"
+content="Binary Converter Online — VexTools">
+
+<meta name="twitter:description"
+content="Free online tool for converting text to binary and binary to text.">
+
+
+<!-- =====================================================
+     THEME
+===================================================== -->
+
+<meta name="theme-color" content="#070b18">
+
+
+<!-- =====================================================
+     STRUCTURED DATA
+===================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Binary Converter",
+  "url": "https://vextools18-service.github.io/VexTool/tools/binary-converter.html",
+  "description": "A free online binary converter for converting text to binary and binary to text.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools18-service.github.io/VexTool/"
+  }
 }
 </script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "VexTools",
+      "item": "https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Binary Converter",
+      "item": "https://vextools18-service.github.io/VexTool/tools/binary-converter.html"
+    }
+  ]
+}
+</script>
+
+
+<!-- =====================================================
+     STYLE
+===================================================== -->
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:40px 20px;
+min-height:100vh;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+textarea{
+width:100%;
+height:180px;
+margin:15px 0;
+padding:20px;
+background:#111a30;
+color:white;
+border:1px solid #27304a;
+border-radius:12px;
+font-family:monospace;
+font-size:15px;
+resize:vertical;
+}
+
+textarea:focus{
+outline:none;
+border-color:#7c3aed;
+}
+
+button{
+padding:13px 22px;
+margin-right:8px;
+margin-bottom:10px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+transition:.25s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 25px rgba(124,58,237,.3);
+}
+
+#status{
+margin-top:10px;
+color:#94a3b8;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+
+.back:hover{
+color:#c4b5fd;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>💾 Binary Converter</h1>
+
+<p>
+Convert text to binary and binary back to text quickly and easily.
+</p>
+
+
+<textarea
+id="input"
+placeholder="Enter text or binary..."
+aria-label="Binary converter input"
+></textarea>
+
+
+<button onclick="toBinary()">
+Text → Binary
+</button>
+
+<button onclick="toText()">
+Binary → Text
+</button>
+
+
+<textarea
+id="output"
+placeholder="Result..."
+readonly
+aria-label="Binary converter result"
+></textarea>
+
+
+<div id="status" aria-live="polite"></div>
+
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+</div>
+
+
+<script>
+
+const input =
+document.getElementById("input");
+
+const output =
+document.getElementById("output");
+
+const status =
+document.getElementById("status");
+
+
+function toBinary(){
+
+if(!input.value){
+
+output.value = "";
+
+status.textContent =
+"Please enter some text.";
+
+return;
+
+}
+
+
+try{
+
+output.value =
+[...input.value]
+.map(
+c => c.charCodeAt(0)
+.toString(2)
+.padStart(8,"0")
+)
+.join(" ");
+
+
+status.textContent =
+"✓ Text converted to binary successfully.";
+
+}
+
+catch(error){
+
+output.value = "";
+
+status.textContent =
+"❌ Unable to convert text.";
+
+}
+
+}
+
+
+function toText(){
+
+const value =
+input.value.trim();
+
+
+if(!value){
+
+output.value = "";
+
+status.textContent =
+"Please enter binary data.";
+
+return;
+
+}
+
+
+const parts =
+value.split(/\s+/);
+
+
+const valid =
+parts.every(
+b => /^[01]+$/.test(b)
+);
+
+
+if(!valid){
+
+output.value = "";
+
+status.textContent =
+"❌ Invalid binary. Use only 0 and 1.";
+
+return;
+
+}
+
+
+try{
+
+output.value =
+parts
+.map(
+b => String.fromCharCode(
+parseInt(b,2)
+)
+)
+.join("");
+
+
+status.textContent =
+"✓ Binary converted to text successfully.";
+
+}
+
+catch(error){
+
+output.value = "";
+
+status.textContent =
+"❌ Invalid binary data.";
+
+}
+
+}
+
+</script>
+
 </body>
+
 </html>
