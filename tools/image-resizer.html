@@ -4,80 +4,310 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Image Resizer — VexTools</title>
-<meta name="description" content="Free online image resizer. Resize JPG, PNG and other images to custom width and height directly in your browser.">
-<meta name="keywords" content="image resizer, resize image, resize photo, image resize online, free image resizer, VexTools">
+<title>Image Resizer Online Free — Resize JPG, PNG & WebP | VexTools</title>
+
+<meta name="description" content="Free online image resizer. Resize JPG, PNG, WebP and other images to custom width and height directly in your browser. Fast, simple and privacy-friendly with VexTools.">
+<meta name="keywords" content="image resizer, resize image online, resize photo, image resize online, free image resizer, JPG resizer, PNG resizer, WebP resizer, VexTools">
+<meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/image-resizer.html">
 
-<meta property="og:title" content="Image Resizer — VexTools">
-<meta property="og:description" content="Resize images to custom dimensions quickly and easily with VexTools.">
+<meta property="og:title" content="Image Resizer Online Free — VexTools">
+<meta property="og:description" content="Resize JPG, PNG, WebP and other images to custom dimensions directly in your browser with VexTools.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/image-resizer.html">
+<meta property="og:site_name" content="VexTools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Image Resizer Online Free — VexTools">
+<meta name="twitter:description" content="Free online image resizer for custom width and height.">
+
+<meta name="theme-color" content="#070b18">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"VexTools Image Resizer",
+  "url":"https://vextools18-service.github.io/VexTool/tools/image-resizer.html",
+  "description":"Free online image resizer for changing image dimensions directly in the browser.",
+  "applicationCategory":"MultimediaApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How do I resize an image online?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Select an image, enter the desired width and height in pixels, then click Resize Image. Download the resized image when processing is complete."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is this image resizer free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. VexTools provides this online image resizer completely free."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Are my images uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. The image is processed directly in your browser and is not uploaded by this tool."
+      }
+    }
+  ]
+}
+</script>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,sans-serif;
-background:#070b18;
-color:white;
-padding:30px 15px;
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-.container{max-width:850px;margin:auto}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070b18;
+color:#f8fafc;
+min-height:100vh;
+padding:40px 20px;
+}
 
-.header{text-align:center;margin-bottom:25px}
+.container{
+max-width:850px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:30px;
+}
 
 .logo{
+display:inline-block;
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
 text-decoration:none;
+margin-bottom:18px;
+transition:.2s;
 }
 
-h1{margin:15px 0 8px}
+.logo:hover{
+opacity:.85;
+}
 
-p{color:#94a3b8}
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
 
 .card{
-background:rgba(17,25,45,.85);
+background:#11192d;
 border:1px solid rgba(255,255,255,.1);
 border-radius:20px;
-padding:22px;
+padding:25px;
 }
 
-input{
-width:100%;
-padding:13px;
+.file-label{
+display:block;
+border:2px dashed #7c3aed;
+border-radius:15px;
+padding:35px 20px;
+text-align:center;
+cursor:pointer;
+background:rgba(124,58,237,.07);
+transition:.2s;
+}
+
+.file-label:hover{
+background:rgba(124,58,237,.14);
+transform:translateY(-2px);
+}
+
+.file-label strong{
+display:block;
+font-size:18px;
+margin-bottom:7px;
+}
+
+.file-label span{
+color:#94a3b8;
+font-size:14px;
+}
+
+input[type=file]{
+position:absolute;
+width:1px;
+height:1px;
+opacity:0;
+pointer-events:none;
+}
+
+.file-info{
+display:none;
+margin-top:15px;
+padding:15px;
+background:#18223a;
+border-radius:12px;
+}
+
+.file-name{
+font-weight:bold;
+word-break:break-word;
+}
+
+.file-size{
+color:#94a3b8;
+font-size:13px;
+margin-top:5px;
+}
+
+.original-dimensions{
+color:#94a3b8;
+font-size:13px;
+margin-top:5px;
+}
+
+.options{
+margin-top:20px;
+}
+
+.options-title{
+font-weight:bold;
 margin-bottom:10px;
-background:#0d1427;
-color:white;
-border:1px solid #29344f;
-border-radius:10px;
 }
 
 .row{
 display:grid;
 grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.input-group label{
+display:block;
+color:#cbd5e1;
+font-size:14px;
+margin-bottom:7px;
+}
+
+input[type=number]{
+width:100%;
+padding:14px;
+background:#0d1427;
+color:white;
+border:1px solid #27304a;
+border-radius:10px;
+font-size:16px;
+outline:none;
+}
+
+input[type=number]:focus{
+border-color:#7c3aed;
+}
+
+.lock-row{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:12px;
+color:#94a3b8;
+font-size:14px;
+}
+
+.lock-row input{
+width:auto;
+accent-color:#7c3aed;
+}
+
+.actions{
+display:flex;
 gap:10px;
-margin-top:15px;
+margin-top:20px;
 }
 
 button{
-width:100%;
-margin-top:15px;
-padding:13px;
+flex:1;
+padding:14px;
 border:0;
 border-radius:10px;
 background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+button:disabled{
+opacity:.5;
+cursor:not-allowed;
+transform:none;
+}
+
+.clear{
+background:#ef4444;
+}
+
+.preview{
+display:none;
+margin-top:20px;
+padding:15px;
+background:#0d1427;
+border:1px solid #27304a;
+border-radius:12px;
+text-align:center;
+}
+
+.preview-title{
+font-weight:bold;
+margin-bottom:12px;
+}
+
+canvas{
+max-width:100%;
+height:auto;
+display:block;
+margin:auto;
+border-radius:8px;
+}
+
+.status{
+margin-top:15px;
+text-align:center;
+color:#94a3b8;
+min-height:22px;
+line-height:1.5;
 }
 
 .download{
-display:block;
+display:none;
 margin-top:15px;
 text-align:center;
 padding:13px;
@@ -86,16 +316,118 @@ background:#06b6d4;
 color:white;
 text-decoration:none;
 font-weight:bold;
+transition:.2s;
 }
 
-.status{
-margin-top:15px;
+.download:hover{
+transform:translateY(-2px);
+}
+
+.content{
+margin-top:40px;
+line-height:1.7;
+}
+
+.content h2{
+font-size:27px;
+margin-bottom:12px;
+}
+
+.content h3{
+font-size:20px;
+margin-top:25px;
+margin-bottom:7px;
+}
+
+.content p{
+color:#cbd5e1;
+margin-bottom:12px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:20px;
+}
+
+.feature{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:15px;
+padding:18px;
+}
+
+.feature strong{
+display:block;
+margin-bottom:6px;
+}
+
+.feature span{
 color:#94a3b8;
-text-align:center;
+font-size:14px;
 }
 
-@media(max-width:600px){
-.row{grid-template-columns:1fr}
+.faq{
+margin-top:35px;
+}
+
+.faq-item{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:12px;
+padding:17px;
+margin-top:10px;
+}
+
+.faq-item h3{
+margin:0 0 7px;
+font-size:16px;
+}
+
+.faq-item p{
+margin:0;
+color:#94a3b8;
+font-size:14px;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+margin-top:30px;
+color:#64748b;
+font-size:13px;
+}
+
+@media(max-width:650px){
+
+h1{
+font-size:32px;
+}
+
+.card{
+padding:18px;
+}
+
+.row{
+grid-template-columns:1fr;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.actions{
+flex-direction:column;
+}
+
 }
 </style>
 </head>
@@ -105,62 +437,583 @@ text-align:center;
 <div class="container">
 
 <div class="header">
-<a class="logo" href="../index.html">VexTools</a>
 
-<h1>Image Resizer</h1>
+<a class="logo" href="../index.html">
+VexTools
+</a>
 
-<p>Resize images to custom dimensions directly in your browser.</p>
+<h1>📐 Image Resizer</h1>
+
+<p>
+Resize JPG, PNG, WebP and other images to custom dimensions.
+</p>
+
 </div>
 
 <div class="card">
 
-<input id="file" type="file" accept="image/*">
+<label class="file-label" for="file">
 
-<div class="row">
-<input id="width" type="number" min="1" placeholder="Width (px)">
-<input id="height" type="number" min="1" placeholder="Height (px)">
+<strong>📁 Select an Image</strong>
+
+<span id="fileText">
+Click here to choose an image
+</span>
+
+</label>
+
+<input
+id="file"
+type="file"
+accept="image/*"
+>
+
+<div class="file-info" id="fileInfo">
+
+<div class="file-name" id="fileName"></div>
+
+<div class="file-size" id="fileSize"></div>
+
+<div class="original-dimensions" id="originalDimensions"></div>
+
 </div>
 
-<button onclick="resizeImage()">Resize Image</button>
+<div class="options">
+
+<div class="options-title">
+Resize Dimensions
+</div>
+
+<div class="row">
+
+<div class="input-group">
+
+<label for="width">
+Width (px)
+</label>
+
+<input
+id="width"
+type="number"
+min="1"
+max="10000"
+placeholder="Width"
+>
+</div>
+
+<div class="input-group">
+
+<label for="height">
+Height (px)
+</label>
+
+<input
+id="height"
+type="number"
+min="1"
+max="10000"
+placeholder="Height"
+>
+</div>
+
+</div>
+
+<label class="lock-row">
+
+<input
+id="lock"
+type="checkbox"
+checked
+>
+
+Keep aspect ratio
+
+</label>
+
+</div>
+
+<div class="actions">
+
+<button
+id="resizeBtn"
+onclick="resizeImage()"
+disabled
+>
+📐 Resize Image
+</button>
+
+<button
+class="clear"
+onclick="clearAll()"
+>
+Clear
+</button>
+
+</div>
+
+<div class="preview" id="preview">
+
+<div class="preview-title">
+Preview
+</div>
+
+<canvas id="canvas"></canvas>
+
+</div>
 
 <div class="status" id="status"></div>
 
+<a
+id="download"
+class="download"
+href="#"
+download="resized-image.png"
+>
+⬇️ Download Resized Image
+</a>
+
 </div>
+
+<div class="content">
+
+<h2>Free Online Image Resizer</h2>
+
+<p>
+VexTools Image Resizer is a free online tool that lets you resize
+JPG, PNG, WebP and other image files to custom dimensions. Enter
+your desired width and height, then download the resized image.
+</p>
+
+<p>
+The image is processed directly in your browser. No software
+installation is required and your image does not need to be
+uploaded to a server.
+</p>
+
+<div class="features">
+
+<div class="feature">
+<strong>⚡ Fast</strong>
+<span>Resize images directly in your browser.</span>
+</div>
+
+<div class="feature">
+<strong>🆓 Free</strong>
+<span>Use the image resizer without a paid subscription.</span>
+</div>
+
+<div class="feature">
+<strong>🔒 Private</strong>
+<span>Your image stays on your device during processing.</span>
+</div>
+
+</div>
+
+<h3>How to Resize an Image</h3>
+
+<p>
+<strong>1.</strong> Select an image from your device.
+</p>
+
+<p>
+<strong>2.</strong> Enter the desired width and height in pixels.
+</p>
+
+<p>
+<strong>3.</strong> Keep "Keep aspect ratio" enabled if you want to preserve the image proportions.
+</p>
+
+<p>
+<strong>4.</strong> Click Resize Image.
+</p>
+
+<p>
+<strong>5.</strong> Download your resized image.
+</p>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+
+<h3>How do I resize an image online?</h3>
+
+<p>
+Select an image, enter the desired width and height, and click
+Resize Image. You can then download the resized image.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Is this image resizer free?</h3>
+
+<p>
+Yes. VexTools provides this online image resizer completely free.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Can I keep the original aspect ratio?</h3>
+
+<p>
+Yes. Enable the Keep aspect ratio option to automatically maintain
+the original proportions when changing the width or height.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Are my images uploaded to a server?</h3>
+
+<p>
+No. The image is processed directly in your browser and is not
+uploaded by this tool.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+<footer>
+© <span id="year"></span> VexTools — Free Online Tools
+</footer>
 
 </div>
 
 <script>
-function resizeImage(){
 
-const file=document.getElementById("file").files[0];
-const status=document.getElementById("status");
+const fileInput =
+document.getElementById("file");
+
+const fileInfo =
+document.getElementById("fileInfo");
+
+const fileName =
+document.getElementById("fileName");
+
+const fileSize =
+document.getElementById("fileSize");
+
+const originalDimensions =
+document.getElementById("originalDimensions");
+
+const fileText =
+document.getElementById("fileText");
+
+const widthInput =
+document.getElementById("width");
+
+const heightInput =
+document.getElementById("height");
+
+const lock =
+document.getElementById("lock");
+
+const resizeBtn =
+document.getElementById("resizeBtn");
+
+const status =
+document.getElementById("status");
+
+const preview =
+document.getElementById("preview");
+
+const canvas =
+document.getElementById("canvas");
+
+const ctx =
+canvas.getContext("2d");
+
+const download =
+document.getElementById("download");
+
+let img = null;
+let imageURL = null;
+let downloadURL = null;
+
+let originalWidth = 0;
+let originalHeight = 0;
+
+let updatingDimensions = false;
+
+
+/* Select image */
+
+fileInput.addEventListener("change",function(){
+
+const file =
+fileInput.files[0];
 
 if(!file){
-status.textContent="Please select an image.";
 return;
 }
 
-const width=Number(document.getElementById("width").value);
-const height=Number(document.getElementById("height").value);
+if(!file.type.startsWith("image/")){
 
-if(!width || !height || width<1 || height<1){
-status.textContent="Please enter valid width and height.";
+status.textContent =
+"❌ Please select a valid image file.";
+
+clearImage();
+
+return;
+
+}
+
+if(imageURL){
+URL.revokeObjectURL(imageURL);
+}
+
+imageURL =
+URL.createObjectURL(file);
+
+img =
+new Image();
+
+img.onload = function(){
+
+originalWidth =
+img.naturalWidth;
+
+originalHeight =
+img.naturalHeight;
+
+fileName.textContent =
+"🖼️ " + file.name;
+
+fileSize.textContent =
+"Original size: " + format(file.size);
+
+originalDimensions.textContent =
+"Original dimensions: " +
+originalWidth +
+" × " +
+originalHeight +
+" px";
+
+fileInfo.style.display =
+"block";
+
+fileText.textContent =
+"Image selected — click to choose another";
+
+widthInput.value =
+originalWidth;
+
+heightInput.value =
+originalHeight;
+
+resizeBtn.disabled =
+false;
+
+status.textContent =
+"";
+
+drawPreview(
+originalWidth,
+originalHeight
+);
+
+};
+
+img.onerror = function(){
+
+status.textContent =
+"❌ Could not read the selected image.";
+
+};
+
+img.src =
+imageURL;
+
+});
+
+
+/* Keep aspect ratio */
+
+widthInput.addEventListener("input",function(){
+
+if(!lock.checked || !img || updatingDimensions){
 return;
 }
 
-const img=new Image();
-const imageURL=URL.createObjectURL(file);
+const width =
+Number(widthInput.value);
 
-img.onload=()=>{
+if(width > 0){
 
-const canvas=document.createElement("canvas");
+updatingDimensions = true;
 
-canvas.width=width;
-canvas.height=height;
+heightInput.value =
+Math.max(
+1,
+Math.round(
+width * originalHeight / originalWidth
+)
+);
 
-const ctx=canvas.getContext("2d");
+updatingDimensions = false;
+
+}
+
+});
+
+
+heightInput.addEventListener("input",function(){
+
+if(!lock.checked || !img || updatingDimensions){
+return;
+}
+
+const height =
+Number(heightInput.value);
+
+if(height > 0){
+
+updatingDimensions = true;
+
+widthInput.value =
+Math.max(
+1,
+Math.round(
+height * originalWidth / originalHeight
+)
+);
+
+updatingDimensions = false;
+
+}
+
+});
+
+
+/* Preview */
+
+function drawPreview(width,height){
+
+if(!img){
+return;
+}
+
+const maxWidth =
+Math.min(
+800,
+document.querySelector(".card").clientWidth - 50
+);
+
+const maxHeight = 400;
+
+const scale =
+Math.min(
+1,
+maxWidth / width,
+maxHeight / height
+);
+
+canvas.width =
+Math.max(
+1,
+Math.round(width * scale)
+);
+
+canvas.height =
+Math.max(
+1,
+Math.round(height * scale)
+);
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
 
 ctx.drawImage(
+img,
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+preview.style.display =
+"block";
+
+}
+
+
+/* Resize */
+
+function resizeImage(){
+
+if(!img){
+
+status.textContent =
+"❌ Please select an image first.";
+
+return;
+
+}
+
+const width =
+Number(widthInput.value);
+
+const height =
+Number(heightInput.value);
+
+if(
+!Number.isFinite(width) ||
+!Number.isFinite(height) ||
+width < 1 ||
+height < 1 ||
+width > 10000 ||
+height > 10000
+){
+
+status.textContent =
+"❌ Please enter valid dimensions between 1 and 10,000 pixels.";
+
+return;
+
+}
+
+resizeBtn.disabled =
+true;
+
+status.textContent =
+"⏳ Resizing image...";
+
+const outputCanvas =
+document.createElement("canvas");
+
+outputCanvas.width =
+Math.round(width);
+
+outputCanvas.height =
+Math.round(height);
+
+const outputCtx =
+outputCanvas.getContext("2d");
+
+outputCtx.imageSmoothingEnabled =
+true;
+
+outputCtx.imageSmoothingQuality =
+"high";
+
+outputCtx.drawImage(
 img,
 0,
 0,
@@ -168,49 +1021,159 @@ width,
 height
 );
 
-canvas.toBlob(blob=>{
+outputCanvas.toBlob(function(blob){
+
+resizeBtn.disabled =
+false;
 
 if(!blob){
-status.textContent="Unable to resize image.";
-URL.revokeObjectURL(imageURL);
+
+status.textContent =
+"❌ Unable to resize image.";
+
 return;
+
 }
 
-const url=URL.createObjectURL(blob);
+if(downloadURL){
 
-const old=document.querySelector(".download");
+URL.revokeObjectURL(downloadURL);
 
-if(old){
-URL.revokeObjectURL(old.href);
-old.remove();
 }
 
-const link=document.createElement("a");
+downloadURL =
+URL.createObjectURL(blob);
 
-link.className="download";
-link.href=url;
-link.download="resized-image.png";
-link.textContent="⬇️ Download Resized Image";
+download.href =
+downloadURL;
 
-document.querySelector(".card").appendChild(link);
+download.download =
+"resized-image.png";
 
-status.textContent=
-"Image resized successfully: "+width+" × "+height+" px";
+download.style.display =
+"block";
 
-URL.revokeObjectURL(imageURL);
+drawPreview(
+width,
+height
+);
+
+status.textContent =
+"✅ Image resized successfully: " +
+width +
+" × " +
+height +
+" px";
 
 },"image/png");
 
-};
+}
 
-img.onerror=()=>{
-status.textContent="Unable to load this image.";
-URL.revokeObjectURL(imageURL);
-};
 
-img.src=imageURL;
+/* Clear */
+
+function clearAll(){
+
+clearImage();
+
+fileInput.value = "";
+
+widthInput.value = "";
+heightInput.value = "";
+
+fileText.textContent =
+"Click here to choose an image";
+
+status.textContent = "";
 
 }
+
+
+function clearImage(){
+
+if(imageURL){
+
+URL.revokeObjectURL(imageURL);
+
+imageURL = null;
+
+}
+
+if(downloadURL){
+
+URL.revokeObjectURL(downloadURL);
+
+downloadURL = null;
+
+}
+
+img = null;
+
+originalWidth = 0;
+originalHeight = 0;
+
+fileInfo.style.display =
+"none";
+
+preview.style.display =
+"none";
+
+download.style.display =
+"none";
+
+download.removeAttribute("href");
+
+resizeBtn.disabled =
+true;
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+}
+
+
+/* File size */
+
+function format(bytes){
+
+if(bytes < 1024){
+return bytes + " B";
+}
+
+if(bytes < 1024 * 1024){
+return (bytes / 1024).toFixed(1) + " KB";
+}
+
+return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+
+}
+
+
+/* Responsive preview */
+
+window.addEventListener("resize",function(){
+
+if(img && widthInput.value && heightInput.value){
+
+drawPreview(
+Number(widthInput.value),
+Number(heightInput.value)
+);
+
+}
+
+});
+
+
+/* Footer year */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
 </script>
 
 </body>
