@@ -1,32 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QR Code Generator - VexTools</title>
+
+<title>QR Code Generator Online Free — VexTools</title>
+
+<meta name="description" content="Generate QR codes online for free with VexTools. Create QR codes from text, URLs, links and other information quickly and easily.">
+
+<meta name="keywords" content="QR code generator, QR generator, QR code maker, generate QR code, online QR code generator, free QR code generator, URL QR code">
+
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools.github.io/tools/qr-code-generator.html">
+
+<meta property="og:title" content="QR Code Generator Online Free — VexTools">
+<meta property="og:description" content="Create QR codes from text and URLs instantly with VexTools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/tools/qr-code-generator.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QR Code Generator — VexTools">
+<meta name="twitter:description" content="Generate QR codes from text or URLs online for free.">
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;text-align:center;padding:50px}
-.box{max-width:600px;margin:auto;background:#111a30;padding:30px;border-radius:20px}
-input,button{padding:14px;margin:8px;border-radius:10px;border:0}
-input{width:80%}button{background:#7c3aed;color:white;cursor:pointer}
-#qr{margin:25px}
+body{
+font-family:Arial;
+background:#070b18;
+color:white;
+text-align:center;
+padding:50px;
+}
+
+.box{
+max-width:600px;
+margin:auto;
+background:#111a30;
+padding:30px;
+border-radius:20px;
+}
+
+input,button{
+padding:14px;
+margin:8px;
+border-radius:10px;
+border:0;
+}
+
+input{
+width:80%;
+background:#0d1427;
+color:white;
+border:1px solid #27304a;
+}
+
+button{
+background:#7c3aed;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+#qr{
+margin:25px;
+}
+
+#qr img{
+background:white;
+padding:10px;
+border-radius:10px;
+max-width:220px;
+}
+
+.download{
+display:block;
+width:80%;
+margin:15px auto;
+padding:13px;
+background:#06b6d4;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+}
 </style>
 </head>
+
 <body>
+
 <div class="box">
-<h1>QR Code Generator</h1>
+
+<h1>📱 QR Code Generator</h1>
+
 <p>Generate a QR code from any text or URL.</p>
-<input id="text" placeholder="Enter text or URL">
-<button onclick="generate()">Generate</button>
+
+<input
+id="text"
+placeholder="Enter text or URL"
+>
+
+<button onclick="generate()">
+Generate
+</button>
+
 <div id="qr"></div>
+
 </div>
+
 <script>
+
 function generate(){
+
 let text=document.getElementById("text").value.trim();
-if(!text)return alert("Enter something first");
-document.getElementById("qr").innerHTML=
-`<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(text)}">`;
+
+if(!text){
+alert("Enter something first");
+return;
 }
+
+const qr=document.getElementById("qr");
+
+qr.innerHTML=`
+<img
+id="qrImage"
+src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(text)}"
+alt="Generated QR Code"
+>
+`;
+
+setTimeout(()=>{
+
+const img=document.getElementById("qrImage");
+
+if(img){
+
+const old=document.querySelector(".download");
+if(old)old.remove();
+
+const link=document.createElement("a");
+
+link.className="download";
+link.href=img.src;
+link.target="_blank";
+link.download="vextools-qr-code.png";
+link.textContent="⬇️ Download QR Code";
+
+qr.appendChild(link);
+
+}
+
+},500);
+
+}
+
 </script>
+
 </body>
 </html>
