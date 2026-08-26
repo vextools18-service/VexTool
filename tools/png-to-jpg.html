@@ -1,166 +1,1459 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PNG to JPG Converter Online Free — VexTools</title>
 
-<meta name="description" content="Convert PNG images to JPG online for free with VexTools. Fast, simple and secure PNG to JPG converter that works directly in your browser.">
+<meta name="description" content="Convert PNG images to JPG online for free with VexTools. Fast, private and easy-to-use PNG to JPG converter that works directly in your browser.">
 
 <meta name="keywords" content="PNG to JPG, PNG to JPG converter, convert PNG to JPG, PNG converter, image converter, online image converter, free PNG to JPG">
 
 <meta name="author" content="VexTools">
 
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-<link rel="canonical" href="https://vextools.github.io/tools/png-to-jpg.html">
+<meta name="googlebot" content="index, follow">
 
-<meta property="og:title" content="PNG to JPG Converter Online Free — VexTools">
-<meta property="og:description" content="Convert PNG images to JPG online for free with VexTools. Fast and easy browser-based image converter.">
+<meta name="theme-color" content="#070b18">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/png-to-jpg.html">
+
+<!-- Open Graph -->
+
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://vextools.github.io/tools/png-to-jpg.html">
+<meta property="og:title" content="PNG to JPG Converter Online Free — VexTools">
+<meta property="og:description" content="Convert PNG images to JPG online for free with VexTools. Fast, private and easy-to-use browser-based image converter.">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/png-to-jpg.html">
+<meta property="og:site_name" content="VexTools">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PNG to JPG Converter — VexTools">
-<meta name="twitter:description" content="Convert PNG images to JPG online quickly and for free.">
+<meta name="twitter:title" content="PNG to JPG Converter Online Free — VexTools">
+<meta name="twitter:description" content="Convert PNG images to JPG online for free with VexTools.">
+
+<!-- Structured Data -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "PNG to JPG Converter",
+  "url": "https://vextools18-service.github.io/VexTool/tools/png-to-jpg.html",
+  "description": "Free online PNG to JPG converter that converts PNG images into JPG format directly in the browser.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools18-service.github.io/VexTool/"
+  }
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "VexTools",
+      "item": "https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Image Tools",
+      "item": "https://vextools18-service.github.io/VexTool/#categories"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "PNG to JPG Converter",
+      "item": "https://vextools18-service.github.io/VexTool/tools/png-to-jpg.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert PNG to JPG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select a PNG image using the upload button and click Convert to JPG. The converted JPG image can then be downloaded directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the PNG to JPG converter free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VexTools PNG to JPG Converter is free to use online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does PNG to JPG conversion work in the browser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The conversion is performed directly in your web browser without requiring desktop software."
+      }
+    }
+  ]
+}
+</script>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-font-family:Arial,sans-serif;
-background:#070b18;
-color:white;
-padding:30px 15px;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:#070b18;
+
+    color:#f8fafc;
+
+    min-height:100vh;
+
+    padding:30px 15px;
+
+    line-height:1.6;
 }
 
-.container{max-width:750px;margin:auto}
+.container{
 
-.header{text-align:center;margin-bottom:25px}
+    max-width:850px;
+
+    margin:0 auto;
+}
+
+/* NAV */
+
+.top-nav{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+}
 
 .logo{
-color:#a78bfa;
-font-size:28px;
-font-weight:900;
-text-decoration:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    font-weight:900;
 }
 
-h1{margin:15px 0 8px}
+.logo-icon{
 
-p{color:#94a3b8}
+    width:38px;
+
+    height:38px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #06b6d4
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(124,58,237,.3);
+}
+
+.home-link{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+.home-link:hover{
+
+    color:white;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb{
+
+    margin:10px 0 28px;
+
+    font-size:13px;
+
+    color:#94a3b8;
+}
+
+.breadcrumb a{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+}
+
+.breadcrumb span{
+
+    margin:0 6px;
+}
+
+/* HEADER */
+
+.header{
+
+    text-align:center;
+
+    margin:20px 0 35px;
+}
+
+.header h1{
+
+    font-size:
+        clamp(34px,7vw,52px);
+
+    line-height:1.1;
+
+    letter-spacing:-1.5px;
+}
+
+.header h1 span{
+
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #22d3ee
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+}
+
+.header p{
+
+    color:#94a3b8;
+
+    margin-top:12px;
+
+    font-size:17px;
+}
+
+/* CARD */
 
 .card{
-background:rgba(17,25,45,.85);
-border:1px solid rgba(255,255,255,.1);
-border-radius:20px;
-padding:22px;
+
+    background:#11192d;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.2);
 }
 
-input{
-width:100%;
-padding:15px;
-background:#0d1427;
-color:white;
-border:1px solid #29344f;
-border-radius:12px;
+/* UPLOAD */
+
+.upload-area{
+
+    display:block;
+
+    border:
+        2px dashed
+        #7c3aed;
+
+    border-radius:16px;
+
+    padding:45px 20px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    background:
+        rgba(124,58,237,.08);
+
+    transition:.25s;
 }
+
+.upload-area:hover{
+
+    background:
+        rgba(124,58,237,.15);
+
+    transform:translateY(-2px);
+}
+
+.upload-area:focus-within{
+
+    outline:
+        3px solid
+        rgba(124,58,237,.3);
+
+    outline-offset:3px;
+}
+
+.upload-icon{
+
+    font-size:42px;
+
+    margin-bottom:8px;
+}
+
+.upload-area h2{
+
+    font-size:20px;
+
+    margin-bottom:7px;
+}
+
+.upload-area p{
+
+    color:#94a3b8;
+
+    font-size:14px;
+}
+
+input[type="file"]{
+
+    display:none;
+}
+
+/* FILE */
+
+.file-info{
+
+    display:none;
+
+    margin-top:18px;
+
+    padding:14px;
+
+    background:#18223a;
+
+    border-radius:10px;
+
+    color:#cbd5e1;
+
+    font-size:14px;
+
+    word-break:break-word;
+}
+
+.file-info.show{
+
+    display:block;
+}
+
+/* BUTTON */
 
 button{
-width:100%;
-margin-top:15px;
-padding:13px;
-border:0;
-border-radius:10px;
-background:linear-gradient(90deg,#7c3aed,#6366f1);
-color:white;
-font-weight:bold;
-cursor:pointer;
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #06b6d4
+        );
+
+    color:white;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
 }
 
-.download{
-display:block;
-margin-top:15px;
-padding:13px;
-text-align:center;
-background:#06b6d4;
-color:white;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
+button:hover:not(:disabled){
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(124,58,237,.3);
 }
+
+button:disabled{
+
+    opacity:.5;
+
+    cursor:not-allowed;
+}
+
+/* DOWNLOAD */
+
+.download{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    text-align:center;
+
+    background:#06b6d4;
+
+    color:white;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:800;
+}
+
+.download.show{
+
+    display:block;
+}
+
+.download:hover{
+
+    background:#0891b2;
+}
+
+/* STATUS */
+
+.status{
+
+    min-height:24px;
+
+    margin-top:15px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:14px;
+}
+
+/* INFO */
+
+.info-section{
+
+    margin-top:55px;
+}
+
+.info-section h2{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+}
+
+.info-section p{
+
+    color:#94a3b8;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+}
+
+/* BENEFITS */
+
+.benefits{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+
+    margin-top:22px;
+}
+
+.benefit{
+
+    padding:18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    background:
+        rgba(17,25,45,.7);
+
+    border-radius:15px;
+}
+
+.benefit-icon{
+
+    font-size:25px;
+
+    margin-bottom:7px;
+}
+
+.benefit h3{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+}
+
+.benefit p{
+
+    font-size:13px;
+
+    margin:0;
+}
+
+/* HOW TO */
+
+.steps{
+
+    margin-top:20px;
+}
+
+.step{
+
+    padding:15px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+.step:last-child{
+
+    border-bottom:0;
+}
+
+.step strong{
+
+    color:#a78bfa;
+}
+
+/* FAQ */
+
+.faq{
+
+    margin-top:45px;
+}
+
+.faq h2{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+}
+
+.faq-item{
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius:13px;
+
+    margin-bottom:10px;
+
+    overflow:hidden;
+
+    background:
+        rgba(17,25,45,.7);
+}
+
+.faq-item summary{
+
+    cursor:pointer;
+
+    padding:17px;
+
+    font-weight:700;
+
+    list-style:none;
+}
+
+.faq-item summary::-webkit-details-marker{
+
+    display:none;
+}
+
+.faq-item p{
+
+    padding:
+        0 17px 17px;
+
+    color:#94a3b8;
+
+    font-size:14px;
+}
+
+/* RELATED */
+
+.related{
+
+    margin-top:45px;
+}
+
+.related h2{
+
+    font-size:25px;
+
+    margin-bottom:15px;
+}
+
+.related-links{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+.related-links a{
+
+    color:#c4b5fd;
+
+    text-decoration:none;
+
+    padding:9px 13px;
+
+    border-radius:9px;
+
+    background:
+        rgba(124,58,237,.1);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    font-size:13px;
+}
+
+.related-links a:hover{
+
+    border-color:#8b5cf6;
+}
+
+/* BACK */
+
+.back{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-weight:700;
+}
+
+.back:hover{
+
+    color:white;
+}
+
+/* FOOTER */
+
+.footer{
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:13px;
+
+    margin-top:55px;
+
+    padding-top:25px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.1);
+}
+
+.footer a{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    body{
+
+        padding:
+            20px 12px;
+    }
+
+    .top-nav{
+
+        margin-bottom:18px;
+    }
+
+    .card{
+
+        padding:18px;
+    }
+
+    .benefits{
+
+        grid-template-columns:1fr;
+    }
+
+    .upload-area{
+
+        padding:35px 15px;
+    }
+
+}
+
+/* REDUCED MOTION */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        scroll-behavior:auto!important;
+
+        transition:none!important;
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="header">
-<a class="logo" href="../index.html">VexTools</a>
+<header class="top-nav">
 
-<h1>PNG to JPG Converter</h1>
+<a
+    class="logo"
+    href="../index.html"
+    aria-label="VexTools home">
 
-<p>Convert PNG images to JPG online for free.</p>
+<span class="logo-icon">
+V
+</span>
+
+VexTools
+
+</a>
+
+<a
+    class="home-link"
+    href="../index.html">
+
+All Tools →
+
+</a>
+
+</header>
+
+<nav
+    class="breadcrumb"
+    aria-label="Breadcrumb">
+
+<a href="../index.html">
+VexTools
+</a>
+
+<span>›</span>
+
+<a href="../index.html#categories">
+Image Tools
+</a>
+
+<span>›</span>
+
+<span>
+PNG to JPG
+</span>
+
+</nav>
+
+<header class="header">
+
+<h1>
+PNG to <span>JPG</span> Converter
+</h1>
+
+<p>
+Convert PNG images to JPG online for free.
+</p>
+
+</header>
+
+<main>
+
+<section
+    class="card"
+    aria-labelledby="tool-title">
+
+<h2
+    id="tool-title"
+    style="position:absolute;left:-9999px;">
+Free Online PNG to JPG Converter
+</h2>
+
+<label
+    class="upload-area"
+    for="file">
+
+<div class="upload-icon">
+🖼️
 </div>
 
-<div class="card">
+<h2>
+Select PNG Image
+</h2>
 
-<input id="file" type="file" accept="image/png">
+<p>
+Choose a PNG image from your device to convert it to JPG.
+</p>
 
-<button onclick="convert()">Convert to JPG</button>
+</label>
+
+<input
+    id="file"
+    type="file"
+    accept="image/png,.png"
+    aria-label="Select PNG image">
+
+<div
+    id="fileInfo"
+    class="file-info">
+</div>
+
+<button
+    id="convert"
+    type="button"
+    disabled>
+
+Convert to JPG
+
+</button>
+
+<a
+    id="download"
+    class="download"
+    href="#"
+    download="converted-image.jpg">
+
+Download JPG
+
+</a>
+
+<div
+    id="status"
+    class="status"
+    role="status"
+    aria-live="polite">
+</div>
+
+</section>
+
+<section
+    class="info-section"
+    aria-labelledby="about">
+
+<h2 id="about">
+Convert PNG to JPG Online for Free
+</h2>
+
+<p>
+VexTools PNG to JPG Converter is a free online image
+conversion tool that lets you convert PNG images into
+JPG format directly in your browser.
+</p>
+
+<p>
+PNG images can contain transparent backgrounds, while
+JPG does not support transparency. During conversion,
+transparent areas are filled with a white background
+before the JPG file is created.
+</p>
+
+<div class="benefits">
+
+<div class="benefit">
+
+<div class="benefit-icon">
+⚡
+</div>
+
+<h3>
+Fast Conversion
+</h3>
+
+<p>
+Convert PNG images quickly without installing software.
+</p>
 
 </div>
+
+<div class="benefit">
+
+<div class="benefit-icon">
+🆓
+</div>
+
+<h3>
+Free to Use
+</h3>
+
+<p>
+Convert PNG files to JPG without a paid subscription.
+</p>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit-icon">
+🌐
+</div>
+
+<h3>
+Works Online
+</h3>
+
+<p>
+Use the converter directly in your modern web browser.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section
+    class="info-section"
+    aria-labelledby="how-to">
+
+<h2 id="how-to">
+How to Convert PNG to JPG
+</h2>
+
+<div class="steps">
+
+<div class="step">
+<strong>1.</strong>
+Select a PNG image from your device.
+</div>
+
+<div class="step">
+<strong>2.</strong>
+Click the Convert to JPG button.
+</div>
+
+<div class="step">
+<strong>3.</strong>
+Wait for the conversion to finish.
+</div>
+
+<div class="step">
+<strong>4.</strong>
+Click Download JPG to save the converted image.
+</div>
+
+</div>
+
+</section>
+
+<section
+    class="faq"
+    aria-labelledby="faq-title">
+
+<h2 id="faq-title">
+Frequently Asked Questions
+</h2>
+
+<details class="faq-item">
+
+<summary>
+How do I convert PNG to JPG?
+</summary>
+
+<p>
+Select a PNG image using the upload area and click
+Convert to JPG. After conversion, click Download JPG
+to save the new image.
+</p>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+Is the PNG to JPG converter free?
+</summary>
+
+<p>
+Yes. VexTools PNG to JPG Converter is free to use
+directly in your browser.
+</p>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+Does JPG support transparent backgrounds?
+</summary>
+
+<p>
+No. JPG does not support transparency. Transparent
+areas of a PNG image are converted to a white background.
+</p>
+
+</details>
+
+</section>
+
+<section
+    class="related"
+    aria-labelledby="related-title">
+
+<h2 id="related-title">
+Related Image Tools
+</h2>
+
+<div class="related-links">
+
+<a href="jpg-to-png.html">
+JPG to PNG
+</a>
+
+<a href="image-compressor.html">
+Image Compressor
+</a>
+
+<a href="../index.html">
+More Free Tools
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+<a
+    class="back"
+    href="../index.html">
+
+← Back to VexTools
+
+</a>
+
+<footer class="footer">
+
+<p>
+© <span id="year"></span>
+VexTools. Free online tools for everyone.
+</p>
+
+<p>
+<a href="../index.html">
+VexTools Home
+</a>
+</p>
+
+</footer>
+
 </div>
 
 <script>
-function convert(){
 
-const file=document.getElementById("file").files[0];
+const fileInput =
+    document.getElementById("file");
 
-if(!file){
-alert("Please select a PNG image.");
-return;
+const convertButton =
+    document.getElementById("convert");
+
+const downloadLink =
+    document.getElementById("download");
+
+const fileInfo =
+    document.getElementById("fileInfo");
+
+const status =
+    document.getElementById("status");
+
+let currentURL = null;
+
+
+/* YEAR */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* FILE SELECT */
+
+fileInput.addEventListener(
+    "change",
+    function(){
+
+        const file =
+            fileInput.files[0];
+
+        downloadLink.classList.remove("show");
+
+        if(currentURL){
+
+            URL.revokeObjectURL(currentURL);
+
+            currentURL = null;
+
+        }
+
+        if(!file){
+
+            fileInfo.textContent = "";
+
+            fileInfo.classList.remove("show");
+
+            convertButton.disabled = true;
+
+            status.textContent = "";
+
+            return;
+
+        }
+
+        if(
+            file.type !== "image/png" &&
+            !file.name.toLowerCase().endsWith(".png")
+        ){
+
+            fileInput.value = "";
+
+            fileInfo.textContent = "";
+
+            fileInfo.classList.remove("show");
+
+            convertButton.disabled = true;
+
+            status.textContent =
+                "❌ Please select a valid PNG image.";
+
+            return;
+
+        }
+
+        fileInfo.textContent =
+            "📄 " +
+            file.name +
+            " • " +
+            formatBytes(file.size);
+
+        fileInfo.classList.add("show");
+
+        convertButton.disabled = false;
+
+        status.textContent = "";
+
+    }
+);
+
+
+/* CONVERT */
+
+convertButton.addEventListener(
+    "click",
+    function(){
+
+        const file =
+            fileInput.files[0];
+
+        if(!file){
+
+            status.textContent =
+                "❌ Please select a PNG image first.";
+
+            return;
+
+        }
+
+        convertButton.disabled = true;
+
+        downloadLink.classList.remove("show");
+
+        status.textContent =
+            "Converting PNG to JPG...";
+
+        const image =
+            new Image();
+
+        const imageURL =
+            URL.createObjectURL(file);
+
+        image.onload = function(){
+
+            try{
+
+                const canvas =
+                    document.createElement("canvas");
+
+                canvas.width =
+                    image.naturalWidth;
+
+                canvas.height =
+                    image.naturalHeight;
+
+                const ctx =
+                    canvas.getContext("2d");
+
+                if(!ctx){
+
+                    throw new Error(
+                        "Canvas is not supported."
+                    );
+
+                }
+
+                /*
+                 * JPG does not support transparency.
+                 * Fill the canvas white before drawing.
+                 */
+
+                ctx.fillStyle =
+                    "#ffffff";
+
+                ctx.fillRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+
+                ctx.drawImage(
+                    image,
+                    0,
+                    0
+                );
+
+                canvas.toBlob(
+                    function(blob){
+
+                        URL.revokeObjectURL(imageURL);
+
+                        if(!blob){
+
+                            throw new Error(
+                                "Conversion failed."
+                            );
+
+                        }
+
+                        if(currentURL){
+
+                            URL.revokeObjectURL(currentURL);
+
+                        }
+
+                        currentURL =
+                            URL.createObjectURL(blob);
+
+                        downloadLink.href =
+                            currentURL;
+
+                        downloadLink.download =
+                            getFileName(file.name);
+
+                        downloadLink.classList.add("show");
+
+                        status.textContent =
+                            "✅ PNG converted to JPG successfully!";
+
+                        convertButton.disabled =
+                            false;
+
+                    },
+                    "image/jpeg",
+                    0.92
+                );
+
+            }
+            catch(error){
+
+                URL.revokeObjectURL(imageURL);
+
+                console.error(error);
+
+                status.textContent =
+                    "❌ Could not convert the image. Please try another PNG file.";
+
+                convertButton.disabled =
+                    false;
+
+            }
+
+        };
+
+        image.onerror = function(){
+
+            URL.revokeObjectURL(imageURL);
+
+            status.textContent =
+                "❌ Invalid or corrupted PNG image.";
+
+            convertButton.disabled =
+                false;
+
+        };
+
+        image.src =
+            imageURL;
+
+    }
+);
+
+
+/* FILE NAME */
+
+function getFileName(name){
+
+    const base =
+        name.replace(
+            /\.png$/i,
+            ""
+        );
+
+    return (
+        base ||
+        "converted-image"
+    ) + ".jpg";
+
 }
 
-const img=new Image();
 
-img.onload=()=>{
+/* FILE SIZE */
 
-const canvas=document.createElement("canvas");
+function formatBytes(bytes){
 
-canvas.width=img.width;
-canvas.height=img.height;
+    if(bytes === 0){
 
-const ctx=canvas.getContext("2d");
+        return "0 Bytes";
 
-ctx.fillStyle="white";
-ctx.fillRect(0,0,canvas.width,canvas.height);
+    }
 
-ctx.drawImage(img,0,0);
+    const units =
+        [
+            "Bytes",
+            "KB",
+            "MB",
+            "GB"
+        ];
 
-canvas.toBlob(blob=>{
+    const index =
+        Math.floor(
+            Math.log(bytes) /
+            Math.log(1024)
+        );
 
-const url=URL.createObjectURL(blob);
+    return (
+        parseFloat(
+            (
+                bytes /
+                Math.pow(1024,index)
+            ).toFixed(2)
+        ) +
+        " " +
+        units[index]
+    );
 
-const old=document.querySelector(".download");
-if(old)old.remove();
-
-const link=document.createElement("a");
-
-link.className="download";
-link.href=url;
-link.download="converted-image.jpg";
-link.textContent="Download JPG";
-
-document.querySelector(".card").appendChild(link);
-
-},"image/jpeg",.92);
-
-};
-
-img.src=URL.createObjectURL(file);
 }
+
 </script>
 
 </body>
