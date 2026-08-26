@@ -3,32 +3,366 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hex Converter — VexTools</title>
+
+<title>Hex Converter - Text to HEX & HEX to Text | VexTools</title>
+
+<meta name="description" content="Free online HEX converter. Convert text to hexadecimal and hexadecimal back to text instantly. Fast, simple and browser-based HEX converter by VexTools.">
+
+<meta name="keywords" content="hex converter, hexadecimal converter, text to hex, hex to text, hex encoder, hex decoder, hexadecimal converter online, free hex converter">
+
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/hex-converter.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hex Converter - Text to HEX & HEX to Text | VexTools">
+<meta property="og:description" content="Convert text to hexadecimal and hexadecimal back to text with this free online HEX converter.">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/hex-converter.html">
+<meta property="og:site_name" content="VexTools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hex Converter - VexTools">
+<meta name="twitter:description" content="Free online tool to convert text to HEX and HEX back to text.">
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
-.container{max-width:800px;margin:auto}
-textarea{width:100%;height:180px;margin:15px 0;padding:20px;background:#111a30;color:white;border:1px solid #27304a;border-radius:12px}
-button{padding:13px 22px;background:#7c3aed;color:white;border:0;border-radius:10px}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070b18;
+color:white;
+padding:40px 20px;
+min-height:100vh;
+}
+
+.container{
+max-width:850px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:30px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:20px;
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+.card{
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+}
+
+textarea{
+width:100%;
+height:180px;
+margin:15px 0;
+padding:20px;
+background:#0d1427;
+color:#22d3ee;
+border:1px solid #27304a;
+border-radius:12px;
+resize:vertical;
+font-family:monospace;
+font-size:14px;
+outline:none;
+}
+
+textarea:focus{
+border-color:#7c3aed;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+button{
+padding:13px 22px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+.clear{
+background:#ef4444;
+}
+
+.status{
+margin-top:10px;
+color:#94a3b8;
+font-size:14px;
+}
+
+.info,
+.faq{
+margin-top:25px;
+padding:25px;
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:18px;
+}
+
+.info h2,
+.faq h2{
+margin-bottom:12px;
+}
+
+.info p,
+.faq p{
+color:#94a3b8;
+line-height:1.7;
+font-size:14px;
+}
+
+.faq h3{
+font-size:16px;
+margin:16px 0 7px;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+margin-top:30px;
+color:#64748b;
+font-size:13px;
+}
+
+@media(max-width:600px){
+h1{
+font-size:30px;
+}
+
+.card{
+padding:18px;
+}
+
+.buttons button{
+width:100%;
+}
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
+<div class="header">
+
+<a href="../index.html" class="logo">VexTools</a>
+
 <h1>🔢 Hex Converter</h1>
-<p>Convert text to hexadecimal and back.</p>
-<textarea id="input" placeholder="Enter text or hex..."></textarea>
-<button onclick="toHex()">Text → HEX</button>
-<button onclick="toText()">HEX → Text</button>
-<textarea id="output" placeholder="Result..." readonly></textarea>
+
+<p>
+Convert text to hexadecimal and hexadecimal back to text.
+</p>
+
 </div>
+
+<div class="card">
+
+<textarea
+id="input"
+placeholder="Enter text or hexadecimal..."
+></textarea>
+
+<div class="buttons">
+
+<button onclick="toHex()">
+Text → HEX
+</button>
+
+<button onclick="toText()">
+HEX → Text
+</button>
+
+<button class="clear" onclick="clearAll()">
+Clear
+</button>
+
+</div>
+
+<textarea
+id="output"
+placeholder="Result..."
+readonly
+></textarea>
+
+<div class="status" id="status"></div>
+
+</div>
+
+<div class="info">
+
+<h2>Free Online HEX Converter</h2>
+
+<p>
+VexTools Hex Converter lets you convert normal text into
+hexadecimal values and convert hexadecimal values back into
+readable text. The conversion happens directly in your browser.
+</p>
+
+</div>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do I convert text to HEX?</h3>
+
+<p>
+Enter your text in the input box and click Text → HEX.
+The hexadecimal result will appear below.
+</p>
+
+<h3>How do I convert HEX to text?</h3>
+
+<p>
+Enter hexadecimal values separated by spaces and click
+HEX → Text to convert them back into readable text.
+</p>
+
+<h3>Is this HEX converter free?</h3>
+
+<p>
+Yes. VexTools provides this hexadecimal converter completely free.
+</p>
+
+</div>
+
+<a href="../index.html" class="back">
+← Back to VexTools
+</a>
+
+<footer>
+© <span id="year"></span> VexTools — Free Online Tools
+</footer>
+
+</div>
+
 <script>
+
+const input =
+document.getElementById("input");
+
+const output =
+document.getElementById("output");
+
+const status =
+document.getElementById("status");
+
 function toHex(){
-output.value=[...input.value].map(c=>c.charCodeAt(0).toString(16).padStart(2,"0")).join(" ");
+
+const value=input.value;
+
+if(!value){
+
+status.textContent="Please enter some text.";
+
+return;
 }
+
+output.value=[...value]
+.map(c =>
+c.charCodeAt(0)
+.toString(16)
+.padStart(2,"0")
+)
+.join(" ");
+
+status.textContent="✓ Text converted to HEX.";
+
+}
+
 function toText(){
-try{
-output.value=input.value.trim().split(/\s+/).map(h=>String.fromCharCode(parseInt(h,16))).join("");
-}catch(e){output.value="Invalid HEX";}
+
+const value=input.value.trim();
+
+if(!value){
+
+status.textContent="Please enter HEX values.";
+
+return;
 }
+
+const parts=value.split(/\s+/);
+
+try{
+
+const valid=parts.every(h =>
+/^[0-9a-fA-F]{2}$/.test(h)
+);
+
+if(!valid) throw new Error();
+
+output.value=parts
+.map(h =>
+String.fromCharCode(parseInt(h,16))
+)
+.join("");
+
+status.textContent="✓ HEX converted to text.";
+
+}catch(e){
+
+output.value="";
+status.textContent="❌ Invalid HEX. Use two-digit hexadecimal values separated by spaces.";
+
+}
+
+}
+
+function clearAll(){
+
+input.value="";
+output.value="";
+status.textContent="";
+
+}
+
+document.getElementById("year").textContent=
+new Date().getFullYear();
+
 </script>
+
 </body>
 </html>
