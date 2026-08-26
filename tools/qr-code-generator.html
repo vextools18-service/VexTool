@@ -1,158 +1,1595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>QR Code Generator Online Free — VexTools</title>
 
-<meta name="description" content="Generate QR codes online for free with VexTools. Create QR codes from text, URLs, links and other information quickly and easily.">
+<meta name="description"
+      content="Generate QR codes online for free with VexTools. Create QR codes from text, URLs and links instantly in your browser and download them as PNG images.">
 
-<meta name="keywords" content="QR code generator, QR generator, QR code maker, generate QR code, online QR code generator, free QR code generator, URL QR code">
+<meta name="keywords"
+      content="QR code generator, QR code generator online, QR generator, QR code maker, generate QR code, free QR code generator, URL QR code, QR code maker online">
 
-<meta name="author" content="VexTools">
-<meta name="robots" content="index, follow">
+<meta name="author"
+      content="VexTools">
 
-<link rel="canonical" href="https://vextools.github.io/tools/qr-code-generator.html">
+<meta name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-<meta property="og:title" content="QR Code Generator Online Free — VexTools">
-<meta property="og:description" content="Create QR codes from text and URLs instantly with VexTools.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://vextools.github.io/tools/qr-code-generator.html">
+<meta name="googlebot"
+      content="index, follow">
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QR Code Generator — VexTools">
-<meta name="twitter:description" content="Generate QR codes from text or URLs online for free.">
+<link rel="canonical"
+      href="https://vextools18-service.github.io/VexTool/tools/qr-code-generator.html">
+
+
+<!-- OPEN GRAPH -->
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:title"
+      content="QR Code Generator Online Free — VexTools">
+
+<meta property="og:description"
+      content="Create QR codes from text, URLs and links instantly with the free VexTools QR Code Generator.">
+
+<meta property="og:url"
+      content="https://vextools18-service.github.io/VexTool/tools/qr-code-generator.html">
+
+<meta property="og:site_name"
+      content="VexTools">
+
+<meta property="og:locale"
+      content="en_US">
+
+
+<!-- TWITTER -->
+
+<meta name="twitter:card"
+      content="summary">
+
+<meta name="twitter:title"
+      content="QR Code Generator — VexTools">
+
+<meta name="twitter:description"
+      content="Generate and download QR codes from text or URLs online for free.">
+
+
+<!-- THEME -->
+
+<meta name="theme-color"
+      content="#070b18">
+
+
+<!-- STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"QR Code Generator",
+  "url":"https://vextools18-service.github.io/VexTool/tools/qr-code-generator.html",
+  "description":"Free online QR code generator for creating QR codes from text, URLs and links.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires a modern web browser with JavaScript enabled",
+  "isAccessibleForFree":true,
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools18-service.github.io/VexTool/"
+  }
+}
+</script>
+
 
 <style>
+
+/* RESET */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+
+/* VARIABLES */
+
+:root{
+
+    --bg:#070b18;
+
+    --card:#11192d;
+
+    --card2:#18223a;
+
+    --text:#f8fafc;
+
+    --muted:#94a3b8;
+
+    --border:rgba(255,255,255,.10);
+
+    --primary:#7c3aed;
+
+    --secondary:#06b6d4;
+
+    --success:#22c55e;
+
+}
+
+
+/* BODY */
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-font-family:Arial;
-background:#070b18;
-color:white;
-text-align:center;
-padding:50px;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    padding:30px 15px;
+
+    line-height:1.6;
+
 }
 
-.box{
-max-width:600px;
-margin:auto;
-background:#111a30;
-padding:30px;
-border-radius:20px;
+
+/* CONTAINER */
+
+.container{
+
+    max-width:850px;
+
+    margin:0 auto;
+
 }
 
-input,button{
-padding:14px;
-margin:8px;
-border-radius:10px;
-border:0;
+
+/* TOP NAV */
+
+.top-nav{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
 }
 
-input{
-width:80%;
-background:#0d1427;
-color:white;
-border:1px solid #27304a;
+
+.logo{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:var(--text);
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    font-weight:900;
+
 }
+
+
+.logo-icon{
+
+    width:38px;
+
+    height:38px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    box-shadow:
+        0 0 25px rgba(124,58,237,.3);
+
+}
+
+
+.home-link{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+
+.home-link:hover{
+
+    color:white;
+
+}
+
+
+/* BREADCRUMB */
+
+.breadcrumb{
+
+    margin:10px 0 28px;
+
+    font-size:13px;
+
+    color:var(--muted);
+
+}
+
+
+.breadcrumb a{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+}
+
+
+.breadcrumb span{
+
+    margin:0 6px;
+
+}
+
+
+/* HEADER */
+
+.header{
+
+    text-align:center;
+
+    margin:20px 0 35px;
+
+}
+
+
+.header h1{
+
+    font-size:
+        clamp(34px,7vw,52px);
+
+    line-height:1.1;
+
+    letter-spacing:-1.5px;
+
+}
+
+
+.header h1 span{
+
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #22d3ee
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+}
+
+
+.header p{
+
+    color:var(--muted);
+
+    margin-top:12px;
+
+    font-size:17px;
+
+}
+
+
+/* MAIN CARD */
+
+.card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.2);
+
+}
+
+
+/* LABEL */
+
+.input-label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:700;
+
+    font-size:14px;
+
+}
+
+
+/* INPUT */
+
+input[type="text"]{
+
+    width:100%;
+
+    padding:15px 16px;
+
+    background:#080d1d;
+
+    color:white;
+
+    border:1px solid #27304a;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+
+input[type="text"]:focus{
+
+    border-color:#8b5cf6;
+
+    box-shadow:
+        0 0 20px rgba(124,58,237,.18);
+
+}
+
+
+/* OPTIONS */
+
+.options{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-top:18px;
+
+}
+
+
+.option{
+
+    background:var(--card2);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:14px;
+
+}
+
+
+.option label{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:7px;
+
+}
+
+
+select{
+
+    width:100%;
+
+    padding:11px;
+
+    background:#080d1d;
+
+    color:white;
+
+    border:1px solid #27304a;
+
+    border-radius:9px;
+
+    outline:none;
+
+}
+
+
+/* BUTTON */
 
 button{
-background:#7c3aed;
-color:white;
-cursor:pointer;
-font-weight:bold;
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:14px 20px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:white;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.25s;
+
 }
 
-#qr{
-margin:25px;
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(124,58,237,.3);
+
 }
 
-#qr img{
-background:white;
-padding:10px;
-border-radius:10px;
-max-width:220px;
+
+button:active{
+
+    transform:translateY(0);
+
 }
+
+
+/* QR RESULT */
+
+.qr-result{
+
+    display:none;
+
+    margin-top:25px;
+
+    text-align:center;
+
+    padding:22px;
+
+    background:#080d1d;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+}
+
+
+.qr-result.show{
+
+    display:block;
+
+}
+
+
+.qr-result img{
+
+    display:block;
+
+    width:220px;
+
+    height:220px;
+
+    max-width:100%;
+
+    margin:0 auto;
+
+    padding:10px;
+
+    background:white;
+
+    border-radius:12px;
+
+}
+
+
+.qr-title{
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+}
+
 
 .download{
-display:block;
-width:80%;
-margin:15px auto;
-padding:13px;
-background:#06b6d4;
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:12px 20px;
+
+    background:#06b6d4;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-weight:800;
+
 }
+
+
+.download:hover{
+
+    background:#0891b2;
+
+}
+
+
+/* STATUS */
+
+.status{
+
+    margin-top:15px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    min-height:22px;
+
+}
+
+
+.status.error{
+
+    color:#fca5a5;
+
+}
+
+
+.status.success{
+
+    color:#86efac;
+
+}
+
+
+/* INFO */
+
+.info-section{
+
+    margin-top:55px;
+
+}
+
+
+.info-section h2{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+
+.info-section p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:16px;
+
+}
+
+
+/* BENEFITS */
+
+.benefits{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+
+    margin-top:25px;
+
+}
+
+
+.benefit{
+
+    padding:18px;
+
+    background:rgba(17,25,45,.7);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+}
+
+
+.benefit-icon{
+
+    font-size:25px;
+
+    margin-bottom:7px;
+
+}
+
+
+.benefit h3{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+}
+
+
+.benefit p{
+
+    font-size:13px;
+
+    margin:0;
+
+}
+
+
+/* FAQ */
+
+.faq{
+
+    margin-top:45px;
+
+}
+
+
+.faq h2{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+}
+
+
+.faq-item{
+
+    margin-bottom:10px;
+
+    background:rgba(17,25,45,.7);
+
+    border:1px solid var(--border);
+
+    border-radius:13px;
+
+    overflow:hidden;
+
+}
+
+
+.faq-item summary{
+
+    padding:17px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    list-style:none;
+
+}
+
+
+.faq-item summary::-webkit-details-marker{
+
+    display:none;
+
+}
+
+
+.faq-item p{
+
+    padding:
+        0 17px 17px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+
+/* RELATED */
+
+.related{
+
+    margin-top:45px;
+
+}
+
+
+.related h2{
+
+    font-size:25px;
+
+    margin-bottom:15px;
+
+}
+
+
+.related-links{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+
+.related-links a{
+
+    color:#c4b5fd;
+
+    text-decoration:none;
+
+    padding:9px 13px;
+
+    border-radius:9px;
+
+    background:rgba(124,58,237,.10);
+
+    border:1px solid var(--border);
+
+    font-size:13px;
+
+}
+
+
+.related-links a:hover{
+
+    border-color:#8b5cf6;
+
+}
+
+
+/* BACK */
+
+.back{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}
+
+
+.back:hover{
+
+    color:white;
+
+}
+
+
+/* FOOTER */
+
+.footer{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:55px;
+
+    padding-top:25px;
+
+    border-top:1px solid var(--border);
+
+}
+
+
+.footer a{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    body{
+
+        padding:20px 12px;
+
+    }
+
+    .card{
+
+        padding:18px;
+
+    }
+
+    .options{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .benefits{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .qr-result img{
+
+        width:200px;
+
+        height:200px;
+
+    }
+
+}
+
+
+/* REDUCED MOTION */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        scroll-behavior:auto!important;
+
+        transition:none!important;
+
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="box">
+<div class="container">
 
-<h1>📱 QR Code Generator</h1>
 
-<p>Generate a QR code from any text or URL.</p>
+<!-- NAV -->
 
-<input
-id="text"
-placeholder="Enter text or URL"
->
+<header class="top-nav">
 
-<button onclick="generate()">
-Generate
-</button>
+    <a
+        class="logo"
+        href="../index.html"
+        aria-label="VexTools Home">
 
-<div id="qr"></div>
+        <span class="logo-icon">
+            V
+        </span>
+
+        VexTools
+
+    </a>
+
+
+    <a
+        class="home-link"
+        href="../index.html">
+
+        All Tools →
+
+    </a>
+
+</header>
+
+
+<!-- BREADCRUMB -->
+
+<nav
+    class="breadcrumb"
+    aria-label="Breadcrumb">
+
+    <a href="../index.html">
+        VexTools
+    </a>
+
+    <span>›</span>
+
+    <a href="../index.html#categories">
+        Utility Tools
+    </a>
+
+    <span>›</span>
+
+    <span>
+        QR Code Generator
+    </span>
+
+</nav>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <h1>
+        QR Code <span>Generator</span>
+    </h1>
+
+    <p>
+        Generate QR codes from text, URLs and links instantly.
+    </p>
+
+</header>
+
+
+<!-- TOOL -->
+
+<main>
+
+<section
+    class="card"
+    aria-labelledby="qr-tool-title">
+
+    <h2
+        id="qr-tool-title"
+        style="position:absolute;left:-9999px;">
+
+        Free Online QR Code Generator
+
+    </h2>
+
+
+    <label
+        class="input-label"
+        for="text">
+
+        Text or URL
+
+    </label>
+
+
+    <input
+        id="text"
+        type="text"
+        autocomplete="off"
+        placeholder="Enter text, URL or link..."
+        aria-label="Text or URL for QR code">
+
+
+    <div class="options">
+
+
+        <div class="option">
+
+            <label for="size">
+                QR Code Size
+            </label>
+
+            <select id="size">
+
+                <option value="200">
+                    200 × 200
+                </option>
+
+                <option value="300" selected>
+                    300 × 300
+                </option>
+
+                <option value="400">
+                    400 × 400
+                </option>
+
+                <option value="500">
+                    500 × 500
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="option">
+
+            <label for="format">
+                Image Format
+            </label>
+
+            <select id="format">
+
+                <option value="png" selected>
+                    PNG
+                </option>
+
+                <option value="jpg">
+                    JPG
+                </option>
+
+            </select>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        id="generate"
+        type="button">
+
+        📱 Generate QR Code
+
+    </button>
+
+
+    <div
+        id="status"
+        class="status"
+        role="status"
+        aria-live="polite">
+    </div>
+
+
+    <div
+        id="qrResult"
+        class="qr-result">
+
+        <div class="qr-title">
+            Your QR Code
+        </div>
+
+        <img
+            id="qrImage"
+            src=""
+            alt="Generated QR code">
+
+        <a
+            id="download"
+            class="download"
+            href="#"
+            download="vextools-qr-code.png">
+
+            ⬇️ Download QR Code
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SEO CONTENT -->
+
+<section
+    class="info-section"
+    aria-labelledby="about-title">
+
+    <h2 id="about-title">
+        Free Online QR Code Generator
+    </h2>
+
+    <p>
+        VexTools QR Code Generator is a free online tool
+        that lets you create QR codes from text, website
+        URLs, links and other information. Generate your
+        QR code instantly without installing software.
+    </p>
+
+    <p>
+        Enter the information you want to encode, choose
+        your preferred size and generate your QR code.
+        You can then download the generated QR image and
+        use it wherever you need.
+    </p>
+
+
+    <div class="benefits">
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Instant
+            </h3>
+
+            <p>
+                Create QR codes quickly with just a few clicks.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🆓
+            </div>
+
+            <h3>
+                Free
+            </h3>
+
+            <p>
+                Generate QR codes without a paid subscription.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                📥
+            </div>
+
+            <h3>
+                Download
+            </h3>
+
+            <p>
+                Download your generated QR code as an image.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- HOW TO -->
+
+<section
+    class="info-section"
+    aria-labelledby="how-title">
+
+    <h2 id="how-title">
+        How to Generate a QR Code
+    </h2>
+
+    <p>
+        <strong>1.</strong>
+        Enter text, a website URL or any information you want
+        to encode.
+    </p>
+
+    <p>
+        <strong>2.</strong>
+        Choose the QR code size and image format.
+    </p>
+
+    <p>
+        <strong>3.</strong>
+        Click the Generate QR Code button.
+    </p>
+
+    <p>
+        <strong>4.</strong>
+        Download your QR code image.
+    </p>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section
+    class="faq"
+    aria-labelledby="faq-title">
+
+    <h2 id="faq-title">
+        Frequently Asked Questions
+    </h2>
+
+
+    <details class="faq-item">
+
+        <summary>
+            What is a QR code?
+        </summary>
+
+        <p>
+            A QR code is a two-dimensional barcode that can
+            store information such as website URLs, text and
+            other data that can be scanned using a compatible
+            device.
+        </p>
+
+    </details>
+
+
+    <details class="faq-item">
+
+        <summary>
+            Can I create a QR code for a website?
+        </summary>
+
+        <p>
+            Yes. Enter your website URL into the input field
+            and generate the QR code. Anyone who scans it can
+            access the encoded URL.
+        </p>
+
+    </details>
+
+
+    <details class="faq-item">
+
+        <summary>
+            Is the QR Code Generator free?
+        </summary>
+
+        <p>
+            Yes. The VexTools QR Code Generator is free to use
+            online.
+        </p>
+
+    </details>
+
+
+    <details class="faq-item">
+
+        <summary>
+            Can I download the QR code?
+        </summary>
+
+        <p>
+            Yes. After generating the QR code, click the
+            Download QR Code button to save the image.
+        </p>
+
+    </details>
+
+
+</section>
+
+
+<!-- RELATED -->
+
+<section
+    class="related"
+    aria-labelledby="related-title">
+
+    <h2 id="related-title">
+        Related Tools
+    </h2>
+
+
+    <div class="related-links">
+
+        <a href="base64-to-image.html">
+            Base64 to Image
+        </a>
+
+        <a href="color-picker.html">
+            Color Picker
+        </a>
+
+        <a href="image-compressor.html">
+            Image Compressor
+        </a>
+
+        <a href="png-to-jpg.html">
+            PNG to JPG
+        </a>
+
+        <a href="../index.html">
+            More Free Tools
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<a
+    class="back"
+    href="../index.html">
+
+    ← Back to VexTools
+
+</a>
+
+
+<footer class="footer">
+
+    <p>
+        © <span id="year"></span>
+        VexTools. Free online tools for everyone.
+    </p>
+
+    <p>
+        <a href="../index.html">
+            VexTools Home
+        </a>
+    </p>
+
+</footer>
+
 
 </div>
 
+
 <script>
 
-function generate(){
+/* YEAR */
 
-let text=document.getElementById("text").value.trim();
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
-if(!text){
-alert("Enter something first");
-return;
+
+/* ELEMENTS */
+
+const textInput =
+    document.getElementById("text");
+
+const sizeInput =
+    document.getElementById("size");
+
+const formatInput =
+    document.getElementById("format");
+
+const generateButton =
+    document.getElementById("generate");
+
+const status =
+    document.getElementById("status");
+
+const qrResult =
+    document.getElementById("qrResult");
+
+const qrImage =
+    document.getElementById("qrImage");
+
+const download =
+    document.getElementById("download");
+
+
+/* CURRENT URL */
+
+let currentURL = "";
+
+
+/* GENERATE */
+
+function generateQR(){
+
+    const text =
+        textInput.value.trim();
+
+    const size =
+        sizeInput.value;
+
+    const format =
+        formatInput.value;
+
+
+    if(!text){
+
+        status.className =
+            "status error";
+
+        status.textContent =
+            "❌ Please enter some text or a URL first.";
+
+        qrResult.classList.remove("show");
+
+        return;
+
+    }
+
+
+    if(currentURL){
+
+        URL.revokeObjectURL(currentURL);
+
+        currentURL = "";
+
+    }
+
+
+    status.className =
+        "status";
+
+    status.textContent =
+        "Generating QR code...";
+
+
+    const encoded =
+        encodeURIComponent(text);
+
+
+    const imageURL =
+        "https://api.qrserver.com/v1/create-qr-code/" +
+        "?size=" +
+        size +
+        "x" +
+        size +
+        "&format=" +
+        format +
+        "&data=" +
+        encoded;
+
+
+    qrImage.onload =
+        function(){
+
+            qrResult.classList.add("show");
+
+            status.className =
+                "status success";
+
+            status.textContent =
+                "✓ QR code generated successfully.";
+
+            download.href =
+                imageURL;
+
+            download.download =
+                "vextools-qr-code." + format;
+
+        };
+
+
+    qrImage.onerror =
+        function(){
+
+            qrResult.classList.remove("show");
+
+            status.className =
+                "status error";
+
+            status.textContent =
+                "❌ Could not generate the QR code. Please try again.";
+
+        };
+
+
+    qrImage.src =
+        imageURL;
+
 }
 
-const qr=document.getElementById("qr");
 
-qr.innerHTML=`
-<img
-id="qrImage"
-src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(text)}"
-alt="Generated QR Code"
->
-`;
+/* BUTTON */
 
-setTimeout(()=>{
+generateButton.addEventListener(
+    "click",
+    generateQR
+);
 
-const img=document.getElementById("qrImage");
 
-if(img){
+/* ENTER KEY */
 
-const old=document.querySelector(".download");
-if(old)old.remove();
+textInput.addEventListener(
+    "keydown",
+    function(event){
 
-const link=document.createElement("a");
+        if(event.key === "Enter"){
 
-link.className="download";
-link.href=img.src;
-link.target="_blank";
-link.download="vextools-qr-code.png";
-link.textContent="⬇️ Download QR Code";
+            event.preventDefault();
 
-qr.appendChild(link);
+            generateQR();
 
-}
+        }
 
-},500);
+    }
+);
 
-}
+
+/* CLEANUP */
+
+window.addEventListener(
+    "beforeunload",
+    function(){
+
+        if(currentURL){
+
+            URL.revokeObjectURL(currentURL);
+
+        }
+
+    }
+);
 
 </script>
 
