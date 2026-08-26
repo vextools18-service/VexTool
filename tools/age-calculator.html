@@ -1,35 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Age Calculator — VexTools</title>
-<style>
-body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
-.container{max-width:600px;margin:auto;text-align:center}
-input{padding:15px;width:100%;margin:20px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
-button{padding:14px 30px;background:#7c3aed;color:white;border:0;border-radius:10px}
-.result{margin-top:25px;padding:20px;background:#111a30;border-radius:12px}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>🎂 Age Calculator</h1>
-<p>Calculate your exact age.</p>
-<input id="dob" type="date">
-<button onclick="calculate()">Calculate Age</button>
-<div class="result" id="result">Your age will appear here.</div>
-</div>
-<script>
-function calculate(){
-let birth=new Date(dob.value);
-let today=new Date();
-if(!dob.value)return;
-let age=today.getFullYear()-birth.getFullYear();
-let m=today.getMonth()-birth.getMonth();
-if(m<0||(m===0&&today.getDate()<birth.getDate()))age--;
-result.textContent="Your age is "+age+" years.";
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- =====================================================
+     SEO
+===================================================== -->
+
+<title>Age Calculator Online — Calculate Your Exact Age | VexTools</title>
+
+<meta name="description"
+content="Use VexTools free online Age Calculator to calculate your exact age in years. Simple, fast and easy-to-use age calculator online.">
+
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="VexTools">
+
+<meta name="keywords"
+content="age calculator, age calculator online, calculate age, exact age calculator, birthday age calculator, free age calculator, VexTools">
+
+
+<!-- =====================================================
+     CANONICAL
+===================================================== -->
+
+<link rel="canonical"
+href="https://vextools18-service.github.io/VexTool/tools/age-calculator.html">
+
+
+<!-- =====================================================
+     OPEN GRAPH
+===================================================== -->
+
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+content="Age Calculator Online — VexTools">
+
+<meta property="og:description"
+content="Calculate your exact age quickly and easily with the free VexTools online Age Calculator.">
+
+<meta property="og:url"
+content="https://vextools18-service.github.io/VexTool/tools/age-calculator.html">
+
+<meta property="og:site_name"
+content="VexTools">
+
+
+<!-- =====================================================
+     TWITTER / X
+===================================================== -->
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title"
+content="Age Calculator Online — VexTools">
+
+<meta name="twitter:description"
+content="Calculate your exact age quickly and easily with VexTools free online Age Calculator.">
+
+
+<!-- =====================================================
+     THEME
+===================================================== -->
+
+<meta name="theme-color" content="#070b18">
+
+
+<!-- =====================================================
+     STRUCTURED DATA
+===================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Age Calculator",
+  "url": "https://vextools18-service.github.io/VexTool/tools/age-calculator.html",
+  "description": "A free online age calculator for calculating your age from your date of birth.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools18-service.github.io/VexTool/"
+  }
 }
 </script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "VexTools",
+      "item": "https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Age Calculator",
+      "item": "https://vextools18-service.github.io/VexTool/tools/age-calculator.html"
+    }
+  ]
+}
+</script>
+
+
+<!-- =====================================================
+     STYLE
+===================================================== -->
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:50px 20px;
+min-height:100vh;
+}
+
+.container{
+max-width:600px;
+margin:auto;
+text-align:center;
+}
+
+h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+input{
+padding:15px;
+width:100%;
+margin:20px 0;
+background:#111a30;
+color:white;
+border:1px solid #27304a;
+border-radius:10px;
+font-size:16px;
+}
+
+input:focus{
+outline:none;
+border-color:#7c3aed;
+}
+
+button{
+padding:14px 30px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+transition:.25s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 25px rgba(124,58,237,.3);
+}
+
+.result{
+margin-top:25px;
+padding:20px;
+background:#111a30;
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;
+color:#e2e8f0;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+}
+
+.back:hover{
+color:#c4b5fd;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<h1>🎂 Age Calculator</h1>
+
+<p>
+Calculate your exact age quickly and easily using your date of birth.
+</p>
+
+
+<input
+id="dob"
+type="date"
+aria-label="Enter your date of birth"
+>
+
+
+<button onclick="calculate()">
+Calculate Age
+</button>
+
+
+<div class="result" id="result" aria-live="polite">
+Your age will appear here.
+</div>
+
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+</div>
+
+
+<script>
+
+function calculate(){
+
+const dobInput = document.getElementById("dob");
+
+const result = document.getElementById("result");
+
+if(!dobInput.value){
+
+result.textContent =
+"Please select your date of birth.";
+
+return;
+
+}
+
+
+const birth = new Date(dobInput.value);
+
+const today = new Date();
+
+
+if(birth > today){
+
+result.textContent =
+"Please select a valid date of birth.";
+
+return;
+
+}
+
+
+let age =
+today.getFullYear() -
+birth.getFullYear();
+
+
+const month =
+today.getMonth() -
+birth.getMonth();
+
+
+if(
+month < 0 ||
+(month === 0 &&
+today.getDate() < birth.getDate())
+){
+
+age--;
+
+}
+
+
+result.textContent =
+"Your age is " + age + " years.";
+
+}
+
+</script>
+
 </body>
+
 </html>
