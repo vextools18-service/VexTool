@@ -3,7 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Remove Duplicate Lines — VexTools</title>
+
+<title>Remove Duplicate Lines Online — VexTools</title>
+
+<meta name="description" content="Remove duplicate lines from text online for free with VexTools. Quickly clean repeated lines, remove duplicates and copy your cleaned text.">
+
+<meta name="keywords" content="remove duplicate lines, duplicate line remover, remove duplicate text, duplicate text remover, remove repeated lines, text cleaner, online duplicate remover">
+
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools.github.io/tools/remove-duplicate-lines.html">
+
+<meta property="og:title" content="Remove Duplicate Lines Online — VexTools">
+<meta property="og:description" content="Remove repeated and duplicate lines from your text quickly and easily.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/tools/remove-duplicate-lines.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Remove Duplicate Lines — VexTools">
+<meta name="twitter:description" content="Clean duplicate lines from your text online for free.">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -15,9 +34,15 @@ color:white;
 padding:30px 15px;
 }
 
-.container{max-width:850px;margin:auto}
+.container{
+max-width:850px;
+margin:auto;
+}
 
-.header{text-align:center;margin-bottom:25px}
+.header{
+text-align:center;
+margin-bottom:25px;
+}
 
 .logo{
 color:#a78bfa;
@@ -26,9 +51,13 @@ font-weight:900;
 text-decoration:none;
 }
 
-h1{margin:15px 0 8px}
+h1{
+margin:15px 0 8px;
+}
 
-p{color:#94a3b8}
+p{
+color:#94a3b8;
+}
 
 .card{
 background:rgba(17,25,45,.85);
@@ -69,7 +98,9 @@ cursor:pointer;
 }
 
 @media(max-width:600px){
-.buttons{flex-direction:column}
+.buttons{
+flex-direction:column;
+}
 }
 </style>
 </head>
@@ -79,39 +110,76 @@ cursor:pointer;
 <div class="container">
 
 <div class="header">
-<a class="logo" href="../index.html">VexTools</a>
-<h1>Remove Duplicate Lines</h1>
-<p>Remove repeated lines from your text.</p>
+
+<a class="logo" href="../index.html">
+VexTools
+</a>
+
+<h1>
+Remove Duplicate Lines
+</h1>
+
+<p>
+Remove repeated lines from your text quickly and easily.
+</p>
+
 </div>
 
 <div class="card">
 
-<textarea id="text" placeholder="Paste your lines here..."></textarea>
+<textarea
+id="text"
+placeholder="Paste your lines here..."
+></textarea>
 
 <div class="buttons">
-<button onclick="removeDuplicates()">Remove Duplicates</button>
-<button onclick="copyText()">Copy</button>
-<button onclick="clearText()">Clear</button>
+
+<button onclick="removeDuplicates()">
+Remove Duplicates
+</button>
+
+<button onclick="copyText()">
+Copy
+</button>
+
+<button onclick="clearText()">
+Clear
+</button>
+
 </div>
 
 </div>
+
 </div>
 
 <script>
+
 function removeDuplicates(){
+
 const box=document.getElementById("text");
+
 const lines=box.value.split(/\r?\n/);
+
 const unique=[...new Set(lines)];
+
 box.value=unique.join("\n");
+
 }
 
 function copyText(){
-navigator.clipboard.writeText(document.getElementById("text").value);
+
+navigator.clipboard.writeText(
+document.getElementById("text").value
+);
+
 }
 
 function clearText(){
+
 document.getElementById("text").value="";
+
 }
+
 </script>
 
 </body>
