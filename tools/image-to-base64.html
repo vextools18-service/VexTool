@@ -4,78 +4,218 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Image to Base64 Converter — VexTools</title>
+<title>Image to Base64 Converter Online — VexTools</title>
 
-<meta name="description" content="Free online Image to Base64 converter. Convert images to Base64 strings instantly in your browser without uploading your files.">
+<meta name="description" content="Free online Image to Base64 converter. Convert JPG, PNG, WEBP and other images to Base64 strings instantly in your browser without uploading your files.">
 
-<meta name="keywords" content="image to base64, image base64 converter, convert image to base64, base64 image, online base64 converter, VexTools">
+<meta name="keywords" content="image to base64, image base64 converter, convert image to base64, base64 image converter, image to base64 online, JPG to base64, PNG to base64, VexTools">
 
+<meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/image-to-base64.html">
 
-<meta property="og:title" content="Image to Base64 Converter — VexTools">
-<meta property="og:description" content="Convert images to Base64 strings instantly and securely in your browser.">
 <meta property="og:type" content="website">
+<meta property="og:title" content="Image to Base64 Converter Online — VexTools">
+<meta property="og:description" content="Convert images to Base64 strings instantly in your browser with this free online Image to Base64 converter.">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/image-to-base64.html">
+<meta property="og:site_name" content="VexTools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Image to Base64 Converter Online — VexTools">
+<meta name="twitter:description" content="Convert images to Base64 strings directly in your browser for free.">
+
+<meta name="theme-color" content="#070b18">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"VexTools Image to Base64 Converter",
+  "url":"https://vextools18-service.github.io/VexTool/tools/image-to-base64.html",
+  "description":"Free online tool for converting images into Base64 strings directly in the browser.",
+  "applicationCategory":"DeveloperApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How do I convert an image to Base64?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Select an image file and VexTools will automatically convert it into a Base64 data URL in your browser."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is the Image to Base64 converter free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. VexTools provides this Image to Base64 converter completely free."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Are my images uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. The conversion is performed directly in your browser and the selected image is not uploaded to a VexTools server."
+      }
+    }
+  ]
+}
+</script>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 background:#070b18;
-color:white;
+color:#f8fafc;
+min-height:100vh;
 padding:30px 15px;
 }
 
-.container{max-width:850px;margin:auto}
+.container{
+max-width:850px;
+margin:auto;
+}
 
-.header{text-align:center;margin-bottom:25px}
+.header{
+text-align:center;
+margin-bottom:25px;
+}
 
 .logo{
+display:inline-block;
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
 text-decoration:none;
+margin-bottom:15px;
 }
 
-h1{margin:15px 0 8px}
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
 
-p{color:#94a3b8}
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
 
 .card{
-background:rgba(17,25,45,.85);
+background:#11192d;
 border:1px solid rgba(255,255,255,.1);
 border-radius:20px;
-padding:22px;
+padding:25px;
 }
 
-input{
-width:100%;
+.drop-zone{
+display:block;
+border:2px dashed #7c3aed;
+border-radius:15px;
+padding:40px 20px;
+text-align:center;
+cursor:pointer;
+background:rgba(124,58,237,.08);
+transition:.2s;
+}
+
+.drop-zone:hover{
+background:rgba(124,58,237,.15);
+transform:translateY(-2px);
+}
+
+.drop-zone strong{
+display:block;
+font-size:18px;
+margin-bottom:8px;
+}
+
+.drop-zone span{
+color:#94a3b8;
+font-size:14px;
+}
+
+input[type=file]{
+display:none;
+}
+
+.file-info{
+display:none;
+margin-top:15px;
 padding:15px;
 background:#0d1427;
-color:white;
-border:1px solid #29344f;
+border:1px solid #27304a;
 border-radius:12px;
+}
+
+.file-name{
+font-weight:bold;
+word-break:break-word;
+}
+
+.file-size{
+margin-top:5px;
+color:#94a3b8;
+font-size:13px;
 }
 
 textarea{
 width:100%;
-height:250px;
-margin-top:15px;
+height:280px;
+margin-top:18px;
 padding:15px;
 background:#0d1427;
 color:#22d3ee;
 border:1px solid #29344f;
 border-radius:12px;
 resize:vertical;
+font-family:monospace;
 font-size:13px;
+line-height:1.5;
+outline:none;
+}
+
+textarea:focus{
+border-color:#7c3aed;
+}
+
+.stats{
+display:none;
+margin-top:10px;
+color:#94a3b8;
+font-size:13px;
+text-align:center;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+margin-top:15px;
 }
 
 button{
-width:100%;
-margin-top:15px;
+flex:1;
 padding:13px;
 border:0;
 border-radius:10px;
@@ -83,6 +223,116 @@ background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+button:disabled{
+opacity:.5;
+cursor:not-allowed;
+transform:none;
+}
+
+button.secondary{
+background:#27304a;
+}
+
+button.success{
+background:#06b6d4;
+}
+
+.status{
+min-height:20px;
+margin-top:15px;
+text-align:center;
+color:#94a3b8;
+font-size:14px;
+}
+
+.info,
+.faq,
+.related{
+margin-top:25px;
+padding:25px;
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:18px;
+}
+
+.info h2,
+.faq h2,
+.related h2{
+margin-bottom:12px;
+}
+
+.info p,
+.faq p{
+color:#94a3b8;
+line-height:1.7;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.faq h3{
+font-size:16px;
+margin:17px 0 7px;
+}
+
+.related a{
+display:inline-block;
+margin:5px 5px 0 0;
+padding:9px 13px;
+background:#18223a;
+color:#a78bfa;
+border-radius:8px;
+text-decoration:none;
+font-size:14px;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+margin-top:30px;
+color:#64748b;
+font-size:13px;
+}
+
+@media(max-width:600px){
+
+body{
+padding:25px 12px;
+}
+
+h1{
+font-size:30px;
+}
+
+.card{
+padding:18px;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+.drop-zone{
+padding:30px 15px;
+}
+
+textarea{
+height:220px;
+}
+
 }
 </style>
 </head>
@@ -92,18 +342,44 @@ cursor:pointer;
 <div class="container">
 
 <div class="header">
-<a class="logo" href="../index.html">VexTools</a>
 
-<h1>Image to Base64 Converter</h1>
+<a class="logo" href="../index.html">
+VexTools
+</a>
+
+<h1>🖼️ Image to Base64 Converter</h1>
 
 <p>
-Convert an image into a Base64 string directly in your browser.
+Convert images to Base64 strings instantly in your browser.
 </p>
+
 </div>
 
 <div class="card">
 
-<input id="file" type="file" accept="image/*">
+<label class="drop-zone" for="file">
+
+<strong>📁 Select Image</strong>
+
+<span>
+Choose JPG, PNG, WEBP, GIF or another image file
+</span>
+
+</label>
+
+<input
+id="file"
+type="file"
+accept="image/*"
+>
+
+<div class="file-info" id="fileInfo">
+
+<div class="file-name" id="fileName"></div>
+
+<div class="file-size" id="fileSize"></div>
+
+</div>
 
 <textarea
 id="output"
@@ -111,51 +387,399 @@ readonly
 placeholder="Base64 output will appear here..."
 ></textarea>
 
-<button onclick="copyText()">
-Copy Base64
+<div class="stats" id="stats"></div>
+
+<div class="buttons">
+
+<button
+id="copyBtn"
+class="success"
+disabled
+>
+📋 Copy Base64
+</button>
+
+<button
+id="downloadBtn"
+disabled
+>
+⬇️ Download TXT
+</button>
+
+<button
+id="clearBtn"
+class="secondary"
+>
+Clear
 </button>
 
 </div>
+
+<div class="status" id="status"></div>
+
+</div>
+
+<div class="info">
+
+<h2>Free Online Image to Base64 Converter</h2>
+
+<p>
+VexTools Image to Base64 Converter lets you convert JPG, PNG,
+WEBP, GIF and other supported image files into Base64 data URLs.
+The conversion happens directly inside your web browser.
+</p>
+
+<p>
+Base64 encoded images can be useful in HTML, CSS, JavaScript,
+emails and other applications where an image needs to be embedded
+as text.
+</p>
+
+<p>
+Your selected image is processed locally in your browser and is
+not uploaded to a VexTools server.
+</p>
+
+</div>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do I convert an image to Base64?</h3>
+
+<p>
+Select an image file using the upload box. The tool automatically
+converts the image into a Base64 data URL and displays the result.
+</p>
+
+<h3>What image formats are supported?</h3>
+
+<p>
+The tool accepts image formats supported by your browser, including
+JPG, PNG, WEBP and GIF.
+</p>
+
+<h3>Is this Image to Base64 converter free?</h3>
+
+<p>
+Yes. VexTools provides this Image to Base64 converter completely free.
+</p>
+
+<h3>Are my images uploaded to a server?</h3>
+
+<p>
+No. The conversion runs directly in your browser.
+</p>
+
+</div>
+
+<div class="related">
+
+<h2>Related Tools</h2>
+
+<a href="base64-encoder.html">
+Base64 Encoder
+</a>
+
+<a href="base64-to-image.html">
+Base64 to Image
+</a>
+
+<a href="image-compressor.html">
+Image Compressor
+</a>
+
+<a href="image-resizer.html">
+Image Resizer
+</a>
+
+<a href="image-cropper.html">
+Image Cropper
+</a>
+
+<a href="../index.html">
+More Free Tools
+</a>
+
+</div>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+<footer>
+© <span id="year"></span> VexTools — Free Online Tools
+</footer>
 
 </div>
 
 <script>
 
-document.getElementById("file").addEventListener("change",e=>{
+const fileInput =
+document.getElementById("file");
 
-const file=e.target.files[0];
-
-if(!file)return;
-
-const reader=new FileReader();
-
-reader.onload=()=>{
-document.getElementById("output").value=reader.result;
-};
-
-reader.readAsDataURL(file);
-
-});
-
-
-function copyText(){
-
-const output=
+const output =
 document.getElementById("output");
 
-if(!output.value){
+const fileInfo =
+document.getElementById("fileInfo");
 
-alert("Please convert an image first.");
+const fileName =
+document.getElementById("fileName");
+
+const fileSize =
+document.getElementById("fileSize");
+
+const stats =
+document.getElementById("stats");
+
+const status =
+document.getElementById("status");
+
+const copyBtn =
+document.getElementById("copyBtn");
+
+const downloadBtn =
+document.getElementById("downloadBtn");
+
+const clearBtn =
+document.getElementById("clearBtn");
+
+let base64Data = "";
+
+function formatSize(bytes){
+
+if(bytes < 1024)
+return bytes + " B";
+
+if(bytes < 1024 * 1024)
+return (bytes / 1024).toFixed(1) + " KB";
+
+return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+
+}
+
+fileInput.addEventListener(
+"change",
+function(){
+
+const file =
+fileInput.files[0];
+
+if(!file) return;
+
+if(!file.type.startsWith("image/")){
+
+status.textContent =
+"❌ Please select a valid image file.";
+
+fileInput.value = "";
 
 return;
 
 }
 
-navigator.clipboard.writeText(output.value);
+status.textContent =
+"⏳ Converting image to Base64...";
 
-alert("Base64 copied!");
+const reader =
+new FileReader();
+
+reader.onload =
+function(){
+
+base64Data =
+reader.result;
+
+output.value =
+base64Data;
+
+fileName.textContent =
+"📄 " + file.name;
+
+fileSize.textContent =
+"Original size: " + formatSize(file.size);
+
+fileInfo.style.display =
+"block";
+
+stats.style.display =
+"block";
+
+stats.textContent =
+"Base64 length: " +
+base64Data.length.toLocaleString() +
+" characters";
+
+copyBtn.disabled =
+false;
+
+downloadBtn.disabled =
+false;
+
+status.textContent =
+"✅ Image converted to Base64 successfully.";
+
+};
+
+reader.onerror =
+function(){
+
+base64Data = "";
+
+output.value = "";
+
+copyBtn.disabled = true;
+
+downloadBtn.disabled = true;
+
+status.textContent =
+"❌ Could not read the selected image.";
+
+};
+
+reader.readAsDataURL(file);
 
 }
+);
+
+copyBtn.addEventListener(
+"click",
+async function(){
+
+if(!base64Data){
+
+status.textContent =
+"Please select an image first.";
+
+return;
+
+}
+
+try{
+
+await navigator.clipboard.writeText(
+base64Data
+);
+
+const oldText =
+copyBtn.textContent;
+
+copyBtn.textContent =
+"✅ Copied!";
+
+setTimeout(
+function(){
+
+copyBtn.textContent =
+oldText;
+
+},
+1500
+);
+
+status.textContent =
+"✅ Base64 copied to clipboard.";
+
+}catch(error){
+
+output.focus();
+output.select();
+
+try{
+
+document.execCommand("copy");
+
+status.textContent =
+"✅ Base64 copied to clipboard.";
+
+}catch(e){
+
+status.textContent =
+"❌ Could not copy Base64.";
+
+}
+
+}
+
+}
+);
+
+downloadBtn.addEventListener(
+"click",
+function(){
+
+if(!base64Data) return;
+
+const blob =
+new Blob(
+[base64Data],
+{type:"text/plain;charset=utf-8"}
+);
+
+const url =
+URL.createObjectURL(blob);
+
+const link =
+document.createElement("a");
+
+link.href =
+url;
+
+link.download =
+"image-base64.txt";
+
+document.body.appendChild(link);
+
+link.click();
+
+link.remove();
+
+setTimeout(
+function(){
+
+URL.revokeObjectURL(url);
+
+},
+1000
+);
+
+status.textContent =
+"✅ Base64 TXT file downloaded.";
+
+}
+);
+
+clearBtn.addEventListener(
+"click",
+function(){
+
+fileInput.value = "";
+
+output.value = "";
+
+base64Data = "";
+
+fileInfo.style.display =
+"none";
+
+stats.style.display =
+"none";
+
+copyBtn.disabled =
+true;
+
+downloadBtn.disabled =
+true;
+
+status.textContent = "";
+
+}
+);
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
 </script>
 
