@@ -4,90 +4,46 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<!-- =========================
-     SEO
-========================= -->
 
 <title>Text Statistics — Word & Character Counter Online | VexTools</title>
 
-<meta
-    name="description"
-    content="Free online text statistics tool by VexTools. Count words, characters, and lines instantly while you type or paste text into the browser."
->
+<meta name="description" content="Free online text statistics tool by VexTools. Count words, characters, and lines instantly while you type or paste text into the browser.">
 
-<meta
-    name="keywords"
-    content="text statistics, word counter, character counter, line counter, text analyzer, word count tool, character count tool, online text statistics, VexTools"
->
+<meta name="keywords" content="text statistics, word counter, character counter, line counter, text analyzer, word count tool, character count tool, online text statistics, VexTools">
 
 <meta name="robots" content="index, follow">
-
 <meta name="author" content="VexTools">
-
 <meta name="theme-color" content="#070b18">
 
-
-<!-- =========================
-     Open Graph
-========================= -->
-
 <meta property="og:type" content="website">
-
-<meta
-    property="og:title"
-    content="Text Statistics — Word & Character Counter Online | VexTools"
->
-
-<meta
-    property="og:description"
-    content="Count words, characters, and lines instantly with the free VexTools Text Statistics tool."
->
-
+<meta property="og:title" content="Text Statistics — Word & Character Counter Online | VexTools">
+<meta property="og:description" content="Count words, characters, and lines instantly with the free VexTools Text Statistics tool.">
 <meta property="og:site_name" content="VexTools">
 
-
-<!-- =========================
-     Twitter / X
-========================= -->
-
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Text Statistics — VexTools">
+<meta name="twitter:description" content="Count words, characters, and lines instantly with the free VexTools Text Statistics tool.">
 
-<meta
-    name="twitter:title"
-    content="Text Statistics — VexTools"
->
-
-<meta
-    name="twitter:description"
-    content="Count words, characters, and lines instantly with the free VexTools Text Statistics tool."
->
-
-
-<!-- =========================
-     Structured Data
-========================= -->
+<link rel="canonical" href="https://vextools.github.io/tools/text-statistics.html">
 
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "VexTools Text Statistics",
-    "description": "A free online tool for counting words, characters, and lines in text.",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"VexTools Text Statistics",
+    "url":"https://vextools.github.io/tools/text-statistics.html",
+    "description":"A free online tool for counting words, characters, and lines in text.",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "browserRequirements":"Requires a modern web browser",
+    "offers":{
+        "@type":"Offer",
+        "price":"0",
+        "priceCurrency":"USD"
     }
 }
 </script>
-
 
 <style>
 
@@ -101,12 +57,12 @@ body{
     font-family:Arial,sans-serif;
     background:#070b18;
     color:white;
-    padding:40px 20px;
+    padding:30px 15px;
     min-height:100vh;
 }
 
 .container{
-    max-width:750px;
+    max-width:850px;
     margin:auto;
 }
 
@@ -134,16 +90,16 @@ h1{
     line-height:1.6;
 }
 
-.box{
+.card{
     background:rgba(17,25,45,.85);
     border:1px solid rgba(255,255,255,.1);
-    padding:25px;
     border-radius:20px;
+    padding:22px;
 }
 
 textarea{
     width:100%;
-    height:250px;
+    height:300px;
     padding:18px;
     background:#0d1427;
     color:white;
@@ -186,6 +142,37 @@ textarea:focus{
     color:#22d3ee;
 }
 
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+button{
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(90deg,#7c3aed,#6366f1);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+.status{
+    min-height:20px;
+    margin-top:12px;
+    text-align:center;
+    color:#22d3ee;
+    font-size:13px;
+}
+
 .info{
     margin-top:18px;
     text-align:center;
@@ -200,6 +187,10 @@ textarea:focus{
         grid-template-columns:1fr;
     }
 
+    .buttons{
+        grid-template-columns:1fr;
+    }
+
     h1{
         font-size:29px;
     }
@@ -209,7 +200,6 @@ textarea:focus{
 </style>
 
 </head>
-
 
 <body>
 
@@ -233,9 +223,8 @@ Count words, characters, and lines in your text instantly.
 
 </header>
 
-
 <section
-    class="box"
+    class="card"
     aria-label="Text Statistics Tool"
 >
 
@@ -244,7 +233,6 @@ Count words, characters, and lines in your text instantly.
     placeholder="Type or paste text..."
     aria-label="Text to analyze"
 ></textarea>
-
 
 <div class="stats">
 
@@ -265,6 +253,29 @@ Count words, characters, and lines in your text instantly.
 
 </div>
 
+<div class="buttons">
+
+<button
+    type="button"
+    onclick="copyText()"
+>
+Copy Text
+</button>
+
+<button
+    type="button"
+    onclick="clearText()"
+>
+Clear
+</button>
+
+</div>
+
+<div
+    class="status"
+    id="status"
+    aria-live="polite"
+></div>
 
 <p class="info">
 Analyze your text directly in your browser.
@@ -275,49 +286,104 @@ No text is uploaded to a server.
 
 </main>
 
-
 <script>
 
-const text =
-    document.getElementById("text");
-
-const words =
-    document.getElementById("words");
-
-const chars =
-    document.getElementById("chars");
-
-const lines =
-    document.getElementById("lines");
+const text = document.getElementById("text");
+const words = document.getElementById("words");
+const chars = document.getElementById("chars");
+const lines = document.getElementById("lines");
+const status = document.getElementById("status");
 
 
-text.addEventListener("input", () => {
+/* =========================
+   UPDATE STATISTICS
+========================= */
 
-    const x = text.value;
+function updateStats(){
 
+    const value = text.value;
 
-    /* Characters */
-
-    chars.textContent =
-        x.length;
-
-
-    /* Words */
+    chars.textContent = value.length;
 
     words.textContent =
-        x.trim()
-        ? x.trim().split(/\s+/).length
+        value.trim()
+        ? value.trim().split(/\s+/).length
         : 0;
-
-
-    /* Lines */
 
     lines.textContent =
-        x
-        ? x.split(/\r?\n/).length
+        value
+        ? value.split(/\r?\n/).length
         : 0;
 
-});
+}
+
+
+/* =========================
+   COPY
+========================= */
+
+async function copyText(){
+
+    if(!text.value){
+
+        status.textContent = "Nothing to copy.";
+
+        return;
+    }
+
+    try{
+
+        await navigator.clipboard.writeText(
+            text.value
+        );
+
+        status.textContent = "✓ Text copied.";
+
+    }catch{
+
+        text.select();
+        document.execCommand("copy");
+
+        status.textContent = "✓ Text copied.";
+
+    }
+
+    setTimeout(() => {
+        status.textContent = "";
+    },2000);
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearText(){
+
+    text.value = "";
+
+    updateStats();
+
+    status.textContent = "✓ Text cleared.";
+
+    setTimeout(() => {
+        status.textContent = "";
+    },2000);
+
+}
+
+
+/* =========================
+   LIVE UPDATE
+========================= */
+
+text.addEventListener(
+    "input",
+    updateStats
+);
+
+updateStats();
 
 </script>
 
