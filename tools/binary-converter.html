@@ -6,10 +6,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<!-- =====================================================
-     SEO
-===================================================== -->
-
 <title>Binary Converter Online — Text to Binary & Binary to Text | VexTools</title>
 
 <meta name="description"
@@ -22,18 +18,8 @@ content="Use VexTools free online Binary Converter to convert text to binary and
 <meta name="keywords"
 content="binary converter, binary converter online, text to binary, binary to text, binary translator, convert text to binary, convert binary to text, free binary converter, VexTools">
 
-
-<!-- =====================================================
-     CANONICAL
-===================================================== -->
-
 <link rel="canonical"
 href="https://vextools18-service.github.io/VexTool/tools/binary-converter.html">
-
-
-<!-- =====================================================
-     OPEN GRAPH
-===================================================== -->
 
 <meta property="og:type" content="website">
 
@@ -49,11 +35,6 @@ content="https://vextools18-service.github.io/VexTool/tools/binary-converter.htm
 <meta property="og:site_name"
 content="VexTools">
 
-
-<!-- =====================================================
-     TWITTER / X
-===================================================== -->
-
 <meta name="twitter:card" content="summary">
 
 <meta name="twitter:title"
@@ -62,17 +43,8 @@ content="Binary Converter Online — VexTools">
 <meta name="twitter:description"
 content="Free online tool for converting text to binary and binary to text.">
 
-
-<!-- =====================================================
-     THEME
-===================================================== -->
-
 <meta name="theme-color" content="#070b18">
 
-
-<!-- =====================================================
-     STRUCTURED DATA
-===================================================== -->
 
 <script type="application/ld+json">
 {
@@ -115,10 +87,6 @@ content="Free online tool for converting text to binary and binary to text.">
 }
 </script>
 
-
-<!-- =====================================================
-     STYLE
-===================================================== -->
 
 <style>
 
@@ -170,10 +138,14 @@ outline:none;
 border-color:#7c3aed;
 }
 
+.buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
 button{
 padding:13px 22px;
-margin-right:8px;
-margin-bottom:10px;
 background:linear-gradient(90deg,#7c3aed,#06b6d4);
 color:white;
 border:0;
@@ -188,9 +160,14 @@ transform:translateY(-2px);
 box-shadow:0 8px 25px rgba(124,58,237,.3);
 }
 
+button:active{
+transform:translateY(0);
+}
+
 #status{
 margin-top:10px;
 color:#94a3b8;
+min-height:24px;
 }
 
 .back{
@@ -202,6 +179,30 @@ text-decoration:none;
 
 .back:hover{
 color:#c4b5fd;
+}
+
+@media(max-width:600px){
+
+body{
+padding:25px 15px;
+}
+
+h1{
+font-size:32px;
+}
+
+textarea{
+height:160px;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+button{
+width:100%;
+}
+
 }
 
 </style>
@@ -224,16 +225,21 @@ Convert text to binary and binary back to text quickly and easily.
 id="input"
 placeholder="Enter text or binary..."
 aria-label="Binary converter input"
+spellcheck="false"
 ></textarea>
 
 
-<button onclick="toBinary()">
+<div class="buttons">
+
+<button type="button" onclick="toBinary()">
 Text → Binary
 </button>
 
-<button onclick="toText()">
+<button type="button" onclick="toText()">
 Binary → Text
 </button>
+
+</div>
 
 
 <textarea
@@ -241,10 +247,14 @@ id="output"
 placeholder="Result..."
 readonly
 aria-label="Binary converter result"
+spellcheck="false"
 ></textarea>
 
 
-<div id="status" aria-live="polite"></div>
+<div
+id="status"
+aria-live="polite">
+</div>
 
 
 <a class="back" href="../index.html">
@@ -256,19 +266,20 @@ aria-label="Binary converter result"
 
 <script>
 
-const input =
-document.getElementById("input");
+const input = document.getElementById("input");
+const output = document.getElementById("output");
+const status = document.getElementById("status");
 
-const output =
-document.getElementById("output");
 
-const status =
-document.getElementById("status");
-
+/* ==============================
+   TEXT → BINARY
+============================== */
 
 function toBinary(){
 
-if(!input.value){
+const text = input.value;
+
+if(!text){
 
 output.value = "";
 
@@ -279,18 +290,17 @@ return;
 
 }
 
-
 try{
 
+const bytes =
+new TextEncoder().encode(text);
+
 output.value =
-[...input.value]
-.map(
-c => c.charCodeAt(0)
-.toString(2)
-.padStart(8,"0")
+Array.from(bytes)
+.map(byte =>
+byte.toString(2).padStart(8,"0")
 )
 .join(" ");
-
 
 status.textContent =
 "✓ Text converted to binary successfully.";
@@ -309,11 +319,14 @@ status.textContent =
 }
 
 
+/* ==============================
+   BINARY → TEXT
+============================== */
+
 function toText(){
 
 const value =
 input.value.trim();
-
 
 if(!value){
 
@@ -327,13 +340,23 @@ return;
 }
 
 
+/*
+   Allow spaces and line breaks
+   between binary bytes.
+*/
+
 const parts =
 value.split(/\s+/);
 
 
+/*
+   Every binary group must
+   contain exactly 8 bits.
+*/
+
 const valid =
 parts.every(
-b => /^[01]+$/.test(b)
+b => /^[01]{8}$/.test(b)
 );
 
 
@@ -342,24 +365,25 @@ if(!valid){
 output.value = "";
 
 status.textContent =
-"❌ Invalid binary. Use only 0 and 1.";
+"❌ Invalid binary. Use 8-bit groups like 01001000.";
 
 return;
 
 }
 
-
 try{
 
-output.value =
-parts
-.map(
-b => String.fromCharCode(
-parseInt(b,2)
+const bytes =
+new Uint8Array(
+parts.map(
+b => parseInt(b,2)
 )
-)
-.join("");
+);
 
+output.value =
+new TextDecoder("utf-8", {
+fatal:true
+}).decode(bytes);
 
 status.textContent =
 "✓ Binary converted to text successfully.";
@@ -371,11 +395,22 @@ catch(error){
 output.value = "";
 
 status.textContent =
-"❌ Invalid binary data.";
+"❌ Invalid UTF-8 binary data.";
 
 }
 
 }
+
+
+/* ==============================
+   CLEAR OUTPUT WHEN INPUT CHANGES
+============================== */
+
+input.addEventListener("input", () => {
+
+status.textContent = "";
+
+});
 
 </script>
 
