@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -11,17 +13,26 @@
 <meta name="keywords" content="Lorem Ipsum generator, Lorem Ipsum generator online, placeholder text generator, dummy text generator, Lorem Ipsum text, free Lorem Ipsum generator">
 
 <meta name="robots" content="index, follow">
+<meta name="author" content="VexTools">
+<meta name="theme-color" content="#070b18">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/lorem-ipsum-generator.html">
 
+<!-- OPEN GRAPH -->
+
+<meta property="og:type" content="website">
 <meta property="og:title" content="Lorem Ipsum Generator Online Free — VexTools">
 <meta property="og:description" content="Free online Lorem Ipsum generator. Generate custom placeholder text instantly and copy it with one click.">
-<meta property="og:type" content="website">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/lorem-ipsum-generator.html">
+<meta property="og:site_name" content="VexTools">
+
+<!-- TWITTER -->
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lorem Ipsum Generator Online Free — VexTools">
 <meta name="twitter:description" content="Generate Lorem Ipsum placeholder text online for free with VexTools.">
+
+<!-- WEB APPLICATION SCHEMA -->
 
 <script type="application/ld+json">
 {
@@ -32,15 +43,97 @@
   "description":"Free online Lorem Ipsum generator for creating placeholder text and dummy content.",
   "applicationCategory":"UtilityApplication",
   "operatingSystem":"Any",
+  "browserRequirements":"Requires a modern web browser",
+  "isAccessibleForFree":true,
   "offers":{
     "@type":"Offer",
     "price":"0",
     "priceCurrency":"USD"
+  },
+  "author":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools18-service.github.io/VexTool/"
   }
 }
 </script>
 
+<!-- BREADCRUMB SCHEMA -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"VexTools",
+      "item":"https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"Lorem Ipsum Generator",
+      "item":"https://vextools18-service.github.io/VexTool/tools/lorem-ipsum-generator.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ SCHEMA -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is Lorem Ipsum?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Lorem Ipsum is placeholder text commonly used in web design, graphic design, publishing and software development."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I generate Lorem Ipsum text?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter the number of paragraphs you want and click the Generate button. The Lorem Ipsum Generator will instantly create the placeholder text."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is this Lorem Ipsum generator free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Lorem Ipsum Generator is free to use online."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I copy the generated Lorem Ipsum?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. Click the Copy button to copy the generated Lorem Ipsum text to your clipboard."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is my text uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. The Lorem Ipsum Generator runs directly in your browser and does not require uploading text to a server."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
+
 *{
 box-sizing:border-box;
 margin:0;
@@ -65,6 +158,7 @@ margin-bottom:25px;
 }
 
 .logo{
+display:inline-block;
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
@@ -73,10 +167,12 @@ text-decoration:none;
 
 h1{
 margin:15px 0 8px;
+font-size:36px;
 }
 
-p{
+.header p{
 color:#94a3b8;
+line-height:1.6;
 }
 
 .card{
@@ -144,9 +240,84 @@ border-color:#7c3aed;
 .status{
 margin-top:12px;
 text-align:center;
-color:#94a3b8;
+color:#22d3ee;
 font-size:13px;
 min-height:18px;
+}
+
+/* SEO CONTENT */
+
+.seo-content{
+margin-top:25px;
+padding:24px;
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+}
+
+.seo-content h2{
+font-size:24px;
+margin-bottom:12px;
+color:#f8fafc;
+}
+
+.seo-content h3{
+font-size:18px;
+margin:20px 0 8px;
+color:#c4b5fd;
+}
+
+.seo-content p{
+color:#94a3b8;
+line-height:1.7;
+margin-bottom:12px;
+}
+
+/* FAQ */
+
+.faq{
+margin-top:25px;
+padding:24px;
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+}
+
+.faq h2{
+font-size:24px;
+margin-bottom:15px;
+}
+
+.faq-item{
+border-bottom:1px solid #29344f;
+padding:15px 0;
+}
+
+.faq-item:last-child{
+border-bottom:none;
+}
+
+.faq-item h3{
+font-size:17px;
+color:#f8fafc;
+margin-bottom:8px;
+}
+
+.faq-item p{
+color:#94a3b8;
+line-height:1.6;
+font-size:14px;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+
+.back:hover{
+color:#c4b5fd;
 }
 
 @media(max-width:500px){
@@ -164,7 +335,17 @@ button{
 width:100%;
 }
 
+h1{
+font-size:29px;
 }
+
+.seo-content,
+.faq{
+padding:18px;
+}
+
+}
+
 </style>
 
 </head>
@@ -175,19 +356,19 @@ width:100%;
 
 <div class="header">
 
-<a class="logo" href="../index.html">
+<a class="logo" href="../index.html" aria-label="VexTools Home">
 VexTools
 </a>
 
-<h1>
-Lorem Ipsum Generator
-</h1>
+<h1>Lorem Ipsum Generator</h1>
 
 <p>
 Generate placeholder text instantly.
 </p>
 
 </div>
+
+<!-- TOOL -->
 
 <div class="card">
 
@@ -219,9 +400,101 @@ placeholder="Generated Lorem Ipsum will appear here..."
 aria-label="Generated Lorem Ipsum"
 ></textarea>
 
-<div id="status" class="status"></div>
+<div id="status" class="status" aria-live="polite"></div>
 
 </div>
+
+<!-- SEO CONTENT -->
+
+<section class="seo-content">
+
+<h2>Free Lorem Ipsum Generator Online</h2>
+
+<p>
+VexTools Lorem Ipsum Generator is a free online tool for creating placeholder text quickly and easily. Generate multiple Lorem Ipsum paragraphs for websites, applications, presentations, graphic designs, documents and other projects.
+</p>
+
+<h3>What is Lorem Ipsum?</h3>
+
+<p>
+Lorem Ipsum is commonly used as dummy or placeholder text when designing websites, applications, layouts and printed documents. It allows designers and developers to preview how a page will look before the final content is available.
+</p>
+
+<h3>How to Use the Lorem Ipsum Generator</h3>
+
+<p>
+Enter the number of paragraphs you need in the input box and click the Generate button. Your placeholder text will appear instantly. You can then use the Copy button to copy the generated text.
+</p>
+
+<h3>Why Use VexTools Lorem Ipsum Generator?</h3>
+
+<p>
+This tool is fast, free and simple to use. It works directly in your browser, requires no account and does not require you to upload your content to a server.
+</p>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+
+<h3>What is Lorem Ipsum?</h3>
+
+<p>
+Lorem Ipsum is placeholder text commonly used in web design, graphic design, publishing and software development.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>How do I generate Lorem Ipsum text?</h3>
+
+<p>
+Enter the number of paragraphs you want and click the Generate button. The generator will instantly create the placeholder text.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Is this Lorem Ipsum generator free?</h3>
+
+<p>
+Yes. The VexTools Lorem Ipsum Generator is completely free to use online.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Can I copy the generated Lorem Ipsum?</h3>
+
+<p>
+Yes. Click the Copy button to copy the generated Lorem Ipsum text to your clipboard.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Is my text uploaded to a server?</h3>
+
+<p>
+No. The generator runs directly in your browser and does not require uploading text to a server.
+</p>
+
+</div>
+
+</section>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
 
 </div>
 
@@ -237,6 +510,7 @@ cillum dolore eu fugiat nulla pariatur excepteur sint occaecat
 cupidatat non proident sunt culpa qui officia deserunt mollit
 anim id est laborum
 `.trim().split(/\s+/);
+
 
 function generate(){
 
@@ -296,6 +570,7 @@ count === 1
 
 }
 
+
 async function copyText(){
 
 const output =
@@ -333,6 +608,7 @@ status.textContent =
 }
 
 }
+
 
 generate();
 
