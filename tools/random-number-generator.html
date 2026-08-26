@@ -1,125 +1,1772 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Random Number Generator Online — VexTools</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Generate random numbers online for free with VexTools. Choose a minimum and maximum value and instantly generate a random number.">
+<title>Random Number Generator Online Free — VexTools</title>
 
-<meta name="keywords" content="random number generator, random number generator online, random number, number generator, random number picker, free random number generator">
+<meta name="description"
+      content="Generate random numbers online for free with VexTools. Choose a minimum and maximum value and instantly generate a random number within your selected range.">
+
+<meta name="keywords"
+      content="random number generator, random number generator online, random number picker, random number, number generator, random integer generator, free random number generator">
 
 <meta name="author" content="VexTools">
-<meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://vextools.github.io/tools/random-number-generator.html">
+<meta name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-<meta property="og:title" content="Random Number Generator Online — VexTools">
-<meta property="og:description" content="Generate a random number between any chosen minimum and maximum range.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://vextools.github.io/tools/random-number-generator.html">
+<meta name="googlebot"
+      content="index, follow">
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Random Number Generator — VexTools">
-<meta name="twitter:description" content="Generate random numbers online quickly and for free.">
+<link rel="canonical"
+      href="https://vextools18-service.github.io/VexTool/tools/random-number-generator.html">
+
+
+<!-- OPEN GRAPH -->
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:title"
+      content="Random Number Generator Online Free — VexTools">
+
+<meta property="og:description"
+      content="Generate random numbers between a minimum and maximum value instantly with VexTools.">
+
+<meta property="og:url"
+      content="https://vextools18-service.github.io/VexTool/tools/random-number-generator.html">
+
+<meta property="og:site_name"
+      content="VexTools">
+
+<meta property="og:locale"
+      content="en_US">
+
+
+<!-- TWITTER -->
+
+<meta name="twitter:card"
+      content="summary">
+
+<meta name="twitter:title"
+      content="Random Number Generator — VexTools">
+
+<meta name="twitter:description"
+      content="Generate random numbers online quickly and for free with VexTools.">
+
+
+<!-- THEME -->
+
+<meta name="theme-color"
+      content="#070b18">
+
+
+<!-- STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Random Number Generator",
+  "url":"https://vextools18-service.github.io/VexTool/tools/random-number-generator.html",
+  "description":"Free online random number generator for generating random integers within a selected range.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires a modern web browser with JavaScript enabled",
+  "isAccessibleForFree":true,
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools18-service.github.io/VexTool/"
+  }
+}
+</script>
+
+
+<!-- BREADCRUMB STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"VexTools",
+      "item":"https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"Utility Tools",
+      "item":"https://vextools18-service.github.io/VexTool/#categories"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"Random Number Generator",
+      "item":"https://vextools18-service.github.io/VexTool/tools/random-number-generator.html"
+    }
+  ]
+}
+</script>
+
+
+<!-- FAQ STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a random number generator?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A random number generator produces a number selected randomly from a specified range."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I generate a random number?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter a minimum and maximum value, then click the Generate Random Number button."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I use negative numbers?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. You can enter negative numbers as the minimum or maximum value."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is this random number generator free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Random Number Generator is free to use online."
+      }
+    }
+  ]
+}
+</script>
+
 
 <style>
-body{
-font-family:Arial;
-background:#070b18;
-color:white;
-padding:50px 20px;
-text-align:center
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+
+    --bg:#070b18;
+
+    --card:#11192d;
+
+    --card2:#18223a;
+
+    --text:#f8fafc;
+
+    --muted:#94a3b8;
+
+    --border:rgba(255,255,255,.10);
+
+    --primary:#7c3aed;
+
+    --secondary:#06b6d4;
+
+    --danger:#ef4444;
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    padding:30px 15px;
+
+    line-height:1.6;
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container{
-max-width:600px;
-margin:auto
+
+    max-width:850px;
+
+    margin:0 auto;
+
 }
+
+
+/* =====================================================
+   TOP NAV
+===================================================== */
+
+.top-nav{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.logo{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:var(--text);
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    font-weight:900;
+
+}
+
+
+.logo-icon{
+
+    width:38px;
+
+    height:38px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    box-shadow:
+        0 0 25px rgba(124,58,237,.3);
+
+}
+
+
+.home-link{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+
+.home-link:hover{
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb{
+
+    margin:10px 0 28px;
+
+    font-size:13px;
+
+    color:var(--muted);
+
+}
+
+
+.breadcrumb a{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+}
+
+
+.breadcrumb span{
+
+    margin:0 6px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    text-align:center;
+
+    margin:20px 0 35px;
+
+}
+
+
+.header h1{
+
+    font-size:
+        clamp(34px,7vw,52px);
+
+    line-height:1.1;
+
+    letter-spacing:-1.5px;
+
+}
+
+
+.header h1 span{
+
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #22d3ee
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+}
+
+
+.header p{
+
+    color:var(--muted);
+
+    margin-top:12px;
+
+    font-size:17px;
+
+}
+
+
+/* =====================================================
+   TOOL CARD
+===================================================== */
+
+.card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.2);
+
+}
+
+
+/* =====================================================
+   INPUT GRID
+===================================================== */
+
+.input-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
 
 input{
-padding:15px;
-width:100%;
-margin:10px 0;
-background:#111a30;
-color:white;
-border:1px solid #27304a;
-border-radius:10px
+
+    width:100%;
+
+    padding:15px;
+
+    background:#080d1d;
+
+    color:white;
+
+    border:1px solid #27304a;
+
+    border-radius:11px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.25s;
+
 }
+
+
+input:focus{
+
+    border-color:#8b5cf6;
+
+    box-shadow:
+        0 0 20px rgba(124,58,237,.18);
+
+}
+
+
+input.error{
+
+    border-color:var(--danger);
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
 
 button{
-padding:15px 30px;
-background:#7c3aed;
-color:white;
-border:0;
-border-radius:10px;
-margin-top:10px;
-cursor:pointer;
-font-weight:bold
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:15px 20px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:white;
+
+    font-weight:800;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
 }
 
-.result{
-font-size:35px;
-font-weight:bold;
-padding:30px;
-margin:25px 0;
-background:#111a30;
-border-radius:15px
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(124,58,237,.3);
+
 }
+
+
+button:active{
+
+    transform:translateY(0);
+
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+.result-box{
+
+    margin-top:22px;
+
+    padding:25px;
+
+    text-align:center;
+
+    background:#080d1d;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+}
+
+
+.result-label{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:8px;
+
+}
+
+
+.result{
+
+    font-size:
+        clamp(38px,8vw,58px);
+
+    font-weight:900;
+
+    line-height:1.2;
+
+    word-break:break-word;
+
+    color:#22d3ee;
+
+}
+
+
+.copy-button{
+
+    margin-top:15px;
+
+    max-width:220px;
+
+    background:#202a43;
+
+}
+
+
+.copy-button:hover{
+
+    box-shadow:
+        0 8px 20px rgba(6,182,212,.15);
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+
+    min-height:22px;
+
+    margin-top:14px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    color:var(--muted);
+
+}
+
+
+.status.error{
+
+    color:#fca5a5;
+
+}
+
+
+.status.success{
+
+    color:#86efac;
+
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.info-section{
+
+    margin-top:55px;
+
+}
+
+
+.info-section h2{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+
+.info-section p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:16px;
+
+}
+
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+
+.benefits{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+
+    margin-top:25px;
+
+}
+
+
+.benefit{
+
+    padding:18px;
+
+    background:rgba(17,25,45,.7);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+}
+
+
+.benefit-icon{
+
+    font-size:25px;
+
+    margin-bottom:7px;
+
+}
+
+
+.benefit h3{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+
+}
+
+
+.benefit p{
+
+    font-size:13px;
+
+    margin:0;
+
+}
+
+
+/* =====================================================
+   HOW TO
+===================================================== */
+
+.steps{
+
+    display:grid;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+
+.step{
+
+    display:flex;
+
+    gap:13px;
+
+    align-items:flex-start;
+
+    padding:15px;
+
+    background:rgba(17,25,45,.7);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+}
+
+
+.step-number{
+
+    min-width:32px;
+
+    height:32px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    font-weight:900;
+
+}
+
+
+.step p{
+
+    margin:3px 0 0;
+
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+
+    margin-top:45px;
+
+}
+
+
+.faq h2{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+}
+
+
+.faq-item{
+
+    margin-bottom:10px;
+
+    background:rgba(17,25,45,.7);
+
+    border:1px solid var(--border);
+
+    border-radius:13px;
+
+    overflow:hidden;
+
+}
+
+
+.faq-item summary{
+
+    padding:17px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    list-style:none;
+
+}
+
+
+.faq-item summary::-webkit-details-marker{
+
+    display:none;
+
+}
+
+
+.faq-item p{
+
+    padding:
+        0 17px 17px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+   RELATED TOOLS
+===================================================== */
+
+.related{
+
+    margin-top:45px;
+
+}
+
+
+.related h2{
+
+    font-size:25px;
+
+    margin-bottom:15px;
+
+}
+
+
+.related-links{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+
+.related-links a{
+
+    color:#c4b5fd;
+
+    text-decoration:none;
+
+    padding:9px 13px;
+
+    border-radius:9px;
+
+    background:rgba(124,58,237,.10);
+
+    border:1px solid var(--border);
+
+    font-size:13px;
+
+}
+
+
+.related-links a:hover{
+
+    border-color:#8b5cf6;
+
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+}
+
+
+.back:hover{
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:55px;
+
+    padding-top:25px;
+
+    border-top:1px solid var(--border);
+
+}
+
+
+.footer a{
+
+    color:#a78bfa;
+
+    text-decoration:none;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:650px){
+
+    body{
+
+        padding:20px 12px;
+
+    }
+
+
+    .card{
+
+        padding:18px;
+
+    }
+
+
+    .input-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .benefits{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .result{
+
+        font-size:42px;
+
+    }
+
+
+    .copy-button{
+
+        max-width:none;
+
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        scroll-behavior:auto!important;
+
+        transition:none!important;
+
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
 <div class="container">
 
-<h1>🎲 Random Number Generator</h1>
 
-<p>
-Generate a random number between your chosen range.
-</p>
+<!-- TOP NAV -->
 
-<input
-id="min"
-type="number"
-placeholder="Minimum"
->
+<header class="top-nav">
 
-<input
-id="max"
-type="number"
-placeholder="Maximum"
->
+    <a
+        class="logo"
+        href="../index.html"
+        aria-label="VexTools Home">
 
-<button onclick="generate()">
-Generate
-</button>
+        <span class="logo-icon">
+            V
+        </span>
 
-<div class="result" id="result">
-?
+        VexTools
+
+    </a>
+
+
+    <a
+        class="home-link"
+        href="../index.html">
+
+        All Tools →
+
+    </a>
+
+</header>
+
+
+<!-- BREADCRUMB -->
+
+<nav
+    class="breadcrumb"
+    aria-label="Breadcrumb">
+
+    <a href="../index.html">
+        VexTools
+    </a>
+
+    <span>›</span>
+
+    <a href="../index.html#categories">
+        Utility Tools
+    </a>
+
+    <span>›</span>
+
+    <span>
+        Random Number Generator
+    </span>
+
+</nav>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <h1>
+        Random Number <span>Generator</span>
+    </h1>
+
+    <p>
+        Generate a random number between your chosen minimum and maximum.
+    </p>
+
+</header>
+
+
+<!-- TOOL -->
+
+<main>
+
+<section
+    class="card"
+    aria-labelledby="tool-title">
+
+    <h2
+        id="tool-title"
+        style="position:absolute;left:-9999px;">
+
+        Free Online Random Number Generator
+
+    </h2>
+
+
+    <div class="input-grid">
+
+
+        <div class="input-group">
+
+            <label for="min">
+                Minimum Number
+            </label>
+
+            <input
+                id="min"
+                type="number"
+                inputmode="numeric"
+                placeholder="e.g. 1"
+                autocomplete="off">
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="max">
+                Maximum Number
+            </label>
+
+            <input
+                id="max"
+                type="number"
+                inputmode="numeric"
+                placeholder="e.g. 100"
+                autocomplete="off">
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        id="generate"
+        type="button">
+
+        🎲 Generate Random Number
+
+    </button>
+
+
+    <div
+        id="status"
+        class="status"
+        role="status"
+        aria-live="polite">
+    </div>
+
+
+    <div class="result-box">
+
+        <div class="result-label">
+            Random Number
+        </div>
+
+        <div
+            id="result"
+            class="result"
+            aria-live="polite">
+
+            ?
+
+        </div>
+
+
+        <button
+            id="copy"
+            class="copy-button"
+            type="button">
+
+            📋 Copy Number
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SEO CONTENT -->
+
+<section
+    class="info-section"
+    aria-labelledby="about-title">
+
+    <h2 id="about-title">
+        Free Online Random Number Generator
+    </h2>
+
+    <p>
+        VexTools Random Number Generator is a free online
+        utility that lets you generate a random integer
+        between any minimum and maximum values. Enter your
+        range and generate a number instantly.
+    </p>
+
+    <p>
+        The tool is useful for choosing random numbers,
+        creating test values, selecting numbers for games,
+        classroom activities, simple experiments and many
+        other everyday tasks.
+    </p>
+
+
+    <div class="benefits">
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Instant
+            </h3>
+
+            <p>
+                Generate a random number with one click.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🆓
+            </div>
+
+            <h3>
+                Free
+            </h3>
+
+            <p>
+                Use the random number generator completely free.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🎯
+            </div>
+
+            <h3>
+                Custom Range
+            </h3>
+
+            <p>
+                Choose your own minimum and maximum values.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- HOW TO -->
+
+<section
+    class="info-section"
+    aria-labelledby="how-title">
+
+    <h2 id="how-title">
+        How to Generate a Random Number
+    </h2>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <p>
+                Enter your minimum number.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <p>
+                Enter your maximum number.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <p>
+                Click Generate Random Number.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+            <p>
+                Your randomly selected number will appear instantly.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section
+    class="faq"
+    aria-labelledby="faq-title">
+
+    <h2 id="faq-title">
+        Frequently Asked Questions
+    </h2>
+
+
+    <details class="faq-item">
+
+        <summary>
+            What is a random number generator?
+        </summary>
+
+        <p>
+            A random number generator selects a number randomly
+            from a specified range.
+        </p>
+
+    </details>
+
+
+    <details class="faq-item">
+
+        <summary>
+            How do I generate a random number?
+        </summary>
+
+        <p>
+            Enter a minimum and maximum value, then click the
+            Generate Random Number button.
+        </p>
+
+    </details>
+
+
+    <details class="faq-item">
+
+        <summary>
+            Can I use negative numbers?
+        </summary>
+
+        <p>
+            Yes. Negative numbers can be used as either the
+            minimum or maximum value.
+        </p>
+
+    </details>
+
+
+    <details class="faq-item">
+
+        <summary>
+            What happens if the minimum is greater than the maximum?
+        </summary>
+
+        <p>
+            VexTools automatically handles the range by using
+            the smaller value as the minimum and the larger
+            value as the maximum.
+        </p>
+
+    </details>
+
+
+    <details class="faq-item">
+
+        <summary>
+            Is this random number generator free?
+        </summary>
+
+        <p>
+            Yes. The VexTools Random Number Generator is free
+            to use online.
+        </p>
+
+    </details>
+
+
+</section>
+
+
+<!-- RELATED TOOLS -->
+
+<section
+    class="related"
+    aria-labelledby="related-title">
+
+    <h2 id="related-title">
+        Related Tools
+    </h2>
+
+
+    <div class="related-links">
+
+        <a href="number-to-words.html">
+            Number to Words
+        </a>
+
+        <a href="percentage-calculator.html">
+            Percentage Calculator
+        </a>
+
+        <a href="loan-calculator.html">
+            Loan Calculator
+        </a>
+
+        <a href="age-calculator.html">
+            Age Calculator
+        </a>
+
+        <a href="../index.html">
+            More Free Tools
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- BACK -->
+
+<a
+    class="back"
+    href="../index.html">
+
+    ← Back to VexTools
+
+</a>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © <span id="year"></span>
+        VexTools. Free online tools for everyone.
+    </p>
+
+    <p>
+        <a href="../index.html">
+            VexTools Home
+        </a>
+    </p>
+
+</footer>
+
+
 </div>
 
-</div>
 
 <script>
 
-function generate(){
+/* =====================================================
+   YEAR
+===================================================== */
 
-let a=Number(document.getElementById("min").value);
-let b=Number(document.getElementById("max").value);
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
-if(!Number.isFinite(a)||!Number.isFinite(b)){
-document.getElementById("result").textContent="Enter valid numbers.";
-return;
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const minInput =
+    document.getElementById("min");
+
+const maxInput =
+    document.getElementById("max");
+
+const generateButton =
+    document.getElementById("generate");
+
+const copyButton =
+    document.getElementById("copy");
+
+const result =
+    document.getElementById("result");
+
+const status =
+    document.getElementById("status");
+
+
+/* =====================================================
+   GENERATE RANDOM NUMBER
+===================================================== */
+
+function generateRandom(){
+
+    let min =
+        Number(minInput.value);
+
+    let max =
+        Number(maxInput.value);
+
+
+    /* VALIDATION */
+
+    if(
+        minInput.value.trim() === "" ||
+        maxInput.value.trim() === "" ||
+        !Number.isFinite(min) ||
+        !Number.isFinite(max)
+    ){
+
+        status.className =
+            "status error";
+
+        status.textContent =
+            "❌ Please enter valid minimum and maximum numbers.";
+
+        minInput.classList.add("error");
+        maxInput.classList.add("error");
+
+        return;
+
+    }
+
+
+    minInput.classList.remove("error");
+    maxInput.classList.remove("error");
+
+
+    /* NORMALIZE RANGE */
+
+    if(min > max){
+
+        [min,max] =
+            [max,min];
+
+    }
+
+
+    /* INTEGER RANGE */
+
+    min =
+        Math.ceil(min);
+
+    max =
+        Math.floor(max);
+
+
+    if(min > max){
+
+        status.className =
+            "status error";
+
+        status.textContent =
+            "❌ The selected range does not contain a whole number.";
+
+        return;
+
+    }
+
+
+    /* RANDOM NUMBER */
+
+    const randomNumber =
+        Math.floor(
+            Math.random() *
+            (max - min + 1)
+        ) + min;
+
+
+    result.textContent =
+        randomNumber;
+
+
+    status.className =
+        "status success";
+
+    status.textContent =
+        "✓ Random number generated successfully.";
+
 }
 
-if(a>b)[a,b]=[b,a];
 
-document.getElementById("result").textContent=
-Math.floor(Math.random()*(b-a+1))+a;
+/* =====================================================
+   GENERATE BUTTON
+===================================================== */
 
-}
+generateButton.addEventListener(
+    "click",
+    generateRandom
+);
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+[minInput,maxInput].forEach(
+    input => {
+
+        input.addEventListener(
+            "keydown",
+            function(event){
+
+                if(event.key === "Enter"){
+
+                    event.preventDefault();
+
+                    generateRandom();
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   COPY
+===================================================== */
+
+copyButton.addEventListener(
+    "click",
+    async function(){
+
+        const value =
+            result.textContent.trim();
+
+
+        if(
+            !value ||
+            value === "?"
+        ){
+
+            status.className =
+                "status error";
+
+            status.textContent =
+                "❌ Generate a number first.";
+
+            return;
+
+        }
+
+
+        try{
+
+            await navigator.clipboard.writeText(value);
+
+            status.className =
+                "status success";
+
+            status.textContent =
+                "✓ Number copied to clipboard.";
+
+        }
+        catch(error){
+
+            status.className =
+                "status error";
+
+            status.textContent =
+                "❌ Could not copy the number.";
+
+        }
+
+    }
+);
 
 </script>
 
