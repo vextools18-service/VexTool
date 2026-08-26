@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Discount Calculator - Calculate Sale Price & Savings | VexTools</title>
 
@@ -12,6 +12,7 @@
 
 <meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/discount-calculator.html">
 
@@ -25,161 +26,269 @@
 <meta name="twitter:title" content="Discount Calculator - VexTools">
 <meta name="twitter:description" content="Calculate discount amount and final price quickly with VexTools.">
 
+<meta name="theme-color" content="#070b18">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "VexTools Discount Calculator",
+  "url": "https://vextools18-service.github.io/VexTool/tools/discount-calculator.html",
+  "description": "Free online discount calculator for calculating savings and final prices after a percentage discount.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate a discount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter the original price and discount percentage, then click Calculate Discount. The tool will show your savings and final price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this discount calculator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VexTools provides this online discount calculator for free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I calculate the final price after a discount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The calculator automatically shows the discount amount, savings, and final price after the discount."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#070b18;
-color:#f8fafc;
-min-height:100vh;
-padding:40px 20px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.container{
-max-width:700px;
-margin:auto;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #070b18;
+    color: #f8fafc;
+    min-height: 100vh;
+    padding: 40px 20px;
 }
 
-.header{
-text-align:center;
-margin-bottom:30px;
+.container {
+    max-width: 700px;
+    margin: auto;
 }
 
-.logo{
-display:inline-block;
-color:#a78bfa;
-font-size:28px;
-font-weight:900;
-text-decoration:none;
-margin-bottom:20px;
+.header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-h1{
-font-size:40px;
-margin-bottom:10px;
+.logo {
+    display: inline-block;
+    color: #a78bfa;
+    font-size: 28px;
+    font-weight: 900;
+    text-decoration: none;
+    margin-bottom: 20px;
 }
 
-.header p{
-color:#94a3b8;
-line-height:1.6;
+.logo:hover {
+    opacity: .85;
 }
 
-.card{
-background:#111a30;
-border:1px solid rgba(255,255,255,.1);
-border-radius:20px;
-padding:30px;
+h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
-label{
-display:block;
-margin:12px 0 7px;
-font-weight:bold;
+.header p {
+    color: #94a3b8;
+    line-height: 1.6;
 }
 
-input{
-width:100%;
-padding:16px;
-margin-bottom:8px;
-background:#0d1427;
-color:white;
-border:1px solid #27304a;
-border-radius:10px;
-font-size:16px;
-outline:none;
+.card {
+    background: #111a30;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 30px;
 }
 
-input:focus{
-border-color:#7c3aed;
+label {
+    display: block;
+    margin: 12px 0 7px;
+    font-weight: bold;
+    color: #e2e8f0;
 }
 
-button{
-width:100%;
-padding:15px;
-margin-top:12px;
-background:linear-gradient(90deg,#7c3aed,#06b6d4);
-color:white;
-border:0;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
+input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 8px;
+    background: #0d1427;
+    color: white;
+    border: 1px solid #27304a;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
 }
 
-button:hover{
-transform:translateY(-2px);
+input:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124,58,237,.12);
 }
 
-.result{
-margin-top:20px;
-padding:20px;
-background:#0d1427;
-border-radius:12px;
-line-height:2;
-text-align:center;
-font-size:17px;
+input::placeholder {
+    color: #64748b;
 }
 
-.info{
-margin-top:25px;
-padding:25px;
-background:#111a30;
-border:1px solid rgba(255,255,255,.1);
-border-radius:18px;
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 12px;
+    background: linear-gradient(90deg,#7c3aed,#06b6d4);
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .2s;
 }
 
-.info h2{
-margin-bottom:10px;
-font-size:21px;
+button:hover {
+    transform: translateY(-2px);
 }
 
-.info p{
-color:#94a3b8;
-line-height:1.7;
-font-size:14px;
+button:active {
+    transform: translateY(0);
 }
 
-.faq{
-margin-top:25px;
-padding:25px;
-background:#111a30;
-border:1px solid rgba(255,255,255,.1);
-border-radius:18px;
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    background: #0d1427;
+    border: 1px solid #27304a;
+    border-radius: 12px;
+    line-height: 2;
+    text-align: center;
+    font-size: 17px;
+    color: #cbd5e1;
 }
 
-.faq h2{
-margin-bottom:15px;
+.result.success {
+    color: #67e8f9;
 }
 
-.faq h3{
-font-size:16px;
-margin:15px 0 7px;
+.result.error {
+    color: #fca5a5;
 }
 
-.faq p{
-color:#94a3b8;
-line-height:1.6;
-font-size:14px;
+.result .final-price {
+    display: block;
+    margin-top: 5px;
+    font-size: 21px;
+    color: #ffffff;
 }
 
-.back{
-display:inline-block;
-margin-top:25px;
-color:#a78bfa;
-text-decoration:none;
-font-weight:bold;
+.info {
+    margin-top: 25px;
+    padding: 25px;
+    background: #111a30;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 18px;
 }
 
-footer{
-text-align:center;
-margin-top:30px;
-color:#64748b;
-font-size:13px;
+.info h2 {
+    margin-bottom: 10px;
+    font-size: 21px;
 }
 
-@media(max-width:600px){
-h1{font-size:30px}
-.card{padding:20px}
+.info p {
+    color: #94a3b8;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.faq {
+    margin-top: 25px;
+    padding: 25px;
+    background: #111a30;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 18px;
+}
+
+.faq h2 {
+    margin-bottom: 15px;
+}
+
+.faq h3 {
+    font-size: 16px;
+    margin: 15px 0 7px;
+}
+
+.faq p {
+    color: #94a3b8;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .info,
+    .faq {
+        padding: 20px;
+    }
 }
 </style>
 </head>
@@ -188,142 +297,178 @@ h1{font-size:30px}
 
 <div class="container">
 
-<div class="header">
+    <div class="header">
 
-<a href="../index.html" class="logo">VexTools</a>
+        <a href="../index.html" class="logo">
+            VexTools
+        </a>
 
-<h1>🏷️ Discount Calculator</h1>
+        <h1>🏷️ Discount Calculator</h1>
 
-<p>
-Calculate discount amount, savings, and final price instantly.
-</p>
+        <p>
+            Calculate discount amount, savings, and final price instantly.
+        </p>
 
-</div>
+    </div>
 
-<div class="card">
+    <div class="card">
 
-<label for="price">Original Price</label>
+        <label for="price">
+            Original Price
+        </label>
 
-<input
-id="price"
-type="number"
-min="0"
-step="any"
-placeholder="Enter original price"
->
+        <input
+            id="price"
+            type="number"
+            min="0"
+            step="any"
+            inputmode="decimal"
+            placeholder="Enter original price"
+            aria-label="Original price"
+        >
 
-<label for="discount">Discount Percentage (%)</label>
+        <label for="discount">
+            Discount Percentage (%)
+        </label>
 
-<input
-id="discount"
-type="number"
-min="0"
-max="100"
-step="any"
-placeholder="Enter discount percentage"
->
+        <input
+            id="discount"
+            type="number"
+            min="0"
+            max="100"
+            step="any"
+            inputmode="decimal"
+            placeholder="Enter discount percentage"
+            aria-label="Discount percentage"
+        >
 
-<button onclick="calculate()">
-Calculate Discount
-</button>
+        <button type="button" onclick="calculate()">
+            Calculate Discount
+        </button>
 
-<div class="result" id="result">
-Enter your values above.
-</div>
+        <div class="result" id="result" aria-live="polite">
+            Enter your values above.
+        </div>
 
-</div>
+    </div>
 
-<div class="info">
+    <div class="info">
 
-<h2>Free Online Discount Calculator</h2>
+        <h2>Free Online Discount Calculator</h2>
 
-<p>
-VexTools Discount Calculator helps you quickly calculate
-how much money you save and what the final price will be
-after applying a percentage discount. Enter the original
-price and discount percentage to get an instant result.
-</p>
+        <p>
+            VexTools Discount Calculator helps you quickly calculate
+            how much money you save and what the final price will be
+            after applying a percentage discount. Enter the original
+            price and discount percentage to get an instant result.
+        </p>
 
-</div>
+    </div>
 
-<div class="faq">
+    <div class="faq">
 
-<h2>Frequently Asked Questions</h2>
+        <h2>Frequently Asked Questions</h2>
 
-<h3>How do I calculate a discount?</h3>
+        <h3>
+            How do I calculate a discount?
+        </h3>
 
-<p>
-Enter the original price and discount percentage, then click
-Calculate Discount. The tool will show your savings and final price.
-</p>
+        <p>
+            Enter the original price and discount percentage, then click
+            Calculate Discount. The tool will show your savings and final price.
+        </p>
 
-<h3>Is this discount calculator free?</h3>
+        <h3>
+            Is this discount calculator free?
+        </h3>
 
-<p>
-Yes. VexTools provides this online discount calculator for free.
-</p>
+        <p>
+            Yes. VexTools provides this online discount calculator for free.
+        </p>
 
-<h3>Can I calculate the final price after a discount?</h3>
+        <h3>
+            Can I calculate the final price after a discount?
+        </h3>
 
-<p>
-Yes. The calculator automatically shows both the discount amount
-and the final price after the discount.
-</p>
+        <p>
+            Yes. The calculator automatically shows both the discount amount
+            and the final price after the discount.
+        </p>
 
-</div>
+    </div>
 
-<a href="../index.html" class="back">
-← Back to VexTools
-</a>
+    <a href="../index.html" class="back">
+        ← Back to VexTools
+    </a>
 
-<footer>
-© <span id="year"></span> VexTools — Free Online Tools
-</footer>
+    <footer>
+        © <span id="year"></span> VexTools — Free Online Tools
+    </footer>
 
 </div>
 
 <script>
 
-function calculate(){
+const priceInput = document.getElementById("price");
+const discountInput = document.getElementById("discount");
+const result = document.getElementById("result");
 
-const price =
-Number(document.getElementById("price").value);
+function calculate() {
 
-const discount =
-Number(document.getElementById("discount").value);
+    const price = Number(priceInput.value);
+    const discount = Number(discountInput.value);
 
-const result =
-document.getElementById("result");
+    result.className = "result";
 
-if(
-!Number.isFinite(price) ||
-!Number.isFinite(discount) ||
-price < 0 ||
-discount < 0 ||
-discount > 100
-){
+    if (
+        priceInput.value.trim() === "" ||
+        discountInput.value.trim() === ""
+    ) {
+        result.textContent = "Please enter both price and discount percentage.";
+        result.classList.add("error");
+        return;
+    }
 
-result.textContent =
-"Please enter a valid price and discount percentage.";
+    if (
+        !Number.isFinite(price) ||
+        !Number.isFinite(discount) ||
+        price < 0 ||
+        discount < 0 ||
+        discount > 100
+    ) {
+        result.textContent =
+            "Please enter a valid price and discount percentage.";
+        result.classList.add("error");
+        return;
+    }
 
-return;
+    const saved = price * (discount / 100);
+    const finalPrice = price - saved;
 
+    result.innerHTML =
+        "💰 Discount: <b>" + saved.toFixed(2) + "</b><br>" +
+        "💵 You Save: <b>" + saved.toFixed(2) + "</b>" +
+        "<span class='final-price'>" +
+        "Final Price: <b>" + finalPrice.toFixed(2) + "</b>" +
+        "</span>";
+
+    result.classList.add("success");
 }
 
-const saved =
-price * discount / 100;
+priceInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        calculate();
+    }
+});
 
-const finalPrice =
-price - saved;
-
-result.innerHTML =
-"Discount: <b>"+saved.toFixed(2)+"</b><br>"+
-"Final Price: <b>"+finalPrice.toFixed(2)+"</b>";
-
-}
+discountInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        calculate();
+    }
+});
 
 document.getElementById("year").textContent =
-new Date().getFullYear();
+    new Date().getFullYear();
 
 </script>
 
