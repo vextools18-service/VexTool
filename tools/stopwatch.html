@@ -1,33 +1,358 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Stopwatch - VexTools</title>
-<style>
-body{font-family:Arial;background:#070b18;color:white;text-align:center;padding:80px}
-#time{font-size:70px;margin:30px}
-button{padding:14px 25px;margin:5px;border:0;border-radius:10px;background:#7c3aed;color:white}
-</style>
-</head>
-<body>
-<h1>Stopwatch</h1>
-<div id="time">00:00:00</div>
-<button onclick="start()">Start</button>
-<button onclick="stop()">Stop</button>
-<button onclick="reset()">Reset</button>
-<script>
-let sec=0,timer=null;
-function update(){
-let h=Math.floor(sec/3600);
-let m=Math.floor(sec%3600/60);
-let s=sec%60;
-document.getElementById("time").textContent=
-[h,m,s].map(x=>String(x).padStart(2,"0")).join(":");
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- =========================
+     SEO
+========================= -->
+
+<title>Online Stopwatch — Free Stopwatch Timer | VexTools</title>
+
+<meta
+    name="description"
+    content="Use the free VexTools online stopwatch to accurately measure elapsed time. Simple, fast, and works directly in your browser."
+>
+
+<meta
+    name="keywords"
+    content="online stopwatch, stopwatch timer, free stopwatch, online timer, stopwatch online, time tracker, VexTools"
+>
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="VexTools">
+
+<meta name="theme-color" content="#070b18">
+
+
+<!-- =========================
+     Open Graph
+========================= -->
+
+<meta property="og:type" content="website">
+
+<meta
+    property="og:title"
+    content="Online Stopwatch — Free Stopwatch Timer | VexTools"
+>
+
+<meta
+    property="og:description"
+    content="Use the free VexTools online stopwatch to measure elapsed time directly in your browser."
+>
+
+<meta
+    property="og:site_name"
+    content="VexTools"
+>
+
+
+<!-- =========================
+     Twitter / X
+========================= -->
+
+<meta name="twitter:card" content="summary">
+
+<meta
+    name="twitter:title"
+    content="Online Stopwatch — VexTools"
+>
+
+<meta
+    name="twitter:description"
+    content="A simple and free online stopwatch for measuring elapsed time."
+>
+
+
+<!-- =========================
+     Structured Data
+========================= -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VexTools Online Stopwatch",
+    "description": "A free online stopwatch for measuring elapsed time directly in your browser.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    }
 }
-function start(){if(!timer)timer=setInterval(()=>{sec++;update()},1000)}
-function stop(){clearInterval(timer);timer=null}
-function reset(){stop();sec=0;update()}
 </script>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#070b18;
+    color:white;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px 15px;
+}
+
+.container{
+    width:100%;
+    max-width:700px;
+    text-align:center;
+}
+
+.logo{
+    display:inline-block;
+    color:#a78bfa;
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+    margin-bottom:15px;
+}
+
+h1{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.description{
+    color:#94a3b8;
+    margin-bottom:30px;
+}
+
+.card{
+    background:#111a30;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:30px 20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+#time{
+    font-size:70px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin:30px 0;
+    color:#f8fafc;
+    font-variant-numeric:tabular-nums;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+button{
+    min-width:130px;
+    padding:14px 25px;
+    border:0;
+    border-radius:10px;
+    background:#7c3aed;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+.stop{
+    background:#dc2626;
+}
+
+.reset{
+    background:#475569;
+}
+
+.info{
+    margin-top:25px;
+    color:#94a3b8;
+    font-size:14px;
+    line-height:1.6;
+}
+
+@media(max-width:500px){
+
+    h1{
+        font-size:30px;
+    }
+
+    #time{
+        font-size:48px;
+        letter-spacing:2px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<main class="container">
+
+    <a
+        class="logo"
+        href="../index.html"
+        aria-label="VexTools Home"
+    >
+        VexTools
+    </a>
+
+    <h1>Online Stopwatch</h1>
+
+    <p class="description">
+        Free online stopwatch to measure elapsed time quickly and accurately.
+    </p>
+
+
+    <section class="card" aria-label="Stopwatch">
+
+        <div
+            id="time"
+            role="timer"
+            aria-live="polite"
+        >
+            00:00:00
+        </div>
+
+
+        <div class="buttons">
+
+            <button
+                type="button"
+                onclick="start()"
+                aria-label="Start stopwatch"
+            >
+                ▶ Start
+            </button>
+
+            <button
+                type="button"
+                class="stop"
+                onclick="stop()"
+                aria-label="Stop stopwatch"
+            >
+                ■ Stop
+            </button>
+
+            <button
+                type="button"
+                class="reset"
+                onclick="reset()"
+                aria-label="Reset stopwatch"
+            >
+                ↻ Reset
+            </button>
+
+        </div>
+
+
+        <p class="info">
+            Start the stopwatch to begin measuring time.
+            Your timer runs directly in your browser.
+        </p>
+
+    </section>
+
+</main>
+
+
+<script>
+
+let sec = 0;
+let timer = null;
+
+
+function update(){
+
+    const h = Math.floor(sec / 3600);
+
+    const m = Math.floor((sec % 3600) / 60);
+
+    const s = sec % 60;
+
+
+    document.getElementById("time").textContent =
+        [h, m, s]
+        .map(x => String(x).padStart(2, "0"))
+        .join(":");
+
+}
+
+
+function start(){
+
+    if(!timer){
+
+        timer = setInterval(() => {
+
+            sec++;
+
+            update();
+
+        }, 1000);
+
+    }
+
+}
+
+
+function stop(){
+
+    clearInterval(timer);
+
+    timer = null;
+
+}
+
+
+function reset(){
+
+    stop();
+
+    sec = 0;
+
+    update();
+
+}
+
+
+update();
+
+</script>
+
 </body>
+
 </html>
