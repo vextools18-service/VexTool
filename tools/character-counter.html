@@ -1,14 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Character Counter - VexTools</title>
+<!-- =========================
+     SEO
+========================= -->
 
-<meta name="description" content="Free online character counter. Count characters, characters without spaces, words, lines and more instantly.">
+<title>Character Counter Online - Free Character & Word Counter | VexTools</title>
+
+<meta
+    name="description"
+    content="Use VexTools free online character counter to count characters, characters without spaces, words and lines instantly. Fast, accurate and easy to use."
+>
+
+<meta
+    name="keywords"
+    content="character counter, online character counter, free character counter, character count, word counter, letter counter, text counter, characters without spaces"
+>
+
+<meta name="author" content="VexTools">
+
+<meta name="robots" content="index, follow">
+
+<meta name="language" content="English">
+
+<meta name="theme-color" content="#070b18">
+
+<!-- Canonical -->
+
+<link
+    rel="canonical"
+    href="https://vextools18-service.github.io/VexTool/tools/character-counter.html"
+>
+
+<!-- Open Graph -->
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:title"
+    content="Character Counter Online - VexTools"
+>
+
+<meta
+    property="og:description"
+    content="Free online character counter. Count characters, characters without spaces, words and lines instantly."
+>
+
+<meta
+    property="og:url"
+    content="https://vextools18-service.github.io/VexTool/tools/character-counter.html"
+>
+
+<meta
+    property="og:site_name"
+    content="VexTools"
+>
+
+<!-- Twitter -->
+
+<meta
+    name="twitter:card"
+    content="summary"
+>
+
+<meta
+    name="twitter:title"
+    content="Character Counter Online - VexTools"
+>
+
+<meta
+    name="twitter:description"
+    content="Count characters, words, lines and characters without spaces with VexTools free online Character Counter."
+>
+
+
+<!-- =========================
+     STRUCTURED DATA
+========================= -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"VexTools Character Counter",
+  "url":"https://vextools18-service.github.io/VexTool/tools/character-counter.html",
+  "description":"Free online character counter for counting characters, characters without spaces, words and lines.",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires a modern web browser",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+
+<!-- =========================
+     CSS
+========================= -->
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -16,23 +118,39 @@
 }
 
 :root{
+
     --bg:#070b18;
+
     --card:rgba(17,25,45,.78);
+
     --text:#f8fafc;
+
     --muted:#94a3b8;
+
     --border:rgba(255,255,255,.1);
+
     --primary:#7c3aed;
+
     --secondary:#06b6d4;
+
     --input:#0d1427;
+
 }
 
 body.light{
+
     --bg:#f5f7ff;
+
     --card:rgba(255,255,255,.85);
+
     --text:#101828;
+
     --muted:#64748b;
+
     --border:rgba(15,23,42,.1);
+
     --input:#fff;
+
 }
 
 html{
@@ -40,116 +158,205 @@ html{
 }
 
 body{
+
     min-height:100vh;
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background:var(--bg);
+
     color:var(--text);
+
     transition:.4s;
+
     overflow-x:hidden;
+
 }
 
-/* BACKGROUND */
+
+/* =========================
+   BACKGROUND
+========================= */
 
 .background{
+
     position:fixed;
+
     inset:0;
+
     overflow:hidden;
+
     z-index:-1;
+
 }
 
 .orb{
+
     position:absolute;
+
     border-radius:50%;
+
     filter:blur(90px);
+
     opacity:.3;
-    animation:float 12s ease-in-out infinite;
+
+    animation:
+        float
+        12s
+        ease-in-out
+        infinite;
+
 }
 
 .orb1{
+
     width:400px;
+
     height:400px;
+
     background:#7c3aed;
+
     top:-150px;
+
     left:-120px;
+
 }
 
 .orb2{
+
     width:350px;
+
     height:350px;
+
     background:#06b6d4;
+
     right:-120px;
+
     top:40%;
+
     animation-delay:2s;
+
 }
 
 .orb3{
+
     width:300px;
+
     height:300px;
+
     background:#ec4899;
+
     bottom:-150px;
+
     left:35%;
+
     animation-delay:4s;
+
 }
 
 @keyframes float{
+
     0%,100%{
-        transform:translate(0,0) scale(1);
+
+        transform:
+            translate(0,0)
+            scale(1);
+
     }
 
     50%{
-        transform:translate(35px,-30px) scale(1.1);
+
+        transform:
+            translate(35px,-30px)
+            scale(1.1);
+
     }
+
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 header{
+
     position:fixed;
+
     top:0;
+
     left:0;
+
     right:0;
+
     z-index:100;
 
-    background:rgba(7,11,24,.6);
+    background:
+        rgba(7,11,24,.6);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:
+        blur(18px);
 
-    border-bottom:1px solid var(--border);
+    border-bottom:
+        1px solid
+        var(--border);
+
 }
 
 body.light header{
-    background:rgba(245,247,255,.7);
+
+    background:
+        rgba(245,247,255,.7);
+
 }
 
 .nav{
+
     max-width:1100px;
+
     min-height:72px;
 
     margin:auto;
+
     padding:0 20px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
 }
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
 
     color:var(--text);
+
     text-decoration:none;
 
     font-size:22px;
+
     font-weight:900;
+
 }
 
 .logoIcon{
+
     width:42px;
+
     height:42px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:13px;
@@ -163,80 +370,132 @@ body.light header{
             #06b6d4
         );
 
-    animation:logoPulse 3s infinite;
+    animation:
+        logoPulse
+        3s
+        infinite;
+
 }
 
 @keyframes logoPulse{
+
     0%,100%{
+
         transform:scale(1);
+
     }
 
     50%{
-        transform:scale(1.08) rotate(3deg);
+
+        transform:
+            scale(1.08)
+            rotate(3deg);
+
     }
+
 }
 
 .navRight{
+
     display:flex;
+
     align-items:center;
+
     gap:15px;
+
 }
 
 .back{
+
     color:var(--muted);
+
     text-decoration:none;
 
     font-size:14px;
+
     font-weight:bold;
 
     transition:.2s;
+
 }
 
 .back:hover{
+
     color:var(--text);
+
 }
 
 .theme{
+
     width:42px;
+
     height:42px;
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
+
     border-radius:12px;
 
     background:var(--card);
+
     color:var(--text);
 
     cursor:pointer;
 
     transition:.25s;
+
 }
 
 .theme:hover{
-    transform:rotate(12deg) scale(1.08);
+
+    transform:
+        rotate(12deg)
+        scale(1.08);
+
 }
 
-/* MAIN */
+
+/* =========================
+   MAIN
+========================= */
 
 main{
+
     max-width:950px;
+
     margin:auto;
 
-    padding:140px 20px 70px;
+    padding:
+        140px
+        20px
+        70px;
+
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
+
     text-align:center;
+
     margin-bottom:35px;
+
 }
 
 .badge{
+
     display:inline-block;
 
     padding:9px 16px;
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
+
     border-radius:999px;
 
     background:var(--card);
@@ -244,24 +503,41 @@ main{
     color:#a78bfa;
 
     font-size:13px;
+
     font-weight:bold;
 
-    animation:fadeUp .7s ease both;
+    animation:
+        fadeUp
+        .7s
+        ease
+        both;
+
 }
 
 h1{
+
     margin-top:20px;
 
     font-size:
-        clamp(42px,7vw,70px);
+        clamp(
+            42px,
+            7vw,
+            70px
+        );
 
     letter-spacing:-3px;
 
     animation:
-        fadeUp .8s .1s ease both;
+        fadeUp
+        .8s
+        .1s
+        ease
+        both;
+
 }
 
 .gradient{
+
     background:
         linear-gradient(
             90deg,
@@ -274,6 +550,7 @@ h1{
     background-size:300% 100%;
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
@@ -283,27 +560,38 @@ h1{
         5s
         linear
         infinite;
+
 }
 
 @keyframes gradientMove{
 
     0%{
+
         background-position:0%;
+
     }
 
     100%{
+
         background-position:300%;
+
     }
+
 }
 
 .hero p{
+
     max-width:650px;
 
-    margin:18px auto 0;
+    margin:
+        18px
+        auto
+        0;
 
     color:var(--muted);
 
     font-size:17px;
+
     line-height:1.6;
 
     animation:
@@ -312,33 +600,50 @@ h1{
         .2s
         ease
         both;
+
 }
 
 @keyframes fadeUp{
 
     from{
+
         opacity:0;
-        transform:translateY(25px);
+
+        transform:
+            translateY(25px);
+
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            translateY(0);
+
     }
+
 }
 
-/* TOOL BOX */
+
+/* =========================
+   TOOL BOX
+========================= */
 
 .toolBox{
+
     padding:25px;
 
     background:var(--card);
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius:25px;
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:
+        blur(15px);
 
     box-shadow:
         0 20px 70px
@@ -350,61 +655,89 @@ h1{
         .25s
         ease
         both;
+
 }
 
-/* TEXT AREA */
+
+/* =========================
+   TEXT AREA
+========================= */
 
 textarea{
+
     width:100%;
+
     min-height:330px;
 
     resize:vertical;
 
     padding:20px;
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius:18px;
 
     outline:none;
 
     background:var(--input);
+
     color:var(--text);
 
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     font-size:16px;
+
     line-height:1.7;
 
     transition:.3s;
+
 }
 
 textarea::placeholder{
+
     color:var(--muted);
+
 }
 
 textarea:focus{
-    border-color:var(--primary);
+
+    border-color:
+        var(--primary);
 
     box-shadow:
         0 0 30px
         rgba(124,58,237,.3);
+
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTONS
+========================= */
 
 .actions{
+
     display:flex;
 
     gap:12px;
 
     margin-top:15px;
+
 }
 
 .action{
-    padding:12px 20px;
+
+    padding:
+        12px
+        20px;
 
     border:0;
+
     border-radius:12px;
 
     cursor:pointer;
@@ -412,9 +745,11 @@ textarea:focus{
     font-weight:bold;
 
     transition:.25s;
+
 }
 
 .copy{
+
     background:
         linear-gradient(
             90deg,
@@ -423,9 +758,11 @@ textarea:focus{
         );
 
     color:#fff;
+
 }
 
 .clear{
+
     background:
         rgba(239,68,68,.1);
 
@@ -434,21 +771,31 @@ textarea:focus{
     border:
         1px solid
         rgba(239,68,68,.2);
+
 }
 
 .action:hover{
-    transform:translateY(-3px);
+
+    transform:
+        translateY(-3px);
+
 }
 
 .copy:hover{
+
     box-shadow:
         0 8px 25px
         rgba(124,58,237,.35);
+
 }
 
-/* STATS */
+
+/* =========================
+   STATS
+========================= */
 
 .stats{
+
     display:grid;
 
     grid-template-columns:
@@ -457,14 +804,20 @@ textarea:focus{
     gap:12px;
 
     margin-top:22px;
+
 }
 
 .stat{
-    padding:20px 10px;
+
+    padding:
+        20px
+        10px;
 
     text-align:center;
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius:17px;
 
@@ -472,35 +825,50 @@ textarea:focus{
         rgba(124,58,237,.06);
 
     transition:.25s;
+
 }
 
 .stat:hover{
-    transform:translateY(-5px);
 
-    border-color:var(--primary);
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--primary);
 
     box-shadow:
         0 10px 30px
         rgba(124,58,237,.2);
+
 }
 
 .number{
+
     font-size:28px;
+
     font-weight:900;
+
 }
 
 .label{
+
     margin-top:6px;
 
     color:var(--muted);
 
     font-size:12px;
+
     font-weight:bold;
+
 }
 
-/* INFO */
+
+/* =========================
+   INFO
+========================= */
 
 .info{
+
     margin-top:35px;
 
     display:grid;
@@ -509,99 +877,151 @@ textarea:focus{
         repeat(2,1fr);
 
     gap:18px;
+
 }
 
 .infoCard{
+
     padding:24px;
 
     background:var(--card);
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius:20px;
+
 }
 
 .infoCard h2{
+
     margin-bottom:10px;
+
     font-size:20px;
+
 }
 
 .infoCard p{
+
     color:var(--muted);
 
     font-size:14px;
 
     line-height:1.7;
+
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    padding:25px 20px;
+
+    padding:
+        25px
+        20px;
 
     text-align:center;
 
-    border-top:1px solid var(--border);
+    border-top:
+        1px solid
+        var(--border);
 
     color:var(--muted);
 
     font-size:13px;
+
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:700px){
 
     .back{
+
         display:none;
+
     }
 
     main{
+
         padding:
             120px
             15px
             60px;
+
     }
 
     .toolBox{
+
         padding:15px;
+
     }
 
     textarea{
+
         min-height:280px;
+
     }
 
     .stats{
+
         grid-template-columns:
             repeat(2,1fr);
+
     }
 
     .info{
+
         grid-template-columns:1fr;
+
     }
 
     .actions{
+
         flex-direction:column;
+
     }
 
     .action{
+
         width:100%;
+
     }
+
 }
 
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     BACKGROUND
+========================= -->
 
 <div class="background">
 
     <div class="orb orb1"></div>
+
     <div class="orb orb2"></div>
+
     <div class="orb orb3"></div>
 
 </div>
 
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -610,6 +1030,7 @@ footer{
     <a
         href="../index.html"
         class="logo"
+        aria-label="VexTools Home"
     >
 
         <div class="logoIcon">
@@ -633,6 +1054,8 @@ footer{
         <button
             class="theme"
             id="theme"
+            aria-label="Toggle light and dark mode"
+            type="button"
         >
             🌙
         </button>
@@ -643,6 +1066,10 @@ footer{
 
 </header>
 
+
+<!-- =========================
+     MAIN
+========================= -->
 
 <main>
 
@@ -671,12 +1098,15 @@ footer{
 </div>
 
 
+<!-- TOOL -->
+
 <div class="toolBox">
 
 
 <textarea
     id="text"
     placeholder="Type or paste your text here..."
+    aria-label="Text to count"
 ></textarea>
 
 
@@ -685,19 +1115,24 @@ footer{
     <button
         class="action copy"
         id="copy"
+        type="button"
     >
         📋 Copy Text
     </button>
 
+
     <button
         class="action clear"
         id="clear"
+        type="button"
     >
         🗑️ Clear
     </button>
 
 </div>
 
+
+<!-- STATS -->
 
 <div class="stats">
 
@@ -771,19 +1206,25 @@ footer{
 </div>
 
 
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
 <div class="info">
 
 
     <div class="infoCard">
 
         <h2>
-            🔤 Character Counter
+            🔤 Free Online Character Counter
         </h2>
 
         <p>
-            This tool counts every character
-            in your text, including spaces,
-            numbers and punctuation marks.
+            VexTools Character Counter is a free
+            online text counting tool. It counts
+            characters, characters without spaces,
+            words and lines instantly while you
+            type or paste your text.
         </p>
 
     </div>
@@ -792,13 +1233,49 @@ footer{
     <div class="infoCard">
 
         <h2>
-            💡 How to Use
+            💡 How to Use Character Counter
         </h2>
 
         <p>
-            Type or paste your text into the
-            box above. The statistics update
-            automatically as you type.
+            Type or paste your text into the box
+            above. The character, word and line
+            statistics update automatically.
+            Use the Copy Text button to copy your
+            text or Clear to start again.
+        </p>
+
+    </div>
+
+
+    <div class="infoCard">
+
+        <h2>
+            ⚡ Fast and Free
+        </h2>
+
+        <p>
+            This character counter works directly
+            in your browser. No account, download
+            or installation is required. It is
+            useful for social media posts, writing,
+            essays, descriptions and everyday text
+            counting.
+        </p>
+
+    </div>
+
+
+    <div class="infoCard">
+
+        <h2>
+            🔒 Simple Browser-Based Tool
+        </h2>
+
+        <p>
+            Your text is processed directly in your
+            browser by this tool. You can instantly
+            see the number of characters, words,
+            spaces and lines in your text.
         </p>
 
     </div>
@@ -810,75 +1287,130 @@ footer{
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-    © <span id="year"></span>
+    ©
+    <span id="year"></span>
     VexTools — Free Online Tools
 
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
-/* YEAR */
 
-document.getElementById("year").textContent =
-new Date().getFullYear();
+/* =========================
+   YEAR
+========================= */
+
+document
+    .getElementById("year")
+    .textContent =
+    new Date().getFullYear();
 
 
-/* THEME */
+/* =========================
+   THEME
+========================= */
 
 const theme =
-document.getElementById("theme");
+    document.getElementById("theme");
+
 
 const savedTheme =
-localStorage.getItem("vextools-theme");
+    localStorage.getItem(
+        "vextools-theme"
+    );
+
 
 if(savedTheme === "light"){
 
-    document.body.classList.add("light");
+    document.body.classList.add(
+        "light"
+    );
 
     theme.textContent = "🌙";
 
 }
 
-theme.addEventListener("click",()=>{
 
-    document.body.classList.toggle("light");
+/* Theme button */
 
-    const light =
-        document.body.classList.contains("light");
+theme.addEventListener(
+    "click",
+    ()=>{
 
-    localStorage.setItem(
-        "vextools-theme",
-        light ? "light" : "dark"
-    );
-
-    theme.textContent =
-        light ? "🌙" : "☀️";
-
-});
+        document.body.classList.toggle(
+            "light"
+        );
 
 
-/* ELEMENTS */
+        const light =
+            document.body.classList.contains(
+                "light"
+            );
+
+
+        localStorage.setItem(
+            "vextools-theme",
+            light
+                ? "light"
+                : "dark"
+        );
+
+
+        theme.textContent =
+            light
+                ? "🌙"
+                : "☀️";
+
+    }
+);
+
+
+/* =========================
+   ELEMENTS
+========================= */
 
 const text =
-document.getElementById("text");
+    document.getElementById("text");
+
 
 const characters =
-document.getElementById("characters");
+    document.getElementById(
+        "characters"
+    );
+
 
 const noSpaces =
-document.getElementById("noSpaces");
+    document.getElementById(
+        "noSpaces"
+    );
+
 
 const words =
-document.getElementById("words");
+    document.getElementById(
+        "words"
+    );
+
 
 const lines =
-document.getElementById("lines");
+    document.getElementById(
+        "lines"
+    );
 
 
-/* UPDATE */
+/* =========================
+   UPDATE STATS
+========================= */
 
 function updateStats(){
 
@@ -886,40 +1418,50 @@ function updateStats(){
         text.value;
 
 
-    /* CHARACTERS */
+    /* Characters */
 
     characters.textContent =
         value.length;
 
 
-    /* WITHOUT SPACES */
+    /* Characters without spaces */
 
     noSpaces.textContent =
-        value.replace(/\s/g,"").length;
+        value.replace(
+            /\s/g,
+            ""
+        ).length;
 
 
-    /* WORDS */
+    /* Words */
 
     const trimmed =
         value.trim();
 
+
     words.textContent =
         trimmed === ""
-        ? 0
-        : trimmed.split(/\s+/).length;
+            ? 0
+            : trimmed.split(
+                /\s+/
+            ).length;
 
 
-    /* LINES */
+    /* Lines */
 
     lines.textContent =
         value === ""
-        ? 0
-        : value.split(/\r?\n/).length;
+            ? 0
+            : value.split(
+                /\r?\n/
+            ).length;
 
 }
 
 
-/* LIVE */
+/* =========================
+   LIVE COUNTER
+========================= */
 
 text.addEventListener(
     "input",
@@ -927,75 +1469,95 @@ text.addEventListener(
 );
 
 
-/* CLEAR */
+/* =========================
+   CLEAR
+========================= */
 
 document
-.getElementById("clear")
-.addEventListener("click",()=>{
+    .getElementById("clear")
+    .addEventListener(
+        "click",
+        ()=>{
 
-    text.value = "";
+            text.value = "";
 
-    updateStats();
+            updateStats();
 
-    text.focus();
+            text.focus();
 
-});
+        }
+    );
 
 
-/* COPY */
+/* =========================
+   COPY
+========================= */
 
 document
-.getElementById("copy")
-.addEventListener("click",async()=>{
+    .getElementById("copy")
+    .addEventListener(
+        "click",
+        async ()=>{
 
-    if(!text.value){
+            if(!text.value){
 
-        alert(
-            "There is no text to copy."
-        );
+                alert(
+                    "There is no text to copy."
+                );
 
-        return;
-    }
+                return;
 
-
-    try{
-
-        await navigator.clipboard.writeText(
-            text.value
-        );
+            }
 
 
-        const button =
-            document.getElementById("copy");
+            try{
+
+                await navigator
+                    .clipboard
+                    .writeText(
+                        text.value
+                    );
 
 
-        const oldText =
-            button.textContent;
+                const button =
+                    document.getElementById(
+                        "copy"
+                    );
 
 
-        button.textContent =
-            "✅ Copied!";
+                const oldText =
+                    button.textContent;
 
 
-        setTimeout(()=>{
-
-            button.textContent =
-                oldText;
-
-        },1500);
+                button.textContent =
+                    "✅ Copied!";
 
 
-    }catch(error){
+                setTimeout(
+                    ()=>{
 
-        alert(
-            "Copy failed. Please copy manually."
-        );
+                        button.textContent =
+                            oldText;
 
-    }
+                    },
+                    1500
+                );
 
-});
+
+            }catch(error){
+
+                alert(
+                    "Copy failed. Please copy manually."
+                );
+
+            }
+
+        }
+    );
+
 
 </script>
+
 
 </body>
 </html>
