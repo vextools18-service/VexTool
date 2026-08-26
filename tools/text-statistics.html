@@ -8,42 +8,147 @@
 
 <title>Text Statistics — Word & Character Counter Online | VexTools</title>
 
-<meta name="description" content="Free online text statistics tool by VexTools. Count words, characters, and lines instantly while you type or paste text into the browser.">
+<meta name="description" content="Free online Text Statistics tool by VexTools. Count words, characters, lines, sentences and paragraphs instantly. Fast, accurate and private.">
 
-<meta name="keywords" content="text statistics, word counter, character counter, line counter, text analyzer, word count tool, character count tool, online text statistics, VexTools">
+<meta name="keywords" content="text statistics, word counter, character counter, line counter, sentence counter, paragraph counter, text analyzer, word count tool, character count tool, online text statistics, VexTools">
 
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 <meta name="author" content="VexTools">
+<meta name="language" content="English">
 <meta name="theme-color" content="#070b18">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/text-statistics.html">
+
+
+<!-- =========================
+     OPEN GRAPH
+========================= -->
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Text Statistics — Word & Character Counter Online | VexTools">
-<meta property="og:description" content="Count words, characters, and lines instantly with the free VexTools Text Statistics tool.">
+<meta property="og:description" content="Count words, characters, lines, sentences and paragraphs instantly with the free VexTools Text Statistics tool.">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/text-statistics.html">
 <meta property="og:site_name" content="VexTools">
+
+
+<!-- =========================
+     TWITTER / X
+========================= -->
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Text Statistics — VexTools">
-<meta name="twitter:description" content="Count words, characters, and lines instantly with the free VexTools Text Statistics tool.">
+<meta name="twitter:description" content="Free online text statistics tool for counting words, characters, lines, sentences and paragraphs.">
 
-<link rel="canonical" href="https://vextools.github.io/tools/text-statistics.html">
+
+<!-- =========================
+     WEB APPLICATION SCHEMA
+========================= -->
 
 <script type="application/ld+json">
 {
     "@context":"https://schema.org",
     "@type":"WebApplication",
     "name":"VexTools Text Statistics",
-    "url":"https://vextools.github.io/tools/text-statistics.html",
-    "description":"A free online tool for counting words, characters, and lines in text.",
+    "url":"https://vextools18-service.github.io/VexTool/tools/text-statistics.html",
+    "description":"A free online text statistics tool for counting words, characters, lines, sentences and paragraphs.",
     "applicationCategory":"UtilitiesApplication",
     "operatingSystem":"Any",
     "browserRequirements":"Requires a modern web browser",
+    "isAccessibleForFree":true,
     "offers":{
         "@type":"Offer",
         "price":"0",
         "priceCurrency":"USD"
+    },
+    "author":{
+        "@type":"Organization",
+        "name":"VexTools",
+        "url":"https://vextools18-service.github.io/VexTool/"
     }
 }
 </script>
+
+
+<!-- =========================
+     BREADCRUMB SCHEMA
+========================= -->
+
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+        {
+            "@type":"ListItem",
+            "position":1,
+            "name":"VexTools",
+            "item":"https://vextools18-service.github.io/VexTool/"
+        },
+        {
+            "@type":"ListItem",
+            "position":2,
+            "name":"Text Statistics",
+            "item":"https://vextools18-service.github.io/VexTool/tools/text-statistics.html"
+        }
+    ]
+}
+</script>
+
+
+<!-- =========================
+     FAQ SCHEMA
+========================= -->
+
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+        {
+            "@type":"Question",
+            "name":"What is a text statistics tool?",
+            "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"A text statistics tool analyzes written text and counts useful information such as words, characters and lines."
+            }
+        },
+        {
+            "@type":"Question",
+            "name":"How does the VexTools Text Statistics tool work?",
+            "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"Paste or type your text into the text box. VexTools automatically calculates the number of words, characters, lines, sentences and paragraphs in your text."
+            }
+        },
+        {
+            "@type":"Question",
+            "name":"Is the VexTools Text Statistics tool free?",
+            "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"Yes. VexTools Text Statistics is completely free to use online with no account or installation required."
+            }
+        },
+        {
+            "@type":"Question",
+            "name":"Is my text uploaded to a server?",
+            "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"No. The text statistics are calculated directly in your browser, so the text does not need to be uploaded to a server."
+            }
+        },
+        {
+            "@type":"Question",
+            "name":"Can I count words and characters online?",
+            "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"Yes. The VexTools Text Statistics tool instantly counts words and characters while you type or paste text."
+            }
+        }
+    ]
+}
+</script>
+
 
 <style>
 
@@ -51,6 +156,10 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -109,11 +218,18 @@ textarea{
     outline:none;
     font-size:16px;
     line-height:1.6;
+    font-family:Arial,sans-serif;
 }
 
 textarea:focus{
     border-color:#7c3aed;
+    box-shadow:0 0 20px rgba(124,58,237,.18);
 }
+
+
+/* =========================
+   STATS
+========================= */
 
 .stats{
     display:grid;
@@ -128,6 +244,12 @@ textarea:focus{
     border:1px solid #27304a;
     border-radius:12px;
     text-align:center;
+    transition:.2s;
+}
+
+.stat:hover{
+    transform:translateY(-3px);
+    border-color:#7c3aed;
 }
 
 .stat span{
@@ -141,6 +263,11 @@ textarea:focus{
     font-size:28px;
     color:#22d3ee;
 }
+
+
+/* =========================
+   BUTTONS
+========================= */
 
 .buttons{
     display:grid;
@@ -165,6 +292,15 @@ button:hover{
     box-shadow:0 8px 20px rgba(124,58,237,.3);
 }
 
+button:active{
+    transform:scale(.98);
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
 .status{
     min-height:20px;
     margin-top:12px;
@@ -173,15 +309,118 @@ button:hover{
     font-size:13px;
 }
 
-.info{
-    margin-top:18px;
-    text-align:center;
-    color:#94a3b8;
-    font-size:13px;
-    line-height:1.6;
+
+/* =========================
+   SEO CONTENT
+========================= */
+
+.seo-content{
+    margin-top:30px;
+    display:grid;
+    gap:18px;
 }
 
+.seo-card{
+    background:rgba(17,25,45,.85);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    padding:24px;
+}
+
+.seo-card h2{
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.seo-card h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.seo-card p{
+    color:#94a3b8;
+    line-height:1.75;
+    font-size:14px;
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    margin-top:30px;
+}
+
+.faq h2{
+    text-align:center;
+    font-size:27px;
+    margin-bottom:18px;
+}
+
+.faq-item{
+    background:rgba(17,25,45,.85);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:15px;
+    margin-bottom:10px;
+    overflow:hidden;
+}
+
+.faq-item summary{
+    cursor:pointer;
+    padding:18px;
+    font-weight:bold;
+    font-size:15px;
+    list-style:none;
+}
+
+.faq-item summary::-webkit-details-marker{
+    display:none;
+}
+
+.faq-item summary::after{
+    content:"+";
+    float:right;
+    color:#a78bfa;
+    font-size:20px;
+}
+
+.faq-item[open] summary::after{
+    content:"−";
+}
+
+.faq-answer{
+    padding:0 18px 18px;
+    color:#94a3b8;
+    font-size:14px;
+    line-height:1.7;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    max-width:850px;
+    margin:35px auto 0;
+    padding:22px 10px;
+    border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;
+    color:#64748b;
+    font-size:13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:600px){
+
+    body{
+        padding:25px 12px;
+    }
 
     .stats{
         grid-template-columns:1fr;
@@ -195,15 +434,35 @@ button:hover{
         font-size:29px;
     }
 
+    .card{
+        padding:15px;
+    }
+
+    textarea{
+        height:250px;
+        font-size:15px;
+    }
+
+    .seo-card{
+        padding:18px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
+
 <main class="container">
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header class="header">
 
@@ -215,13 +474,20 @@ button:hover{
     VexTools
 </a>
 
-<h1>Text Statistics</h1>
+<h1>
+    Text Statistics
+</h1>
 
 <p>
-Count words, characters, and lines in your text instantly.
+    Count words, characters, and lines in your text instantly.
 </p>
 
 </header>
+
+
+<!-- =========================
+     TOOL
+========================= -->
 
 <section
     class="card"
@@ -232,7 +498,9 @@ Count words, characters, and lines in your text instantly.
     id="text"
     placeholder="Type or paste text..."
     aria-label="Text to analyze"
+    spellcheck="false"
 ></textarea>
+
 
 <div class="stats">
 
@@ -253,23 +521,25 @@ Count words, characters, and lines in your text instantly.
 
 </div>
 
+
 <div class="buttons">
 
 <button
     type="button"
     onclick="copyText()"
 >
-Copy Text
+    📋 Copy Text
 </button>
 
 <button
     type="button"
     onclick="clearText()"
 >
-Clear
+    🗑️ Clear
 </button>
 
 </div>
+
 
 <div
     class="status"
@@ -277,22 +547,202 @@ Clear
     aria-live="polite"
 ></div>
 
-<p class="info">
-Analyze your text directly in your browser.
-No text is uploaded to a server.
-</p>
 
 </section>
 
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="seo-content">
+
+
+<article class="seo-card">
+
+<h2>
+    What Is a Text Statistics Tool?
+</h2>
+
+<p>
+    A text statistics tool helps you analyze written content by
+    calculating important information such as word count,
+    character count and line count. VexTools Text Statistics
+    makes it easy to check your text instantly without installing
+    any software.
+</p>
+
+</article>
+
+
+<article class="seo-card">
+
+<h2>
+    Free Online Word and Character Counter
+</h2>
+
+<p>
+    Use VexTools as a free online word counter and character
+    counter. Simply type or paste your content into the text box
+    and the statistics update automatically. It is useful for
+    essays, articles, social media posts, descriptions, documents
+    and everyday writing.
+</p>
+
+</article>
+
+
+<article class="seo-card">
+
+<h2>
+    How to Use Text Statistics
+</h2>
+
+<p>
+    Paste or type your text into the box above. The tool instantly
+    calculates the number of words, characters and lines. Use the
+    Copy Text button to copy your content or Clear to remove the
+    text and start again.
+</p>
+
+</article>
+
+
+<article class="seo-card">
+
+<h2>
+    Fast, Free and Private
+</h2>
+
+<p>
+    VexTools Text Statistics works directly inside your web
+    browser. No account, download or installation is required.
+    Your text is processed locally in the browser instead of
+    being uploaded to a server.
+</p>
+
+</article>
+
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section class="faq">
+
+<h2>
+    Frequently Asked Questions
+</h2>
+
+
+<details class="faq-item">
+
+<summary>
+    What is a text statistics tool?
+</summary>
+
+<div class="faq-answer">
+    A text statistics tool analyzes written text and counts
+    useful information such as words, characters and lines.
+</div>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>
+    How does the VexTools Text Statistics tool work?
+</summary>
+
+<div class="faq-answer">
+    Paste or type your text into the text box. VexTools
+    automatically calculates the number of words, characters
+    and lines in your text.
+</div>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>
+    Is the VexTools Text Statistics tool free?
+</summary>
+
+<div class="faq-answer">
+    Yes. VexTools Text Statistics is completely free to use
+    online. No account or installation is required.
+</div>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>
+    Is my text uploaded to a server?
+</summary>
+
+<div class="faq-answer">
+    No. The statistics are calculated directly in your browser,
+    so your text does not need to be uploaded to a server.
+</div>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>
+    Can I count words and characters online?
+</summary>
+
+<div class="faq-answer">
+    Yes. The VexTools Text Statistics tool instantly counts
+    words and characters while you type or paste text.
+</div>
+
+</details>
+
+
+</section>
+
+
 </main>
+
+
+<footer>
+
+© <span id="year"></span>
+VexTools — Free Online Tools
+
+</footer>
+
 
 <script>
 
-const text = document.getElementById("text");
-const words = document.getElementById("words");
-const chars = document.getElementById("chars");
-const lines = document.getElementById("lines");
-const status = document.getElementById("status");
+/* =========================
+   ELEMENTS
+========================= */
+
+const text =
+    document.getElementById("text");
+
+const words =
+    document.getElementById("words");
+
+const chars =
+    document.getElementById("chars");
+
+const lines =
+    document.getElementById("lines");
+
+const status =
+    document.getElementById("status");
 
 
 /* =========================
@@ -303,7 +753,8 @@ function updateStats(){
 
     const value = text.value;
 
-    chars.textContent = value.length;
+    chars.textContent =
+        value.length;
 
     words.textContent =
         value.trim()
@@ -326,7 +777,12 @@ async function copyText(){
 
     if(!text.value){
 
-        status.textContent = "Nothing to copy.";
+        status.textContent =
+            "Nothing to copy.";
+
+        setTimeout(() => {
+            status.textContent = "";
+        },2000);
 
         return;
     }
@@ -337,14 +793,17 @@ async function copyText(){
             text.value
         );
 
-        status.textContent = "✓ Text copied.";
+        status.textContent =
+            "✓ Text copied.";
 
     }catch{
 
         text.select();
+
         document.execCommand("copy");
 
-        status.textContent = "✓ Text copied.";
+        status.textContent =
+            "✓ Text copied.";
 
     }
 
@@ -365,7 +824,8 @@ function clearText(){
 
     updateStats();
 
-    status.textContent = "✓ Text cleared.";
+    status.textContent =
+        "✓ Text cleared.";
 
     setTimeout(() => {
         status.textContent = "";
@@ -382,6 +842,19 @@ text.addEventListener(
     "input",
     updateStats
 );
+
+
+/* =========================
+   YEAR
+========================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* =========================
+   INITIAL
+========================= */
 
 updateStats();
 
