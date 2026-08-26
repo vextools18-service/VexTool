@@ -1,42 +1,538 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Color Converter — VexTools</title>
-<style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
-.container{max-width:700px;margin:auto}
-input{width:100%;padding:15px;margin:10px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
-button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px}
-.result{margin-top:20px;background:#111a30;padding:20px;border-radius:12px}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>🌈 Color Converter</h1>
-<p>Convert HEX colors into RGB values.</p>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<input id="hexInput" placeholder="#7c3aed">
-<button onclick="convert()">Convert</button>
+<!-- SEO -->
+<title>Color Converter - HEX to RGB Online | VexTools</title>
 
-<div class="result" id="result">Result will appear here.</div>
-</div>
+<meta name="description"
+content="Free online color converter to convert HEX colors to RGB values instantly. Simple, fast and easy HEX to RGB color conversion tool by VexTools.">
 
-<script>
-function convert(){
-let h=hexInput.value.trim().replace("#","");
-if(!/^[0-9a-fA-F]{6}$/.test(h)){
-result.textContent="Please enter a valid 6-digit HEX color.";
-return;
-}
+<meta name="keywords"
+content="color converter, HEX to RGB, hex to rgb converter, color conversion tool, online color converter, RGB converter, free color tools, VexTools">
 
-let r=parseInt(h.substring(0,2),16);
-let g=parseInt(h.substring(2,4),16);
-let b=parseInt(h.substring(4,6),16);
+<meta name="robots" content="index, follow">
 
-result.innerHTML=`HEX: #${h.toUpperCase()}<br>RGB: rgb(${r}, ${g}, ${b})`;
+<link rel="canonical"
+href="https://vextools18-service.github.io/VexTool/tools/color-converter.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+content="Color Converter - HEX to RGB Online | VexTools">
+
+<meta property="og:description"
+content="Convert HEX colors to RGB values instantly with the free VexTools Color Converter.">
+
+<meta property="og:url"
+content="https://vextools18-service.github.io/VexTool/tools/color-converter.html">
+
+<meta property="og:site_name" content="VexTools">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title"
+content="Color Converter - HEX to RGB Online | VexTools">
+
+<meta name="twitter:description"
+content="Free online HEX to RGB color converter. Convert colors instantly with VexTools.">
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a HEX to RGB color converter?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A HEX to RGB color converter converts a hexadecimal color value such as #7c3aed into its corresponding RGB red, green and blue values."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I convert HEX to RGB?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter a valid 6-digit HEX color into the VexTools Color Converter and click Convert. The tool will instantly display the RGB values."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is the VexTools Color Converter free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Color Converter is free to use online."
+      }
+    }
+  ]
 }
 </script>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070b18;
+    color:white;
+    min-height:100vh;
+    padding:30px 20px;
+}
+
+.container{
+    max-width:750px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin:30px 0;
+}
+
+.logo{
+    display:inline-block;
+    color:#a78bfa;
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+    margin-bottom:18px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.header p{
+    color:#94a3b8;
+    line-height:1.6;
+}
+
+.card{
+    background:rgba(17,25,45,.88);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    color:#cbd5e1;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin:10px 0 15px;
+    background:#111a30;
+    color:white;
+    border:1px solid #27304a;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+}
+
+input:focus{
+    border-color:#7c3aed;
+    box-shadow:0 0 20px rgba(124,58,237,.2);
+}
+
+button{
+    width:100%;
+    padding:14px 25px;
+    background:linear-gradient(90deg,#7c3aed,#06b6d4);
+    color:white;
+    border:0;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.result{
+    margin-top:20px;
+    background:#111a30;
+    padding:20px;
+    border-radius:12px;
+    line-height:2;
+    min-height:70px;
+}
+
+.color-preview{
+    width:100%;
+    height:100px;
+    border-radius:12px;
+    margin-top:15px;
+    border:1px solid rgba(255,255,255,.15);
+    display:none;
+}
+
+.info{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.info-card{
+    background:rgba(17,25,45,.75);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:15px;
+    padding:20px;
+}
+
+.info-card h2{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.info-card p{
+    color:#94a3b8;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.faq{
+    margin-top:30px;
+    background:rgba(17,25,45,.75);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    padding:22px;
+}
+
+.faq h2{
+    margin-bottom:15px;
+}
+
+.faq-item{
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.faq-item:last-child{
+    border-bottom:0;
+}
+
+.faq-item h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.faq-item p{
+    color:#94a3b8;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.back{
+    display:block;
+    margin-top:25px;
+    color:#a78bfa;
+    text-decoration:none;
+    text-align:center;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    color:#64748b;
+    margin-top:35px;
+    font-size:13px;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:20px 15px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+
+        <a href="../index.html" class="logo">
+            VexTools
+        </a>
+
+        <h1>🌈 Color Converter</h1>
+
+        <p>
+            Convert HEX colors to RGB values instantly with this free
+            online color converter.
+        </p>
+
+    </header>
+
+
+    <main>
+
+        <section class="card">
+
+            <label for="hexInput">
+                HEX Color
+            </label>
+
+            <input
+                id="hexInput"
+                type="text"
+                placeholder="#7c3aed"
+                maxlength="7"
+                autocomplete="off"
+            >
+
+            <button id="convertBtn">
+                Convert HEX to RGB
+            </button>
+
+            <div
+                class="result"
+                id="result"
+                aria-live="polite"
+            >
+                Result will appear here.
+            </div>
+
+            <div
+                class="color-preview"
+                id="preview"
+            ></div>
+
+        </section>
+
+
+        <section class="info">
+
+            <div class="info-card">
+
+                <h2>🎨 HEX to RGB Converter</h2>
+
+                <p>
+                    VexTools Color Converter makes it easy to convert
+                    hexadecimal color codes into RGB values. Enter a
+                    6-digit HEX color and get the RGB result instantly.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h2>⚡ Fast & Free</h2>
+
+                <p>
+                    This online color conversion tool is free to use
+                    and works directly in your browser without requiring
+                    additional software.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="faq">
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+
+                <h3>
+                    What is a HEX to RGB color converter?
+                </h3>
+
+                <p>
+                    A HEX to RGB converter changes a hexadecimal color
+                    code into its red, green and blue RGB values.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    How do I convert HEX to RGB?
+                </h3>
+
+                <p>
+                    Enter a valid 6-digit HEX color such as #7c3aed
+                    and click the Convert button. Your RGB values will
+                    appear instantly.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    Is this color converter free?
+                </h3>
+
+                <p>
+                    Yes. VexTools provides this HEX to RGB converter
+                    completely free online.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <a
+        class="back"
+        href="../index.html"
+    >
+        ← Back to VexTools
+    </a>
+
+
+    <footer>
+        © <span id="year"></span> VexTools — Free Online Tools
+    </footer>
+
+</div>
+
+
+<script>
+
+const hexInput =
+    document.getElementById("hexInput");
+
+const result =
+    document.getElementById("result");
+
+const preview =
+    document.getElementById("preview");
+
+const convertBtn =
+    document.getElementById("convertBtn");
+
+
+function convert(){
+
+    let h =
+        hexInput.value
+        .trim()
+        .replace("#","");
+
+
+    if(!/^[0-9a-fA-F]{6}$/.test(h)){
+
+        result.innerHTML =
+            "❌ Please enter a valid 6-digit HEX color.";
+
+        preview.style.display="none";
+
+        return;
+    }
+
+
+    let r =
+        parseInt(
+            h.substring(0,2),
+            16
+        );
+
+    let g =
+        parseInt(
+            h.substring(2,4),
+            16
+        );
+
+    let b =
+        parseInt(
+            h.substring(4,6),
+            16
+        );
+
+
+    const hex =
+        "#" + h.toUpperCase();
+
+    const rgb =
+        `rgb(${r}, ${g}, ${b})`;
+
+
+    result.innerHTML =
+        `
+        <strong>HEX:</strong> ${hex}<br>
+        <strong>RGB:</strong> ${rgb}
+        `;
+
+
+    preview.style.display="block";
+
+    preview.style.backgroundColor =
+        hex;
+
+}
+
+
+convertBtn.addEventListener(
+    "click",
+    convert
+);
+
+
+hexInput.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Enter"){
+            convert();
+        }
+
+    }
+);
+
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
 </body>
 </html>
