@@ -3,30 +3,344 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>UUID Generator — VexTools</title>
-<style>
-body{font-family:Arial;background:#070b18;color:white;padding:60px 20px;text-align:center}
-.container{max-width:700px;margin:auto}
-.result{margin:30px 0;padding:25px;background:#111a30;border-radius:12px;font-family:monospace;font-size:18px;word-break:break-all}
-button{padding:15px 25px;background:#7c3aed;color:white;border:0;border-radius:10px;cursor:pointer}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>🆔 UUID Generator</h1>
-<p>Generate unique UUIDs instantly.</p>
-<div class="result" id="result">Click Generate</div>
-<button onclick="generate()">Generate UUID</button>
-<button onclick="copy()">Copy</button>
-</div>
-<script>
-function generate(){
-result.textContent=crypto.randomUUID();
-}
-function copy(){
-navigator.clipboard.writeText(result.textContent);
-alert("UUID copied!");
+
+<!-- SEO -->
+<title>UUID Generator — Generate UUID v4 Online Free | VexTools</title>
+
+<meta name="description" content="Generate unique UUIDs instantly with the free VexTools UUID Generator. Create random UUID version 4 identifiers online and copy them with one click.">
+<meta name="keywords" content="UUID generator, UUID v4 generator, random UUID generator, generate UUID online, UUID generator online, unique ID generator, GUID generator, free UUID tool, VexTools">
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="theme-color" content="#070b18">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://vextools.github.io/tools/uuid-generator/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="UUID Generator — Generate UUID v4 Online Free | VexTools">
+<meta property="og:description" content="Generate random UUID v4 identifiers instantly with the free VexTools UUID Generator.">
+<meta property="og:url" content="https://vextools.github.io/tools/uuid-generator/">
+<meta property="og:site_name" content="VexTools">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UUID Generator — VexTools">
+<meta name="twitter:description" content="Generate random UUID v4 identifiers instantly with the free VexTools UUID Generator.">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"UUID Generator",
+  "url":"https://vextools.github.io/tools/uuid-generator/",
+  "description":"Free online UUID v4 generator for creating random unique identifiers.",
+  "applicationCategory":"DeveloperApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
 }
 </script>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:40px 20px;
+text-align:center;
+min-height:100vh;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+}
+
+.header{
+margin-bottom:25px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:15px;
+}
+
+h1{
+font-size:34px;
+margin:10px 0 8px;
+}
+
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+.card{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+margin-top:25px;
+}
+
+.result{
+margin:25px 0 15px;
+padding:25px;
+background:#111a30;
+border:1px solid #27304a;
+border-radius:12px;
+font-family:monospace;
+font-size:18px;
+word-break:break-all;
+color:#22d3ee;
+min-height:70px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+}
+
+button{
+flex:1;
+padding:14px 25px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
+}
+
+.copy{
+background:#06b6d4;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+
+.info{
+margin-top:25px;
+padding:22px;
+background:#111a30;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+text-align:left;
+color:#cbd5e1;
+line-height:1.7;
+}
+
+.info h2{
+color:white;
+font-size:20px;
+margin-bottom:8px;
+}
+
+.info h3{
+color:white;
+margin-top:18px;
+margin-bottom:6px;
+}
+
+@media(max-width:600px){
+
+body{
+padding:30px 15px;
+}
+
+h1{
+font-size:28px;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+.result{
+font-size:15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<a
+class="logo"
+href="../index.html"
+aria-label="VexTools Home"
+>
+VexTools
+</a>
+
+<h1>🆔 UUID Generator</h1>
+
+<p>
+Generate unique UUID version 4 identifiers instantly.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div
+class="result"
+id="result"
+aria-live="polite"
+>
+Click Generate
+</div>
+
+<div class="buttons">
+
+<button
+onclick="generate()"
+type="button"
+>
+Generate UUID
+</button>
+
+<button
+class="copy"
+onclick="copyUUID()"
+type="button"
+>
+Copy
+</button>
+
+</div>
+
+</div>
+
+
+<a
+class="back"
+href="../index.html"
+>
+← Back to VexTools
+</a>
+
+
+<div class="info">
+
+<h2>Free UUID Generator</h2>
+
+<p>
+The VexTools UUID Generator creates random UUID version 4
+identifiers directly in your browser. UUIDs can be useful
+for software development, databases, APIs, applications
+and other projects that require unique identifiers.
+</p>
+
+<h3>What is a UUID?</h3>
+
+<p>
+UUID stands for Universally Unique Identifier. It is a
+128-bit identifier commonly represented as a string of
+letters, numbers and hyphens.
+</p>
+
+<h3>What is UUID v4?</h3>
+
+<p>
+UUID version 4 uses randomly generated values to create
+an identifier. This tool uses your browser's built-in
+cryptographic UUID generator when supported.
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+const result=document.getElementById("result");
+
+function generate(){
+
+if(
+window.crypto &&
+typeof crypto.randomUUID==="function"
+){
+
+result.textContent=crypto.randomUUID();
+
+}else{
+
+const uuid=
+"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+/[xy]/g,
+function(c){
+
+const r=Math.random()*16|0;
+const v=c==="x"?r:(r&0x3|0x8);
+
+return v.toString(16);
+
+}
+);
+
+result.textContent=uuid;
+
+}
+
+}
+
+
+function copyUUID(){
+
+const uuid=result.textContent;
+
+if(
+!uuid ||
+uuid==="Click Generate"
+){
+
+return;
+
+}
+
+navigator.clipboard.writeText(uuid);
+
+}
+
+</script>
+
 </body>
 </html>
