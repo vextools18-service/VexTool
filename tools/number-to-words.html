@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -18,6 +19,7 @@
 <meta property="og:description" content="Convert numbers into English words instantly with the free VexTools Number to Words Converter.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/number-to-words.html">
+<meta property="og:site_name" content="VexTools">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Number to Words Converter Online Free — VexTools">
@@ -41,51 +43,181 @@
 </script>
 
 <style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
 body{
-font-family:Arial;
-background:#070b18;
-color:white;
-padding:50px 20px
+    font-family:Arial,sans-serif;
+    background:#070b18;
+    color:#f8fafc;
+    min-height:100vh;
+    padding:30px 15px;
+    line-height:1.6;
 }
 
 .container{
-max-width:700px;
-margin:auto
+    max-width:800px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin:25px 0 35px;
+}
+
+.logo{
+    display:inline-block;
+    color:#a78bfa;
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+}
+
+.header h1{
+    font-size:clamp(32px,6vw,48px);
+    margin:15px 0 8px;
+}
+
+.header h1 span{
+    color:#22d3ee;
+}
+
+.header p{
+    color:#94a3b8;
+}
+
+.card{
+    background:#11192d;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:700;
 }
 
 input{
-width:100%;
-padding:16px;
-background:#111a30;
-color:white;
-border:1px solid #27304a;
-border-radius:10px;
-margin:20px 0
+    width:100%;
+    padding:15px;
+    background:#0d1427;
+    color:white;
+    border:1px solid #27304a;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+}
+
+input:focus{
+    border-color:#8b5cf6;
+    box-shadow:0 0 20px rgba(124,58,237,.2);
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
 }
 
 button{
-padding:14px 25px;
-background:#7c3aed;
-color:white;
-border:0;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold
+    flex:1;
+    padding:14px 20px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(90deg,#7c3aed,#06b6d4);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
 }
 
 button:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(124,58,237,.3)
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+button.secondary{
+    background:#27304a;
 }
 
 .result{
-margin-top:20px;
-padding:20px;
-background:#111a30;
-border-radius:12px;
-line-height:1.7;
-word-wrap:break-word
+    margin-top:20px;
+    padding:20px;
+    min-height:70px;
+    background:#0d1427;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+    color:#22d3ee;
+    font-size:18px;
+    word-wrap:break-word;
 }
+
+.result.error{
+    color:#fca5a5;
+}
+
+.info{
+    margin-top:45px;
+}
+
+.info h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.info p{
+    color:#94a3b8;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.back{
+    display:inline-block;
+    margin-top:25px;
+    color:#a78bfa;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.back:hover{
+    color:white;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:20px 12px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+        transition:none!important;
+    }
+
+}
+
 </style>
 
 </head>
@@ -94,125 +226,253 @@ word-wrap:break-word
 
 <div class="container">
 
-<h1>🔢 Number to Words</h1>
+<header class="header">
+
+<a class="logo" href="../index.html">
+VexTools
+</a>
+
+<h1>
+Number to <span>Words</span>
+</h1>
 
 <p>
-Convert numbers into English words.
+Convert numbers into English words instantly.
 </p>
 
+</header>
+
+<main class="card">
+
+<label for="number">
+Enter a number
+</label>
+
 <input
-id="number"
-type="number"
-placeholder="Enter number"
+    id="number"
+    type="number"
+    min="0"
+    max="999999"
+    step="1"
+    placeholder="Example: 123456"
+    aria-label="Enter a number from 0 to 999999"
 >
 
-<button onclick="convert()">
-Convert
+<div class="actions">
+
+<button
+    type="button"
+    onclick="convertNumber()">
+    🔢 Convert
 </button>
 
-<div class="result" id="result">
+<button
+    type="button"
+    class="secondary"
+    onclick="clearNumber()">
+    🗑️ Clear
+</button>
+
 </div>
+
+<div
+    class="result"
+    id="result"
+    aria-live="polite">
+    Enter a number to see it in words.
+</div>
+
+</main>
+
+<section class="info">
+
+<h2>
+Free Number to Words Converter
+</h2>
+
+<p>
+VexTools Number to Words Converter is a free online tool
+that converts numbers from 0 to 999999 into English words.
+It works directly in your browser without requiring any
+software installation.
+</p>
+
+<p>
+Enter a whole number and click Convert to instantly see
+the number written in English words. The tool also supports
+keyboard shortcuts and includes a clear button for quickly
+starting a new conversion.
+</p>
+
+</section>
+
+<a
+    class="back"
+    href="../index.html">
+    ← Back to VexTools
+</a>
 
 </div>
 
 <script>
 
-const ones=[
-"",
-"one",
-"two",
-"three",
-"four",
-"five",
-"six",
-"seven",
-"eight",
-"nine",
-"ten",
-"eleven",
-"twelve",
-"thirteen",
-"fourteen",
-"fifteen",
-"sixteen",
-"seventeen",
-"eighteen",
-"nineteen"
-];
-
-const tens=[
-"",
-"",
-"twenty",
-"thirty",
-"forty",
-"fifty",
-"sixty",
-"seventy",
-"eighty",
-"ninety"
-];
-
-
-function words(n){
-
-if(n===0)
-return "zero";
-
-if(n<20)
-return ones[n];
-
-if(n<100)
-return tens[Math.floor(n/10)]
-+
-(n%10 ? " "+ones[n%10] : "");
-
-if(n<1000)
-return ones[Math.floor(n/100)]
-+
-" hundred"
-+
-(n%100 ? " "+words(n%100) : "");
-
-if(n<1000000)
-return words(Math.floor(n/1000))
-+
-" thousand"
-+
-(n%1000 ? " "+words(n%1000) : "");
-
-return "Number too large";
-
-}
-
-
-function convert(){
-
-let n =
-Number(
-document.getElementById("number").value
-);
+const numberInput =
+    document.getElementById("number");
 
 const result =
-document.getElementById("result");
+    document.getElementById("result");
 
-if(
-!Number.isInteger(n) ||
-n<0 ||
-n>=1000000
-){
+const ones = [
+    "",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen"
+];
 
-result.textContent =
-"Enter a number from 0 to 999999.";
+const tens = [
+    "",
+    "",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety"
+];
 
-return;
+function numberToWords(n){
+
+    if(n === 0){
+        return "zero";
+    }
+
+    if(n < 20){
+        return ones[n];
+    }
+
+    if(n < 100){
+
+        return tens[Math.floor(n / 10)] +
+            (n % 10 ? " " + ones[n % 10] : "");
+
+    }
+
+    if(n < 1000){
+
+        return ones[Math.floor(n / 100)] +
+            " hundred" +
+            (n % 100 ? " " + numberToWords(n % 100) : "");
+
+    }
+
+    if(n < 1000000){
+
+        return numberToWords(Math.floor(n / 1000)) +
+            " thousand" +
+            (n % 1000 ? " " + numberToWords(n % 1000) : "");
+
+    }
+
+    return "Number too large";
 
 }
 
-result.textContent =
-words(n);
+function convertNumber(){
+
+    const value =
+        numberInput.value.trim();
+
+    result.classList.remove("error");
+
+    if(value === ""){
+
+        result.textContent =
+            "Please enter a number.";
+
+        result.classList.add("error");
+
+        return;
+
+    }
+
+    const n =
+        Number(value);
+
+    if(
+        !Number.isInteger(n) ||
+        n < 0 ||
+        n > 999999
+    ){
+
+        result.textContent =
+            "Please enter a whole number from 0 to 999999.";
+
+        result.classList.add("error");
+
+        return;
+
+    }
+
+    result.textContent =
+        numberToWords(n)
+            .charAt(0)
+            .toUpperCase() +
+        numberToWords(n).slice(1) +
+        ".";
 
 }
+
+function clearNumber(){
+
+    numberInput.value = "";
+
+    result.textContent =
+        "Enter a number to see it in words.";
+
+    result.classList.remove("error");
+
+    numberInput.focus();
+
+}
+
+numberInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            convertNumber();
+
+        }
+
+        if(event.key === "Escape"){
+
+            clearNumber();
+
+        }
+
+    }
+);
 
 </script>
 
