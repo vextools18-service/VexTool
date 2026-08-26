@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -6,11 +7,6 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<!-- =========================
-     SEO
-========================= -->
 
 <title>Text to Binary Converter — Convert Text to Binary Online | VexTools</title>
 
@@ -30,11 +26,6 @@
 
 <meta name="theme-color" content="#070b18">
 
-
-<!-- =========================
-     Open Graph
-========================= -->
-
 <meta property="og:type" content="website">
 
 <meta
@@ -49,11 +40,6 @@
 
 <meta property="og:site_name" content="VexTools">
 
-
-<!-- =========================
-     Twitter / X
-========================= -->
-
 <meta name="twitter:card" content="summary">
 
 <meta
@@ -65,11 +51,6 @@
     name="twitter:description"
     content="Convert text into binary code quickly with the free VexTools online converter."
 >
-
-
-<!-- =========================
-     Structured Data
-========================= -->
 
 <script type="application/ld+json">
 {
@@ -87,7 +68,6 @@
     }
 }
 </script>
-
 
 <style>
 
@@ -160,6 +140,12 @@ textarea:focus{
     border-color:#7c3aed;
 }
 
+.buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
 button{
     width:100%;
     padding:14px;
@@ -175,6 +161,10 @@ button{
 button:hover{
     transform:translateY(-2px);
     box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+button.secondary{
+    background:#334155;
 }
 
 .info{
@@ -195,12 +185,15 @@ button:hover{
         padding:30px 15px;
     }
 
+    .buttons{
+        grid-template-columns:1fr;
+    }
+
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -224,7 +217,6 @@ Convert text into binary code instantly.
 
 </header>
 
-
 <section
     class="card"
     aria-label="Text to Binary Converter"
@@ -236,6 +228,7 @@ Convert text into binary code instantly.
     aria-label="Text input"
 ></textarea>
 
+<div class="buttons">
 
 <button
     type="button"
@@ -244,6 +237,15 @@ Convert text into binary code instantly.
     Convert to Binary
 </button>
 
+<button
+    type="button"
+    class="secondary"
+    onclick="copyBinary()"
+>
+    Copy Binary
+</button>
+
+</div>
 
 <textarea
     id="output"
@@ -251,7 +253,6 @@ Convert text into binary code instantly.
     placeholder="Binary result..."
     aria-label="Binary output"
 ></textarea>
-
 
 <p class="info">
 Convert text to binary directly in your browser.
@@ -262,25 +263,58 @@ Your text is processed locally and is not uploaded to a server.
 
 </main>
 
-
 <script>
+
+const input = document.getElementById("input");
+const output = document.getElementById("output");
+
 
 function convert(){
 
-    const input =
-        document.getElementById("input");
+    if(!input.value){
 
-    const output =
-        document.getElementById("output");
+        output.value = "";
+
+        return;
+
+    }
+
+    const bytes =
+        new TextEncoder().encode(input.value);
 
     output.value =
-        [...input.value]
-        .map(c =>
-            c.charCodeAt(0)
+        [...bytes]
+        .map(byte =>
+            byte
             .toString(2)
             .padStart(8,"0")
         )
         .join(" ");
+
+}
+
+
+async function copyBinary(){
+
+    if(!output.value){
+        return;
+    }
+
+    try{
+
+        await navigator.clipboard.writeText(
+            output.value
+        );
+
+    }catch{
+
+        output.select();
+
+        document.execCommand("copy");
+
+        output.setSelectionRange(0,0);
+
+    }
 
 }
 
