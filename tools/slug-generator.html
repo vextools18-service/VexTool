@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Slug Generator Online — VexTools</title>
+<title>Slug Generator Online Free — VexTools</title>
 
 <meta name="description" content="Generate clean, SEO-friendly and URL-friendly slugs online for free with VexTools. Convert titles and text into readable URL slugs instantly.">
 
@@ -13,110 +13,859 @@
 <meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://vextools.github.io/tools/slug-generator.html">
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/slug-generator.html">
 
-<meta property="og:title" content="Slug Generator Online — VexTools">
-<meta property="og:description" content="Generate clean and SEO-friendly URL slugs from titles and text instantly.">
+<meta property="og:title" content="Slug Generator Online Free — VexTools">
+<meta property="og:description" content="Generate clean and SEO-friendly URL slugs from titles and text instantly with VexTools.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://vextools.github.io/tools/slug-generator.html">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/slug-generator.html">
+<meta property="og:site_name" content="VexTools">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Slug Generator — VexTools">
 <meta name="twitter:description" content="Create clean, readable and URL-friendly slugs online for free.">
 
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Slug Generator",
+  "url":"https://vextools18-service.github.io/VexTool/tools/slug-generator.html",
+  "description":"Free online slug generator for creating clean, SEO-friendly and URL-friendly slugs from text.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "isAccessibleForFree":true,
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools18-service.github.io/VexTool/"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a URL slug?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A URL slug is the readable part of a web page URL that usually describes the page content. For example, a page titled Best Online Tools can use best-online-tools as its slug."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I generate an SEO-friendly slug?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter your title or text into the VexTools Slug Generator. It converts the text to lowercase, removes unnecessary characters and replaces spaces with hyphens."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is the VexTools Slug Generator free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Slug Generator is free to use online and works directly in your browser."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+:root{
+--bg:#070b18;
+--card:#11192d;
+--card2:#0d1427;
+--text:#f8fafc;
+--muted:#94a3b8;
+--border:rgba(255,255,255,.1);
+--primary:#7c3aed;
+--secondary:#06b6d4;
+--glow:rgba(124,58,237,.3)
+}
+
+html{
+scroll-behavior:smooth
+}
+
 body{
-font-family:Arial;
-background:#070b18;
-color:white;
-padding:50px 20px
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
+color:var(--text);
+min-height:100vh;
+padding:30px 15px;
+line-height:1.6
 }
 
 .container{
-max-width:700px;
+max-width:850px;
 margin:auto
 }
 
-input{
-width:100%;
-padding:18px;
-border-radius:12px;
-border:1px solid #27304a;
-background:#111a30;
-color:white;
-font-size:16px;
-margin:20px 0
+.top-nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px
 }
 
-.result{
-padding:20px;
-background:#111a30;
-border-radius:12px;
-word-break:break-all;
-color:#22d3ee
+.logo{
+display:inline-flex;
+align-items:center;
+gap:9px;
+color:var(--text);
+text-decoration:none;
+font-size:20px;
+font-weight:900
+}
+
+.logo-icon{
+width:38px;
+height:38px;
+display:grid;
+place-items:center;
+border-radius:11px;
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+box-shadow:0 0 25px var(--glow)
+}
+
+.home-link{
+color:#a78bfa;
+text-decoration:none;
+font-size:14px;
+font-weight:700
+}
+
+.home-link:hover{
+color:white
+}
+
+.breadcrumb{
+margin:10px 0 28px;
+font-size:13px;
+color:var(--muted)
+}
+
+.breadcrumb a{
+color:#a78bfa;
+text-decoration:none
+}
+
+.breadcrumb span{
+margin:0 6px
+}
+
+.header{
+text-align:center;
+margin:20px 0 35px
+}
+
+.header h1{
+font-size:clamp(36px,7vw,54px);
+line-height:1.1;
+letter-spacing:-1.5px
+}
+
+.header h1 span{
+background:linear-gradient(90deg,#a78bfa,#22d3ee);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent
+}
+
+.header p{
+color:var(--muted);
+margin-top:12px;
+font-size:17px
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:20px;
+padding:25px;
+box-shadow:0 20px 60px rgba(0,0,0,.18)
+}
+
+.label{
+display:block;
+font-weight:700;
+margin-bottom:10px
+}
+
+textarea{
+width:100%;
+height:180px;
+padding:18px;
+background:var(--card2);
+color:white;
+border:1px solid #29344f;
+border-radius:14px;
+resize:vertical;
+outline:none;
+font-size:16px;
+line-height:1.6
+}
+
+textarea:focus{
+border-color:#8b5cf6;
+box-shadow:0 0 0 3px rgba(124,58,237,.15)
+}
+
+.actions{
+display:flex;
+gap:10px;
+margin-top:15px
 }
 
 button{
-margin-top:15px;
-padding:13px 20px;
+flex:1;
+padding:14px;
 border:0;
 border-radius:10px;
-background:#7c3aed;
+background:linear-gradient(90deg,var(--primary),#6366f1);
 color:white;
-cursor:pointer
+font-weight:bold;
+cursor:pointer;
+transition:.25s
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 25px var(--glow)
+}
+
+.result-box{
+margin-top:20px
+}
+
+.result-label{
+font-weight:700;
+margin-bottom:10px
+}
+
+.result{
+display:block;
+width:100%;
+min-height:65px;
+padding:18px;
+background:var(--card2);
+border:1px solid #29344f;
+border-radius:12px;
+color:#22d3ee;
+font-family:monospace;
+font-size:16px;
+word-break:break-all
+}
+
+.info-section{
+margin-top:55px
+}
+
+.info-section h2{
+font-size:28px;
+margin-bottom:12px
+}
+
+.info-section p{
+color:var(--muted);
+font-size:15px;
+line-height:1.8;
+margin-bottom:14px
+}
+
+.benefits{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:22px
+}
+
+.benefit{
+padding:18px;
+border:1px solid var(--border);
+background:rgba(17,25,45,.7);
+border-radius:15px
+}
+
+.benefit-icon{
+font-size:25px;
+margin-bottom:7px
+}
+
+.benefit h3{
+font-size:15px;
+margin-bottom:5px
+}
+
+.benefit p{
+font-size:13px;
+margin:0
+}
+
+.faq{
+margin-top:45px
+}
+
+.faq h2{
+font-size:28px;
+margin-bottom:18px
+}
+
+.faq-item{
+border:1px solid var(--border);
+border-radius:13px;
+margin-bottom:10px;
+overflow:hidden;
+background:rgba(17,25,45,.7)
+}
+
+.faq-item summary{
+cursor:pointer;
+padding:17px;
+font-weight:700;
+list-style:none
+}
+
+.faq-item summary::-webkit-details-marker{
+display:none
+}
+
+.faq-item p{
+padding:0 17px 17px;
+color:var(--muted);
+font-size:14px
+}
+
+.related{
+margin-top:45px
+}
+
+.related h2{
+font-size:25px;
+margin-bottom:15px
+}
+
+.related-links{
+display:flex;
+flex-wrap:wrap;
+gap:10px
+}
+
+.related-links a{
+color:#c4b5fd;
+text-decoration:none;
+padding:9px 13px;
+border-radius:9px;
+background:rgba(124,58,237,.1);
+border:1px solid var(--border);
+font-size:13px
+}
+
+.related-links a:hover{
+border-color:#8b5cf6
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:700
+}
+
+.back:hover{
+color:white
+}
+
+.footer{
+text-align:center;
+color:var(--muted);
+font-size:13px;
+margin-top:55px;
+padding-top:25px;
+border-top:1px solid var(--border)
+}
+
+.footer a{
+color:#a78bfa;
+text-decoration:none
+}
+
+@media(max-width:650px){
+
+body{
+padding:20px 12px
+}
+
+.card{
+padding:18px
+}
+
+.actions{
+flex-direction:column
+}
+
+.benefits{
+grid-template-columns:1fr
+}
+
+.header{
+margin-bottom:25px
+}
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+scroll-behavior:auto!important;
+transition:none!important
+}
+
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>🔗 Slug Generator</h1>
+<header class="top-nav">
 
-<p>Generate clean, SEO-friendly and URL-friendly slugs.</p>
+<a class="logo" href="../index.html" aria-label="VexTools home">
 
-<input
+<span class="logo-icon">V</span>
+
+VexTools
+
+</a>
+
+<a class="home-link" href="../index.html">
+All Tools →
+</a>
+
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+
+<a href="../index.html">VexTools</a>
+
+<span>›</span>
+
+<a href="../index.html#categories">Developer Tools</a>
+
+<span>›</span>
+
+<span>Slug Generator</span>
+
+</nav>
+
+<header class="header">
+
+<h1>
+<span>Slug</span> Generator
+</h1>
+
+<p>
+Create clean, readable and SEO-friendly URL slugs instantly.
+</p>
+
+</header>
+
+<main>
+
+<section class="card" aria-labelledby="slug-tool-title">
+
+<h2 id="slug-tool-title" style="position:absolute;left:-9999px;">
+Free Online Slug Generator
+</h2>
+
+<label class="label" for="input">
+Enter your title or text
+</label>
+
+<textarea
 id="input"
-placeholder="Enter title..."
-aria-label="Enter title to generate URL slug"
->
+placeholder="Example: Best Free Online Tools for Students"
+aria-label="Enter text to generate a URL slug"
+></textarea>
 
-<div class="result" id="result">
+<div class="actions">
+
+<button id="generate" type="button">
+Generate Slug
+</button>
+
+<button id="clear" type="button">
+Clear
+</button>
+
+</div>
+
+<div class="result-box">
+
+<div class="result-label">
+Generated Slug
+</div>
+
+<div
+class="result"
+id="result"
+aria-live="polite"
+>
 Your slug will appear here
 </div>
 
-<button onclick="copySlug()">
+<button id="copy" type="button">
 Copy Slug
 </button>
 
 </div>
 
+</section>
+
+<section class="info-section" aria-labelledby="about-slug">
+
+<h2 id="about-slug">
+Generate SEO-Friendly URL Slugs
+</h2>
+
+<p>
+VexTools Slug Generator converts titles and text into clean,
+readable and URL-friendly slugs. It automatically converts
+letters to lowercase, removes unnecessary characters and
+replaces spaces with hyphens.
+</p>
+
+<p>
+Clean URL slugs can make web addresses easier to read and
+understand. This free online tool is useful for bloggers,
+developers, website owners and anyone creating web pages.
+</p>
+
+<div class="benefits">
+
+<div class="benefit">
+
+<div class="benefit-icon">⚡</div>
+
+<h3>Instant</h3>
+
+<p>
+Generate a slug instantly as you type.
+</p>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit-icon">🔗</div>
+
+<h3>URL Friendly</h3>
+
+<p>
+Creates clean and readable URL slugs.
+</p>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit-icon">🆓</div>
+
+<h3>Free</h3>
+
+<p>
+Use the generator online without registration.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="info-section" aria-labelledby="how-to-use">
+
+<h2 id="how-to-use">
+How to Generate a URL Slug
+</h2>
+
+<p>
+<strong>1.</strong>
+Enter your page title or text into the input box.
+</p>
+
+<p>
+<strong>2.</strong>
+Click Generate Slug or type to generate it automatically.
+</p>
+
+<p>
+<strong>3.</strong>
+Copy the generated slug and use it in your website URL.
+</p>
+
+</section>
+
+<section class="faq" aria-labelledby="faq-title">
+
+<h2 id="faq-title">
+Frequently Asked Questions
+</h2>
+
+<details class="faq-item">
+
+<summary>
+What is a URL slug?
+</summary>
+
+<p>
+A URL slug is the readable part of a web page URL that
+describes the page content. For example, "best-online-tools"
+can be used as a URL slug.
+</p>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+How do I generate an SEO-friendly slug?
+</summary>
+
+<p>
+Enter your title into the VexTools Slug Generator. The tool
+converts the text to lowercase, removes unnecessary characters
+and replaces spaces with hyphens.
+</p>
+
+</details>
+
+<details class="faq-item">
+
+<summary>
+Is the VexTools Slug Generator free?
+</summary>
+
+<p>
+Yes. The VexTools Slug Generator is free to use online and
+works directly in your browser.
+</p>
+
+</details>
+
+</section>
+
+<section class="related" aria-labelledby="related-title">
+
+<h2 id="related-title">
+Related Tools
+</h2>
+
+<div class="related-links">
+
+<a href="case-converter.html">
+Case Converter
+</a>
+
+<a href="word-counter.html">
+Word Counter
+</a>
+
+<a href="character-counter.html">
+Character Counter
+</a>
+
+<a href="remove-extra-spaces.html">
+Remove Extra Spaces
+</a>
+
+<a href="../index.html">
+More Free Tools
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+<footer class="footer">
+
+<p>
+© <span id="year"></span>
+VexTools. Free online tools for everyone.
+</p>
+
+<p>
+<a href="../index.html">
+VexTools Home
+</a>
+</p>
+
+</footer>
+
+</div>
+
 <script>
 
-const input=document.getElementById("input");
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
-input.oninput=()=>{
+const input =
+document.getElementById("input");
 
-document.getElementById("result").textContent=
-input.value
+const result =
+document.getElementById("result");
+
+const generateButton =
+document.getElementById("generate");
+
+const copyButton =
+document.getElementById("copy");
+
+const clearButton =
+document.getElementById("clear");
+
+
+function createSlug(text){
+
+return text
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
 .toLowerCase()
 .trim()
 .replace(/[^a-z0-9\s-]/g,"")
-.replace(/\s+/g,"-")
-.replace(/-+/g,"-");
-
-};
-
-function copySlug(){
-
-const slug=document.getElementById("result").textContent;
-
-navigator.clipboard.writeText(slug);
-
-alert("Slug copied!");
+.replace(/[\s_-]+/g,"-")
+.replace(/^-+|-+$/g,"");
 
 }
+
+
+function generateSlug(){
+
+const slug =
+createSlug(input.value);
+
+result.textContent =
+slug || "Your slug will appear here";
+
+}
+
+
+input.addEventListener(
+"input",
+generateSlug
+);
+
+
+generateButton.addEventListener(
+"click",
+generateSlug
+);
+
+
+clearButton.addEventListener(
+"click",
+() => {
+
+input.value = "";
+
+result.textContent =
+"Your slug will appear here";
+
+input.focus();
+
+}
+);
+
+
+copyButton.addEventListener(
+"click",
+async () => {
+
+const slug =
+createSlug(input.value);
+
+if(!slug){
+
+return;
+
+}
+
+try{
+
+await navigator.clipboard.writeText(slug);
+
+copyButton.textContent =
+"Copied!";
+
+setTimeout(
+() => {
+
+copyButton.textContent =
+"Copy Slug";
+
+},
+1500
+);
+
+}
+catch(error){
+
+const temp =
+document.createElement("textarea");
+
+temp.value = slug;
+
+document.body.appendChild(temp);
+
+temp.select();
+
+document.execCommand("copy");
+
+temp.remove();
+
+copyButton.textContent =
+"Copied!";
+
+setTimeout(
+() => {
+
+copyButton.textContent =
+"Copy Slug";
+
+},
+1500
+);
+
+}
+
+}
+);
 
 </script>
 
