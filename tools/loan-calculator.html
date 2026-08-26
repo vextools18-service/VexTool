@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Loan Calculator Online Free — VexTools</title>
 
@@ -10,7 +12,9 @@
 
 <meta name="keywords" content="loan calculator, loan calculator online, monthly payment calculator, EMI calculator, interest calculator, loan payment calculator, free loan calculator">
 
+<meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/loan-calculator.html">
 
@@ -18,10 +22,13 @@
 <meta property="og:description" content="Free online loan calculator to estimate monthly payments, total payment and total interest.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/loan-calculator.html">
+<meta property="og:site_name" content="VexTools">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loan Calculator Online Free — VexTools">
-<meta name="twitter:description" content="Calculate monthly loan payments and total interest online for free.">
+<meta name="twitter:description" content="Calculate monthly loan payments, total payment and total interest online for free.">
+
+<meta name="theme-color" content="#070b18">
 
 <script type="application/ld+json">
 {
@@ -41,52 +48,278 @@
 </script>
 
 <style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
 body{
-font-family:Arial;
+font-family:Arial,sans-serif;
 background:#070b18;
-color:white;
-padding:50px 20px
+color:#f8fafc;
+min-height:100vh;
+padding:35px 15px;
+line-height:1.6;
 }
 
 .container{
-max-width:650px;
-margin:auto
+max-width:750px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin:20px 0 30px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:18px;
+}
+
+.header h1{
+font-size:clamp(32px,6vw,46px);
+line-height:1.15;
+}
+
+.header h1 span{
+color:#a78bfa;
+}
+
+.header p{
+color:#94a3b8;
+margin-top:10px;
+}
+
+.card{
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+.field{
+margin-bottom:16px;
+}
+
+label{
+display:block;
+margin-bottom:7px;
+color:#cbd5e1;
+font-weight:700;
+font-size:14px;
 }
 
 input{
 width:100%;
-padding:15px;
-margin:8px 0;
-background:#111a30;
+padding:14px 15px;
+background:#0d1427;
 color:white;
 border:1px solid #27304a;
-border-radius:10px
+border-radius:10px;
+font-size:15px;
+outline:none;
+}
+
+input:focus{
+border-color:#8b5cf6;
+box-shadow:0 0 20px rgba(124,58,237,.15);
+}
+
+input.error{
+border-color:#ef4444;
 }
 
 button{
 width:100%;
-padding:15px;
-background:#7c3aed;
+padding:14px 20px;
+margin-top:5px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
 color:white;
 border:0;
 border-radius:10px;
-margin-top:10px;
+font-weight:800;
+font-size:15px;
 cursor:pointer;
-font-weight:bold
+transition:.25s;
 }
 
 button:hover{
 transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(124,58,237,.3)
+box-shadow:0 10px 30px rgba(124,58,237,.3);
 }
 
 .result{
-margin-top:20px;
+display:none;
+margin-top:22px;
 padding:20px;
+background:#18223a;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+}
+
+.result.show{
+display:block;
+}
+
+.result h2{
+font-size:20px;
+margin-bottom:15px;
+color:#a78bfa;
+}
+
+.result-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+
+.result-item{
 background:#111a30;
 border-radius:10px;
-line-height:2
+padding:15px;
+text-align:center;
 }
+
+.result-label{
+display:block;
+color:#94a3b8;
+font-size:12px;
+margin-bottom:5px;
+}
+
+.result-value{
+font-size:17px;
+font-weight:800;
+word-break:break-word;
+}
+
+.error-message{
+display:none;
+margin-top:15px;
+padding:12px;
+border-radius:10px;
+background:rgba(239,68,68,.1);
+border:1px solid rgba(239,68,68,.3);
+color:#fca5a5;
+font-size:14px;
+}
+
+.error-message.show{
+display:block;
+}
+
+.info{
+margin-top:45px;
+}
+
+.info h2{
+font-size:28px;
+margin-bottom:12px;
+}
+
+.info p{
+color:#94a3b8;
+margin-bottom:15px;
+line-height:1.8;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:25px;
+}
+
+.feature{
+background:#111a30;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+padding:18px;
+}
+
+.feature strong{
+display:block;
+margin-bottom:5px;
+}
+
+.feature span{
+color:#94a3b8;
+font-size:13px;
+}
+
+.faq{
+margin-top:40px;
+}
+
+.faq h2{
+font-size:28px;
+margin-bottom:18px;
+}
+
+.faq-item{
+background:#111a30;
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;
+padding:17px;
+margin-bottom:12px;
+}
+
+.faq-item h3{
+font-size:16px;
+margin-bottom:6px;
+}
+
+.faq-item p{
+color:#94a3b8;
+font-size:14px;
+line-height:1.6;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:700;
+}
+
+.back:hover{
+color:#c4b5fd;
+}
+
+@media(max-width:650px){
+
+body{
+padding:25px 12px;
+}
+
+.card{
+padding:18px;
+}
+
+.result-grid,
+.features{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+transition:none!important;
+}
+
+}
+
 </style>
 
 </head>
@@ -95,87 +328,486 @@ line-height:2
 
 <div class="container">
 
-<h1>💰 Loan Calculator</h1>
+<div class="header">
+
+<a class="logo" href="../index.html">
+VexTools
+</a>
+
+<h1>
+Loan <span>Calculator</span>
+</h1>
 
 <p>
-Estimate monthly loan payments.
+Calculate monthly loan payments, total payment and total interest.
 </p>
+
+</div>
+
+
+<main class="card">
+
+<div class="field">
+
+<label for="amount">
+Loan Amount
+</label>
 
 <input
 id="amount"
 type="number"
-placeholder="Loan Amount"
+min="0.01"
+step="0.01"
+placeholder="e.g. 10000"
 >
+
+</div>
+
+
+<div class="field">
+
+<label for="rate">
+Annual Interest Rate (%)
+</label>
 
 <input
 id="rate"
 type="number"
-placeholder="Annual Interest Rate (%)"
+min="0"
+step="0.01"
+placeholder="e.g. 8.5"
 >
+
+</div>
+
+
+<div class="field">
+
+<label for="months">
+Loan Term (Months)
+</label>
 
 <input
 id="months"
 type="number"
-placeholder="Loan Term (Months)"
+min="1"
+step="1"
+placeholder="e.g. 60"
 >
 
-<button onclick="calculate()">
-Calculate
+</div>
+
+
+<button onclick="calculateLoan()">
+💰 Calculate Loan
 </button>
 
-<div class="result" id="result">
-Result
+
+<div
+id="error"
+class="error-message"
+role="alert">
+</div>
+
+
+<div
+id="result"
+class="result"
+aria-live="polite">
+
+<h2>
+Loan Summary
+</h2>
+
+<div class="result-grid">
+
+<div class="result-item">
+
+<span class="result-label">
+Monthly Payment
+</span>
+
+<span
+id="monthly"
+class="result-value">
+—
+</span>
+
+</div>
+
+
+<div class="result-item">
+
+<span class="result-label">
+Total Payment
+</span>
+
+<span
+id="total"
+class="result-value">
+—
+</span>
+
+</div>
+
+
+<div class="result-item">
+
+<span class="result-label">
+Total Interest
+</span>
+
+<span
+id="interest"
+class="result-value">
+—
+</span>
+
 </div>
 
 </div>
+
+</div>
+
+</main>
+
+
+<section class="info">
+
+<h2>
+Free Online Loan Calculator
+</h2>
+
+<p>
+VexTools Loan Calculator is a free online tool that helps you estimate monthly loan payments, total repayment and the total interest paid over the loan term.
+</p>
+
+<p>
+Enter the loan amount, annual interest rate and loan term in months. The calculator uses the standard fixed-rate loan payment formula to estimate your monthly payment.
+</p>
+
+
+<div class="features">
+
+<div class="feature">
+
+<strong>⚡ Fast</strong>
+
+<span>
+Calculate loan payments instantly in your browser.
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>🆓 Free</strong>
+
+<span>
+Use the calculator without registration or payment.
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>🔒 Private</strong>
+
+<span>
+Your entered values are calculated directly in your browser.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<div class="faq-item">
+
+<h3>
+How is the monthly loan payment calculated?
+</h3>
+
+<p>
+The calculator uses the standard fixed-rate loan payment formula based on the principal amount, monthly interest rate and number of monthly payments.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+What happens if the interest rate is 0%?
+</h3>
+
+<p>
+If the interest rate is 0%, the loan amount is simply divided by the number of monthly payments.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Is this loan calculator free?
+</h3>
+
+<p>
+Yes. The VexTools Loan Calculator is completely free to use online.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Are the results exact?
+</h3>
+
+<p>
+The results are estimates. Actual loan payments may vary depending on lender fees, taxes, insurance, compounding methods and other loan terms.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<a
+class="back"
+href="../index.html">
+← Back to VexTools
+</a>
+
+</div>
+
 
 <script>
 
-function calculate(){
+const amountInput =
+document.getElementById("amount");
 
-let P =
-Number(document.getElementById("amount").value);
+const rateInput =
+document.getElementById("rate");
 
-let annual =
-Number(document.getElementById("rate").value);
+const monthsInput =
+document.getElementById("months");
 
-let n =
-Number(document.getElementById("months").value);
+const result =
+document.getElementById("result");
 
-if(!P || !n || annual < 0){
+const error =
+document.getElementById("error");
 
-document.getElementById("result").textContent =
-"Enter valid values.";
+const monthly =
+document.getElementById("monthly");
+
+const total =
+document.getElementById("total");
+
+const interest =
+document.getElementById("interest");
+
+
+function showError(message){
+
+error.textContent =
+"❌ " + message;
+
+error.classList.add("show");
+
+result.classList.remove("show");
+
+}
+
+
+function clearError(){
+
+error.textContent = "";
+
+error.classList.remove("show");
+
+}
+
+
+function formatNumber(value){
+
+return value.toLocaleString(
+"en-US",
+{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+}
+);
+
+
+}
+
+
+function calculateLoan(){
+
+clearError();
+
+amountInput.classList.remove("error");
+rateInput.classList.remove("error");
+monthsInput.classList.remove("error");
+
+
+const P =
+Number(amountInput.value);
+
+const annualRate =
+Number(rateInput.value);
+
+const months =
+Number(monthsInput.value);
+
+
+if(
+!Number.isFinite(P) ||
+P <= 0
+){
+
+amountInput.classList.add("error");
+
+showError(
+"Please enter a valid loan amount greater than 0."
+);
 
 return;
 
 }
 
-let r =
-annual / 100 / 12;
 
-let payment =
-r === 0
-? P / n
-: P * r * Math.pow(1+r,n) /
-  (Math.pow(1+r,n)-1);
+if(
+!Number.isFinite(annualRate) ||
+annualRate < 0
+){
 
-let total =
-payment * n;
+rateInput.classList.add("error");
 
-document.getElementById("result").innerHTML =
-"Monthly Payment: " +
-payment.toFixed(2) +
+showError(
+"Please enter a valid interest rate of 0% or higher."
+);
 
-"<br>Total Payment: " +
-total.toFixed(2) +
-
-"<br>Total Interest: " +
-(total-P).toFixed(2);
+return;
 
 }
+
+
+if(
+!Number.isFinite(months) ||
+months <= 0 ||
+!Number.isInteger(months)
+){
+
+monthsInput.classList.add("error");
+
+showError(
+"Please enter a valid whole number of months."
+);
+
+return;
+
+}
+
+
+const monthlyRate =
+annualRate / 100 / 12;
+
+
+let payment;
+
+
+if(monthlyRate === 0){
+
+payment =
+P / months;
+
+}else{
+
+const factor =
+Math.pow(
+1 + monthlyRate,
+months
+);
+
+payment =
+P *
+monthlyRate *
+factor /
+(factor - 1);
+
+}
+
+
+const totalPayment =
+payment * months;
+
+const totalInterest =
+totalPayment - P;
+
+
+monthly.textContent =
+formatNumber(payment);
+
+total.textContent =
+formatNumber(totalPayment);
+
+interest.textContent =
+formatNumber(totalInterest);
+
+
+result.classList.add("show");
+
+}
+
+
+[
+amountInput,
+rateInput,
+monthsInput
+].forEach(input=>{
+
+input.addEventListener(
+"input",
+()=>{
+input.classList.remove("error");
+clearError();
+}
+);
+
+input.addEventListener(
+"keydown",
+event=>{
+
+if(event.key === "Enter"){
+
+calculateLoan();
+
+}
+
+}
+);
+
+});
 
 </script>
 
 </body>
+
 </html>
