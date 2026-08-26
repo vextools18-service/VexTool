@@ -3,46 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Speed Converter — VexTools</title>
+
+<title>Speed Converter Online — VexTools</title>
+
+<meta name="description" content="Convert speed online for free with VexTools. Quickly convert between kilometers per hour (km/h) and miles per hour (mph).">
+
+<meta name="keywords" content="speed converter, speed converter online, km/h to mph, mph to km/h, kmh to mph converter, mph to kmh converter, velocity converter">
+
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools.github.io/tools/speed-converter.html">
+
+<meta property="og:title" content="Speed Converter Online — VexTools">
+<meta property="og:description" content="Convert between KM/H and MPH quickly and easily with the free VexTools Speed Converter.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/tools/speed-converter.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Speed Converter — VexTools">
+<meta name="twitter:description" content="Convert speed between km/h and mph online for free.">
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
-.container{max-width:600px;margin:auto}
-input,select{width:100%;padding:15px;margin:8px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
-button{width:100%;padding:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
-.result{margin-top:20px;padding:20px;background:#111a30;border-radius:10px}
+body{
+font-family:Arial;
+background:#070b18;
+color:white;
+padding:50px 20px
+}
+
+.container{
+max-width:600px;
+margin:auto
+}
+
+input,select{
+width:100%;
+padding:15px;
+margin:8px 0;
+background:#111a30;
+color:white;
+border:1px solid #27304a;
+border-radius:10px
+}
+
+button{
+width:100%;
+padding:15px;
+background:#7c3aed;
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer
+}
+
+.result{
+margin-top:20px;
+padding:20px;
+background:#111a30;
+border-radius:10px;
+font-size:20px
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <h1>🚗 Speed Converter</h1>
-<p>Convert between km/h and mph.</p>
-<input id="value" type="number" placeholder="Speed">
 
-<select id="from">
-<option value="kmh">KM/H</option>
-<option value="mph">MPH</option>
+<p>
+Convert between kilometers per hour (KM/H) and miles per hour (MPH).
+</p>
+
+<input
+id="value"
+type="number"
+placeholder="Enter speed"
+aria-label="Enter speed"
+>
+
+<select id="from" aria-label="Convert from">
+
+<option value="kmh">
+KM/H
+</option>
+
+<option value="mph">
+MPH
+</option>
+
 </select>
 
-<select id="to">
-<option value="mph">MPH</option>
-<option value="kmh">KM/H</option>
+<select id="to" aria-label="Convert to">
+
+<option value="mph">
+MPH
+</option>
+
+<option value="kmh">
+KM/H
+</option>
+
 </select>
 
-<button onclick="convert()">Convert</button>
-<div class="result" id="result">Result</div>
+<button onclick="convert()">
+Convert
+</button>
+
+<div class="result" id="result">
+Result
+</div>
+
 </div>
 
 <script>
+
 function convert(){
-let v=Number(value.value);
+
+let v=Number(
+document.getElementById("value").value
+);
+
+let from=document.getElementById("from").value;
+let to=document.getElementById("to").value;
+
+if(!Number.isFinite(v)){
+
+document.getElementById("result").textContent=
+"Enter a valid speed.";
+
+return;
+
+}
+
 let answer;
 
-if(from.value==="kmh"&&to.value==="mph")answer=v*0.621371;
-else if(from.value==="mph"&&to.value==="kmh")answer=v*1.60934;
-else answer=v;
+if(from==="kmh" && to==="mph"){
 
-result.textContent=answer.toFixed(4);
+answer=v*0.621371;
+
 }
+else if(from==="mph" && to==="kmh"){
+
+answer=v*1.60934;
+
+}
+else{
+
+answer=v;
+
+}
+
+document.getElementById("result").textContent=
+answer.toFixed(4);
+
+}
+
 </script>
+
 </body>
 </html>
