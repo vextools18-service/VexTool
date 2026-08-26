@@ -6,10 +6,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<!-- =====================================================
-     SEO
-===================================================== -->
-
 <title>Base64 to Image Converter Online — Free | VexTools</title>
 
 <meta name="description"
@@ -22,18 +18,11 @@ content="Convert Base64 image data into an image online with VexTools. Free, fas
 <meta name="keywords"
 content="base64 to image, base64 to image converter, convert base64 to image, base64 image decoder, base64 image converter online, base64 image to png, free base64 converter, VexTools">
 
-
-<!-- =====================================================
-     CANONICAL
-===================================================== -->
-
 <link rel="canonical"
 href="https://vextools18-service.github.io/VexTool/tools/base64-to-image.html">
 
 
-<!-- =====================================================
-     OPEN GRAPH
-===================================================== -->
+<!-- OPEN GRAPH -->
 
 <meta property="og:type" content="website">
 
@@ -50,9 +39,7 @@ content="https://vextools18-service.github.io/VexTool/tools/base64-to-image.html
 content="VexTools">
 
 
-<!-- =====================================================
-     TWITTER / X
-===================================================== -->
+<!-- TWITTER / X -->
 
 <meta name="twitter:card" content="summary">
 
@@ -63,16 +50,10 @@ content="Base64 to Image Converter Online — VexTools">
 content="Free online Base64 to Image converter. Convert Base64 image data into a downloadable image.">
 
 
-<!-- =====================================================
-     THEME
-===================================================== -->
-
 <meta name="theme-color" content="#070b18">
 
 
-<!-- =====================================================
-     STRUCTURED DATA
-===================================================== -->
+<!-- STRUCTURED DATA -->
 
 <script type="application/ld+json">
 {
@@ -116,10 +97,6 @@ content="Free online Base64 to Image converter. Convert Base64 image data into a
 </script>
 
 
-<!-- =====================================================
-     STYLE
-===================================================== -->
-
 <style>
 
 *{
@@ -132,65 +109,91 @@ body{
 font-family:Arial,sans-serif;
 background:#070b18;
 color:white;
-padding:30px 15px;
+padding:40px 15px;
 min-height:100vh;
 }
 
 .container{
-max-width:850px;
+max-width:900px;
 margin:auto;
 }
 
 .header{
 text-align:center;
-margin-bottom:25px;
+margin-bottom:28px;
 }
 
 .logo{
+display:inline-block;
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
 text-decoration:none;
+margin-bottom:12px;
 }
 
 h1{
-margin:15px 0 8px;
+font-size:40px;
+margin-bottom:10px;
 }
 
-p{
+.header p{
 color:#94a3b8;
 line-height:1.6;
 }
 
 .card{
-background:rgba(17,25,45,.85);
-border:1px solid rgba(255,255,255,.1);
-border-radius:20px;
-padding:22px;
+background:rgba(17,25,45,.9);
+border:1px solid rgba(255,255,255,.09);
+border-radius:18px;
+padding:25px;
+}
+
+label{
+display:block;
+font-weight:bold;
+margin-bottom:10px;
+color:#e2e8f0;
 }
 
 textarea{
 width:100%;
-height:250px;
-padding:15px;
-background:#0d1427;
+height:240px;
+padding:18px;
+background:#0b1224;
 color:#22d3ee;
 border:1px solid #29344f;
 border-radius:12px;
 resize:vertical;
 font-size:13px;
 font-family:monospace;
+line-height:1.6;
 }
 
 textarea:focus{
 outline:none;
 border-color:#7c3aed;
+box-shadow:0 0 0 2px rgba(124,58,237,.12);
+}
+
+.counter{
+text-align:right;
+font-size:13px;
+color:#64748b;
+margin-top:7px;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:18px;
 }
 
 button{
-width:100%;
-margin-top:15px;
-padding:13px;
+flex:1;
+min-width:150px;
+padding:14px 18px;
 border:0;
 border-radius:10px;
 background:linear-gradient(90deg,#7c3aed,#6366f1);
@@ -205,35 +208,123 @@ transform:translateY(-2px);
 box-shadow:0 8px 25px rgba(124,58,237,.3);
 }
 
+.secondary{
+background:#1e293b;
+}
+
+.secondary:hover{
+background:#273449;
+box-shadow:none;
+}
+
 .status{
+min-height:24px;
 text-align:center;
-margin-top:15px;
+margin-top:18px;
 color:#94a3b8;
 }
 
+.success{
+color:#86efac;
+}
+
+.error{
+color:#fca5a5;
+}
+
+.result{
+margin-top:25px;
+padding-top:20px;
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+.preview-box{
+background:#0b1224;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+padding:15px;
+text-align:center;
+}
+
 .preview{
-max-width:100%;
 display:block;
-margin:20px auto;
-border-radius:12px;
+max-width:100%;
+max-height:500px;
+margin:auto;
+border-radius:10px;
+object-fit:contain;
+}
+
+.image-info{
+margin-top:15px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+color:#94a3b8;
+font-size:14px;
 }
 
 .download{
 display:block;
-text-align:center;
-padding:13px;
+margin-top:15px;
+padding:14px;
 background:#06b6d4;
 color:white;
 text-decoration:none;
 border-radius:10px;
 font-weight:bold;
+text-align:center;
+transition:.25s;
+}
+
+.download:hover{
+background:#0891b2;
+transform:translateY(-2px);
+}
+
+.hidden{
+display:none;
 }
 
 .back{
-display:inline-block;
-margin-top:20px;
+display:block;
+text-align:center;
+margin-top:25px;
 color:#a78bfa;
 text-decoration:none;
+}
+
+.back:hover{
+color:#c4b5fd;
+}
+
+@media(max-width:600px){
+
+body{
+padding:30px 12px;
+}
+
+h1{
+font-size:30px;
+}
+
+.card{
+padding:18px;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+button{
+width:100%;
+}
+
+textarea{
+height:190px;
+}
+
 }
 
 </style>
@@ -248,16 +339,18 @@ text-decoration:none;
 
 <div class="header">
 
-<a class="logo" href="../index.html">
+<a
+class="logo"
+href="../index.html">
 VexTools
 </a>
 
 <h1>
-Base64 to Image
+🖼️ Base64 to Image
 </h1>
 
 <p>
-Convert a Base64 image string back into an image.
+Convert Base64 image data into a viewable and downloadable image.
 </p>
 
 </div>
@@ -265,16 +358,49 @@ Convert a Base64 image string back into an image.
 
 <div class="card">
 
+
+<label for="input">
+Base64 Image Data
+</label>
+
+
 <textarea
 id="input"
-placeholder="Paste Base64 image data here..."
+placeholder="Paste Base64 image data here...
+
+Example:
+data:image/png;base64,iVBORw0KGgo...
+or paste a raw Base64 string."
 aria-label="Base64 image data"
 ></textarea>
 
 
-<button onclick="convert()">
-Convert to Image
+<div
+class="counter"
+id="inputCount">
+0 characters
+</div>
+
+
+<div class="buttons">
+
+<button onclick="convertImage()">
+🖼️ Convert to Image
 </button>
+
+<button
+class="secondary"
+onclick="copyBase64()">
+📋 Copy Base64
+</button>
+
+<button
+class="secondary"
+onclick="clearAll()">
+🗑️ Clear
+</button>
+
+</div>
 
 
 <div
@@ -284,12 +410,43 @@ aria-live="polite">
 </div>
 
 
-<div id="result"></div>
+<div
+id="result"
+class="result hidden">
+
+<div class="preview-box">
+
+<img
+id="preview"
+class="preview"
+alt="Converted Base64 image"
+>
+
+<div
+id="imageInfo"
+class="image-info">
+</div>
 
 </div>
 
 
-<a class="back" href="../index.html">
+<a
+id="download"
+class="download"
+href="#"
+download="base64-image.png">
+⬇️ Download Image
+</a>
+
+</div>
+
+
+</div>
+
+
+<a
+class="back"
+href="../index.html">
 ← Back to VexTools
 </a>
 
@@ -299,100 +456,334 @@ aria-live="polite">
 
 <script>
 
-function convert(){
-
-const data =
-document.getElementById("input")
-.value
-.trim();
-
-const result =
-document.getElementById("result");
+const input =
+document.getElementById("input");
 
 const status =
 document.getElementById("status");
 
+const result =
+document.getElementById("result");
 
-result.innerHTML = "";
+const preview =
+document.getElementById("preview");
+
+const download =
+document.getElementById("download");
+
+const imageInfo =
+document.getElementById("imageInfo");
+
+const inputCount =
+document.getElementById("inputCount");
+
+
+/* Character Counter */
+
+input.addEventListener(
+"input",
+updateCounter
+);
+
+
+function updateCounter(){
+
+const length =
+input.value.length;
+
+inputCount.textContent =
+length +
+(length === 1
+? " character"
+: " characters");
+
+}
+
+
+/* Convert */
+
+function convertImage(){
+
+const data =
+input.value.trim();
+
+
+result.classList.add("hidden");
+
+status.className =
+"status";
 
 status.textContent = "";
+
+imageInfo.innerHTML = "";
 
 
 if(!data){
 
-status.textContent =
-"Please enter Base64 image data.";
+showStatus(
+"Please enter Base64 image data.",
+"error"
+);
 
 return;
 
 }
 
 
+let imageData =
+data;
+
+let mimeType =
+"image/png";
+
+
 /*
-   Support both:
-
-   data:image/png;base64,...
-
-   and raw Base64 strings.
+   Detect Data URI
 */
 
-let imageData = data;
+if(data.startsWith("data:image/")){
 
+const match =
+data.match(
+/^data:(image\/[a-zA-Z0-9.+-]+);base64,/i
+);
 
-if(
-!data.startsWith("data:image/")
-){
+if(!match){
+
+showStatus(
+"❌ Invalid image data format.",
+"error"
+);
+
+return;
+
+}
+
+mimeType =
+match[1];
 
 imageData =
-"data:image/png;base64," + data;
+data;
 
 }
 
 
-const img =
-document.createElement("img");
+/*
+   Raw Base64
+*/
 
-img.className = "preview";
+else{
 
-img.alt = "Converted Base64 image";
-
-img.src = imageData;
-
-
-img.onload = () => {
-
-const link =
-document.createElement("a");
-
-link.className = "download";
-
-link.href = imageData;
-
-link.download = "base64-image.png";
-
-link.textContent =
-"Download Image";
+const cleanBase64 =
+data.replace(/\s/g,"");
 
 
-result.appendChild(img);
+if(!isValidBase64(cleanBase64)){
 
-result.appendChild(link);
+showStatus(
+"❌ Invalid Base64 data.",
+"error"
+);
 
-
-status.textContent =
-"✓ Base64 successfully converted to an image.";
-
-};
-
-
-img.onerror = () => {
-
-status.textContent =
-"❌ Invalid Base64 image data.";
-
-};
+return;
 
 }
+
+imageData =
+"data:" +
+mimeType +
+";base64," +
+cleanBase64;
+
+}
+
+
+preview.onload = function(){
+
+result.classList.remove("hidden");
+
+const extension =
+getExtension(mimeType);
+
+download.href =
+imageData;
+
+download.download =
+"base64-image." + extension;
+
+
+imageInfo.innerHTML =
+"<span>📐 " +
+preview.naturalWidth +
+" × " +
+preview.naturalHeight +
+"</span>" +
+
+"<span>🗂️ " +
+mimeType +
+"</span>";
+
+
+showStatus(
+"✓ Base64 successfully converted to an image.",
+"success"
+);
+
+};
+
+
+preview.onerror = function(){
+
+result.classList.add("hidden");
+
+showStatus(
+"❌ The Base64 data does not contain a valid image.",
+"error"
+);
+
+};
+
+
+preview.src =
+imageData;
+
+}
+
+
+/* Base64 Validation */
+
+function isValidBase64(value){
+
+if(!value){
+
+return false;
+
+}
+
+if(value.length % 4 !== 0){
+
+return false;
+
+}
+
+return /^[A-Za-z0-9+/]*={0,2}$/.test(value);
+
+}
+
+
+/* File Extension */
+
+function getExtension(type){
+
+const extensions = {
+
+"image/png":"png",
+
+"image/jpeg":"jpg",
+
+"image/jpg":"jpg",
+
+"image/gif":"gif",
+
+"image/webp":"webp",
+
+"image/svg+xml":"svg",
+
+"image/bmp":"bmp",
+
+"image/x-icon":"ico",
+
+"image/avif":"avif"
+
+};
+
+return extensions[type] || "png";
+
+}
+
+
+/* Copy Base64 */
+
+async function copyBase64(){
+
+if(!input.value){
+
+showStatus(
+"Nothing to copy.",
+"error"
+);
+
+return;
+
+}
+
+try{
+
+await navigator.clipboard.writeText(
+input.value
+);
+
+showStatus(
+"✓ Base64 copied to clipboard.",
+"success"
+);
+
+}
+
+catch(error){
+
+input.select();
+
+document.execCommand("copy");
+
+showStatus(
+"✓ Base64 copied to clipboard.",
+"success"
+);
+
+}
+
+}
+
+
+/* Clear */
+
+function clearAll(){
+
+input.value = "";
+
+preview.src = "";
+
+download.href = "#";
+
+result.classList.add("hidden");
+
+imageInfo.innerHTML = "";
+
+status.textContent = "";
+
+status.className =
+"status";
+
+updateCounter();
+
+}
+
+
+/* Status */
+
+function showStatus(message,type){
+
+status.textContent =
+message;
+
+status.className =
+"status " + type;
+
+}
+
+
+updateCounter();
 
 </script>
 
