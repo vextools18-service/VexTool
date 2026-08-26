@@ -1,174 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<!-- Primary SEO -->
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Text to HEX Converter — Convert Text to Hexadecimal | VexTools</title>
 
-<meta name="description" content="Convert text to hexadecimal instantly with the free Text to HEX Converter by VexTools. Enter text and get its hexadecimal representation quickly and easily.">
+<meta
+    name="description"
+    content="Convert text to hexadecimal instantly with the free Text to HEX Converter by VexTools. Enter text and get its hexadecimal representation quickly and easily."
+>
 
-<meta name="keywords" content="text to hex, text to hexadecimal, text to hex converter, hex converter, hexadecimal converter, convert text to hex, ASCII to hex, VexTools">
+<meta
+    name="keywords"
+    content="text to hex, text to hexadecimal, text to hex converter, hex converter, hexadecimal converter, convert text to hex, ASCII to hex, VexTools"
+>
 
 <meta name="robots" content="index, follow">
+
 <meta name="author" content="VexTools">
+
 <meta name="theme-color" content="#070b18">
 
-<link rel="canonical" href="https://vextools.site/tools/text-to-hex.html">
+<link
+    rel="canonical"
+    href="https://vextools.site/tools/text-to-hex.html"
+>
+
 
 <!-- Open Graph -->
-<meta property="og:title" content="Text to HEX Converter — VexTools">
-<meta property="og:description" content="Convert text into hexadecimal instantly with this free online Text to HEX Converter.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://vextools.site/tools/text-to-hex.html">
-<meta property="og:site_name" content="VexTools">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Text to HEX Converter — VexTools">
-<meta name="twitter:description" content="Free online tool to convert text into hexadecimal instantly.">
+<meta
+    property="og:title"
+    content="Text to HEX Converter — VexTools"
+>
+
+<meta
+    property="og:description"
+    content="Convert text into hexadecimal instantly with this free online Text to HEX Converter."
+>
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:url"
+    content="https://vextools.site/tools/text-to-hex.html"
+>
+
+<meta
+    property="og:site_name"
+    content="VexTools"
+>
+
+
+<!-- Twitter -->
+
+<meta
+    name="twitter:card"
+    content="summary"
+>
+
+<meta
+    name="twitter:title"
+    content="Text to HEX Converter — VexTools"
+>
+
+<meta
+    name="twitter:description"
+    content="Free online tool to convert text into hexadecimal instantly."
+>
+
 
 <!-- Structured Data -->
+
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"WebApplication",
-  "name":"Text to HEX Converter",
-  "url":"https://vextools.site/tools/text-to-hex.html",
-  "description":"A free online tool to convert text into hexadecimal.",
-  "applicationCategory":"UtilityApplication",
-  "operatingSystem":"Any",
-  "browserRequirements":"Requires JavaScript",
-  "isAccessibleForFree":true,
-  "publisher":{
-    "@type":"Organization",
-    "name":"VexTools",
-    "url":"https://vextools.site/"
-  }
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Text to HEX Converter",
+    "url":"https://vextools.site/tools/text-to-hex.html",
+    "description":"A free online tool to convert text into hexadecimal.",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"Any",
+    "browserRequirements":"Requires JavaScript",
+    "isAccessibleForFree":true,
+    "publisher":{
+        "@type":"Organization",
+        "name":"VexTools",
+        "url":"https://vextools.site/"
+    }
 }
 </script>
+
 
 <!-- FAQ Structured Data -->
+
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {
-      "@type":"Question",
-      "name":"What is a Text to HEX Converter?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"A Text to HEX Converter converts characters from text into their hexadecimal representation."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"How do I convert text to hexadecimal?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Enter your text into the input box and click the Convert button. The hexadecimal result will appear automatically."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"Is the Text to HEX Converter free?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Yes. The VexTools Text to HEX Converter is free to use online."
-      }
-    }
-  ]
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+        {
+            "@type":"Question",
+            "name":"What is a Text to HEX Converter?",
+            "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"A Text to HEX Converter converts characters from text into their hexadecimal representation."
+            }
+        },
+        {
+            "@type":"Question",
+            "name":"How do I convert text to hexadecimal?",
+            "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"Enter your text into the input box and click the Convert button. The hexadecimal result will appear automatically."
+            }
+        },
+        {
+            "@type":"Question",
+            "name":"Is the Text to HEX Converter free?",
+            "acceptedAnswer":{
+                "@type":"Answer",
+                "text":"Yes. The VexTools Text to HEX Converter is free to use online."
+            }
+        }
+    ]
 }
 </script>
 
+
 <style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
 body{
-font-family:Arial;
-background:#070b18;
-color:white;
-padding:40px 20px
+    font-family:Arial,sans-serif;
+    background:#070b18;
+    color:white;
+    padding:40px 20px;
+    min-height:100vh;
 }
 
 .container{
-max-width:800px;
-margin:auto
+    max-width:800px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo{
+    display:inline-block;
+    color:#a78bfa;
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+    margin-bottom:5px;
+}
+
+h1{
+    margin:15px 0 8px;
+    font-size:36px;
+}
+
+.header p{
+    color:#94a3b8;
+    line-height:1.6;
+}
+
+.card{
+    background:rgba(17,25,45,.85);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:22px;
 }
 
 textarea{
-width:100%;
-height:180px;
-padding:18px;
-background:#111a30;
-color:white;
-border:1px solid #27304a;
-border-radius:12px;
-margin:15px 0
+    width:100%;
+    height:180px;
+    padding:18px;
+    background:#0d1427;
+    color:white;
+    border:1px solid #29344f;
+    border-radius:14px;
+    margin:15px 0;
+    resize:vertical;
+    outline:none;
+    font-size:15px;
+    line-height:1.6;
+    font-family:Arial,sans-serif;
+}
+
+textarea:focus{
+    border-color:#7c3aed;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
 
 button{
-padding:14px 25px;
-background:#7c3aed;
-color:white;
-border:0;
-border-radius:10px;
-cursor:pointer
+    width:100%;
+    padding:14px;
+    background:linear-gradient(90deg,#7c3aed,#6366f1);
+    color:white;
+    border:0;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
 }
 
 button:hover{
-background:#6d28d9
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+button.secondary{
+    background:#334155;
 }
 
 .info{
-margin-top:30px;
-padding:20px;
-background:#111a30;
-border-radius:12px;
-color:#cbd5e1;
-line-height:1.7
+    margin-top:30px;
+    padding:22px;
+    background:#111a30;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+    color:#cbd5e1;
+    line-height:1.7;
 }
 
 .info h2{
-color:white;
-margin-bottom:10px
+    color:white;
+    margin-bottom:10px;
 }
 
 .faq{
-margin-top:20px
+    margin-top:25px;
+}
+
+.faq h2{
+    margin-bottom:15px;
 }
 
 .faq h3{
-color:#e2e8f0;
-margin-top:15px
+    color:#e2e8f0;
+    margin-top:18px;
+    margin-bottom:6px;
 }
+
+.faq p{
+    color:#94a3b8;
+}
+
+.back{
+    display:inline-block;
+    margin-top:20px;
+    color:#a78bfa;
+    text-decoration:none;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:30px 15px;
+    }
+
+    h1{
+        font-size:29px;
+    }
+
+    .buttons{
+        grid-template-columns:1fr;
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
+<main class="container">
+
+
+<header class="header">
+
+<a
+    class="logo"
+    href="../index.html"
+    aria-label="VexTools Home"
+>
+    VexTools
+</a>
 
 <h1>🔣 Text to HEX Converter</h1>
 
-<p>Convert text into hexadecimal instantly.</p>
+<p>
+Convert text into hexadecimal instantly.
+</p>
+
+</header>
+
+
+<section
+    class="card"
+    aria-label="Text to HEX Converter"
+>
+
 
 <textarea
-id="input"
-placeholder="Enter text..."
-aria-label="Text input"
+    id="input"
+    placeholder="Enter text..."
+    aria-label="Text input"
 ></textarea>
 
-<button onclick="convert()">Convert to HEX</button>
+
+<div class="buttons">
+
+<button
+    type="button"
+    onclick="convert()"
+>
+    Convert to HEX
+</button>
+
+<button
+    type="button"
+    class="secondary"
+    onclick="copyHex()"
+>
+    Copy HEX
+</button>
+
+</div>
+
 
 <textarea
-id="output"
-readonly
-placeholder="HEX result..."
-aria-label="Hexadecimal output"
+    id="output"
+    readonly
+    placeholder="HEX result..."
+    aria-label="Hexadecimal output"
 ></textarea>
 
-<div class="info">
+
+<div class="buttons">
+
+<button
+    type="button"
+    class="secondary"
+    onclick="clearText()"
+>
+    Clear
+</button>
+
+</div>
+
+
+<p
+    style="
+        text-align:center;
+        color:#94a3b8;
+        font-size:13px;
+        line-height:1.6;
+        margin-top:18px;
+    "
+>
+Convert text to hexadecimal directly in your browser.
+Your text is processed locally and is not uploaded to a server.
+</p>
+
+
+</section>
+
+
+<section class="info">
 
 <h2>Text to HEX Converter</h2>
 
@@ -178,47 +400,141 @@ hexadecimal values instantly. Simply enter your text and
 click the Convert button to generate the hexadecimal result.
 </p>
 
+
 <div class="faq">
 
 <h2>Frequently Asked Questions</h2>
 
-<h3>What is a Text to HEX Converter?</h3>
+
+<h3>
+What is a Text to HEX Converter?
+</h3>
+
 <p>
 A Text to HEX Converter changes text characters into their
 hexadecimal representation.
 </p>
 
-<h3>How do I convert text to hexadecimal?</h3>
+
+<h3>
+How do I convert text to hexadecimal?
+</h3>
+
 <p>
 Enter your text in the input box and click the Convert to HEX
 button. The hexadecimal output will appear below.
 </p>
 
-<h3>Is this Text to HEX Converter free?</h3>
+
+<h3>
+Is this Text to HEX Converter free?
+</h3>
+
 <p>
 Yes, VexTools provides this tool completely free to use online.
 </p>
 
-</div>
 
 </div>
 
-</div>
+</section>
+
+
+<a
+    class="back"
+    href="../index.html"
+>
+    ← Back to VexTools
+</a>
+
+
+</main>
+
 
 <script>
 
+const input =
+    document.getElementById("input");
+
+const output =
+    document.getElementById("output");
+
+
+/* =========================
+   CONVERT TEXT TO HEX
+========================= */
+
 function convert(){
 
-const input=document.getElementById("input");
-const output=document.getElementById("output");
+    if(!input.value){
 
-output.value=[...input.value]
-.map(c=>c.charCodeAt(0).toString(16).padStart(2,"0"))
-.join(" ");
+        output.value = "";
+
+        return;
+
+    }
+
+
+    const bytes =
+        new TextEncoder().encode(input.value);
+
+
+    output.value =
+        [...bytes]
+        .map(byte =>
+            byte
+                .toString(16)
+                .padStart(2,"0")
+        )
+        .join(" ");
+
+}
+
+
+/* =========================
+   COPY HEX
+========================= */
+
+async function copyHex(){
+
+    if(!output.value){
+        return;
+    }
+
+
+    try{
+
+        await navigator.clipboard.writeText(
+            output.value
+        );
+
+    }catch{
+
+        output.select();
+
+        document.execCommand("copy");
+
+        output.setSelectionRange(0,0);
+
+    }
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearText(){
+
+    input.value = "";
+
+    output.value = "";
 
 }
 
 </script>
 
 </body>
+
 </html>
