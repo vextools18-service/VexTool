@@ -1,53 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Unit Converter — VexTools</title>
-<style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
-.container{max-width:650px;margin:auto}
-input,select{width:100%;padding:15px;margin:8px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
-.result{margin-top:20px;padding:20px;background:#111a30;border-radius:12px}
-button{width:100%;padding:14px;background:#7c3aed;color:white;border:0;border-radius:10px}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>📏 Unit Converter</h1>
-<p>Convert common length units.</p>
 
-<input id="value" type="number" placeholder="Value">
+<!-- Primary SEO -->
+<title>Unit Converter — Length Conversion Calculator | VexTools</title>
 
-<select id="from">
-<option value="m">Meters</option>
-<option value="km">Kilometers</option>
-<option value="cm">Centimeters</option>
-<option value="ft">Feet</option>
-<option value="in">Inches</option>
-</select>
+<meta
+name="description"
+content="Free online Unit Converter by VexTools. Convert meters, kilometers, centimeters, feet and inches quickly and accurately."
+>
 
-<select id="to">
-<option value="m">Meters</option>
-<option value="km">Kilometers</option>
-<option value="cm">Centimeters</option>
-<option value="ft">Feet</option>
-<option value="in">Inches</option>
-</select>
+<meta
+name="keywords"
+content="unit converter, length converter, measurement converter, meters to feet, feet to meters, kilometers converter, centimeters converter, inches converter, VexTools"
+>
 
-<button onclick="convert()">Convert</button>
-<div class="result" id="result">Result</div>
-</div>
+<meta name="robots" content="index, follow">
+<meta name="author" content="VexTools">
+<meta name="theme-color" content="#070b18">
 
-<script>
-const factors={m:1,km:1000,cm:.01,ft:.3048,in:.0254};
+<!-- Canonical -->
+<link
+rel="canonical"
+href="https://vextools.site/tools/unit-converter.html"
+>
 
-function convert(){
-let v=Number(value.value);
-let meters=v*factors[from.value];
-let answer=meters/factors[to.value];
-result.textContent=answer;
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unit Converter — VexTools">
+<meta
+property="og:description"
+content="Convert common length units including meters, kilometers, centimeters, feet and inches with the free VexTools Unit Converter."
+>
+<meta
+property="og:url"
+content="https://vextools.site/tools/unit-converter.html"
+>
+<meta property="og:site_name" content="VexTools">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta
+name="twitter:title"
+content="Unit Converter — VexTools"
+>
+<meta
+name="twitter:description"
+content="Convert meters, kilometers, centimeters, feet and inches instantly with VexTools."
+>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Unit Converter",
+  "url": "https://vextools.site/tools/unit-converter.html",
+  "description": "A free online length unit converter for converting meters, kilometers, centimeters, feet and inches.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools.site/"
+  }
 }
 </script>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a unit converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A unit converter converts a measurement from one unit into another equivalent unit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which units does this converter support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The VexTools Unit Converter supports meters, kilometers, centimeters, feet and inches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Unit Converter free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The VexTools Unit Converter is free to use online."
+      }
+    }
+  ]
+}
+</script>
+
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:40px 20px;
+}
+
+.container{
+max-width:650px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+h1{
+margin:10px 0;
+}
+
+p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+.card{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:22px;
+}
+
+input,
+select{
+width:100%;
+padding:15px;
+margin:8px 0;
+background:#0d1427;
+color:white;
+border:1px solid #29344f;
+border-radius:10px;
+font-size:15px;
+outline:none;
+}
+
+input:focus,
+select:focus{
+border-color:#7c3aed;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:10px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
+}
+
+.result{
+margin-top:20px;
+padding:20px;
+background:#0d1427;
+border:1px solid #29344f;
+border-radius:12px;
+line-height:1.6;
+word-break:break-word;
+color:#22d3ee;
+font-size:18px;
+min-height:60px;
+}
+
+.seo-content{
+margin-top:25px;
+padding:22px;
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+line-height:1.7;
+}
+
+.seo-content h2{
+margin-bottom:10px;
+}
+
+.seo-content h3{
+margin-top:18px;
+margin-bottom:6px;
+}
+
+@media(max-width:600px){
+
+body{
+padding:30px 15px;
+}
+
+h1{
+font-size:28px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<a
+class="logo"
+href="../index.html"
+aria-label="VexTools Home"
+>
+VexTools
+</a>
+
+<h1>📏 Unit Converter</h1>
+
+<p>
+Convert common length units quickly and accurately.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<input
+id="value"
+type="number"
+placeholder="Enter value"
+aria-label="Value to convert"
+>
+
+
+<select
+id="from"
+aria-label="Convert from"
+>
+
+<option value="m">Meters</option>
+<option value="km">Kilometers</option>
+<option value="cm">Centimeters</option>
+<option value="ft">Feet</option>
+<option value="in">Inches</option>
+
+</select>
+
+
+<select
+id="to"
+aria-label="Convert to"
+>
+
+<option value="m">Meters</option>
+<option value="km">Kilometers</option>
+<option value="cm">Centimeters</option>
+<option value="ft">Feet</option>
+<option value="in">Inches</option>
+
+</select>
+
+
+<button
+onclick="convert()"
+type="button"
+>
+Convert
+</button>
+
+
+<div
+class="result"
+id="result"
+aria-live="polite"
+>
+Result
+</div>
+
+</div>
+
+
+<!-- SEO Content -->
+
+<section class="seo-content">
+
+<h2>Length Unit Converter</h2>
+
+<p>
+Use the VexTools Unit Converter to convert common length
+measurements between meters, kilometers, centimeters,
+feet and inches. Enter a value, select the original unit,
+choose the target unit and click Convert.
+</p>
+
+
+<h3>What is a unit converter?</h3>
+
+<p>
+A unit converter changes a measurement from one unit into
+another equivalent unit. Unit conversion is useful for
+everyday measurements, education, engineering, construction
+and many other applications.
+</p>
+
+
+<h3>Supported length units</h3>
+
+<p>
+This converter supports meters (m), kilometers (km),
+centimeters (cm), feet (ft) and inches (in).
+</p>
+
+
+<h3>How to use the Unit Converter</h3>
+
+<p>
+Enter the number you want to convert, select the unit you
+are converting from, select the unit you want to convert
+to, and click the Convert button. The converted value will
+appear instantly.
+</p>
+
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is the Unit Converter free?</h3>
+
+<p>
+Yes. The VexTools Unit Converter is completely free to
+use online.
+</p>
+
+
+<h3>Can I convert meters to feet?</h3>
+
+<p>
+Yes. Select Meters as the original unit and Feet as the
+target unit, then click Convert.
+</p>
+
+
+<h3>Can I convert kilometers to meters?</h3>
+
+<p>
+Yes. Select Kilometers as the original unit and Meters as
+the target unit to convert the measurement.
+</p>
+
+</section>
+
+</div>
+
+
+<script>
+
+const factors={
+m:1,
+km:1000,
+cm:0.01,
+ft:0.3048,
+in:0.0254
+};
+
+
+function convert(){
+
+const valueInput=
+document.getElementById("value");
+
+const result=
+document.getElementById("result");
+
+const v=Number(valueInput.value);
+
+if(
+valueInput.value.trim()===""
+||
+!Number.isFinite(v)
+){
+
+result.textContent=
+"Please enter a valid value.";
+
+return;
+
+}
+
+const from=
+document.getElementById("from").value;
+
+const to=
+document.getElementById("to").value;
+
+const meters=
+v*factors[from];
+
+const answer=
+meters/factors[to];
+
+result.textContent=
+answer;
+
+}
+
+</script>
+
 </body>
+
 </html>
