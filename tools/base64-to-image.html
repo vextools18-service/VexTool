@@ -1,23 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Base64 to Image — VexTools</title>
+
+<!-- =====================================================
+     SEO
+===================================================== -->
+
+<title>Base64 to Image Converter Online — Free | VexTools</title>
+
+<meta name="description"
+content="Convert Base64 image data into an image online with VexTools. Free, fast and easy Base64 to Image converter that works directly in your browser.">
+
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="VexTools">
+
+<meta name="keywords"
+content="base64 to image, base64 to image converter, convert base64 to image, base64 image decoder, base64 image converter online, base64 image to png, free base64 converter, VexTools">
+
+
+<!-- =====================================================
+     CANONICAL
+===================================================== -->
+
+<link rel="canonical"
+href="https://vextools18-service.github.io/VexTool/tools/base64-to-image.html">
+
+
+<!-- =====================================================
+     OPEN GRAPH
+===================================================== -->
+
+<meta property="og:type" content="website">
+
+<meta property="og:title"
+content="Base64 to Image Converter Online — VexTools">
+
+<meta property="og:description"
+content="Convert Base64 image data into an image quickly and easily with the free VexTools online converter.">
+
+<meta property="og:url"
+content="https://vextools18-service.github.io/VexTool/tools/base64-to-image.html">
+
+<meta property="og:site_name"
+content="VexTools">
+
+
+<!-- =====================================================
+     TWITTER / X
+===================================================== -->
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title"
+content="Base64 to Image Converter Online — VexTools">
+
+<meta name="twitter:description"
+content="Free online Base64 to Image converter. Convert Base64 image data into a downloadable image.">
+
+
+<!-- =====================================================
+     THEME
+===================================================== -->
+
+<meta name="theme-color" content="#070b18">
+
+
+<!-- =====================================================
+     STRUCTURED DATA
+===================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Base64 to Image Converter",
+  "url": "https://vextools18-service.github.io/VexTool/tools/base64-to-image.html",
+  "description": "A free online tool for converting Base64 image data into an image.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser",
+  "isAccessibleForFree": true,
+  "author": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools18-service.github.io/VexTool/"
+  }
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "VexTools",
+      "item": "https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Base64 to Image",
+      "item": "https://vextools18-service.github.io/VexTool/tools/base64-to-image.html"
+    }
+  ]
+}
+</script>
+
+
+<!-- =====================================================
+     STYLE
+===================================================== -->
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Arial,sans-serif;
 background:#070b18;
 color:white;
 padding:30px 15px;
+min-height:100vh;
 }
 
-.container{max-width:850px;margin:auto}
+.container{
+max-width:850px;
+margin:auto;
+}
 
-.header{text-align:center;margin-bottom:25px}
+.header{
+text-align:center;
+margin-bottom:25px;
+}
 
 .logo{
 color:#a78bfa;
@@ -26,9 +153,14 @@ font-weight:900;
 text-decoration:none;
 }
 
-h1{margin:15px 0 8px}
+h1{
+margin:15px 0 8px;
+}
 
-p{color:#94a3b8}
+p{
+color:#94a3b8;
+line-height:1.6;
+}
 
 .card{
 background:rgba(17,25,45,.85);
@@ -47,6 +179,12 @@ border:1px solid #29344f;
 border-radius:12px;
 resize:vertical;
 font-size:13px;
+font-family:monospace;
+}
+
+textarea:focus{
+outline:none;
+border-color:#7c3aed;
 }
 
 button{
@@ -59,6 +197,18 @@ background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:.25s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 25px rgba(124,58,237,.3);
+}
+
+.status{
+text-align:center;
+margin-top:15px;
+color:#94a3b8;
 }
 
 .preview{
@@ -78,66 +228,174 @@ text-decoration:none;
 border-radius:10px;
 font-weight:bold;
 }
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+
 </style>
+
 </head>
+
 
 <body>
 
 <div class="container">
 
+
 <div class="header">
-<a class="logo" href="../index.html">VexTools</a>
-<h1>Base64 to Image</h1>
-<p>Convert a Base64 image string back into an image.</p>
+
+<a class="logo" href="../index.html">
+VexTools
+</a>
+
+<h1>
+Base64 to Image
+</h1>
+
+<p>
+Convert a Base64 image string back into an image.
+</p>
+
 </div>
+
 
 <div class="card">
 
-<textarea id="input" placeholder="Paste Base64 image data here..."></textarea>
+<textarea
+id="input"
+placeholder="Paste Base64 image data here..."
+aria-label="Base64 image data"
+></textarea>
 
-<button onclick="convert()">Convert to Image</button>
+
+<button onclick="convert()">
+Convert to Image
+</button>
+
+
+<div
+id="status"
+class="status"
+aria-live="polite">
+</div>
+
 
 <div id="result"></div>
 
 </div>
+
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+
 </div>
 
+
 <script>
+
 function convert(){
 
-const data=document.getElementById("input").value.trim();
+const data =
+document.getElementById("input")
+.value
+.trim();
+
+const result =
+document.getElementById("result");
+
+const status =
+document.getElementById("status");
+
+
+result.innerHTML = "";
+
+status.textContent = "";
+
 
 if(!data){
-alert("Please enter Base64 image data.");
+
+status.textContent =
+"Please enter Base64 image data.";
+
 return;
+
 }
 
-const img=document.createElement("img");
 
-img.className="preview";
-img.src=data;
+/*
+   Support both:
 
-img.onload=()=>{
+   data:image/png;base64,...
 
-const link=document.createElement("a");
+   and raw Base64 strings.
+*/
 
-link.className="download";
-link.href=data;
-link.download="base64-image.png";
-link.textContent="Download Image";
+let imageData = data;
 
-document.getElementById("result").innerHTML="";
-document.getElementById("result").appendChild(img);
-document.getElementById("result").appendChild(link);
+
+if(
+!data.startsWith("data:image/")
+){
+
+imageData =
+"data:image/png;base64," + data;
+
+}
+
+
+const img =
+document.createElement("img");
+
+img.className = "preview";
+
+img.alt = "Converted Base64 image";
+
+img.src = imageData;
+
+
+img.onload = () => {
+
+const link =
+document.createElement("a");
+
+link.className = "download";
+
+link.href = imageData;
+
+link.download = "base64-image.png";
+
+link.textContent =
+"Download Image";
+
+
+result.appendChild(img);
+
+result.appendChild(link);
+
+
+status.textContent =
+"✓ Base64 successfully converted to an image.";
 
 };
 
-img.onerror=()=>{
-alert("Invalid Base64 image data.");
+
+img.onerror = () => {
+
+status.textContent =
+"❌ Invalid Base64 image data.";
+
 };
 
 }
+
 </script>
 
 </body>
+
 </html>
