@@ -2,37 +2,123 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Slug Generator — VexTools</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Slug Generator Online — VexTools</title>
+
+<meta name="description" content="Generate clean, SEO-friendly and URL-friendly slugs online for free with VexTools. Convert titles and text into readable URL slugs instantly.">
+
+<meta name="keywords" content="slug generator, URL slug generator, SEO slug generator, slug maker, URL friendly slug, SEO friendly URL, generate slug online, text to slug">
+
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools.github.io/tools/slug-generator.html">
+
+<meta property="og:title" content="Slug Generator Online — VexTools">
+<meta property="og:description" content="Generate clean and SEO-friendly URL slugs from titles and text instantly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/tools/slug-generator.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Slug Generator — VexTools">
+<meta name="twitter:description" content="Create clean, readable and URL-friendly slugs online for free.">
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
-.container{max-width:700px;margin:auto}
-input{width:100%;padding:18px;border-radius:12px;border:1px solid #27304a;background:#111a30;color:white;font-size:16px;margin:20px 0}
-.result{padding:20px;background:#111a30;border-radius:12px;word-break:break-all;color:#22d3ee}
-button{margin-top:15px;padding:13px 20px;border:0;border-radius:10px;background:#7c3aed;color:white;cursor:pointer}
+body{
+font-family:Arial;
+background:#070b18;
+color:white;
+padding:50px 20px
+}
+
+.container{
+max-width:700px;
+margin:auto
+}
+
+input{
+width:100%;
+padding:18px;
+border-radius:12px;
+border:1px solid #27304a;
+background:#111a30;
+color:white;
+font-size:16px;
+margin:20px 0
+}
+
+.result{
+padding:20px;
+background:#111a30;
+border-radius:12px;
+word-break:break-all;
+color:#22d3ee
+}
+
+button{
+margin-top:15px;
+padding:13px 20px;
+border:0;
+border-radius:10px;
+background:#7c3aed;
+color:white;
+cursor:pointer
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <h1>🔗 Slug Generator</h1>
-<p>Generate clean URL-friendly slugs.</p>
-<input id="input" placeholder="Enter title...">
-<div class="result" id="result">Your slug will appear here</div>
-<button onclick="copySlug()">Copy Slug</button>
+
+<p>Generate clean, SEO-friendly and URL-friendly slugs.</p>
+
+<input
+id="input"
+placeholder="Enter title..."
+aria-label="Enter title to generate URL slug"
+>
+
+<div class="result" id="result">
+Your slug will appear here
 </div>
+
+<button onclick="copySlug()">
+Copy Slug
+</button>
+
+</div>
+
 <script>
+
 const input=document.getElementById("input");
+
 input.oninput=()=>{
+
 document.getElementById("result").textContent=
-input.value.toLowerCase().trim()
+input.value
+.toLowerCase()
+.trim()
 .replace(/[^a-z0-9\s-]/g,"")
 .replace(/\s+/g,"-")
 .replace(/-+/g,"-");
+
 };
+
 function copySlug(){
-navigator.clipboard.writeText(document.getElementById("result").textContent);
+
+const slug=document.getElementById("result").textContent;
+
+navigator.clipboard.writeText(slug);
+
 alert("Slug copied!");
+
 }
+
 </script>
+
 </body>
 </html>
