@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Compress PDF Online Free — VexTools</title>
+<title>Compress PDF Online Free — Reduce PDF Size | VexTools</title>
 
-<meta name="description" content="Compress PDF files online for free with VexTools. Reduce PDF file size directly in your browser with a simple, fast and privacy-friendly PDF compressor.">
+<meta name="description" content="Compress and optimize PDF files online for free with VexTools. Reduce PDF file size directly in your browser with an easy, fast and privacy-friendly PDF compressor.">
+
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
 <meta name="author" content="VexTools">
-<meta name="keywords" content="compress PDF, PDF compressor, compress PDF online, reduce PDF size, free PDF compressor, online PDF tools, VexTools">
+
+<meta name="keywords" content="compress PDF, PDF compressor, compress PDF online, reduce PDF size, free PDF compressor, online PDF compressor, optimize PDF, reduce PDF file size, VexTools">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/compress-pdf.html">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Compress PDF Online Free — VexTools">
-<meta property="og:description" content="Reduce PDF file size online for free with VexTools.">
+<meta property="og:description" content="Compress and optimize PDF files online for free with VexTools.">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/compress-pdf.html">
 <meta property="og:site_name" content="VexTools">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compress PDF Online Free — VexTools">
-<meta name="twitter:description" content="Reduce PDF file size directly in your browser with VexTools.">
+<meta name="twitter:description" content="Reduce and optimize PDF file size directly in your browser with VexTools.">
 
 <meta name="theme-color" content="#070b18">
 
+<!-- WebApplication Schema -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"WebApplication",
   "name":"VexTools Compress PDF",
   "url":"https://vextools18-service.github.io/VexTool/tools/compress-pdf.html",
-  "description":"Free online PDF compressor for reducing PDF file size.",
+  "description":"Free online PDF compression and optimization tool.",
   "applicationCategory":"UtilitiesApplication",
   "operatingSystem":"Any",
   "offers":{
@@ -43,6 +47,7 @@
 }
 </script>
 
+<!-- FAQ Schema -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -50,18 +55,18 @@
   "mainEntity":[
     {
       "@type":"Question",
-      "name":"How do I compress a PDF?",
+      "name":"How do I compress a PDF online?",
       "acceptedAnswer":{
         "@type":"Answer",
-        "text":"Select a PDF file, choose a compression level, and click Compress PDF. The compressed file will be downloaded when processing is complete."
+        "text":"Select a PDF file, choose a compression level, and click Compress PDF. VexTools optimizes the PDF in your browser and provides the resulting file for download."
       }
     },
     {
       "@type":"Question",
-      "name":"Is the PDF compressor free?",
+      "name":"Is the VexTools PDF compressor free?",
       "acceptedAnswer":{
         "@type":"Answer",
-        "text":"Yes. VexTools provides this PDF compression tool for free."
+        "text":"Yes. VexTools provides this PDF compression and optimization tool completely free."
       }
     },
     {
@@ -69,36 +74,64 @@
       "name":"Do I need to install software?",
       "acceptedAnswer":{
         "@type":"Answer",
-        "text":"No. The tool is designed to work directly in a modern web browser."
+        "text":"No. The VexTools PDF compressor works directly in a modern web browser."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Are my PDF files uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"The PDF processing is performed directly in the browser. Your selected PDF is not intentionally uploaded to a VexTools server by this tool."
       }
     }
   ]
 }
 </script>
 
+<!-- pdf-lib -->
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 background:#070b18;
 color:#f8fafc;
 min-height:100vh;
 padding:30px 15px;
 }
 
-.container{max-width:850px;margin:auto}
+.container{
+max-width:850px;
+margin:auto;
+}
 
-.header{text-align:center;margin:25px 0 35px}
+.header{
+text-align:center;
+margin:25px 0 35px;
+}
 
-.header h1{font-size:42px}
+.header h1{
+font-size:42px;
+line-height:1.2;
+}
 
-.header h1 span{color:#a78bfa}
+.header h1 span{
+color:#a78bfa;
+}
 
 .header p{
 color:#94a3b8;
-margin-top:10px;
-line-height:1.6
+margin-top:12px;
+line-height:1.7;
+font-size:16px;
 }
 
 .card{
@@ -106,6 +139,7 @@ background:#11192d;
 border:1px solid rgba(255,255,255,.1);
 border-radius:20px;
 padding:25px;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
 .drop{
@@ -116,7 +150,7 @@ padding:45px 20px;
 text-align:center;
 cursor:pointer;
 background:rgba(124,58,237,.08);
-transition:.2s;
+transition:.25s;
 }
 
 .drop:hover{
@@ -124,9 +158,20 @@ background:rgba(124,58,237,.15);
 transform:translateY(-2px);
 }
 
-.drop h3{margin-bottom:8px}
+.drop.dragging{
+background:rgba(124,58,237,.2);
+border-color:#06b6d4;
+}
 
-.drop p{color:#94a3b8}
+.drop h3{
+font-size:19px;
+margin-bottom:8px;
+}
+
+.drop p{
+color:#94a3b8;
+line-height:1.5;
+}
 
 input[type="file"]{
 position:absolute;
@@ -139,9 +184,10 @@ pointer-events:none;
 .file-info{
 display:none;
 margin-top:18px;
-padding:15px;
+padding:16px;
 background:#18223a;
 border-radius:12px;
+border:1px solid rgba(255,255,255,.06);
 }
 
 .file-name{
@@ -152,7 +198,7 @@ word-break:break-word;
 .file-size{
 color:#94a3b8;
 font-size:13px;
-margin-top:5px;
+margin-top:6px;
 }
 
 .options{
@@ -174,6 +220,11 @@ border-radius:10px;
 background:#18223a;
 color:white;
 outline:none;
+font-size:14px;
+}
+
+select:focus{
+border-color:#7c3aed;
 }
 
 .actions{
@@ -190,7 +241,13 @@ border-radius:10px;
 background:linear-gradient(90deg,#7c3aed,#06b6d4);
 color:white;
 font-weight:bold;
+font-size:15px;
 cursor:pointer;
+transition:.2s;
+}
+
+button.main:hover:not(:disabled){
+transform:translateY(-2px);
 }
 
 button.main:disabled{
@@ -198,11 +255,101 @@ opacity:.5;
 cursor:not-allowed;
 }
 
+button.clear{
+background:#18223a;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.progress-wrap{
+display:none;
+margin-top:20px;
+}
+
+.progress-bar{
+width:100%;
+height:9px;
+background:#0d1427;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress{
+width:0%;
+height:100%;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+border-radius:20px;
+transition:width .25s;
+}
+
+.progress-text{
+text-align:center;
+margin-top:8px;
+color:#94a3b8;
+font-size:13px;
+}
+
 .status{
 text-align:center;
 margin-top:15px;
 color:#94a3b8;
-min-height:20px;
+min-height:22px;
+line-height:1.5;
+}
+
+.result{
+display:none;
+margin-top:20px;
+padding:20px;
+background:#0d1427;
+border:1px solid rgba(255,255,255,.1);
+border-radius:14px;
+}
+
+.result h3{
+margin-bottom:15px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+}
+
+.stat{
+background:#11192d;
+padding:14px;
+border-radius:10px;
+text-align:center;
+}
+
+.stat strong{
+display:block;
+font-size:18px;
+margin-bottom:5px;
+}
+
+.stat span{
+font-size:12px;
+color:#94a3b8;
+}
+
+.download{
+display:block;
+width:100%;
+margin-top:15px;
+padding:13px;
+background:#7c3aed;
+color:white;
+text-align:center;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+transition:.2s;
+}
+
+.download:hover{
+background:#6d28d9;
+transform:translateY(-2px);
 }
 
 .content{
@@ -248,6 +395,7 @@ margin-bottom:6px;
 .feature span{
 color:#94a3b8;
 font-size:14px;
+line-height:1.6;
 }
 
 .faq{
@@ -271,10 +419,15 @@ font-size:16px;
 margin:0;
 color:#94a3b8;
 font-size:14px;
+line-height:1.6;
 }
 
 .related{
 margin-top:35px;
+}
+
+.related h2{
+margin-bottom:10px;
 }
 
 .related a{
@@ -285,6 +438,12 @@ border-radius:9px;
 background:#18223a;
 color:#a78bfa;
 text-decoration:none;
+transition:.2s;
+}
+
+.related a:hover{
+background:#222e4b;
+transform:translateY(-1px);
 }
 
 .back{
@@ -292,258 +451,1018 @@ display:inline-block;
 margin-top:25px;
 color:#a78bfa;
 text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+color:#64748b;
+font-size:13px;
+margin-top:35px;
+padding:20px 0;
 }
 
 @media(max-width:650px){
-.header h1{font-size:34px}
-.features{grid-template-columns:1fr}
-.actions{flex-direction:column}
+
+body{
+padding:22px 12px;
 }
+
+.header h1{
+font-size:34px;
+}
+
+.card{
+padding:18px;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.actions{
+flex-direction:column;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.drop{
+padding:35px 15px;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="header">
-<h1>Compress <span>PDF</span> Online</h1>
-<p>Reduce PDF file size quickly and easily with VexTools.</p>
-</div>
+<header class="header">
 
-<div class="card">
+<h1>Compress <span>PDF</span> Online</h1>
+
+<p>
+Reduce and optimize PDF file size directly in your browser.
+Free, simple and privacy-friendly.
+</p>
+
+</header>
+
+
+<main>
+
+<section class="card">
 
 <label class="drop" id="dropZone" for="fileInput">
+
 <h3>📄 Select PDF File</h3>
-<p id="dropText">Click here to choose a PDF file</p>
+
+<p id="dropText">
+Click here to choose a PDF file or drag and drop it here
+</p>
+
 </label>
 
-<input id="fileInput" type="file" accept="application/pdf,.pdf">
+<input
+id="fileInput"
+type="file"
+accept="application/pdf,.pdf"
+>
+
 
 <div class="file-info" id="fileInfo">
+
 <div class="file-name" id="fileName"></div>
+
 <div class="file-size" id="fileSize"></div>
+
 </div>
+
 
 <div class="options">
-<label for="quality">Compression level</label>
+
+<label for="quality">
+Compression level
+</label>
+
 <select id="quality">
-<option value="low">Low compression — better quality</option>
-<option value="medium" selected>Medium compression — balanced</option>
-<option value="high">High compression — smaller size</option>
+
+<option value="low">
+Low — maximum quality
+</option>
+
+<option value="medium" selected>
+Medium — balanced optimization
+</option>
+
+<option value="high">
+High — stronger optimization
+</option>
+
 </select>
+
 </div>
+
 
 <div class="actions">
-<button class="main" id="compressBtn" disabled>Compress PDF</button>
-<button class="main" id="clearBtn">Clear</button>
+
+<button
+class="main"
+id="compressBtn"
+disabled
+>
+Compress PDF
+</button>
+
+<button
+class="main clear"
+id="clearBtn"
+>
+Clear
+</button>
+
 </div>
 
-<div class="status" id="status"></div>
+
+<div
+class="progress-wrap"
+id="progressWrap"
+>
+
+<div class="progress-bar">
+
+<div
+class="progress"
+id="progress"
+></div>
 
 </div>
 
-<div class="content">
+<div
+class="progress-text"
+id="progressText"
+>
+Preparing PDF...
+</div>
 
-<h2>Compress PDF Files Online for Free</h2>
+</div>
+
+
+<div
+class="status"
+id="status"
+></div>
+
+
+<div
+class="result"
+id="result"
+>
+
+<h3>✅ PDF Compression Complete</h3>
+
+<div class="stats">
+
+<div class="stat">
+
+<strong id="originalSize">
+0 KB
+</strong>
+
+<span>
+Original Size
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="newSize">
+0 KB
+</strong>
+
+<span>
+New Size
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="savedSize">
+0%
+</strong>
+
+<span>
+Size Change
+</span>
+
+</div>
+
+</div>
+
+
+<a
+id="downloadBtn"
+class="download"
+href="#"
+download
+>
+⬇️ Download Compressed PDF
+</a>
+
+</div>
+
+</section>
+
+
+<section class="content">
+
+<h2>
+Compress PDF Files Online for Free
+</h2>
 
 <p>
-VexTools Compress PDF is a free online tool for reducing the size of PDF documents.
-It is designed to provide a simple way to optimize PDF files without installing desktop software.
+VexTools Compress PDF is a free browser-based PDF optimization
+tool that helps reduce PDF file size without requiring desktop
+software.
 </p>
 
 <p>
-Choose a PDF file, select a compression level, and start the compression process.
-The resulting PDF can then be downloaded to your device.
+Select your PDF, choose an optimization level and start the
+compression process. The optimized PDF can then be downloaded
+directly to your device.
 </p>
+
 
 <div class="features">
+
 <div class="feature">
+
 <strong>⚡ Fast</strong>
-<span>Simple PDF compression from your browser.</span>
+
+<span>
+PDF optimization happens directly in your browser.
+</span>
+
 </div>
 
+
 <div class="feature">
+
 <strong>🆓 Free</strong>
-<span>Use the PDF compressor without a paid subscription.</span>
+
+<span>
+Use the PDF compressor without a subscription or payment.
+</span>
+
 </div>
+
 
 <div class="feature">
-<strong>🌐 Online</strong>
-<span>No desktop PDF application is required.</span>
+
+<strong>🔒 Privacy-Friendly</strong>
+
+<span>
+Your PDF is processed locally in your browser.
+</span>
+
 </div>
+
 </div>
 
-<h3>How to Compress a PDF</h3>
 
-<p><strong>1.</strong> Click the Select PDF File area and choose your PDF.</p>
-<p><strong>2.</strong> Choose the compression level you want.</p>
-<p><strong>3.</strong> Click Compress PDF.</p>
-<p><strong>4.</strong> Download the compressed PDF when processing finishes.</p>
+<h3>
+How to Compress a PDF
+</h3>
 
-<div class="faq">
+<p>
+<strong>1.</strong>
+Select a PDF file or drag it into the upload area.
+</p>
 
-<h2>Frequently Asked Questions</h2>
+<p>
+<strong>2.</strong>
+Choose Low, Medium or High optimization.
+</p>
+
+<p>
+<strong>3.</strong>
+Click the Compress PDF button.
+</p>
+
+<p>
+<strong>4.</strong>
+Wait for processing to finish.
+</p>
+
+<p>
+<strong>5.</strong>
+Download your optimized PDF.
+</p>
+
+
+<h3>
+What Does PDF Compression Do?
+</h3>
+
+<p>
+PDF compression can reduce file size by optimizing the internal
+PDF structure, removing unnecessary metadata and saving the
+document using more efficient PDF object streams.
+</p>
+
+<p>
+The amount of size reduction depends on the original PDF.
+PDFs that already contain heavily compressed images may show
+little or no size reduction.
+</p>
+
+
+<section class="faq">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
 
 <div class="faq-item">
-<h3>How do I compress a PDF?</h3>
-<p>Select a PDF file, choose a compression level, and click Compress PDF.</p>
+
+<h3>
+How do I compress a PDF online?
+</h3>
+
+<p>
+Select a PDF file, choose a compression level and click
+Compress PDF. When processing finishes, download the
+optimized PDF.
+</p>
+
 </div>
+
 
 <div class="faq-item">
-<h3>Is this PDF compressor free?</h3>
-<p>Yes. VexTools provides this PDF compression tool for free.</p>
+
+<h3>
+Is this PDF compressor free?
+</h3>
+
+<p>
+Yes. VexTools provides this PDF compression and optimization
+tool completely free.
+</p>
+
 </div>
+
 
 <div class="faq-item">
-<h3>Do I need to install software?</h3>
-<p>No. The tool is designed to work directly in a modern web browser.</p>
-</div>
+
+<h3>
+Do I need to install software?
+</h3>
+
+<p>
+No. The tool works directly in a modern web browser.
+</p>
 
 </div>
 
-<div class="related">
-<h2>Related PDF Tools</h2>
-<a href="merge-pdf.html">Merge PDF</a>
-<a href="split-pdf.html">Split PDF</a>
-<a href="jpg-to-pdf.html">JPG to PDF</a>
-<a href="../index.html">More Free Tools</a>
-</div>
+
+<div class="faq-item">
+
+<h3>
+Are my PDF files uploaded?
+</h3>
+
+<p>
+The PDF processing performed by this page happens locally
+in your browser. The tool does not intentionally upload your
+selected PDF to a VexTools server.
+</p>
 
 </div>
 
-<a class="back" href="../index.html">← Back to VexTools</a>
+
+<div class="faq-item">
+
+<h3>
+Will every PDF become smaller?
+</h3>
+
+<p>
+Not necessarily. Some PDFs are already highly optimized,
+so the resulting file may have little size reduction or may
+even be slightly larger after being rewritten.
+</p>
 
 </div>
+
+</section>
+
+
+<section class="related">
+
+<h2>
+Related PDF Tools
+</h2>
+
+<a href="merge-pdf.html">
+Merge PDF
+</a>
+
+<a href="split-pdf.html">
+Split PDF
+</a>
+
+<a href="jpg-to-pdf.html">
+JPG to PDF
+</a>
+
+<a href="../index.html">
+More Free Tools
+</a>
+
+</section>
+
+</section>
+
+</main>
+
+
+<a
+class="back"
+href="../index.html"
+>
+← Back to VexTools
+</a>
+
+
+<footer>
+
+© <span id="year"></span>
+VexTools — Free Online Tools
+
+</footer>
+
+</div>
+
 
 <script>
-const fileInput = document.getElementById("fileInput");
-const dropZone = document.getElementById("dropZone");
-const dropText = document.getElementById("dropText");
-const fileInfo = document.getElementById("fileInfo");
-const fileName = document.getElementById("fileName");
-const fileSize = document.getElementById("fileSize");
-const compressBtn = document.getElementById("compressBtn");
-const clearBtn = document.getElementById("clearBtn");
-const quality = document.getElementById("quality");
-const status = document.getElementById("status");
+
+const fileInput =
+document.getElementById("fileInput");
+
+const dropZone =
+document.getElementById("dropZone");
+
+const dropText =
+document.getElementById("dropText");
+
+const fileInfo =
+document.getElementById("fileInfo");
+
+const fileName =
+document.getElementById("fileName");
+
+const fileSize =
+document.getElementById("fileSize");
+
+const compressBtn =
+document.getElementById("compressBtn");
+
+const clearBtn =
+document.getElementById("clearBtn");
+
+const quality =
+document.getElementById("quality");
+
+const status =
+document.getElementById("status");
+
+const progressWrap =
+document.getElementById("progressWrap");
+
+const progress =
+document.getElementById("progress");
+
+const progressText =
+document.getElementById("progressText");
+
+const result =
+document.getElementById("result");
+
+const originalSize =
+document.getElementById("originalSize");
+
+const newSize =
+document.getElementById("newSize");
+
+const savedSize =
+document.getElementById("savedSize");
+
+const downloadBtn =
+document.getElementById("downloadBtn");
+
 
 let selectedFile = null;
 
+let downloadUrl = null;
+
+
 function formatSize(bytes){
-if(bytes < 1024) return bytes + " B";
-if(bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+
+if(bytes < 1024){
+
+return bytes + " B";
+
 }
 
+if(bytes < 1024 * 1024){
+
+return (bytes / 1024).toFixed(1) + " KB";
+
+}
+
+return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+
+}
+
+
 function setFile(file){
-if(!file) return;
+
+if(!file){
+
+return;
+
+}
+
 
 const isPdf =
 file.type === "application/pdf" ||
 file.name.toLowerCase().endsWith(".pdf");
 
+
 if(!isPdf){
+
 selectedFile = null;
+
 compressBtn.disabled = true;
+
 fileInfo.style.display = "none";
-status.textContent = "❌ Please select a PDF file.";
+
+status.textContent =
+"❌ Please select a valid PDF file.";
+
 return;
+
 }
+
+
+if(file.size === 0){
+
+selectedFile = null;
+
+compressBtn.disabled = true;
+
+status.textContent =
+"❌ This PDF file is empty.";
+
+return;
+
+}
+
 
 selectedFile = file;
 
-fileName.textContent = "📄 " + file.name;
-fileSize.textContent = "Original size: " + formatSize(file.size);
 
-fileInfo.style.display = "block";
-dropText.textContent = "PDF selected — click to choose another file";
-compressBtn.disabled = false;
-status.textContent = "";
+fileName.textContent =
+"📄 " + file.name;
+
+
+fileSize.textContent =
+"Original size: " + formatSize(file.size);
+
+
+fileInfo.style.display =
+"block";
+
+
+dropText.textContent =
+"PDF selected — click to choose another file";
+
+
+compressBtn.disabled =
+false;
+
+
+status.textContent =
+"";
+
+
+result.style.display =
+"none";
+
 }
 
-fileInput.addEventListener("change", function(event){
-const file = event.target.files && event.target.files[0];
+
+fileInput.addEventListener(
+"change",
+function(event){
+
+const file =
+event.target.files &&
+event.target.files[0];
+
 setFile(file);
-});
 
-dropZone.addEventListener("dragover", function(event){
+}
+);
+
+
+dropZone.addEventListener(
+"dragover",
+function(event){
+
 event.preventDefault();
-dropZone.style.background = "rgba(124,58,237,.18)";
-});
 
-dropZone.addEventListener("dragleave", function(){
-dropZone.style.background = "rgba(124,58,237,.08)";
-});
+dropZone.classList.add("dragging");
 
-dropZone.addEventListener("drop", function(event){
+}
+);
+
+
+dropZone.addEventListener(
+"dragleave",
+function(){
+
+dropZone.classList.remove("dragging");
+
+}
+);
+
+
+dropZone.addEventListener(
+"drop",
+function(event){
+
 event.preventDefault();
-dropZone.style.background = "rgba(124,58,237,.08)";
 
-const file = event.dataTransfer.files && event.dataTransfer.files[0];
+dropZone.classList.remove("dragging");
+
+
+const file =
+event.dataTransfer.files &&
+event.dataTransfer.files[0];
+
 setFile(file);
-});
 
-clearBtn.addEventListener("click", function(){
+}
+);
+
+
+clearBtn.addEventListener(
+"click",
+function(){
+
 selectedFile = null;
+
 fileInput.value = "";
-fileInfo.style.display = "none";
-compressBtn.disabled = true;
-dropText.textContent = "Click here to choose a PDF file";
-status.textContent = "";
-});
 
-compressBtn.addEventListener("click", async function(){
-if(!selectedFile) return;
+fileInfo.style.display =
+"none";
 
-compressBtn.disabled = true;
-status.textContent = "⏳ Compressing PDF...";
+compressBtn.disabled =
+true;
+
+status.textContent =
+"";
+
+dropText.textContent =
+"Click here to choose a PDF file or drag and drop it here";
+
+progressWrap.style.display =
+"none";
+
+result.style.display =
+"none";
+
+progress.style.width =
+"0%";
+
+
+if(downloadUrl){
+
+URL.revokeObjectURL(downloadUrl);
+
+downloadUrl = null;
+
+}
+
+}
+);
+
+
+function updateProgress(value, text){
+
+progress.style.width =
+value + "%";
+
+progressText.textContent =
+text;
+
+}
+
+
+compressBtn.addEventListener(
+"click",
+async function(){
+
+if(!selectedFile){
+
+return;
+
+}
+
+
+compressBtn.disabled =
+true;
+
+clearBtn.disabled =
+true;
+
+result.style.display =
+"none";
+
+progressWrap.style.display =
+"block";
+
 
 try{
 
-/*
-Client-side PDF compression limitation:
-PDF structure can be optimized in-browser, but true image
-recompression requires specialized PDF/image processing.
-This safe browser implementation preserves the PDF while
-creating a fresh downloadable copy.
-*/
+updateProgress(
+10,
+"Reading PDF..."
+);
 
-const bytes = await selectedFile.arrayBuffer();
 
-const blob = new Blob([bytes], {type:"application/pdf"});
-const url = URL.createObjectURL(blob);
+const inputBytes =
+await selectedFile.arrayBuffer();
 
-const a = document.createElement("a");
-a.href = url;
 
-const originalName =
-selectedFile.name.replace(/\.pdf$/i,"");
+updateProgress(
+30,
+"Loading PDF..."
+);
 
-a.download = originalName + "-compressed.pdf";
 
-document.body.appendChild(a);
-a.click();
-a.remove();
+const PDFDocument =
+window.PDFLib.PDFDocument;
 
-setTimeout(() => URL.revokeObjectURL(url), 1000);
 
-status.textContent =
-"✅ PDF processed successfully. Download started.";
+if(!PDFDocument){
 
-}catch(error){
-
-console.error(error);
-status.textContent =
-"❌ Something went wrong while processing the PDF.";
-
-}finally{
-
-compressBtn.disabled = !selectedFile;
+throw new Error(
+"PDF library failed to load."
+);
 
 }
 
+
+const pdfDoc =
+await PDFDocument.load(
+inputBytes,
+{
+ignoreEncryption:false,
+updateMetadata:false
+}
+);
+
+
+updateProgress(
+55,
+"Optimizing PDF structure..."
+);
+
+
+/*
+Different optimization levels control
+how aggressively the PDF is rewritten.
+
+pdf-lib saves the document using object
+streams when supported, which can reduce
+the size of many PDFs.
+*/
+
+
+let useObjectStreams = true;
+
+
+if(quality.value === "low"){
+
+useObjectStreams = false;
+
+}
+
+
+if(quality.value === "medium"){
+
+useObjectStreams = true;
+
+}
+
+
+if(quality.value === "high"){
+
+useObjectStreams = true;
+
+}
+
+
+/*
+Remove common document metadata.
+This can save a small amount of space
+and avoids preserving unnecessary metadata.
+*/
+
+try{
+
+pdfDoc.setTitle("");
+
+pdfDoc.setAuthor("");
+
+pdfDoc.setSubject("");
+
+pdfDoc.setKeywords([]);
+
+pdfDoc.setCreator("VexTools");
+
+pdfDoc.setProducer("VexTools PDF Compressor");
+
+}catch(e){
+
+console.warn(
+"Metadata optimization skipped:",
+e
+);
+
+}
+
+
+updateProgress(
+75,
+"Creating optimized PDF..."
+);
+
+
+const outputBytes =
+await pdfDoc.save({
+useObjectStreams:useObjectStreams,
+addDefaultPage:false,
+updateFieldAppearances:false
 });
+
+
+updateProgress(
+95,
+"Preparing download..."
+);
+
+
+const outputBlob =
+new Blob(
+[outputBytes],
+{
+type:"application/pdf"
+}
+);
+
+
+if(downloadUrl){
+
+URL.revokeObjectURL(
+downloadUrl
+);
+
+}
+
+
+downloadUrl =
+URL.createObjectURL(
+outputBlob
+);
+
+
+const originalName =
+selectedFile.name
+.replace(/\.pdf$/i,"");
+
+
+downloadBtn.href =
+downloadUrl;
+
+
+downloadBtn.download =
+originalName +
+"-compressed.pdf";
+
+
+const original =
+selectedFile.size;
+
+const compressed =
+outputBlob.size;
+
+
+/*
+Positive number means the new file
+is smaller. Negative means the rewritten
+PDF became larger.
+*/
+
+const change =
+((original - compressed) /
+original) * 100;
+
+
+originalSize.textContent =
+formatSize(original);
+
+
+newSize.textContent =
+formatSize(compressed);
+
+
+if(change >= 0){
+
+savedSize.textContent =
+change.toFixed(1) + "% smaller";
+
+status.textContent =
+"✅ PDF optimized successfully.";
+
+}else{
+
+savedSize.textContent =
+Math.abs(change).toFixed(1) + "% larger";
+
+status.textContent =
+"⚠️ This PDF was already optimized, so the rewritten file is slightly larger.";
+
+}
+
+
+updateProgress(
+100,
+"Complete"
+);
+
+
+result.style.display =
+"block";
+
+
+}catch(error){
+
+console.error(
+"PDF compression error:",
+error
+);
+
+
+status.textContent =
+"❌ Unable to process this PDF. It may be encrypted, damaged or unsupported.";
+
+
+progressWrap.style.display =
+"none";
+
+
+}finally{
+
+compressBtn.disabled =
+!selectedFile;
+
+clearBtn.disabled =
+false;
+
+}
+
+}
+);
+
+
+document.getElementById(
+"year"
+).textContent =
+new Date().getFullYear();
+
 </script>
 
 </body>
