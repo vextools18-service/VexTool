@@ -1,18 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Text Reverser — VexTools</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- =========================
+     SEO
+========================= -->
+
+<title>Text Reverser — Reverse Text Online | VexTools</title>
+
+<meta
+    name="description"
+    content="Free online text reverser by VexTools. Reverse letters, words, or any text instantly directly in your browser."
+>
+
+<meta
+    name="keywords"
+    content="text reverser, reverse text, reverse text online, text reverse tool, reverse letters, reverse words, online text tools, VexTools"
+>
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="VexTools">
+
+<meta name="theme-color" content="#070b18">
+
+
+<!-- =========================
+     Open Graph
+========================= -->
+
+<meta property="og:type" content="website">
+
+<meta
+    property="og:title"
+    content="Text Reverser — Reverse Text Online | VexTools"
+>
+
+<meta
+    property="og:description"
+    content="Reverse your text instantly with the free VexTools Text Reverser. Simple, fast, and works directly in your browser."
+>
+
+<meta property="og:site_name" content="VexTools">
+
+
+<!-- =========================
+     Twitter / X
+========================= -->
+
+<meta name="twitter:card" content="summary">
+
+<meta
+    name="twitter:title"
+    content="Text Reverser — VexTools"
+>
+
+<meta
+    name="twitter:description"
+    content="Reverse text instantly with the free online VexTools Text Reverser."
+>
+
+
+<!-- =========================
+     Structured Data
+========================= -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VexTools Text Reverser",
+    "description": "A free online tool for reversing text instantly in the browser.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    }
+}
+</script>
+
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Arial,sans-serif;
 background:#070b18;
 color:white;
 padding:30px 15px;
+min-height:100vh;
 }
 
 .container{
@@ -26,15 +116,23 @@ margin-bottom:25px;
 }
 
 .logo{
+display:inline-block;
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
 text-decoration:none;
+margin-bottom:5px;
 }
 
-h1{margin:15px 0 8px}
+h1{
+margin:15px 0 8px;
+font-size:36px;
+}
 
-.header p{color:#94a3b8}
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
 
 .card{
 background:rgba(17,25,45,.85);
@@ -54,6 +152,11 @@ color:white;
 font-size:16px;
 resize:vertical;
 outline:none;
+line-height:1.6;
+}
+
+textarea:focus{
+border-color:#7c3aed;
 }
 
 .buttons{
@@ -71,51 +174,148 @@ background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+.info{
+margin-top:18px;
+text-align:center;
+color:#94a3b8;
+font-size:13px;
+line-height:1.6;
 }
 
 @media(max-width:600px){
-.buttons{flex-direction:column}
+
+.buttons{
+flex-direction:column;
 }
+
+h1{
+font-size:29px;
+}
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
+<main class="container">
 
-<div class="header">
-<a class="logo" href="../index.html">VexTools</a>
+<header class="header">
+
+<a
+class="logo"
+href="../index.html"
+aria-label="VexTools Home"
+>
+VexTools
+</a>
+
 <h1>Text Reverser</h1>
-<p>Reverse your text instantly.</p>
-</div>
 
-<div class="card">
+<p>
+Reverse your text instantly with this free online text reverser.
+</p>
 
-<textarea id="input" placeholder="Enter text here..."></textarea>
+</header>
+
+
+<section
+class="card"
+aria-label="Text Reverser Tool"
+>
+
+<textarea
+id="input"
+placeholder="Enter text here..."
+aria-label="Text to reverse"
+></textarea>
+
 
 <div class="buttons">
-<button onclick="reverseText()">Reverse Text</button>
-<button onclick="copyText()">Copy</button>
-<button onclick="clearText()">Clear</button>
-</div>
+
+<button
+type="button"
+onclick="reverseText()"
+>
+Reverse Text
+</button>
+
+<button
+type="button"
+onclick="copyText()"
+>
+Copy
+</button>
+
+<button
+type="button"
+onclick="clearText()"
+>
+Clear
+</button>
 
 </div>
-</div>
+
+
+<p class="info">
+Reverse text directly in your browser. No text is uploaded to a server.
+</p>
+
+</section>
+
+</main>
+
 
 <script>
+
 function reverseText(){
-const input=document.getElementById("input");
-input.value=[...input.value].reverse().join("");
+
+const input =
+document.getElementById("input");
+
+input.value =
+[...input.value]
+.reverse()
+.join("");
+
 }
+
 
 function copyText(){
-navigator.clipboard.writeText(document.getElementById("input").value);
+
+const input =
+document.getElementById("input");
+
+if(!input.value){
+return;
 }
 
-function clearText(){
-document.getElementById("input").value="";
+navigator.clipboard.writeText(
+input.value
+);
+
 }
+
+
+function clearText(){
+
+document.getElementById("input").value = "";
+
+}
+
 </script>
 
 </body>
+
 </html>
