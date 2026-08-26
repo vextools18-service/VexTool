@@ -3,29 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Percentage Calculator — VexTools</title>
+
+<title>Percentage Calculator Online — Free & Easy | VexTools</title>
+
+<meta name="description" content="Use VexTools free percentage calculator to quickly calculate percentages of any number online. Simple, fast and accurate percentage calculations.">
+
+<meta name="keywords" content="percentage calculator, percentage calculator online, calculate percentage, percent calculator, free percentage calculator, VexTools">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="VexTools">
+
+<link rel="canonical" href="https://vextools.github.io/percentage-calculator/">
+
+<meta property="og:title" content="Percentage Calculator Online — VexTools">
+<meta property="og:description" content="Calculate percentages quickly and easily with the free VexTools Percentage Calculator.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/percentage-calculator/">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Percentage Calculator — VexTools">
+<meta name="twitter:description" content="Free online percentage calculator for quick and accurate calculations.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Percentage Calculator",
+  "url":"https://vextools.github.io/percentage-calculator/",
+  "description":"Free online percentage calculator for quickly calculating percentages.",
+  "applicationCategory":"Calculator",
+  "operatingSystem":"All"
+}
+</script>
+
 <style>
 body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
 .container{max-width:600px;margin:auto}
 input{width:100%;padding:15px;margin:10px 0;border-radius:10px;border:1px solid #27304a;background:#111a30;color:white}
-button{width:100%;padding:15px;margin-top:10px;background:#7c3aed;color:white;border:0;border-radius:10px;font-weight:bold}
+button{width:100%;padding:15px;margin-top:10px;background:#7c3aed;color:white;border:0;border-radius:10px;font-weight:bold;cursor:pointer}
 .result{margin-top:20px;padding:20px;background:#111a30;border-radius:12px;font-size:20px}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
 <h1>📊 Percentage Calculator</h1>
-<p>Calculate percentages quickly.</p>
+
+<p>Calculate percentages quickly and easily.</p>
+
 <input id="percent" type="number" placeholder="Percentage">
+
 <input id="number" type="number" placeholder="Number">
+
 <button onclick="calculate()">Calculate</button>
-<div class="result" id="result">Result: —</div>
+
+<div class="result" id="result">
+Result: —
 </div>
+
+</div>
+
 <script>
 function calculate(){
-let p=Number(percent.value),n=Number(number.value);
-result.textContent="Result: "+(p/100*n);
+
+let p=Number(document.getElementById("percent").value);
+let n=Number(document.getElementById("number").value);
+
+if(isNaN(p)||isNaN(n)){
+document.getElementById("result").textContent="Please enter valid numbers.";
+return;
+}
+
+document.getElementById("result").textContent=
+"Result: "+(p/100*n);
+
 }
 </script>
+
 </body>
 </html>
