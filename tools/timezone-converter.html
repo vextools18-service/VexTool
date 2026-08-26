@@ -1,22 +1,283 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Timezone Converter - VexTools</title>
+
+<!-- Primary SEO -->
+<title>Timezone Converter — Convert Time Zones Online | VexTools</title>
+
+<meta
+name="description"
+content="Free online Timezone Converter by VexTools. Convert date and time between UTC, Pakistan, India, London, New York, Los Angeles, Tokyo and other time zones."
+>
+
+<meta
+name="keywords"
+content="timezone converter, time zone converter, timezone conversion, convert timezone, UTC converter, world time converter, time zone calculator, date time converter, VexTools"
+>
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="VexTools">
+<meta name="theme-color" content="#070b18">
+
+<!-- Canonical -->
+<link
+rel="canonical"
+href="https://vextools.site/tools/timezone-converter.html"
+>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Timezone Converter — VexTools">
+<meta
+property="og:description"
+content="Convert date and time between different time zones with the free VexTools Timezone Converter."
+>
+<meta
+property="og:url"
+content="https://vextools.site/tools/timezone-converter.html"
+>
+<meta property="og:site_name" content="VexTools">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta
+name="twitter:title"
+content="Timezone Converter — VexTools"
+>
+<meta
+name="twitter:description"
+content="Convert date and time between different time zones quickly and easily with VexTools."
+>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Timezone Converter",
+  "url": "https://vextools.site/tools/timezone-converter.html",
+  "description": "A free online timezone converter for converting date and time between different time zones.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools.site/"
+  }
+}
+</script>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a timezone converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A timezone converter changes a date and time from one time zone into the corresponding time in another time zone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert time between time zones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select a date and time, choose the desired time zone, and click Convert to see the corresponding date and time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the VexTools Timezone Converter free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The VexTools Timezone Converter is free to use online."
+      }
+    }
+  ]
+}
+</script>
+
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;text-align:center;padding:50px}
-.box{max-width:600px;margin:auto;background:#111a30;padding:30px;border-radius:20px}
-input,select,button{padding:13px;margin:8px;border-radius:10px;border:0}
-button{background:#7c3aed;color:white}
-#result{margin-top:20px;font-size:20px}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+text-align:center;
+padding:50px 20px;
+}
+
+.container{
+max-width:650px;
+margin:auto;
+}
+
+.box{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+padding:30px;
+border-radius:20px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+h1{
+margin:10px 0;
+}
+
+p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+input,
+select{
+width:100%;
+padding:15px;
+margin:8px 0;
+background:#0d1427;
+color:white;
+border:1px solid #29344f;
+border-radius:10px;
+font-size:15px;
+outline:none;
+}
+
+input:focus,
+select:focus{
+border-color:#7c3aed;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:10px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
+}
+
+#result{
+margin-top:20px;
+padding:20px;
+background:#0d1427;
+border:1px solid #29344f;
+border-radius:12px;
+font-size:20px;
+line-height:1.6;
+word-break:break-word;
+color:#22d3ee;
+min-height:60px;
+}
+
+.seo-content{
+margin-top:25px;
+padding:22px;
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+text-align:left;
+line-height:1.7;
+}
+
+.seo-content h2{
+margin-bottom:10px;
+}
+
+.seo-content h3{
+margin-top:18px;
+margin-bottom:6px;
+}
+
+@media(max-width:600px){
+
+body{
+padding:30px 15px;
+}
+
+h1{
+font-size:28px;
+}
+
+.box{
+padding:22px;
+}
+
+#result{
+font-size:17px;
+}
+
+}
+
 </style>
+
 </head>
+
+
 <body>
+
+<div class="container">
+
 <div class="box">
-<h1>Timezone Converter</h1>
-<input type="datetime-local" id="date">
-<select id="zone">
+
+<a
+class="logo"
+href="../index.html"
+aria-label="VexTools Home"
+>
+VexTools
+</a>
+
+<h1>🌍 Timezone Converter</h1>
+
+<p>
+Convert date and time between different time zones.
+</p>
+
+
+<input
+type="datetime-local"
+id="date"
+aria-label="Select date and time"
+>
+
+
+<select
+id="zone"
+aria-label="Select timezone"
+>
+
 <option value="UTC">UTC</option>
 <option value="Asia/Karachi">Pakistan</option>
 <option value="Asia/Kolkata">India</option>
@@ -24,19 +285,150 @@ button{background:#7c3aed;color:white}
 <option value="America/New_York">New York</option>
 <option value="America/Los_Angeles">Los Angeles</option>
 <option value="Asia/Tokyo">Tokyo</option>
+
 </select>
-<button onclick="convert()">Convert</button>
-<div id="result"></div>
+
+
+<button
+onclick="convert()"
+type="button"
+>
+Convert Time
+</button>
+
+
+<div
+id="result"
+aria-live="polite"
+>
+Result will appear here.
 </div>
+
+</div>
+
+
+<!-- SEO Content -->
+
+<section class="seo-content">
+
+<h2>Timezone Converter</h2>
+
+<p>
+Use the VexTools Timezone Converter to convert dates and
+times between different time zones. Select a date and time,
+choose a destination timezone, and get the converted time
+instantly.
+</p>
+
+
+<h3>What is a time zone?</h3>
+
+<p>
+A time zone is a region that observes a particular standard
+time. Different parts of the world use different time zones,
+which means the same moment can have different local times
+depending on the location.
+</p>
+
+
+<h3>How to use the Timezone Converter</h3>
+
+<p>
+Choose a date and time using the date and time field above.
+Then select the destination timezone from the list and
+click the Convert Time button. The converter will display
+the corresponding date and time.
+</p>
+
+
+<h3>Supported time zones</h3>
+
+<p>
+This Timezone Converter includes UTC, Pakistan, India,
+London, New York, Los Angeles and Tokyo. These locations
+cover several commonly used time zones around the world.
+</p>
+
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is the Timezone Converter free?</h3>
+
+<p>
+Yes. The VexTools Timezone Converter is completely free
+to use online.
+</p>
+
+
+<h3>Can I convert UTC to local time?</h3>
+
+<p>
+Yes. Select UTC as the input reference and choose the
+desired destination timezone to view the corresponding
+local date and time.
+</p>
+
+
+<h3>Can I use this tool for international meetings?</h3>
+
+<p>
+Yes. A timezone converter can help compare times across
+different locations when planning online meetings,
+events or international communication.
+</p>
+
+</section>
+
+</div>
+
+
 <script>
+
 function convert(){
-let d=document.getElementById("date").value;
-let z=document.getElementById("zone").value;
-if(!d)return;
-let x=new Date(d);
-document.getElementById("result").textContent=
-x.toLocaleString("en-US",{timeZone:z,dateStyle:"full",timeStyle:"long"});
+
+const dateValue=
+document.getElementById("date").value;
+
+const zone=
+document.getElementById("zone").value;
+
+const result=
+document.getElementById("result");
+
+if(!dateValue){
+
+result.textContent=
+"Please select a date and time.";
+
+return;
+
 }
+
+const x=new Date(dateValue);
+
+if(isNaN(x.getTime())){
+
+result.textContent=
+"Invalid date or time.";
+
+return;
+
+}
+
+result.textContent=
+x.toLocaleString(
+"en-US",
+{
+timeZone:zone,
+dateStyle:"full",
+timeStyle:"long"
+}
+);
+
+}
+
 </script>
+
 </body>
+
 </html>
