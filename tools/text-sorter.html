@@ -1,34 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Text Sorter — VexTools</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- =========================
+     SEO
+========================= -->
+
+<title>Text Sorter — Sort Lines A-Z or Z-A Online | VexTools</title>
+
+<meta
+    name="description"
+    content="Free online text sorter by VexTools. Sort text lines alphabetically from A to Z or Z to A, remove empty lines, and copy your results instantly."
+>
+
+<meta
+    name="keywords"
+    content="text sorter, sort text online, alphabetical sorter, A to Z sorter, Z to A sorter, sort lines, text sorting tool, online text tools, VexTools"
+>
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="VexTools">
+
+<meta name="theme-color" content="#070b18">
+
+
+<!-- =========================
+     Open Graph
+========================= -->
+
+<meta property="og:type" content="website">
+
+<meta
+    property="og:title"
+    content="Text Sorter — Sort Lines A-Z or Z-A Online | VexTools"
+>
+
+<meta
+    property="og:description"
+    content="Sort your text lines alphabetically from A to Z or Z to A with the free VexTools Text Sorter."
+>
+
+<meta property="og:site_name" content="VexTools">
+
+
+<!-- =========================
+     Twitter / X
+========================= -->
+
+<meta name="twitter:card" content="summary">
+
+<meta
+    name="twitter:title"
+    content="Text Sorter — VexTools"
+>
+
+<meta
+    name="twitter:description"
+    content="Sort text lines alphabetically online with the free VexTools Text Sorter."
+>
+
+
+<!-- =========================
+     Structured Data
+========================= -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VexTools Text Sorter",
+    "description": "A free online text sorting tool for arranging lines alphabetically from A to Z or Z to A.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    }
+}
+</script>
+
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Arial,sans-serif;
 background:#070b18;
 color:white;
 padding:30px 15px;
+min-height:100vh;
 }
 
-.container{max-width:850px;margin:auto}
+.container{
+max-width:850px;
+margin:auto;
+}
 
-.header{text-align:center;margin-bottom:25px}
+.header{
+text-align:center;
+margin-bottom:25px;
+}
 
 .logo{
+display:inline-block;
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
 text-decoration:none;
+margin-bottom:5px;
 }
 
-h1{margin:15px 0 8px}
+h1{
+margin:15px 0 8px;
+font-size:36px;
+}
 
-p{color:#94a3b8}
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
 
 .card{
 background:rgba(17,25,45,.85);
@@ -47,6 +151,12 @@ border:1px solid #29344f;
 border-radius:14px;
 resize:vertical;
 outline:none;
+font-size:16px;
+line-height:1.6;
+}
+
+textarea:focus{
+border-color:#7c3aed;
 }
 
 .buttons{
@@ -64,64 +174,202 @@ background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+.info{
+margin-top:18px;
+text-align:center;
+color:#94a3b8;
+font-size:13px;
+line-height:1.6;
 }
 
 @media(max-width:500px){
-.buttons{grid-template-columns:1fr}
+
+.buttons{
+grid-template-columns:1fr;
 }
+
+h1{
+font-size:29px;
+}
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
+<main class="container">
 
-<div class="header">
-<a class="logo" href="../index.html">VexTools</a>
+<header class="header">
+
+<a
+    class="logo"
+    href="../index.html"
+    aria-label="VexTools Home"
+>
+    VexTools
+</a>
+
 <h1>Text Sorter</h1>
-<p>Sort your lines alphabetically or reverse alphabetically.</p>
-</div>
 
-<div class="card">
+<p>
+Sort your lines alphabetically or reverse alphabetically.
+</p>
 
-<textarea id="text" placeholder="Enter one item per line..."></textarea>
+</header>
+
+
+<section
+    class="card"
+    aria-label="Text Sorter Tool"
+>
+
+<textarea
+    id="text"
+    placeholder="Enter one item per line..."
+    aria-label="Text to sort"
+></textarea>
+
 
 <div class="buttons">
-<button onclick="sortAZ()">A → Z</button>
-<button onclick="sortZA()">Z → A</button>
-<button onclick="removeEmpty()">Remove Empty Lines</button>
-<button onclick="copyText()">Copy</button>
-</div>
+
+<button
+    type="button"
+    onclick="sortAZ()"
+>
+    A → Z
+</button>
+
+<button
+    type="button"
+    onclick="sortZA()"
+>
+    Z → A
+</button>
+
+<button
+    type="button"
+    onclick="removeEmpty()"
+>
+    Remove Empty Lines
+</button>
+
+<button
+    type="button"
+    onclick="copyText()"
+>
+    Copy
+</button>
 
 </div>
-</div>
+
+
+<p class="info">
+Sort your text directly in your browser.
+No text is uploaded to a server.
+</p>
+
+</section>
+
+</main>
+
 
 <script>
+
 function getLines(){
-return document.getElementById("text").value.split(/\r?\n/);
+
+    return document
+        .getElementById("text")
+        .value
+        .split(/\r?\n/);
+
 }
+
+
+/* =========================
+   A → Z
+========================= */
 
 function sortAZ(){
-let lines=getLines().filter(x=>x.trim());
-lines.sort((a,b)=>a.localeCompare(b));
-document.getElementById("text").value=lines.join("\n");
+
+    let lines =
+        getLines()
+        .filter(x => x.trim());
+
+    lines.sort(
+        (a,b) => a.localeCompare(b)
+    );
+
+    document.getElementById("text").value =
+        lines.join("\n");
+
 }
+
+
+/* =========================
+   Z → A
+========================= */
 
 function sortZA(){
-let lines=getLines().filter(x=>x.trim());
-lines.sort((a,b)=>b.localeCompare(a));
-document.getElementById("text").value=lines.join("\n");
+
+    let lines =
+        getLines()
+        .filter(x => x.trim());
+
+    lines.sort(
+        (a,b) => b.localeCompare(a)
+    );
+
+    document.getElementById("text").value =
+        lines.join("\n");
+
 }
+
+
+/* =========================
+   REMOVE EMPTY LINES
+========================= */
 
 function removeEmpty(){
-document.getElementById("text").value=
-getLines().filter(x=>x.trim()).join("\n");
+
+    document.getElementById("text").value =
+        getLines()
+        .filter(x => x.trim())
+        .join("\n");
+
 }
 
+
+/* =========================
+   COPY
+========================= */
+
 function copyText(){
-navigator.clipboard.writeText(document.getElementById("text").value);
+
+    const text =
+        document.getElementById("text").value;
+
+    if(!text){
+        return;
+    }
+
+    navigator.clipboard.writeText(text);
+
 }
+
 </script>
 
 </body>
+
 </html>
