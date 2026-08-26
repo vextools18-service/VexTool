@@ -4,86 +4,253 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Image Cropper Online - VexTools</title>
+<title>Image Cropper Online Free - Crop JPG & PNG Images | VexTools</title>
 
-<meta name="description" content="Free online image cropper. Crop images directly in your browser quickly and easily with VexTools.">
-<meta name="keywords" content="image cropper, crop image online, image cropper online, crop photo, free image cropper, online photo cropper, VexTools">
+<meta name="description" content="Free online image cropper. Crop JPG, PNG, WebP and other images directly in your browser. Choose a crop area, adjust it easily and download your cropped image with VexTools.">
+<meta name="keywords" content="image cropper, crop image online, image cropper online, crop photo, crop JPG, crop PNG, free image cropper, online photo cropper, VexTools">
 <meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/image-cropper.html">
 
-<meta property="og:title" content="Image Cropper Online - VexTools">
-<meta property="og:description" content="Crop images online for free directly in your browser with VexTools.">
+<meta property="og:title" content="Image Cropper Online Free - VexTools">
+<meta property="og:description" content="Crop JPG, PNG and other images online for free directly in your browser with VexTools.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/image-cropper.html">
+<meta property="og:site_name" content="VexTools">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Image Cropper Online - VexTools">
-<meta name="twitter:description" content="Free online image cropper for quickly cropping images in your browser.">
+<meta name="twitter:title" content="Image Cropper Online Free - VexTools">
+<meta name="twitter:description" content="Free online image cropper for cropping images directly in your browser.">
+
+<meta name="theme-color" content="#070b18">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"VexTools Image Cropper",
+  "url":"https://vextools18-service.github.io/VexTool/tools/image-cropper.html",
+  "description":"Free online image cropper for cropping images directly in the browser.",
+  "applicationCategory":"MultimediaApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How do I crop an image online?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Select an image, choose the crop area on the preview, and click Crop Image. You can then download the cropped image."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is this image cropper free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. VexTools provides this online image cropper completely free."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Are my images uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. The image is processed directly in your browser and is not uploaded by this tool."
+      }
+    }
+  ]
+}
+</script>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,sans-serif;
-background:#070b18;
-color:white;
-padding:30px 15px;
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-.container{max-width:850px;margin:auto}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070b18;
+color:#f8fafc;
+min-height:100vh;
+padding:40px 20px;
+}
 
-.header{text-align:center;margin-bottom:25px}
+.container{
+max-width:850px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:30px;
+}
 
 .logo{
+display:inline-block;
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
 text-decoration:none;
+margin-bottom:18px;
+transition:.2s;
 }
 
-h1{margin:15px 0 8px}
+.logo:hover{
+opacity:.85;
+}
 
-p{color:#94a3b8}
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
 
 .card{
-background:rgba(17,25,45,.85);
+background:#11192d;
 border:1px solid rgba(255,255,255,.1);
 border-radius:20px;
-padding:22px;
+padding:25px;
 }
 
-input{
+.file-label{
+display:block;
+border:2px dashed #7c3aed;
+border-radius:15px;
+padding:35px 20px;
+text-align:center;
+cursor:pointer;
+background:rgba(124,58,237,.07);
+transition:.2s;
+}
+
+.file-label:hover{
+background:rgba(124,58,237,.14);
+transform:translateY(-2px);
+}
+
+.file-label strong{
+display:block;
+font-size:18px;
+margin-bottom:7px;
+}
+
+.file-label span{
+color:#94a3b8;
+font-size:14px;
+}
+
+input[type=file]{
+position:absolute;
+width:1px;
+height:1px;
+opacity:0;
+pointer-events:none;
+}
+
+.file-info{
+display:none;
+margin-top:15px;
+padding:15px;
+background:#18223a;
+border-radius:12px;
+}
+
+.file-name{
+font-weight:bold;
+word-break:break-word;
+}
+
+.file-size{
+margin-top:5px;
+font-size:13px;
+color:#94a3b8;
+}
+
+.editor{
+display:none;
+margin-top:20px;
+}
+
+.canvas-wrap{
 width:100%;
-padding:14px;
+overflow:auto;
 background:#0d1427;
-color:white;
-border-radius:10px;
-border:1px solid #29344f;
+border:1px solid #27304a;
+border-radius:12px;
+padding:15px;
+text-align:center;
 }
 
 canvas{
 display:block;
 max-width:100%;
-margin:20px auto;
-background:#111827;
-border-radius:10px;
+height:auto;
+margin:auto;
+cursor:crosshair;
+border-radius:6px;
+}
+
+.crop-info{
+margin-top:12px;
+text-align:center;
+color:#94a3b8;
+font-size:14px;
+}
+
+.actions{
+display:flex;
+gap:10px;
+margin-top:18px;
 }
 
 button{
-width:100%;
-padding:13px;
+flex:1;
+padding:14px;
 border:0;
 border-radius:10px;
 background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+button:disabled{
+opacity:.5;
+cursor:not-allowed;
+transform:none;
+}
+
+.clear{
+background:#ef4444;
 }
 
 .download{
-display:block;
+display:none;
 margin-top:15px;
 text-align:center;
 padding:13px;
@@ -92,6 +259,122 @@ background:#06b6d4;
 color:white;
 text-decoration:none;
 font-weight:bold;
+transition:.2s;
+}
+
+.download:hover{
+transform:translateY(-2px);
+}
+
+.status{
+margin-top:15px;
+text-align:center;
+color:#94a3b8;
+min-height:22px;
+line-height:1.5;
+}
+
+.content{
+margin-top:40px;
+line-height:1.7;
+}
+
+.content h2{
+font-size:27px;
+margin-bottom:12px;
+}
+
+.content h3{
+font-size:20px;
+margin-top:25px;
+margin-bottom:7px;
+}
+
+.content p{
+color:#cbd5e1;
+margin-bottom:12px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:20px;
+}
+
+.feature{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:15px;
+padding:18px;
+}
+
+.feature strong{
+display:block;
+margin-bottom:6px;
+}
+
+.feature span{
+color:#94a3b8;
+font-size:14px;
+}
+
+.faq{
+margin-top:35px;
+}
+
+.faq-item{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:12px;
+padding:17px;
+margin-top:10px;
+}
+
+.faq-item h3{
+margin:0 0 7px;
+font-size:16px;
+}
+
+.faq-item p{
+margin:0;
+color:#94a3b8;
+font-size:14px;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+margin-top:30px;
+color:#64748b;
+font-size:13px;
+}
+
+@media(max-width:650px){
+
+h1{
+font-size:32px;
+}
+
+.card{
+padding:18px;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.actions{
+flex-direction:column;
+}
+
 }
 </style>
 </head>
@@ -101,29 +384,206 @@ font-weight:bold;
 <div class="container">
 
 <div class="header">
-<a class="logo" href="../index.html">VexTools</a>
 
-<h1>Image Cropper</h1>
+<a class="logo" href="../index.html">
+VexTools
+</a>
+
+<h1>✂️ Image Cropper</h1>
 
 <p>
 Crop images online for free directly in your browser.
 </p>
+
 </div>
 
 <div class="card">
 
-<input id="file" type="file" accept="image/*">
+<label class="file-label" for="file">
+
+<strong>📁 Select an Image</strong>
+
+<span id="fileText">
+Click here to choose JPG, PNG, WebP or another image
+</span>
+
+</label>
+
+<input
+id="file"
+type="file"
+accept="image/*"
+>
+
+<div class="file-info" id="fileInfo">
+
+<div class="file-name" id="fileName"></div>
+
+<div class="file-size" id="fileSize"></div>
+
+</div>
+
+<div class="editor" id="editor">
+
+<div class="canvas-wrap">
 
 <canvas id="canvas"></canvas>
 
-<button onclick="crop()">
-Crop Center
+</div>
+
+<div class="crop-info" id="cropInfo">
+Drag on the image to select the area you want to crop.
+</div>
+
+<div class="actions">
+
+<button id="cropBtn" onclick="cropImage()">
+✂️ Crop Image
+</button>
+
+<button class="clear" onclick="clearAll()">
+Clear
 </button>
 
 </div>
+
+<a
+id="download"
+class="download"
+href="#"
+download="cropped-image.png"
+>
+⬇️ Download Cropped Image
+</a>
+
+</div>
+
+<div class="status" id="status" aria-live="polite"></div>
+
+</div>
+
+<div class="content">
+
+<h2>Free Online Image Cropper</h2>
+
+<p>
+VexTools Image Cropper is a free online tool that lets you crop
+JPG, PNG, WebP and other image files directly in your browser.
+Select an image, drag over the area you want to keep, and download
+the cropped result.
+</p>
+
+<p>
+The image is processed locally in your browser, so you do not need
+to upload your image to a server.
+</p>
+
+<div class="features">
+
+<div class="feature">
+<strong>⚡ Fast</strong>
+<span>Crop images directly in your browser.</span>
+</div>
+
+<div class="feature">
+<strong>🆓 Free</strong>
+<span>Use the image cropper without a paid subscription.</span>
+</div>
+
+<div class="feature">
+<strong>🔒 Private</strong>
+<span>Your image stays on your device during processing.</span>
+</div>
+
+</div>
+
+<h3>How to Crop an Image</h3>
+
+<p>
+<strong>1.</strong> Click Select an Image and choose your image.
+</p>
+
+<p>
+<strong>2.</strong> Drag over the image to select the area you want to keep.
+</p>
+
+<p>
+<strong>3.</strong> Click Crop Image.
+</p>
+
+<p>
+<strong>4.</strong> Download your cropped image.
+</p>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+
+<h3>How do I crop an image online?</h3>
+
+<p>
+Select an image, drag over the area you want to keep, and click
+Crop Image. You can then download the cropped result.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Is this image cropper free?</h3>
+
+<p>
+Yes. VexTools provides this online image cropper completely free.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>Are my images uploaded to a server?</h3>
+
+<p>
+No. The image is processed directly in your browser and is not
+uploaded by this tool.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+<footer>
+© <span id="year"></span> VexTools — Free Online Tools
+</footer>
+
 </div>
 
 <script>
+
+const fileInput =
+document.getElementById("file");
+
+const fileInfo =
+document.getElementById("fileInfo");
+
+const fileName =
+document.getElementById("fileName");
+
+const fileSize =
+document.getElementById("fileSize");
+
+const fileText =
+document.getElementById("fileText");
+
+const editor =
+document.getElementById("editor");
 
 const canvas =
 document.getElementById("canvas");
@@ -131,126 +591,627 @@ document.getElementById("canvas");
 const ctx =
 canvas.getContext("2d");
 
-let img = null;
+const cropInfo =
+document.getElementById("cropInfo");
 
+const cropBtn =
+document.getElementById("cropBtn");
+
+const download =
+document.getElementById("download");
+
+const status =
+document.getElementById("status");
+
+let img = null;
 let imageURL = null;
 let downloadURL = null;
 
+let displayScale = 1;
 
-document
-.getElementById("file")
-.addEventListener("change",e=>{
+let selection = null;
+let dragging = false;
+
+let startX = 0;
+let startY = 0;
+
+
+/* Select image */
+
+fileInput.addEventListener("change",function(){
 
 const file =
-e.target.files[0];
+fileInput.files[0];
 
-if(!file) return;
+if(!file){
+return;
+}
+
+if(!file.type.startsWith("image/")){
+
+status.textContent =
+"❌ Please select a valid image file.";
+
+clearImageOnly();
+
+return;
+
+}
 
 if(imageURL){
 URL.revokeObjectURL(imageURL);
 }
 
-img = new Image();
-
 imageURL =
 URL.createObjectURL(file);
 
-img.onload = ()=>{
+img =
+new Image();
 
-const size =
-Math.min(
-img.width,
-img.height
-);
+img.onload = function(){
 
-canvas.width = size;
-canvas.height = size;
+fileName.textContent =
+"🖼️ " + file.name;
 
-ctx.drawImage(
-img,
-(img.width-size)/2,
-(img.height-size)/2,
-size,
-size,
-0,
-0,
-size,
-size
-);
+fileSize.textContent =
+"Original size: " + format(file.size);
+
+fileInfo.style.display =
+"block";
+
+fileText.textContent =
+"Image selected — click to choose another";
+
+editor.style.display =
+"block";
+
+status.textContent =
+"";
+
+selection = null;
+
+drawImage();
 
 };
 
-img.src = imageURL;
+img.onerror = function(){
+
+status.textContent =
+"❌ Could not read the selected image.";
+
+};
+
+img.src =
+imageURL;
 
 });
 
 
-function crop(){
+/* Draw image */
+
+function drawImage(){
 
 if(!img){
-alert("Please select an image.");
 return;
 }
 
-const size =
+const maxWidth =
 Math.min(
-img.width,
-img.height
+800,
+document.querySelector(".canvas-wrap").clientWidth - 30
 );
 
-canvas.width = size;
-canvas.height = size;
+displayScale =
+Math.min(
+1,
+maxWidth / img.naturalWidth
+);
+
+canvas.width =
+Math.round(img.naturalWidth * displayScale);
+
+canvas.height =
+Math.round(img.naturalHeight * displayScale);
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
 
 ctx.drawImage(
 img,
-(img.width-size)/2,
-(img.height-size)/2,
-size,
-size,
 0,
 0,
-size,
-size
+canvas.width,
+canvas.height
 );
 
-canvas.toBlob(blob=>{
+if(selection){
 
-if(!blob) return;
+drawSelection();
+
+}
+
+}
+
+
+/* Mouse events */
+
+canvas.addEventListener("mousedown",function(e){
+
+if(!img){
+return;
+}
+
+const rect =
+canvas.getBoundingClientRect();
+
+startX =
+Math.max(
+0,
+Math.min(
+canvas.width,
+e.clientX - rect.left
+)
+);
+
+startY =
+Math.max(
+0,
+Math.min(
+canvas.height,
+e.clientY - rect.top
+)
+);
+
+selection = {
+x:startX,
+y:startY,
+width:0,
+height:0
+};
+
+dragging = true;
+
+});
+
+
+canvas.addEventListener("mousemove",function(e){
+
+if(!dragging){
+return;
+}
+
+const rect =
+canvas.getBoundingClientRect();
+
+const currentX =
+Math.max(
+0,
+Math.min(
+canvas.width,
+e.clientX - rect.left
+)
+);
+
+const currentY =
+Math.max(
+0,
+Math.min(
+canvas.height,
+e.clientY - rect.top
+)
+);
+
+selection.x =
+Math.min(startX,currentX);
+
+selection.y =
+Math.min(startY,currentY);
+
+selection.width =
+Math.abs(currentX-startX);
+
+selection.height =
+Math.abs(currentY-startY);
+
+drawImage();
+
+});
+
+
+canvas.addEventListener("mouseup",function(){
+
+dragging = false;
+
+});
+
+
+canvas.addEventListener("mouseleave",function(){
+
+dragging = false;
+
+});
+
+
+/* Touch events */
+
+canvas.addEventListener("touchstart",function(e){
+
+if(!img){
+return;
+}
+
+e.preventDefault();
+
+const touch =
+e.touches[0];
+
+const rect =
+canvas.getBoundingClientRect();
+
+startX =
+Math.max(
+0,
+Math.min(
+canvas.width,
+touch.clientX - rect.left
+)
+);
+
+startY =
+Math.max(
+0,
+Math.min(
+canvas.height,
+touch.clientY - rect.top
+)
+);
+
+selection = {
+x:startX,
+y:startY,
+width:0,
+height:0
+};
+
+dragging = true;
+
+},{passive:false});
+
+
+canvas.addEventListener("touchmove",function(e){
+
+if(!dragging){
+return;
+}
+
+e.preventDefault();
+
+const touch =
+e.touches[0];
+
+const rect =
+canvas.getBoundingClientRect();
+
+const currentX =
+Math.max(
+0,
+Math.min(
+canvas.width,
+touch.clientX - rect.left
+)
+);
+
+const currentY =
+Math.max(
+0,
+Math.min(
+canvas.height,
+touch.clientY - rect.top
+)
+);
+
+selection.x =
+Math.min(startX,currentX);
+
+selection.y =
+Math.min(startY,currentY);
+
+selection.width =
+Math.abs(currentX-startX);
+
+selection.height =
+Math.abs(currentY-startY);
+
+drawImage();
+
+},{passive:false});
+
+
+canvas.addEventListener("touchend",function(){
+
+dragging = false;
+
+});
+
+
+/* Draw selection */
+
+function drawSelection(){
+
+if(
+!selection ||
+selection.width < 1 ||
+selection.height < 1
+){
+return;
+}
+
+ctx.save();
+
+ctx.fillStyle =
+"rgba(0,0,0,.45)";
+
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+ctx.clearRect(
+selection.x,
+selection.y,
+selection.width,
+selection.height
+);
+
+ctx.drawImage(
+img,
+selection.x / displayScale,
+selection.y / displayScale,
+selection.width / displayScale,
+selection.height / displayScale,
+selection.x,
+selection.y,
+selection.width,
+selection.height
+);
+
+ctx.strokeStyle =
+"#a78bfa";
+
+ctx.lineWidth = 3;
+
+ctx.strokeRect(
+selection.x,
+selection.y,
+selection.width,
+selection.height
+);
+
+ctx.restore();
+
+cropInfo.textContent =
+"Selected: " +
+Math.round(selection.width / displayScale) +
+" × " +
+Math.round(selection.height / displayScale) +
+" px";
+
+}
+
+
+/* Crop image */
+
+function cropImage(){
+
+if(!img){
+
+status.textContent =
+"Please select an image first.";
+
+return;
+
+}
+
+if(
+!selection ||
+selection.width < 2 ||
+selection.height < 2
+){
+
+status.textContent =
+"❌ Please drag over the image to select a crop area.";
+
+return;
+
+}
+
+cropBtn.disabled = true;
+
+status.textContent =
+"⏳ Cropping image...";
+
+const sourceX =
+Math.round(selection.x / displayScale);
+
+const sourceY =
+Math.round(selection.y / displayScale);
+
+const sourceWidth =
+Math.round(selection.width / displayScale);
+
+const sourceHeight =
+Math.round(selection.height / displayScale);
+
+const outputCanvas =
+document.createElement("canvas");
+
+outputCanvas.width =
+sourceWidth;
+
+outputCanvas.height =
+sourceHeight;
+
+const outputCtx =
+outputCanvas.getContext("2d");
+
+outputCtx.drawImage(
+img,
+sourceX,
+sourceY,
+sourceWidth,
+sourceHeight,
+0,
+0,
+sourceWidth,
+sourceHeight
+);
+
+outputCanvas.toBlob(function(blob){
+
+cropBtn.disabled = false;
+
+if(!blob){
+
+status.textContent =
+"❌ Cropping failed.";
+
+return;
+
+}
 
 if(downloadURL){
+
 URL.revokeObjectURL(downloadURL);
+
 }
 
 downloadURL =
 URL.createObjectURL(blob);
 
-const old =
-document.querySelector(".download");
-
-if(old) old.remove();
-
-const link =
-document.createElement("a");
-
-link.className =
-"download";
-
-link.href =
+download.href =
 downloadURL;
 
-link.download =
+download.download =
 "cropped-image.png";
 
-link.textContent =
-"Download Cropped Image";
+download.style.display =
+"block";
 
-document
-.querySelector(".card")
-.appendChild(link);
+status.innerHTML =
+"✅ Image cropped successfully. " +
+sourceWidth +
+" × " +
+sourceHeight +
+" px";
 
 },"image/png");
 
 }
+
+
+/* Clear */
+
+function clearAll(){
+
+clearImageOnly();
+
+fileInput.value = "";
+
+fileText.textContent =
+"Click here to choose JPG, PNG, WebP or another image";
+
+status.textContent = "";
+
+}
+
+
+function clearImageOnly(){
+
+if(imageURL){
+
+URL.revokeObjectURL(imageURL);
+
+imageURL = null;
+
+}
+
+if(downloadURL){
+
+URL.revokeObjectURL(downloadURL);
+
+downloadURL = null;
+
+}
+
+img = null;
+
+selection = null;
+
+dragging = false;
+
+fileInfo.style.display =
+"none";
+
+editor.style.display =
+"none";
+
+fileName.textContent = "";
+
+fileSize.textContent = "";
+
+download.style.display =
+"none";
+
+download.removeAttribute("href");
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+}
+
+
+/* File size */
+
+function format(bytes){
+
+if(bytes < 1024){
+return bytes + " B";
+}
+
+if(bytes < 1024 * 1024){
+return (bytes / 1024).toFixed(1) + " KB";
+}
+
+return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+
+}
+
+
+/* Responsive redraw */
+
+window.addEventListener("resize",function(){
+
+if(img){
+drawImage();
+}
+
+});
+
+
+/* Year */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
 </script>
 
