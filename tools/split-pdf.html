@@ -2,13 +2,61 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Split PDF — VexTools</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- SEO -->
+<title>Split PDF Online Free — Extract PDF Pages | VexTools</title>
+
+<meta name="description" content="Split PDF files online for free with VexTools. Extract selected pages from a PDF and download a new PDF instantly in your browser.">
+
+<meta name="keywords" content="split PDF, split PDF online, PDF splitter, extract PDF pages, extract pages from PDF, split PDF free, online PDF tools, VexTools">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="VexTools">
+<meta name="theme-color" content="#070b18">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Split PDF Online Free — VexTools">
+<meta property="og:description" content="Extract selected pages from PDF files and create a new PDF instantly with VexTools.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VexTools">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Split PDF Online Free — VexTools">
+<meta name="twitter:description" content="Split PDF files and extract selected pages directly in your browser.">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://vextools.github.io/tools/split-pdf.html">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Split PDF",
+  "url": "https://vextools.github.io/tools/split-pdf.html",
+  "description": "Free online PDF splitter that extracts selected pages from PDF files directly in your browser.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript and a modern web browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "VexTools"
+  }
+}
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
 font-family:Arial,sans-serif;
 background:#070b18;
@@ -16,17 +64,37 @@ color:#f8fafc;
 min-height:100vh;
 padding:30px 15px;
 }
-.container{max-width:800px;margin:auto}
-.header{text-align:center;margin:25px 0 35px}
-.header h1{font-size:42px}
-.header span{color:#22d3ee}
-.header p{color:#94a3b8;margin-top:10px}
+
+.container{
+max-width:800px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin:25px 0 35px;
+}
+
+.header h1{
+font-size:42px;
+}
+
+.header span{
+color:#22d3ee;
+}
+
+.header p{
+color:#94a3b8;
+margin-top:10px;
+}
+
 .card{
 background:#11192d;
 border:1px solid rgba(255,255,255,.1);
 border-radius:20px;
 padding:25px;
 }
+
 .drop{
 display:block;
 border:2px dashed #06b6d4;
@@ -36,8 +104,16 @@ text-align:center;
 cursor:pointer;
 background:rgba(6,182,212,.07);
 }
-.drop p{color:#94a3b8;margin-top:8px}
-input{display:none}
+
+.drop p{
+color:#94a3b8;
+margin-top:8px;
+}
+
+input{
+display:none;
+}
+
 .info{
 margin-top:20px;
 padding:15px;
@@ -45,12 +121,14 @@ background:#18223a;
 border-radius:10px;
 color:#cbd5e1;
 }
+
 label.title{
 display:block;
 margin-top:20px;
 margin-bottom:8px;
 font-weight:bold;
 }
+
 input[type=text]{
 display:block;
 width:100%;
@@ -61,6 +139,7 @@ background:#0d1425;
 color:white;
 outline:none;
 }
+
 button{
 width:100%;
 margin-top:20px;
@@ -72,13 +151,52 @@ color:white;
 font-weight:bold;
 cursor:pointer;
 }
-button:disabled{opacity:.5}
-.status{text-align:center;margin-top:15px;color:#94a3b8}
+
+button:disabled{
+opacity:.5;
+}
+
+.status{
+text-align:center;
+margin-top:15px;
+color:#94a3b8;
+}
+
 .back{
 display:inline-block;
 margin-top:20px;
 color:#a78bfa;
 text-decoration:none;
+}
+
+.seo-content{
+margin-top:25px;
+padding:22px;
+background:#11192d;
+border:1px solid rgba(255,255,255,.08);
+border-radius:16px;
+}
+
+.seo-content h2{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.seo-content h3{
+font-size:18px;
+margin-top:18px;
+margin-bottom:8px;
+}
+
+.seo-content p{
+color:#94a3b8;
+line-height:1.7;
+}
+
+@media(max-width:600px){
+.header h1{
+font-size:34px;
+}
 }
 </style>
 </head>
@@ -88,24 +206,40 @@ text-decoration:none;
 <div class="container">
 
 <div class="header">
+
 <h1>Split <span>PDF</span></h1>
-<p>Extract selected pages from a PDF.</p>
+
+<p>
+Split PDF files online for free and extract the pages you need.
+</p>
+
 </div>
 
 <div class="card">
 
 <label class="drop" for="file">
+
 <h3>📄 Select PDF</h3>
-<p>Click here to choose your PDF file</p>
+
+<p>
+Click here to choose your PDF file
+</p>
+
 </label>
 
-<input id="file" type="file" accept=".pdf,application/pdf">
+<input
+id="file"
+type="file"
+accept=".pdf,application/pdf"
+>
 
 <div id="info" class="info">
 No PDF selected.
 </div>
 
-<label class="title">Pages to extract</label>
+<label class="title">
+Pages to extract
+</label>
 
 <input
 id="pages"
@@ -121,11 +255,44 @@ Split & Download
 
 </div>
 
-<a class="back" href="../index.html">← Back to VexTools</a>
+<!-- SEO Content -->
+
+<section class="seo-content">
+
+<h2>Split PDF Online</h2>
+
+<p>
+VexTools Split PDF is a free online PDF splitter that lets you extract
+specific pages from a PDF file. Select your PDF, enter the pages you
+want to extract, and download the new PDF directly from your browser.
+</p>
+
+<h3>How to Split a PDF</h3>
+
+<p>
+Upload your PDF file, enter the page numbers or page ranges you want
+to extract, such as <strong>1,3,5</strong> or <strong>1-4</strong>,
+then click <strong>Split & Download</strong>.
+</p>
+
+<h3>Free PDF Page Extractor</h3>
+
+<p>
+This PDF splitter works directly in your browser and makes it easy to
+extract selected pages from PDF documents without installing desktop
+software.
+</p>
+
+</section>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
 
 </div>
 
 <script>
+
 const fileInput=document.getElementById("file");
 const pagesInput=document.getElementById("pages");
 const splitBtn=document.getElementById("split");
@@ -134,13 +301,21 @@ const status=document.getElementById("status");
 
 let selectedFile=null;
 
+
+/* =========================
+   PDF SELECTION
+========================= */
+
 fileInput.addEventListener("change",async()=>{
+
 selectedFile=fileInput.files[0];
 
 if(!selectedFile)return;
 
 try{
+
 const bytes=await selectedFile.arrayBuffer();
+
 const pdf=await PDFLib.PDFDocument.load(bytes);
 
 info.textContent=
@@ -149,10 +324,19 @@ info.textContent=
 splitBtn.disabled=false;
 
 }catch{
+
 info.textContent="❌ Invalid PDF file.";
+
 splitBtn.disabled=true;
+
 }
+
 });
+
+
+/* =========================
+   GET PAGES
+========================= */
 
 function getPages(text,total){
 
@@ -175,21 +359,41 @@ a>=1&&
 b<=total&&
 a<=b
 ){
-for(let i=a;i<=b;i++)result.add(i);
+
+for(let i=a;i<=b;i++){
+
+result.add(i);
+
+}
+
 }
 
 }else{
 
 const n=Number(value);
 
-if(Number.isInteger(n)&&n>=1&&n<=total){
+if(
+Number.isInteger(n)&&
+n>=1&&
+n<=total
+){
+
 result.add(n);
+
 }
+
 }
+
 }
 
 return [...result].sort((a,b)=>a-b);
+
 }
+
+
+/* =========================
+   SPLIT PDF
+========================= */
 
 splitBtn.onclick=async()=>{
 
@@ -199,53 +403,78 @@ try{
 
 status.textContent="Splitting PDF...";
 
-const bytes=await selectedFile.arrayBuffer();
+const bytes=
+await selectedFile.arrayBuffer();
 
-const source=await PDFLib.PDFDocument.load(bytes);
+const source=
+await PDFLib.PDFDocument.load(bytes);
 
-const total=source.getPageCount();
+const total=
+source.getPageCount();
 
-const pages=getPages(pagesInput.value,total);
+const pages=
+getPages(pagesInput.value,total);
 
 if(!pages.length){
-status.textContent="❌ Enter valid page numbers.";
+
+status.textContent=
+"❌ Enter valid page numbers.";
+
 return;
+
 }
 
-const output=await PDFLib.PDFDocument.create();
+const output=
+await PDFLib.PDFDocument.create();
 
-const copied=await output.copyPages(
+const copied=
+await output.copyPages(
 source,
 pages.map(x=>x-1)
 );
 
-copied.forEach(page=>output.addPage(page));
+copied.forEach(
+page=>output.addPage(page)
+);
 
-const result=await output.save();
+const result=
+await output.save();
 
-const blob=new Blob(
+const blob=
+new Blob(
 [result],
 {type:"application/pdf"}
 );
 
-const url=URL.createObjectURL(blob);
+const url=
+URL.createObjectURL(blob);
 
-const a=document.createElement("a");
+const a=
+document.createElement("a");
+
 a.href=url;
 a.download="split.pdf";
+
 a.click();
 
+setTimeout(()=>{
 URL.revokeObjectURL(url);
+},1000);
 
-status.textContent="✅ PDF created successfully!";
+status.textContent=
+"✅ PDF created successfully!";
 
 }catch(error){
 
 console.error(error);
-status.textContent="❌ Could not split PDF.";
+
+status.textContent=
+"❌ Could not split PDF.";
 
 }
+
 };
+
 </script>
 
 </body>
