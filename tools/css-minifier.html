@@ -2,50 +2,1235 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>CSS Minifier - VexTools</title>
+<title>CSS Minifier Online - Free CSS Compressor | VexTools</title>
 
-<meta name="description" content="Free online CSS minifier. Compress and minify CSS code by removing comments, whitespace and unnecessary spaces.">
+<meta name="description" content="Free online CSS minifier and compressor. Minify CSS code by removing comments, unnecessary whitespace and formatting. Fast, simple and browser-based with VexTools.">
+
+<meta name="keywords" content="CSS minifier, CSS minifier online, CSS compressor, minify CSS, compress CSS, online CSS compressor, free CSS minifier, CSS optimizer, VexTools">
+
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/css-minifier.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="CSS Minifier Online - Free CSS Compressor | VexTools">
+<meta property="og:description" content="Minify and compress CSS code online for free by removing comments, whitespace and unnecessary formatting.">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/css-minifier.html">
+<meta property="og:site_name" content="VexTools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS Minifier Online - VexTools">
+<meta name="twitter:description" content="Free online CSS minifier and compressor for reducing unnecessary CSS formatting.">
+
+<meta name="theme-color" content="#070b18">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"VexTools CSS Minifier",
+  "url":"https://vextools18-service.github.io/VexTool/tools/css-minifier.html",
+  "description":"Free online CSS minifier and compressor for reducing unnecessary whitespace and comments.",
+  "applicationCategory":"DeveloperApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is CSS minification?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"CSS minification removes unnecessary comments, whitespace and formatting from CSS code while keeping the stylesheet usable."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is this CSS minifier free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. VexTools provides this CSS minifier completely free and directly in your browser."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Does the CSS minifier upload my code?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. The minification process runs directly in your browser, so the CSS is processed locally on your device."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I use minified CSS on a website?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. Minified CSS can be used in websites just like normally formatted CSS."
+      }
+    }
+  ]
+}
+</script>
 
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:30px;text-align:center}
-.box{max-width:900px;margin:auto;background:#111a30;padding:25px;border-radius:20px}
-textarea{width:95%;height:350px;padding:15px;font-family:monospace;background:#0d1427;color:#22d3ee;border:1px solid #27304a;border-radius:12px}
-button{padding:12px 25px;margin:15px;background:#7c3aed;color:white;border:0;border-radius:10px;cursor:pointer}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070b18;
+color:#f8fafc;
+min-height:100vh;
+padding:30px 15px;
+}
+
+.container{
+max-width:950px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin:25px 0 35px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:22px;
+}
+
+.header h1{
+font-size:42px;
+line-height:1.2;
+}
+
+.header h1 span{
+color:#a78bfa;
+}
+
+.header p{
+color:#94a3b8;
+margin-top:12px;
+line-height:1.7;
+font-size:16px;
+}
+
+.card{
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.editor-label{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
+color:#cbd5e1;
+font-weight:bold;
+}
+
+textarea{
+width:100%;
+height:360px;
+padding:18px;
+font-family:Consolas,Monaco,"Courier New",monospace;
+font-size:14px;
+line-height:1.6;
+background:#0d1427;
+color:#22d3ee;
+border:1px solid #27304a;
+border-radius:12px;
+outline:none;
+resize:vertical;
+tab-size:2;
+}
+
+textarea:focus{
+border-color:#7c3aed;
+box-shadow:0 0 0 2px rgba(124,58,237,.15);
+}
+
+textarea::placeholder{
+color:#64748b;
+}
+
+.actions{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+button{
+flex:1;
+padding:14px 20px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+color:white;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+button.secondary{
+background:#18223a;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.stats{
+display:none;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:20px;
+}
+
+.stat{
+background:#0d1427;
+border:1px solid rgba(255,255,255,.08);
+border-radius:12px;
+padding:15px;
+text-align:center;
+}
+
+.stat strong{
+display:block;
+font-size:18px;
+margin-bottom:5px;
+}
+
+.stat span{
+font-size:12px;
+color:#94a3b8;
+}
+
+.status{
+min-height:22px;
+margin-top:15px;
+text-align:center;
+color:#94a3b8;
+font-size:14px;
+}
+
+.content{
+margin-top:45px;
+line-height:1.7;
+}
+
+.content h2{
+font-size:28px;
+margin-bottom:12px;
+}
+
+.content h3{
+font-size:20px;
+margin-top:28px;
+margin-bottom:8px;
+}
+
+.content p{
+color:#cbd5e1;
+margin-bottom:12px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:20px;
+}
+
+.feature{
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:15px;
+padding:18px;
+}
+
+.feature strong{
+display:block;
+margin-bottom:6px;
+}
+
+.feature span{
+color:#94a3b8;
+font-size:14px;
+}
+
+.faq{
+margin-top:35px;
+}
+
+.faq h2{
+margin-bottom:15px;
+}
+
+.faq-item{
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:12px;
+padding:17px;
+margin-top:10px;
+}
+
+.faq-item h3{
+font-size:16px;
+margin:0 0 7px;
+}
+
+.faq-item p{
+color:#94a3b8;
+font-size:14px;
+margin:0;
+}
+
+.related{
+margin-top:35px;
+}
+
+.related h2{
+margin-bottom:10px;
+}
+
+.related a{
+display:inline-block;
+margin:7px 7px 0 0;
+padding:9px 13px;
+border-radius:9px;
+background:#18223a;
+color:#a78bfa;
+text-decoration:none;
+transition:.2s;
+}
+
+.related a:hover{
+background:#222e4b;
+transform:translateY(-1px);
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+color:#64748b;
+font-size:13px;
+margin-top:35px;
+padding:20px 0;
+}
+
+@media(max-width:650px){
+
+body{
+padding:22px 12px;
+}
+
+.header h1{
+font-size:34px;
+}
+
+.card{
+padding:18px;
+}
+
+.actions{
+flex-direction:column;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+textarea{
+height:300px;
+font-size:13px;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
-<h1>CSS Minifier</h1>
+<header class="header">
 
-<p>Minify and compress your CSS code online for free.</p>
+<a href="../index.html" class="logo">
+VexTools
+</a>
 
-<textarea id="code" placeholder="Paste CSS here..."></textarea>
+<h1>
+CSS <span>Minifier</span> Online
+</h1>
 
-<br>
+<p>
+Minify and compress your CSS code by removing unnecessary
+comments, whitespace and formatting.
+</p>
 
-<button onclick="minify()">Minify CSS</button>
+</header>
+
+
+<main>
+
+<section class="card">
+
+<div class="editor-label">
+
+<span>CSS Code</span>
+
+<span id="charCount">
+0 characters
+</span>
 
 </div>
 
+
+<textarea
+id="code"
+placeholder="Paste your CSS code here..."
+spellcheck="false"
+></textarea>
+
+
+<div class="actions">
+
+<button id="minifyBtn">
+⚡ Minify CSS
+</button>
+
+<button
+id="copyBtn"
+class="secondary"
+>
+📋 Copy CSS
+</button>
+
+<button
+id="clearBtn"
+class="secondary"
+>
+Clear
+</button>
+
+</div>
+
+
+<div class="stats" id="stats">
+
+<div class="stat">
+
+<strong id="beforeSize">
+0 B
+</strong>
+
+<span>
+Original Size
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="afterSize">
+0 B
+</strong>
+
+<span>
+Minified Size
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong id="savedSize">
+0%
+</strong>
+
+<span>
+Size Reduced
+</span>
+
+</div>
+
+</div>
+
+
+<div
+class="status"
+id="status"
+></div>
+
+</section>
+
+
+<section class="content">
+
+<h2>
+Free CSS Minifier Online
+</h2>
+
+<p>
+VexTools CSS Minifier is a free online tool that helps
+developers compress CSS code by removing unnecessary
+comments, spaces, line breaks and formatting.
+</p>
+
+<p>
+Minified CSS is easier to transfer and can reduce the size
+of stylesheet files, which may help improve website loading
+performance.
+</p>
+
+
+<div class="features">
+
+<div class="feature">
+
+<strong>⚡ Fast</strong>
+
+<span>
+CSS is processed instantly in your browser.
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>🆓 Free</strong>
+
+<span>
+No subscription or payment is required.
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>🔒 Private</strong>
+
+<span>
+Your CSS is processed locally in your browser.
+</span>
+
+</div>
+
+</div>
+
+
+<h3>
+How to Minify CSS
+</h3>
+
+<p>
+<strong>1.</strong>
+Paste your CSS code into the editor.
+</p>
+
+<p>
+<strong>2.</strong>
+Click the Minify CSS button.
+</p>
+
+<p>
+<strong>3.</strong>
+Review the minified CSS and size statistics.
+</p>
+
+<p>
+<strong>4.</strong>
+Click Copy CSS to copy the result.
+</p>
+
+
+<h3>
+What Does a CSS Minifier Do?
+</h3>
+
+<p>
+A CSS minifier removes unnecessary characters such as
+comments, extra whitespace, line breaks and spaces around
+CSS syntax while preserving the structure of the stylesheet.
+</p>
+
+<p>
+This tool is designed for normal CSS stylesheets. Comments
+inside strings, URLs and other special CSS values are handled
+carefully so that valid CSS is less likely to be changed
+incorrectly.
+</p>
+
+
+<section class="faq">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<div class="faq-item">
+
+<h3>
+What is CSS minification?
+</h3>
+
+<p>
+CSS minification removes unnecessary formatting,
+comments and whitespace from CSS while keeping the
+stylesheet usable.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Is this CSS minifier free?
+</h3>
+
+<p>
+Yes. VexTools provides this CSS minifier completely free.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Does this tool upload my CSS?
+</h3>
+
+<p>
+No. The minification process runs directly in your browser,
+so your CSS is processed locally on your device.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+Can I use minified CSS on my website?
+</h3>
+
+<p>
+Yes. Minified CSS can be used as a normal stylesheet on
+websites and web applications.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="related">
+
+<h2>
+Related Developer Tools
+</h2>
+
+<a href="html-formatter.html">
+HTML Formatter
+</a>
+
+<a href="json-formatter.html">
+JSON Formatter
+</a>
+
+<a href="../index.html">
+More Free Tools
+</a>
+
+</section>
+
+</section>
+
+</main>
+
+
+<a
+href="../index.html"
+class="back"
+>
+← Back to VexTools
+</a>
+
+
+<footer>
+
+© <span id="year"></span>
+VexTools — Free Online Tools
+
+</footer>
+
+</div>
+
+
 <script>
-function minify(){
 
-let x=document.getElementById("code").value;
+const code =
+document.getElementById("code");
 
-x=x
-.replace(/\/\*[\s\S]*?\*\//g,"")
-.replace(/\s+/g," ")
-.replace(/\s*([{}:;,])\s*/g,"$1")
-.trim();
+const minifyBtn =
+document.getElementById("minifyBtn");
 
-document.getElementById("code").value=x;
+const copyBtn =
+document.getElementById("copyBtn");
+
+const clearBtn =
+document.getElementById("clearBtn");
+
+const status =
+document.getElementById("status");
+
+const charCount =
+document.getElementById("charCount");
+
+const stats =
+document.getElementById("stats");
+
+const beforeSize =
+document.getElementById("beforeSize");
+
+const afterSize =
+document.getElementById("afterSize");
+
+const savedSize =
+document.getElementById("savedSize");
+
+
+function formatSize(bytes){
+
+if(bytes < 1024){
+
+return bytes + " B";
 
 }
+
+if(bytes < 1024 * 1024){
+
+return (bytes / 1024).toFixed(2) + " KB";
+
+}
+
+return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+
+}
+
+
+function updateCharCount(){
+
+const length =
+code.value.length;
+
+charCount.textContent =
+length.toLocaleString() +
+(length === 1 ? " character" : " characters");
+
+}
+
+
+function removeComments(css){
+
+let result = "";
+
+let quote = null;
+
+let inComment = false;
+
+for(let i = 0; i < css.length; i++){
+
+const char = css[i];
+
+const next = css[i + 1];
+
+
+if(inComment){
+
+if(char === "*" && next === "/"){
+
+inComment = false;
+
+i++;
+
+}
+
+continue;
+
+}
+
+
+if(!quote && char === "/" && next === "*"){
+
+inComment = true;
+
+i++;
+
+continue;
+
+}
+
+
+if(char === '"' || char === "'"){
+
+if(!quote){
+
+quote = char;
+
+}else if(quote === char){
+
+quote = null;
+
+}
+
+}
+
+
+result += char;
+
+}
+
+return result;
+
+}
+
+
+function minifyCSS(css){
+
+/*
+Remove comments without damaging
+quoted strings such as:
+
+content: "/* text */";
+*/
+
+let result =
+removeComments(css);
+
+
+/*
+Collapse whitespace while preserving
+strings.
+*/
+
+let output = "";
+
+let quote = null;
+
+let whitespace = false;
+
+
+for(let i = 0; i < result.length; i++){
+
+const char = result[i];
+
+
+if(char === '"' || char === "'"){
+
+if(whitespace){
+
+output += " ";
+
+whitespace = false;
+
+}
+
+output += char;
+
+if(!quote){
+
+quote = char;
+
+}else if(quote === char){
+
+quote = null;
+
+}
+
+continue;
+
+}
+
+
+if(quote){
+
+output += char;
+
+continue;
+
+}
+
+
+if(/\s/.test(char)){
+
+whitespace = true;
+
+continue;
+
+}
+
+
+if(whitespace){
+
+/*
+A space is sometimes required between
+CSS identifiers, values and keywords.
+*/
+
+const previous =
+output[output.length - 1];
+
+if(
+previous &&
+!/[{}:;,>+~()]/.test(previous) &&
+!/[{}:;,>+~()]/.test(char)
+){
+
+output += " ";
+
+}
+
+whitespace = false;
+
+}
+
+
+output += char;
+
+}
+
+
+result = output.trim();
+
+
+/*
+Remove whitespace around common CSS
+syntax characters.
+*/
+
+result = result
+.replace(/\s*([{}:;,>+~])\s*/g,"$1")
+.replace(/\(\s+/g,"(")
+.replace(/\s+\)/g,")");
+
+
+/*
+Remove the final semicolon before a
+closing brace.
+
+Example:
+
+color:red;
+}
+
+becomes:
+
+color:red}
+*/
+
+result =
+result.replace(/;}/g,"}");
+
+
+/*
+Remove unnecessary leading zero.
+
+0.5 -> .5
+*/
+
+result =
+result.replace(/(^|[:\s,(])0+\.(\d+)/g,"$1.$2");
+
+
+/*
+Remove unnecessary zero from decimal
+values.
+
+1.50 -> 1.5
+*/
+
+result =
+result.replace(/(\.\d*?[1-9])0+(?=\D|$)/g,"$1");
+
+
+return result.trim();
+
+}
+
+
+minifyBtn.addEventListener(
+"click",
+function(){
+
+const original =
+code.value;
+
+
+if(!original.trim()){
+
+status.textContent =
+"⚠️ Please paste some CSS code first.";
+
+stats.style.display =
+"none";
+
+return;
+
+}
+
+
+const minified =
+minifyCSS(original);
+
+
+code.value =
+minified;
+
+
+const originalBytes =
+new Blob([original]).size;
+
+const minifiedBytes =
+new Blob([minified]).size;
+
+
+let reduction = 0;
+
+
+if(originalBytes > 0){
+
+reduction =
+((originalBytes - minifiedBytes) /
+originalBytes) * 100;
+
+}
+
+
+beforeSize.textContent =
+formatSize(originalBytes);
+
+afterSize.textContent =
+formatSize(minifiedBytes);
+
+
+if(reduction >= 0){
+
+savedSize.textContent =
+reduction.toFixed(1) + "%";
+
+status.textContent =
+"✅ CSS minified successfully.";
+
+}else{
+
+savedSize.textContent =
+"0%";
+
+status.textContent =
+"ℹ️ The CSS could not be reduced further.";
+
+}
+
+
+stats.style.display =
+"grid";
+
+
+updateCharCount();
+
+}
+);
+
+
+copyBtn.addEventListener(
+"click",
+async function(){
+
+const value =
+code.value;
+
+
+if(!value.trim()){
+
+status.textContent =
+"⚠️ There is no CSS to copy.";
+
+return;
+
+}
+
+
+try{
+
+await navigator.clipboard.writeText(value);
+
+const old =
+copyBtn.textContent;
+
+copyBtn.textContent =
+"✅ Copied!";
+
+
+status.textContent =
+"CSS copied to clipboard.";
+
+
+setTimeout(function(){
+
+copyBtn.textContent =
+old;
+
+},1500);
+
+
+}catch(error){
+
+/*
+Fallback for browsers where
+Clipboard API is unavailable.
+*/
+
+code.select();
+
+document.execCommand("copy");
+
+status.textContent =
+"✅ CSS copied to clipboard.";
+
+}
+
+}
+);
+
+
+clearBtn.addEventListener(
+"click",
+function(){
+
+code.value =
+"";
+
+stats.style.display =
+"none";
+
+status.textContent =
+"";
+
+updateCharCount();
+
+code.focus();
+
+}
+);
+
+
+code.addEventListener(
+"input",
+function(){
+
+updateCharCount();
+
+}
+);
+
+
+/*
+Allow Tab inside textarea instead
+of moving focus away.
+*/
+
+code.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Tab"){
+
+event.preventDefault();
+
+
+const start =
+this.selectionStart;
+
+const end =
+this.selectionEnd;
+
+
+this.value =
+this.value.substring(0,start) +
+"  " +
+this.value.substring(end);
+
+
+this.selectionStart =
+this.selectionEnd =
+start + 2;
+
+
+updateCharCount();
+
+}
+
+}
+);
+
+
+document.getElementById(
+"year"
+).textContent =
+new Date().getFullYear();
+
+
+updateCharCount();
+
 </script>
 
 </body>
