@@ -3,10 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lorem Ipsum Generator — VexTools</title>
+
+<title>Lorem Ipsum Generator Online Free — VexTools</title>
+
+<meta name="description" content="Generate Lorem Ipsum placeholder text online for free with VexTools. Create custom paragraphs instantly and copy the generated text easily.">
+
+<meta name="keywords" content="Lorem Ipsum generator, Lorem Ipsum generator online, placeholder text generator, dummy text generator, Lorem Ipsum text, free Lorem Ipsum generator">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/lorem-ipsum-generator.html">
+
+<meta property="og:title" content="Lorem Ipsum Generator Online Free — VexTools">
+<meta property="og:description" content="Free online Lorem Ipsum generator. Generate custom placeholder text instantly and copy it with one click.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/lorem-ipsum-generator.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lorem Ipsum Generator Online Free — VexTools">
+<meta name="twitter:description" content="Generate Lorem Ipsum placeholder text online for free with VexTools.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Lorem Ipsum Generator",
+  "url":"https://vextools18-service.github.io/VexTool/tools/lorem-ipsum-generator.html",
+  "description":"Free online Lorem Ipsum generator for creating placeholder text and dummy content.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
 
 body{
 font-family:Arial,sans-serif;
@@ -15,32 +54,42 @@ color:white;
 padding:30px 15px;
 }
 
-.container{max-width:850px;margin:auto}
+.container{
+max-width:850px;
+margin:auto
+}
 
-.header{text-align:center;margin-bottom:25px}
+.header{
+text-align:center;
+margin-bottom:25px
+}
 
 .logo{
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
-text-decoration:none;
+text-decoration:none
 }
 
-h1{margin:15px 0 8px}
+h1{
+margin:15px 0 8px
+}
 
-p{color:#94a3b8}
+p{
+color:#94a3b8
+}
 
 .card{
 background:rgba(17,25,45,.85);
 border:1px solid rgba(255,255,255,.1);
 border-radius:20px;
-padding:22px;
+padding:22px
 }
 
 .controls{
 display:flex;
 gap:10px;
-margin-bottom:15px;
+margin-bottom:15px
 }
 
 input{
@@ -49,7 +98,7 @@ padding:12px;
 background:#0d1427;
 color:white;
 border:1px solid #29344f;
-border-radius:10px;
+border-radius:10px
 }
 
 button{
@@ -59,7 +108,12 @@ border-radius:10px;
 background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
-cursor:pointer;
+cursor:pointer
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(124,58,237,.3)
 }
 
 textarea{
@@ -71,13 +125,16 @@ color:white;
 border:1px solid #29344f;
 border-radius:14px;
 resize:vertical;
-line-height:1.7;
+line-height:1.7
 }
 
 @media(max-width:500px){
-.controls{flex-wrap:wrap}
+.controls{
+flex-wrap:wrap
+}
 }
 </style>
+
 </head>
 
 <body>
@@ -85,49 +142,139 @@ line-height:1.7;
 <div class="container">
 
 <div class="header">
-<a class="logo" href="../index.html">VexTools</a>
-<h1>Lorem Ipsum Generator</h1>
-<p>Generate placeholder text instantly.</p>
+
+<a class="logo" href="../index.html">
+VexTools
+</a>
+
+<h1>
+Lorem Ipsum Generator
+</h1>
+
+<p>
+Generate placeholder text instantly.
+</p>
+
 </div>
 
 <div class="card">
 
 <div class="controls">
-<input id="count" type="number" min="1" max="100" value="3">
-<button onclick="generate()">Generate</button>
-<button onclick="copyText()">Copy</button>
+
+<input
+id="count"
+type="number"
+min="1"
+max="100"
+value="3"
+>
+
+<button onclick="generate()">
+Generate
+</button>
+
+<button onclick="copyText()">
+Copy
+</button>
+
 </div>
 
-<textarea id="output" readonly></textarea>
+<textarea
+id="output"
+readonly
+placeholder="Generated Lorem Ipsum will appear here..."
+></textarea>
 
 </div>
+
 </div>
 
 <script>
-const words=`lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum`.split(" ");
+
+const words =
+`lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum`
+.split(" ");
+
 
 function generate(){
+
 let paragraphs=[];
-let count=Math.min(100,Math.max(1,Number(document.getElementById("count").value)));
 
-for(let p=0;p<count;p++){
+let count =
+Math.min(
+100,
+Math.max(
+1,
+Number(
+document.getElementById("count").value
+)
+)
+);
+
+
+for(
+let p=0;
+p<count;
+p++
+){
+
 let sentence=[];
-for(let i=0;i<45;i++){
-sentence.push(words[Math.floor(Math.random()*words.length)]);
-}
-let text=sentence.join(" ");
-text=text.charAt(0).toUpperCase()+text.slice(1)+".";
-paragraphs.push(text);
+
+for(
+let i=0;
+i<45;
+i++
+){
+
+sentence.push(
+words[
+Math.floor(
+Math.random()*words.length
+)
+]
+);
+
 }
 
-document.getElementById("output").value=paragraphs.join("\n\n");
+let text =
+sentence.join(" ");
+
+text =
+text.charAt(0).toUpperCase()
++
+text.slice(1)
++
+".";
+
+paragraphs.push(text);
+
 }
+
+
+document.getElementById("output").value =
+paragraphs.join("\n\n");
+
+}
+
 
 function copyText(){
-navigator.clipboard.writeText(document.getElementById("output").value);
+
+const output =
+document.getElementById("output");
+
+if(!output.value){
+return;
 }
 
+navigator.clipboard.writeText(
+output.value
+);
+
+}
+
+
 generate();
+
 </script>
 
 </body>
