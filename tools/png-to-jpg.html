@@ -3,7 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PNG to JPG Converter — VexTools</title>
+
+<title>PNG to JPG Converter Online Free — VexTools</title>
+
+<meta name="description" content="Convert PNG images to JPG online for free with VexTools. Fast, simple and secure PNG to JPG converter that works directly in your browser.">
+
+<meta name="keywords" content="PNG to JPG, PNG to JPG converter, convert PNG to JPG, PNG converter, image converter, online image converter, free PNG to JPG">
+
+<meta name="author" content="VexTools">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools.github.io/tools/png-to-jpg.html">
+
+<meta property="og:title" content="PNG to JPG Converter Online Free — VexTools">
+<meta property="og:description" content="Convert PNG images to JPG online for free with VexTools. Fast and easy browser-based image converter.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/tools/png-to-jpg.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PNG to JPG Converter — VexTools">
+<meta name="twitter:description" content="Convert PNG images to JPG online quickly and for free.">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -78,8 +98,10 @@ font-weight:bold;
 
 <div class="header">
 <a class="logo" href="../index.html">VexTools</a>
-<h1>PNG to JPG</h1>
-<p>Convert PNG images to JPG format.</p>
+
+<h1>PNG to JPG Converter</h1>
+
+<p>Convert PNG images to JPG online for free.</p>
 </div>
 
 <div class="card">
@@ -120,6 +142,9 @@ ctx.drawImage(img,0,0);
 canvas.toBlob(blob=>{
 
 const url=URL.createObjectURL(blob);
+
+const old=document.querySelector(".download");
+if(old)old.remove();
 
 const link=document.createElement("a");
 
