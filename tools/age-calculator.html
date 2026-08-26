@@ -5,23 +5,32 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1">
 
 <!-- =====================================================
-     SEO
+     PRIMARY SEO
 ===================================================== -->
 
 <title>Age Calculator Online — Calculate Your Exact Age | VexTools</title>
 
 <meta name="description"
-content="Use VexTools free online Age Calculator to calculate your exact age in years. Simple, fast and easy-to-use age calculator online.">
+      content="Calculate your exact age in years, months and days with VexTools free online Age Calculator. Enter your date of birth to find your current age and next birthday.">
 
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="author" content="VexTools">
+<meta name="robots"
+      content="index, follow, max-image-preview:large">
+
+<meta name="googlebot"
+      content="index, follow">
+
+<meta name="author"
+      content="VexTools">
 
 <meta name="keywords"
-content="age calculator, age calculator online, calculate age, exact age calculator, birthday age calculator, free age calculator, VexTools">
+      content="age calculator, age calculator online, exact age calculator, calculate age, birthday calculator, date of birth calculator, age in years months days, free age calculator, VexTools">
+
+<meta name="theme-color"
+      content="#070b18">
 
 
 <!-- =====================================================
@@ -29,50 +38,48 @@ content="age calculator, age calculator online, calculate age, exact age calcula
 ===================================================== -->
 
 <link rel="canonical"
-href="https://vextools18-service.github.io/VexTool/tools/age-calculator.html">
+      href="https://vextools18-service.github.io/VexTool/tools/age-calculator.html">
 
 
 <!-- =====================================================
      OPEN GRAPH
 ===================================================== -->
 
-<meta property="og:type" content="website">
+<meta property="og:type"
+      content="website">
 
 <meta property="og:title"
-content="Age Calculator Online — VexTools">
+      content="Age Calculator Online — Calculate Your Exact Age | VexTools">
 
 <meta property="og:description"
-content="Calculate your exact age quickly and easily with the free VexTools online Age Calculator.">
+      content="Calculate your exact age in years, months and days with the free VexTools Age Calculator.">
 
 <meta property="og:url"
-content="https://vextools18-service.github.io/VexTool/tools/age-calculator.html">
+      content="https://vextools18-service.github.io/VexTool/tools/age-calculator.html">
 
 <meta property="og:site_name"
-content="VexTools">
+      content="VexTools">
+
+<meta property="og:locale"
+      content="en_US">
 
 
 <!-- =====================================================
      TWITTER / X
 ===================================================== -->
 
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card"
+      content="summary">
 
 <meta name="twitter:title"
-content="Age Calculator Online — VexTools">
+      content="Age Calculator Online — VexTools">
 
 <meta name="twitter:description"
-content="Calculate your exact age quickly and easily with VexTools free online Age Calculator.">
+      content="Calculate your exact age in years, months and days with VexTools free online Age Calculator.">
 
 
 <!-- =====================================================
-     THEME
-===================================================== -->
-
-<meta name="theme-color" content="#070b18">
-
-
-<!-- =====================================================
-     STRUCTURED DATA
+     STRUCTURED DATA — WEB APPLICATION
 ===================================================== -->
 
 <script type="application/ld+json">
@@ -81,7 +88,7 @@ content="Calculate your exact age quickly and easily with VexTools free online A
   "@type": "WebApplication",
   "name": "Age Calculator",
   "url": "https://vextools18-service.github.io/VexTool/tools/age-calculator.html",
-  "description": "A free online age calculator for calculating your age from your date of birth.",
+  "description": "A free online age calculator that calculates age from a date of birth in years, months and days.",
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires a modern web browser",
@@ -90,10 +97,19 @@ content="Calculate your exact age quickly and easily with VexTools free online A
     "@type": "Organization",
     "name": "VexTools",
     "url": "https://vextools18-service.github.io/VexTool/"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
   }
 }
 </script>
 
+
+<!-- =====================================================
+     STRUCTURED DATA — BREADCRUMB
+===================================================== -->
 
 <script type="application/ld+json">
 {
@@ -118,91 +134,698 @@ content="Calculate your exact age quickly and easily with VexTools free online A
 
 
 <!-- =====================================================
+     STRUCTURED DATA — FAQ
+===================================================== -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the Age Calculator work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your date of birth and the calculator compares it with today's date to calculate your age in years, months and days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I calculate my exact age in years, months and days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VexTools Age Calculator calculates your age in complete years, months and remaining days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Age Calculator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The VexTools Age Calculator is free to use online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the calculator store my date of birth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator performs the calculation directly in your browser and does not need to send your date of birth to a server."
+      }
+    }
+  ]
+}
+</script>
+
+
+<!-- =====================================================
      STYLE
 ===================================================== -->
 
 <style>
 
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --bg:#070b18;
+    --card:#111a30;
+    --card2:#0d1427;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --border:rgba(255,255,255,.09);
+    --primary:#7c3aed;
+    --secondary:#06b6d4;
+    --glow:rgba(124,58,237,.30);
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#070b18;
-color:white;
-padding:50px 20px;
-min-height:100vh;
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:var(--bg);
+    color:var(--text);
+
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
-.container{
-max-width:600px;
-margin:auto;
-text-align:center;
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.25;
+}
+
+.orb.one{
+    width:360px;
+    height:360px;
+    background:#7c3aed;
+    top:-140px;
+    left:-120px;
+}
+
+.orb.two{
+    width:300px;
+    height:300px;
+    background:#06b6d4;
+    right:-100px;
+    top:35%;
+}
+
+.orb.three{
+    width:280px;
+    height:280px;
+    background:#ec4899;
+    bottom:-130px;
+    left:40%;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    background:rgba(7,11,24,.72);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+
+    min-height:70px;
+
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:var(--text);
+    text-decoration:none;
+
+    font-size:21px;
+    font-weight:900;
+}
+
+.logoIcon{
+    width:40px;
+    height:40px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:12px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #06b6d4
+        );
+
+    box-shadow:
+        0 0 25px var(--glow);
+}
+
+.homeLink{
+    color:var(--muted);
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.homeLink:hover{
+    color:var(--text);
+}
+
+
+/* =====================================================
+   MAIN TOOL
+===================================================== */
+
+main{
+    width:100%;
+}
+
+.tool-section{
+    max-width:760px;
+    margin:auto;
+
+    padding:
+        80px
+        20px
+        50px;
+
+    text-align:center;
+}
+
+.badge{
+    display:inline-flex;
+
+    padding:
+        8px
+        15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:999px;
+
+    background:
+        rgba(124,58,237,.10);
+
+    color:#c4b5fd;
+
+    font-size:13px;
+    font-weight:800;
 }
 
 h1{
-font-size:42px;
-margin-bottom:10px;
+    margin-top:20px;
+
+    font-size:
+        clamp(
+            38px,
+            7vw,
+            62px
+        );
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
 }
 
-p{
-color:#94a3b8;
-line-height:1.6;
+.gradient{
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #22d3ee
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
 }
 
-input{
-padding:15px;
-width:100%;
-margin:20px 0;
-background:#111a30;
-color:white;
-border:1px solid #27304a;
-border-radius:10px;
-font-size:16px;
+.subtitle{
+    max-width:620px;
+
+    margin:
+        18px
+        auto
+        35px;
+
+    color:var(--muted);
+
+    line-height:1.7;
+    font-size:17px;
 }
 
-input:focus{
-outline:none;
-border-color:#7c3aed;
+
+/* =====================================================
+   CALCULATOR CARD
+===================================================== */
+
+.calculator{
+    padding:28px;
+
+    background:
+        rgba(17,25,45,.78);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:24px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.25);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    text-align:left;
 }
 
-button{
-padding:14px 30px;
-background:linear-gradient(90deg,#7c3aed,#06b6d4);
-color:white;
-border:0;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
-transition:.25s;
+.label{
+    display:block;
+
+    margin-bottom:9px;
+
+    color:#e2e8f0;
+
+    font-size:14px;
+    font-weight:800;
 }
 
-button:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 25px rgba(124,58,237,.3);
+input[type="date"]{
+    width:100%;
+
+    padding:15px 16px;
+
+    border:
+        1px solid #27304a;
+
+    border-radius:12px;
+
+    background:#0c1428;
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+
+    color-scheme:dark;
+
+    transition:.25s;
 }
+
+input[type="date"]:focus{
+    border-color:#7c3aed;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(124,58,237,.12);
+}
+
+.calculate-btn{
+    width:100%;
+
+    margin-top:16px;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c3aed,
+            #06b6d4
+        );
+
+    color:white;
+
+    font-size:15px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.calculate-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(124,58,237,.28);
+}
+
+.calculate-btn:active{
+    transform:translateY(0);
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
 
 .result{
-margin-top:25px;
-padding:20px;
-background:#111a30;
-border:1px solid rgba(255,255,255,.08);
-border-radius:12px;
-color:#e2e8f0;
+    margin-top:20px;
+
+    padding:22px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:16px;
+
+    background:
+        rgba(7,11,24,.55);
+
+    text-align:center;
+
+    min-height:90px;
 }
 
+.result-title{
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.result-main{
+    font-size:24px;
+    font-weight:900;
+    color:white;
+    line-height:1.4;
+}
+
+.result-extra{
+    margin-top:10px;
+
+    color:#a5b4fc;
+
+    font-size:14px;
+    line-height:1.6;
+}
+
+.error{
+    color:#fca5a5;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content{
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:
+        40px
+        20px
+        80px;
+}
+
+.content-card{
+    margin-bottom:24px;
+
+    padding:30px;
+
+    background:
+        rgba(17,25,45,.68);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+}
+
+.content h2{
+    margin-bottom:14px;
+
+    font-size:28px;
+}
+
+.content h3{
+    margin:
+        24px
+        0
+        8px;
+
+    font-size:19px;
+}
+
+.content p{
+    color:var(--muted);
+
+    line-height:1.8;
+
+    font-size:15px;
+}
+
+.content ul{
+    margin-top:14px;
+
+    padding-left:22px;
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+    font-size:15px;
+}
+
+.content li{
+    margin-bottom:5px;
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+    border-top:
+        1px solid var(--border);
+
+    margin-top:18px;
+    padding-top:18px;
+}
+
+.faq:first-of-type{
+    border-top:0;
+    margin-top:0;
+    padding-top:0;
+}
+
+.faq h3{
+    margin-top:0;
+    margin-bottom:8px;
+}
+
+.faq p{
+    font-size:14px;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
 .back{
-display:inline-block;
-margin-top:25px;
-color:#a78bfa;
-text-decoration:none;
+    display:inline-flex;
+
+    align-items:center;
+
+    margin:
+        10px
+        auto
+        60px;
+
+    padding:
+        12px
+        18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:11px;
+
+    background:
+        rgba(17,25,45,.75);
+
+    color:#c4b5fd;
+
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:800;
+
+    transition:.25s;
 }
 
 .back:hover{
-color:#c4b5fd;
+    transform:translateY(-2px);
+
+    border-color:#7c3aed;
+
+    color:white;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    border-top:
+        1px solid var(--border);
+
+    background:
+        rgba(17,25,45,.45);
+
+    text-align:center;
+
+    padding:
+        25px
+        20px;
+}
+
+footer p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:600px){
+
+    .nav{
+        min-height:64px;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .logoIcon{
+        width:36px;
+        height:36px;
+    }
+
+    .homeLink{
+        font-size:13px;
+    }
+
+    .tool-section{
+        padding-top:55px;
+    }
+
+    h1{
+        letter-spacing:-1px;
+    }
+
+    .subtitle{
+        font-size:15px;
+    }
+
+    .calculator{
+        padding:20px;
+        border-radius:18px;
+    }
+
+    .content-card{
+        padding:22px;
+        border-radius:17px;
+    }
+
+    .content h2{
+        font-size:24px;
+    }
+
+    .result-main{
+        font-size:20px;
+    }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto!important;
+        transition:none!important;
+    }
+
 }
 
 </style>
@@ -212,97 +835,798 @@ color:#c4b5fd;
 
 <body>
 
-<div class="container">
 
-<h1>🎂 Age Calculator</h1>
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
-<p>
-Calculate your exact age quickly and easily using your date of birth.
-</p>
+<div class="background"
+     aria-hidden="true">
 
-
-<input
-id="dob"
-type="date"
-aria-label="Enter your date of birth"
->
-
-
-<button onclick="calculate()">
-Calculate Age
-</button>
-
-
-<div class="result" id="result" aria-live="polite">
-Your age will appear here.
-</div>
-
-
-<a class="back" href="../index.html">
-← Back to VexTools
-</a>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
 
 </div>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="nav">
+
+        <a class="logo"
+           href="../index.html"
+           aria-label="VexTools Home">
+
+            <span class="logoIcon"
+                  aria-hidden="true">
+                V
+            </span>
+
+            VexTools
+
+        </a>
+
+
+        <a class="homeLink"
+           href="../index.html">
+
+            ← All Tools
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     CALCULATOR
+===================================================== -->
+
+<main>
+
+<section class="tool-section">
+
+    <span class="badge">
+        🎂 Free Online Tool
+    </span>
+
+
+    <h1>
+        Age <span class="gradient">Calculator</span>
+    </h1>
+
+
+    <p class="subtitle">
+        Calculate your exact age in years, months and days.
+        Enter your date of birth and get your current age
+        instantly.
+    </p>
+
+
+    <div class="calculator">
+
+        <label
+            class="label"
+            for="dob">
+
+            Date of Birth
+
+        </label>
+
+
+        <input
+            id="dob"
+            type="date"
+            aria-label="Enter your date of birth"
+            autocomplete="bday">
+
+
+        <button
+            class="calculate-btn"
+            id="calculateBtn"
+            type="button">
+
+            Calculate My Age
+
+        </button>
+
+
+        <div
+            class="result"
+            id="result"
+            aria-live="polite">
+
+            <div class="result-title">
+                Your result will appear here
+            </div>
+
+            <div class="result-main">
+                Enter your date of birth above.
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <a class="back"
+       href="../index.html">
+
+        ← Back to VexTools
+
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     SEO CONTENT
+===================================================== -->
+
+<section class="content"
+         aria-label="Age Calculator information">
+
+
+    <!-- INTRODUCTION -->
+
+    <div class="content-card">
+
+        <h2>
+            Age Calculator Online
+        </h2>
+
+        <p>
+            VexTools Age Calculator is a free online tool
+            that helps you calculate your current age from
+            your date of birth. Enter your birthday and the
+            calculator determines your age in complete years,
+            months and days.
+        </p>
+
+        <p style="margin-top:14px;">
+            Whether you want to check your age for a form,
+            understand how old you are on a specific date,
+            or simply calculate your birthday information,
+            this online age calculator provides a quick and
+            simple result directly in your browser.
+        </p>
+
+    </div>
+
+
+    <!-- HOW TO USE -->
+
+    <div class="content-card">
+
+        <h2>
+            How to Use the Age Calculator
+        </h2>
+
+        <p>
+            Follow these simple steps to calculate your exact
+            age:
+        </p>
+
+        <ol style="
+            margin-top:14px;
+            padding-left:22px;
+            color:#94a3b8;
+            line-height:1.9;
+            font-size:15px;
+        ">
+
+            <li>
+                Select your date of birth.
+            </li>
+
+            <li>
+                Click the <strong>Calculate My Age</strong>
+                button.
+            </li>
+
+            <li>
+                View your age in years, months and days.
+            </li>
+
+            <li>
+                Check the information about your next birthday.
+            </li>
+
+        </ol>
+
+    </div>
+
+
+    <!-- FEATURES -->
+
+    <div class="content-card">
+
+        <h2>
+            Age Calculator Features
+        </h2>
+
+        <ul>
+
+            <li>
+                Calculates age in years, months and days.
+            </li>
+
+            <li>
+                Shows information about your next birthday.
+            </li>
+
+            <li>
+                Works directly in your web browser.
+            </li>
+
+            <li>
+                Free to use with no account required.
+            </li>
+
+            <li>
+                Simple and mobile-friendly interface.
+            </li>
+
+            <li>
+                Does not require sending your date of birth
+                to a server.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- FAQ -->
+
+    <div class="content-card">
+
+        <h2>
+            Frequently Asked Questions
+        </h2>
+
+
+        <div class="faq">
+
+            <h3>
+                How does the Age Calculator work?
+            </h3>
+
+            <p>
+                Enter your date of birth and the calculator
+                compares it with today's date to determine
+                your current age in years, months and days.
+            </p>
+
+        </div>
+
+
+        <div class="faq">
+
+            <h3>
+                Can I calculate my exact age in years,
+                months and days?
+            </h3>
+
+            <p>
+                Yes. The calculator shows your completed years,
+                completed months and the remaining days.
+            </p>
+
+        </div>
+
+
+        <div class="faq">
+
+            <h3>
+                Is this Age Calculator free?
+            </h3>
+
+            <p>
+                Yes. VexTools Age Calculator is completely
+                free to use online.
+            </p>
+
+        </div>
+
+
+        <div class="faq">
+
+            <h3>
+                Does VexTools store my date of birth?
+            </h3>
+
+            <p>
+                No server connection is required for the age
+                calculation. The calculation is performed
+                directly in your browser.
+            </p>
+
+        </div>
+
+
+        <div class="faq">
+
+            <h3>
+                Can I use the Age Calculator on my phone?
+            </h3>
+
+            <p>
+                Yes. The calculator is designed to work on
+                smartphones, tablets and desktop browsers.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- RELATED SEARCH TERMS -->
+
+    <div class="content-card">
+
+        <h2>
+            Calculate Your Age Easily
+        </h2>
+
+        <p>
+            Looking for an age calculator online, birthday
+            calculator, date of birth calculator or exact age
+            calculator? VexTools provides a simple browser-based
+            solution without requiring an account or installation.
+        </p>
+
+        <p style="margin-top:14px;">
+            Enter your date of birth above and calculate your
+            age instantly.
+        </p>
+
+    </div>
+
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        © <span id="year"></span> VexTools.
+        Free online tools for everyone.
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-function calculate(){
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-const dobInput = document.getElementById("dob");
+const dobInput =
+    document.getElementById("dob");
 
-const result = document.getElementById("result");
+const calculateBtn =
+    document.getElementById("calculateBtn");
 
-if(!dobInput.value){
+const result =
+    document.getElementById("result");
 
-result.textContent =
-"Please select your date of birth.";
 
-return;
+/* =====================================================
+   MAX DATE
+===================================================== */
+
+function setMaxDate(){
+
+    const today =
+        new Date();
+
+    const year =
+        today.getFullYear();
+
+    const month =
+        String(
+            today.getMonth() + 1
+        ).padStart(2,"0");
+
+    const day =
+        String(
+            today.getDate()
+        ).padStart(2,"0");
+
+    dobInput.max =
+        `${year}-${month}-${day}`;
 
 }
 
 
-const birth = new Date(dobInput.value);
+/* =====================================================
+   DATE HELPERS
+===================================================== */
 
-const today = new Date();
+function createDateFromInput(value){
 
+    const parts =
+        value.split("-");
 
-if(birth > today){
-
-result.textContent =
-"Please select a valid date of birth.";
-
-return;
+    return new Date(
+        Number(parts[0]),
+        Number(parts[1]) - 1,
+        Number(parts[2])
+    );
 
 }
 
 
-let age =
-today.getFullYear() -
-birth.getFullYear();
+/* =====================================================
+   DAYS IN MONTH
+===================================================== */
 
-
-const month =
-today.getMonth() -
-birth.getMonth();
-
-
-if(
-month < 0 ||
-(month === 0 &&
-today.getDate() < birth.getDate())
+function daysInMonth(
+    year,
+    month
 ){
 
-age--;
+    return new Date(
+        year,
+        month + 1,
+        0
+    ).getDate();
 
 }
 
 
-result.textContent =
-"Your age is " + age + " years.";
+/* =====================================================
+   CALCULATE AGE
+===================================================== */
+
+function calculateAge(){
+
+    const value =
+        dobInput.value;
+
+
+    if(!value){
+
+        result.innerHTML = `
+            <div class="result-title">
+                Please select your date of birth.
+            </div>
+
+            <div class="result-main error">
+                A valid date is required.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    const birth =
+        createDateFromInput(value);
+
+    const today =
+        new Date();
+
+
+    /*
+       Normalize today's date
+       to avoid time-of-day issues.
+    */
+
+    today.setHours(
+        0,0,0,0
+    );
+
+
+    if(
+        birth > today
+    ){
+
+        result.innerHTML = `
+            <div class="result-title">
+                Invalid date
+            </div>
+
+            <div class="result-main error">
+                Date of birth cannot be in the future.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    /*
+       Calculate years
+    */
+
+    let years =
+        today.getFullYear() -
+        birth.getFullYear();
+
+
+    let months =
+        today.getMonth() -
+        birth.getMonth();
+
+
+    let days =
+        today.getDate() -
+        birth.getDate();
+
+
+    /*
+       Borrow days from previous month
+    */
+
+    if(days < 0){
+
+        months--;
+
+        const previousMonth =
+            today.getMonth() - 1;
+
+        const previousMonthYear =
+            previousMonth < 0
+                ? today.getFullYear() - 1
+                : today.getFullYear();
+
+        const previousMonthIndex =
+            previousMonth < 0
+                ? 11
+                : previousMonth;
+
+        days += daysInMonth(
+            previousMonthYear,
+            previousMonthIndex
+        );
+
+    }
+
+
+    /*
+       Borrow months
+    */
+
+    if(months < 0){
+
+        years--;
+        months += 12;
+
+    }
+
+
+    /*
+       Birthday edge case:
+       For dates such as Feb 29,
+       use the last valid day of February
+       in non-leap years.
+    */
+
+    if(
+        birth.getMonth() === 1 &&
+        birth.getDate() === 29 &&
+        !(
+            today.getFullYear() % 4 === 0 &&
+            (
+                today.getFullYear() % 100 !== 0 ||
+                today.getFullYear() % 400 === 0
+            )
+        )
+    ){
+
+        /*
+           The normal calendar calculation
+           remains valid. This condition is
+           intentionally kept for leap-year
+           compatibility.
+        */
+
+    }
+
+
+    /*
+       Next birthday
+    */
+
+    const birthMonth =
+        birth.getMonth();
+
+    const birthDay =
+        birth.getDate();
+
+
+    let nextBirthday =
+        new Date(
+            today.getFullYear(),
+            birthMonth,
+            birthDay
+        );
+
+
+    /*
+       Handle Feb 29 birthdays
+       in non-leap years.
+    */
+
+    if(
+        birthMonth === 1 &&
+        birthDay === 29 &&
+        nextBirthday.getMonth() !== 1
+    ){
+
+        nextBirthday =
+            new Date(
+                today.getFullYear(),
+                1,
+                28
+            );
+
+    }
+
+
+    if(
+        nextBirthday < today
+    ){
+
+        nextBirthday =
+            new Date(
+                today.getFullYear() + 1,
+                birthMonth,
+                birthDay
+            );
+
+
+        if(
+            birthMonth === 1 &&
+            birthDay === 29 &&
+            nextBirthday.getMonth() !== 1
+        ){
+
+            nextBirthday =
+                new Date(
+                    today.getFullYear() + 1,
+                    1,
+                    28
+                );
+
+        }
+
+    }
+
+
+    /*
+       Days until birthday
+    */
+
+    const millisecondsPerDay =
+        1000 *
+        60 *
+        60 *
+        24;
+
+
+    const daysUntilBirthday =
+        Math.ceil(
+            (
+                nextBirthday - today
+            ) /
+            millisecondsPerDay
+        );
+
+
+    /*
+       Birthday is today
+    */
+
+    const birthdayToday =
+        nextBirthday.getTime() ===
+        today.getTime();
+
+
+    let birthdayText;
+
+
+    if(birthdayToday){
+
+        birthdayText =
+            "🎉 Happy Birthday! Your birthday is today.";
+
+    }
+    else{
+
+        birthdayText =
+            `🎂 Your next birthday is in ${daysUntilBirthday} day${daysUntilBirthday === 1 ? "" : "s"}.`;
+
+    }
+
+
+    /*
+       Result
+    */
+
+    result.innerHTML = `
+
+        <div class="result-title">
+            Your Exact Age
+        </div>
+
+        <div class="result-main">
+
+            ${years} year${years === 1 ? "" : "s"},
+            ${months} month${months === 1 ? "" : "s"},
+            ${days} day${days === 1 ? "" : "s"}
+
+        </div>
+
+        <div class="result-extra">
+
+            ${birthdayText}
+
+        </div>
+
+    `;
 
 }
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+calculateBtn.addEventListener(
+    "click",
+    calculateAge
+);
+
+
+dobInput.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "Enter"
+        ){
+
+            calculateAge();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+setMaxDate();
+
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
 
 </script>
 
