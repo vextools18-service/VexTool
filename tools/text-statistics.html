@@ -1,34 +1,326 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Text Statistics - VexTools</title>
-<style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px;text-align:center}
-.box{max-width:700px;margin:auto;background:#111a30;padding:25px;border-radius:20px}
-textarea{width:95%;height:250px;padding:15px;border-radius:12px}
-.stats{display:flex;justify-content:space-around;margin-top:20px}
-</style>
-</head>
-<body>
-<div class="box">
-<h1>Text Statistics</h1>
-<textarea id="text" placeholder="Type or paste text..."></textarea>
-<div class="stats">
-<div>Words<br><b id="words">0</b></div>
-<div>Characters<br><b id="chars">0</b></div>
-<div>Lines<br><b id="lines">0</b></div>
-</div>
-</div>
-<script>
-let t=document.getElementById("text");
-t.oninput=()=>{
-let x=t.value;
-document.getElementById("chars").textContent=x.length;
-document.getElementById("words").textContent=x.trim()?x.trim().split(/\s+/).length:0;
-document.getElementById("lines").textContent=x?x.split("\n").length:0;
-};
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- =========================
+     SEO
+========================= -->
+
+<title>Text Statistics — Word & Character Counter Online | VexTools</title>
+
+<meta
+    name="description"
+    content="Free online text statistics tool by VexTools. Count words, characters, and lines instantly while you type or paste text into the browser."
+>
+
+<meta
+    name="keywords"
+    content="text statistics, word counter, character counter, line counter, text analyzer, word count tool, character count tool, online text statistics, VexTools"
+>
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="VexTools">
+
+<meta name="theme-color" content="#070b18">
+
+
+<!-- =========================
+     Open Graph
+========================= -->
+
+<meta property="og:type" content="website">
+
+<meta
+    property="og:title"
+    content="Text Statistics — Word & Character Counter Online | VexTools"
+>
+
+<meta
+    property="og:description"
+    content="Count words, characters, and lines instantly with the free VexTools Text Statistics tool."
+>
+
+<meta property="og:site_name" content="VexTools">
+
+
+<!-- =========================
+     Twitter / X
+========================= -->
+
+<meta name="twitter:card" content="summary">
+
+<meta
+    name="twitter:title"
+    content="Text Statistics — VexTools"
+>
+
+<meta
+    name="twitter:description"
+    content="Count words, characters, and lines instantly with the free VexTools Text Statistics tool."
+>
+
+
+<!-- =========================
+     Structured Data
+========================= -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VexTools Text Statistics",
+    "description": "A free online tool for counting words, characters, and lines in text.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    }
+}
 </script>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#070b18;
+    color:white;
+    padding:40px 20px;
+    min-height:100vh;
+}
+
+.container{
+    max-width:750px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo{
+    display:inline-block;
+    color:#a78bfa;
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+    margin-bottom:5px;
+}
+
+h1{
+    margin:15px 0 8px;
+    font-size:36px;
+}
+
+.header p{
+    color:#94a3b8;
+    line-height:1.6;
+}
+
+.box{
+    background:rgba(17,25,45,.85);
+    border:1px solid rgba(255,255,255,.1);
+    padding:25px;
+    border-radius:20px;
+}
+
+textarea{
+    width:100%;
+    height:250px;
+    padding:18px;
+    background:#0d1427;
+    color:white;
+    border:1px solid #29344f;
+    border-radius:14px;
+    resize:vertical;
+    outline:none;
+    font-size:16px;
+    line-height:1.6;
+}
+
+textarea:focus{
+    border-color:#7c3aed;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:20px;
+}
+
+.stat{
+    padding:20px 10px;
+    background:#111a30;
+    border:1px solid #27304a;
+    border-radius:12px;
+    text-align:center;
+}
+
+.stat span{
+    display:block;
+    color:#94a3b8;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.stat b{
+    font-size:28px;
+    color:#22d3ee;
+}
+
+.info{
+    margin-top:18px;
+    text-align:center;
+    color:#94a3b8;
+    font-size:13px;
+    line-height:1.6;
+}
+
+@media(max-width:600px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        font-size:29px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<main class="container">
+
+<header class="header">
+
+<a
+    class="logo"
+    href="../index.html"
+    aria-label="VexTools Home"
+>
+    VexTools
+</a>
+
+<h1>Text Statistics</h1>
+
+<p>
+Count words, characters, and lines in your text instantly.
+</p>
+
+</header>
+
+
+<section
+    class="box"
+    aria-label="Text Statistics Tool"
+>
+
+<textarea
+    id="text"
+    placeholder="Type or paste text..."
+    aria-label="Text to analyze"
+></textarea>
+
+
+<div class="stats">
+
+    <div class="stat">
+        <span>Words</span>
+        <b id="words">0</b>
+    </div>
+
+    <div class="stat">
+        <span>Characters</span>
+        <b id="chars">0</b>
+    </div>
+
+    <div class="stat">
+        <span>Lines</span>
+        <b id="lines">0</b>
+    </div>
+
+</div>
+
+
+<p class="info">
+Analyze your text directly in your browser.
+No text is uploaded to a server.
+</p>
+
+</section>
+
+</main>
+
+
+<script>
+
+const text =
+    document.getElementById("text");
+
+const words =
+    document.getElementById("words");
+
+const chars =
+    document.getElementById("chars");
+
+const lines =
+    document.getElementById("lines");
+
+
+text.addEventListener("input", () => {
+
+    const x = text.value;
+
+
+    /* Characters */
+
+    chars.textContent =
+        x.length;
+
+
+    /* Words */
+
+    words.textContent =
+        x.trim()
+        ? x.trim().split(/\s+/).length
+        : 0;
+
+
+    /* Lines */
+
+    lines.textContent =
+        x
+        ? x.split(/\r?\n/).length
+        : 0;
+
+});
+
+</script>
+
 </body>
+
 </html>
