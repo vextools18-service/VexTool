@@ -1,12 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Text to Slug Generator — VexTools</title>
+
+<!-- Primary SEO -->
+<title>Text to Slug Generator — Create URL Slugs Online | VexTools</title>
+
+<meta
+name="description"
+content="Free online Text to Slug Generator by VexTools. Convert titles and text into clean, SEO-friendly, URL-friendly slugs instantly."
+>
+
+<meta
+name="keywords"
+content="text to slug, slug generator, text to slug generator, URL slug generator, SEO slug generator, URL friendly slug, create slug online, VexTools"
+>
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="VexTools">
+<meta name="theme-color" content="#070b18">
+
+<!-- Canonical -->
+<link
+rel="canonical"
+href="https://vextools.site/tools/text-to-slug.html"
+>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Text to Slug Generator — VexTools">
+<meta
+property="og:description"
+content="Create clean and SEO-friendly URL slugs from your text instantly with the free VexTools Text to Slug Generator."
+>
+<meta
+property="og:url"
+content="https://vextools.site/tools/text-to-slug.html"
+>
+<meta property="og:site_name" content="VexTools">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta
+name="twitter:title"
+content="Text to Slug Generator — VexTools"
+>
+<meta
+name="twitter:description"
+content="Generate clean, SEO-friendly and URL-friendly slugs instantly with VexTools."
+>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Text to Slug Generator",
+  "url": "https://vextools.site/tools/text-to-slug.html",
+  "description": "A free online tool for generating clean and URL-friendly slugs from text.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools.site/"
+  }
+}
+</script>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a URL slug?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A URL slug is the readable part of a web page URL that identifies a specific page. Slugs usually contain lowercase words separated by hyphens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I create a slug from text?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your title or text into the Text to Slug Generator and it will automatically convert it into a clean URL-friendly slug."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Text to Slug Generator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The VexTools Text to Slug Generator is free to use online."
+      }
+    }
+  ]
+}
+</script>
+
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
 
 body{
 font-family:Arial,sans-serif;
@@ -15,9 +123,15 @@ color:white;
 padding:30px 15px;
 }
 
-.container{max-width:750px;margin:auto}
+.container{
+max-width:750px;
+margin:auto
+}
 
-.header{text-align:center;margin-bottom:25px}
+.header{
+text-align:center;
+margin-bottom:25px
+}
 
 .logo{
 color:#a78bfa;
@@ -26,9 +140,14 @@ font-weight:900;
 text-decoration:none;
 }
 
-h1{margin:15px 0 8px}
+h1{
+margin:15px 0 8px
+}
 
-p{color:#94a3b8}
+p{
+color:#94a3b8;
+line-height:1.6;
+}
 
 .card{
 background:rgba(17,25,45,.85);
@@ -48,6 +167,10 @@ font-size:16px;
 outline:none;
 }
 
+input:focus{
+border-color:#7c3aed;
+}
+
 .result{
 margin-top:15px;
 padding:18px;
@@ -55,6 +178,7 @@ background:#0d1427;
 border-radius:12px;
 word-break:break-all;
 color:#22d3ee;
+min-height:55px;
 }
 
 button{
@@ -68,39 +192,170 @@ color:white;
 font-weight:bold;
 cursor:pointer;
 }
+
+button:hover{
+opacity:.9;
+}
+
+.seo-content{
+margin-top:25px;
+padding:22px;
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+line-height:1.7;
+}
+
+.seo-content h2{
+margin-bottom:10px;
+}
+
+.seo-content h3{
+margin-top:18px;
+margin-bottom:5px;
+}
+
+@media(max-width:600px){
+
+body{
+padding:25px 15px;
+}
+
+h1{
+font-size:28px;
+}
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
 <div class="container">
 
 <div class="header">
-<a class="logo" href="../index.html">VexTools</a>
-<h1>Text to Slug</h1>
-<p>Create clean URL-friendly slugs.</p>
+
+<a
+class="logo"
+href="../index.html"
+aria-label="VexTools Home"
+>
+VexTools
+</a>
+
+<h1>Text to Slug Generator</h1>
+
+<p>
+Create clean and SEO-friendly URL slugs from your text.
+</p>
+
 </div>
+
 
 <div class="card">
 
-<input id="input" placeholder="Enter your title...">
+<input
+id="input"
+placeholder="Enter your title..."
+aria-label="Enter text to generate a slug"
+autocomplete="off"
+>
 
-<div class="result" id="result">
+<div
+class="result"
+id="result"
+aria-live="polite"
+>
 Your slug will appear here
 </div>
 
-<button onclick="copySlug()">Copy Slug</button>
+<button
+onclick="copySlug()"
+type="button"
+>
+Copy Slug
+</button>
 
 </div>
+
+
+<!-- SEO Content -->
+
+<section class="seo-content">
+
+<h2>Text to Slug Generator</h2>
+
+<p>
+Use the VexTools Text to Slug Generator to create clean,
+readable and URL-friendly slugs from titles or text.
+The tool automatically converts your text to lowercase,
+removes unnecessary characters and replaces spaces with
+hyphens.
+</p>
+
+
+<h3>What is a URL slug?</h3>
+
+<p>
+A URL slug is the readable section of a web page URL that
+helps identify the page. A good slug is short, descriptive,
+easy to read and usually uses hyphens between words.
+</p>
+
+
+<h3>How to generate a slug</h3>
+
+<p>
+Enter your title or text in the input field above. The
+VexTools slug generator will automatically create a
+URL-friendly version of your text. You can then copy the
+generated slug and use it in your website URL.
+</p>
+
+
+<h3>Why use clean URL slugs?</h3>
+
+<p>
+Clean URLs are easier for users to read and understand.
+Descriptive slugs can also help search engines understand
+the topic of a web page.
+</p>
+
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is this Text to Slug Generator free?</h3>
+
+<p>
+Yes. The VexTools Text to Slug Generator is completely
+free to use online.
+</p>
+
+<h3>Can I use generated slugs for SEO?</h3>
+
+<p>
+Yes. The generated slugs are designed to be clean,
+readable and URL-friendly, making them suitable for
+web pages and SEO-friendly URLs.
+</p>
+
+</section>
+
 </div>
+
 
 <script>
+
 const input=document.getElementById("input");
 const result=document.getElementById("result");
 
 input.addEventListener("input",generate);
 
 function generate(){
+
 let slug=input.value
 .toLowerCase()
 .trim()
@@ -108,12 +363,26 @@ let slug=input.value
 .replace(/\s+/g,"-")
 .replace(/-+/g,"-");
 
-result.textContent=slug || "Your slug will appear here";
+result.textContent=
+slug || "Your slug will appear here";
+
 }
 
 function copySlug(){
-navigator.clipboard.writeText(result.textContent);
+
+const slug=result.textContent;
+
+if(
+!slug ||
+slug==="Your slug will appear here"
+){
+return;
 }
+
+navigator.clipboard.writeText(slug);
+
+}
+
 </script>
 
 </body>
