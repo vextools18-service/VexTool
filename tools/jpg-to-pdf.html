@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -9,27 +10,151 @@
 
 <meta name="description" content="Free online JPG to PDF converter. Convert multiple JPG images into a single PDF quickly and easily directly in your browser with VexTools.">
 
-<meta name="keywords" content="JPG to PDF, JPG to PDF converter, convert JPG to PDF, images to PDF, online JPG converter, free JPG to PDF, JPG PDF maker, VexTools">
+<meta name="keywords" content="JPG to PDF, JPG to PDF converter, convert JPG to PDF, images to PDF, online JPG converter, free JPG to PDF, JPG PDF maker, image to PDF converter, JPG image converter, VexTools">
 
 <meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
+<meta name="language" content="English">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/jpg-to-pdf.html">
 
-<meta property="og:title" content="JPG to PDF Converter — VexTools">
-<meta property="og:description" content="Convert multiple JPG images into one PDF directly in your browser for free.">
+
+<!-- Open Graph -->
+
+<meta property="og:title" content="JPG to PDF Converter — Convert JPG Images to PDF | VexTools">
+
+<meta property="og:description" content="Convert multiple JPG images into one PDF directly in your browser for free with VexTools.">
+
 <meta property="og:type" content="website">
+
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/jpg-to-pdf.html">
+
 <meta property="og:site_name" content="VexTools">
 
+
+<!-- Twitter Card -->
+
 <meta name="twitter:card" content="summary">
+
 <meta name="twitter:title" content="JPG to PDF Converter — VexTools">
-<meta name="twitter:description" content="Convert multiple JPG images into one PDF directly in your browser for free.">
+
+<meta name="twitter:description" content="Free online JPG to PDF converter for converting one or multiple JPG images into a PDF file.">
+
 
 <meta name="theme-color" content="#070b18">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- WebApplication Schema -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "VexTools JPG to PDF Converter",
+  "url": "https://vextools18-service.github.io/VexTool/tools/jpg-to-pdf.html",
+  "description": "Free online JPG to PDF converter that converts multiple JPG images into a single PDF file directly in the browser.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "JPG to PDF conversion",
+    "Multiple JPG images to one PDF",
+    "Image preview",
+    "A4 PDF output",
+    "Browser-based conversion",
+    "Free online JPG converter"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools18-service.github.io/VexTool/"
+  }
+}
+</script>
+
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "VexTools",
+      "item": "https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "JPG to PDF Converter",
+      "item": "https://vextools18-service.github.io/VexTool/tools/jpg-to-pdf.html"
+    }
+  ]
+}
+</script>
+
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert JPG to PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select one or more JPG images using the VexTools JPG to PDF Converter, preview your images, and click Convert to PDF. The tool creates a PDF file containing your selected images."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert multiple JPG images into one PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VexTools JPG to PDF Converter allows you to select multiple JPG images and combine them into a single PDF document."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the JPG to PDF converter free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The VexTools JPG to PDF Converter is free to use online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to install software to convert JPG to PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The VexTools JPG to PDF Converter works directly in a modern web browser, so no additional software installation is required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the JPG to PDF converter work on mobile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The VexTools JPG to PDF Converter is designed to work on desktop and mobile browsers."
+      }
+    }
+  ]
+}
+</script>
+
 
 <style>
 
@@ -39,19 +164,34 @@ margin:0;
 padding:0;
 }
 
+:root{
+--bg:#070b18;
+--card:#11192d;
+--text:#f8fafc;
+--muted:#94a3b8;
+--border:rgba(255,255,255,.1);
+--primary:#7c3aed;
+--secondary:#06b6d4;
+--input:#0d1427;
+}
+
 body{
 font-family:Arial,Helvetica,sans-serif;
-background:#070b18;
-color:#f8fafc;
+background:var(--bg);
+color:var(--text);
 min-height:100vh;
 padding:35px 15px;
 line-height:1.6;
+overflow-x:hidden;
 }
 
 .container{
 max-width:850px;
 margin:auto;
 }
+
+
+/* HEADER */
 
 .header{
 text-align:center;
@@ -61,39 +201,63 @@ margin:20px 0 35px;
 .header h1{
 font-size:clamp(34px,7vw,46px);
 line-height:1.1;
+letter-spacing:-1.5px;
 }
 
 .header h1 span{
-color:#22d3ee;
+background:linear-gradient(
+90deg,
+#a78bfa,
+#22d3ee,
+#f472b6
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
 }
 
 .header p{
-color:#94a3b8;
+color:var(--muted);
 margin-top:10px;
+font-size:16px;
 }
 
+
+/* MAIN CARD */
+
 .card{
-background:#11192d;
-border:1px solid rgba(255,255,255,.1);
+background:var(--card);
+border:1px solid var(--border);
 border-radius:20px;
 padding:25px;
 box-shadow:0 20px 60px rgba(0,0,0,.2);
 }
 
+
+/* DROP AREA */
+
 .drop{
 display:block;
-border:2px dashed #06b6d4;
+
+border:2px dashed var(--secondary);
+
 border-radius:16px;
+
 padding:45px 20px;
+
 text-align:center;
+
 cursor:pointer;
+
 background:rgba(6,182,212,.07);
-transition:.2s;
+
+transition:.25s;
 }
 
 .drop:hover{
 background:rgba(6,182,212,.12);
-transform:translateY(-1px);
+transform:translateY(-2px);
 }
 
 .drop h3{
@@ -101,7 +265,7 @@ font-size:18px;
 }
 
 .drop p{
-color:#94a3b8;
+color:var(--muted);
 margin-top:8px;
 font-size:14px;
 }
@@ -110,65 +274,111 @@ input[type="file"]{
 display:none;
 }
 
+
+/* PREVIEW */
+
 .preview{
 display:grid;
+
 grid-template-columns:repeat(3,1fr);
+
 gap:12px;
+
 margin-top:20px;
 }
 
 .image{
 position:relative;
+
 background:#18223a;
+
 border-radius:12px;
+
 overflow:hidden;
+
 border:1px solid rgba(255,255,255,.06);
 }
 
 .image img{
 display:block;
+
 width:100%;
+
 height:170px;
+
 object-fit:cover;
 }
 
 .remove{
 position:absolute;
+
 right:7px;
 top:7px;
+
 border:0;
+
 background:#ef4444;
+
 color:white;
+
 width:30px;
 height:30px;
+
 border-radius:50%;
+
 cursor:pointer;
+
 font-size:20px;
+
 line-height:30px;
+
 padding:0;
+
+transition:.2s;
 }
 
 .remove:hover{
 background:#dc2626;
+transform:scale(1.05);
 }
+
+
+/* CONVERT */
 
 button.convert{
 width:100%;
+
 margin-top:20px;
+
 padding:15px;
+
 border:0;
+
 border-radius:10px;
-background:linear-gradient(90deg,#7c3aed,#06b6d4);
+
+background:linear-gradient(
+90deg,
+#7c3aed,
+#06b6d4
+);
+
 color:white;
+
 font-weight:bold;
+
 font-size:15px;
+
 cursor:pointer;
+
 transition:.2s;
 }
 
 button.convert:hover:not(:disabled){
 transform:translateY(-2px);
-box-shadow:0 10px 30px rgba(124,58,237,.25);
+
+box-shadow:
+0 10px 30px
+rgba(124,58,237,.25);
 }
 
 button.convert:disabled{
@@ -176,51 +386,190 @@ opacity:.5;
 cursor:not-allowed;
 }
 
+
+/* STATUS */
+
 .status{
 text-align:center;
+
 margin-top:15px;
-color:#94a3b8;
+
+color:var(--muted);
+
 min-height:24px;
-}
 
-.info{
-margin-top:25px;
-padding:25px;
-background:#11192d;
-border:1px solid rgba(255,255,255,.1);
-border-radius:18px;
-}
-
-.info h2{
-margin-bottom:10px;
-}
-
-.info p{
-color:#94a3b8;
 font-size:14px;
-line-height:1.7;
 }
+
+
+/* SEO CONTENT */
+
+.seoContent{
+margin-top:35px;
+
+display:grid;
+
+gap:20px;
+}
+
+.seoCard{
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:20px;
+
+padding:26px;
+
+box-shadow:
+0 15px 50px rgba(0,0,0,.12);
+}
+
+.seoCard h2{
+font-size:24px;
+
+margin-bottom:12px;
+}
+
+.seoCard h3{
+font-size:19px;
+
+margin:20px 0 8px;
+}
+
+.seoCard p{
+color:var(--muted);
+
+font-size:15px;
+
+line-height:1.8;
+
+margin-bottom:12px;
+}
+
+.seoCard ul{
+padding-left:22px;
+
+color:var(--muted);
+
+font-size:15px;
+
+line-height:1.9;
+}
+
+.seoCard li{
+margin-bottom:5px;
+}
+
+
+/* FAQ */
+
+.faq{
+margin-top:40px;
+}
+
+.faqTitle{
+text-align:center;
+
+font-size:30px;
+
+margin-bottom:20px;
+}
+
+details{
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:15px;
+
+padding:18px 20px;
+
+margin-bottom:12px;
+
+transition:.2s;
+}
+
+details:hover{
+border-color:rgba(124,58,237,.45);
+}
+
+summary{
+cursor:pointer;
+
+font-weight:bold;
+
+font-size:16px;
+}
+
+details p{
+color:var(--muted);
+
+font-size:14px;
+
+line-height:1.7;
+
+margin-top:12px;
+}
+
+
+/* BACK */
 
 .back{
 display:inline-block;
+
 margin-top:25px;
+
 color:#a78bfa;
+
 text-decoration:none;
+
 font-weight:bold;
 }
 
 .back:hover{
 text-decoration:underline;
+
+color:#c4b5fd;
 }
+
+
+/* FOOTER */
 
 footer{
 text-align:center;
+
 margin-top:30px;
+
+padding-top:25px;
+
+border-top:1px solid var(--border);
+
 color:#64748b;
+
 font-size:13px;
 }
 
+
+/* MOBILE */
+
 @media(max-width:600px){
+
+body{
+padding:25px 15px;
+}
+
+.header h1{
+font-size:34px;
+}
+
+.header p{
+font-size:14px;
+}
+
+.card{
+padding:20px;
+}
 
 .preview{
 grid-template-columns:repeat(2,1fr);
@@ -230,8 +579,16 @@ grid-template-columns:repeat(2,1fr);
 height:140px;
 }
 
-.card{
-padding:20px;
+.seoCard{
+padding:21px;
+}
+
+.seoCard h2{
+font-size:22px;
+}
+
+.faqTitle{
+font-size:26px;
 }
 
 }
@@ -252,11 +609,16 @@ height:200px;
 
 </head>
 
+
 <body>
+
 
 <div class="container">
 
-<div class="header">
+
+<!-- HEADER -->
+
+<header class="header">
 
 <h1>
 JPG to <span>PDF</span>
@@ -264,11 +626,16 @@ JPG to <span>PDF</span>
 
 <p>
 Convert multiple JPG images into one PDF directly in your browser.
+Fast, free and easy to use.
 </p>
 
-</div>
+</header>
 
-<div class="card">
+
+<!-- TOOL -->
+
+<section class="card">
+
 
 <label class="drop" for="files">
 
@@ -282,6 +649,7 @@ Click here to select one or multiple JPG images
 
 </label>
 
+
 <input
 id="files"
 type="file"
@@ -289,7 +657,12 @@ accept="image/jpeg,image/jpg"
 multiple
 >
 
-<div id="preview" class="preview"></div>
+
+<div
+id="preview"
+class="preview">
+</div>
+
 
 <button
 class="convert"
@@ -299,24 +672,244 @@ disabled
 Convert to PDF
 </button>
 
-<div id="status" class="status"></div>
 
+<div
+id="status"
+class="status"
+aria-live="polite">
 </div>
 
-<div class="info">
+
+</section>
+
+
+<!-- SEO CONTENT -->
+
+<section class="seoContent">
+
+
+<article class="seoCard">
 
 <h2>
 Free Online JPG to PDF Converter
 </h2>
 
 <p>
-VexTools JPG to PDF Converter lets you combine multiple JPG
-images into a single PDF file. Select your images, preview
-them, and convert them into a downloadable PDF directly in
-your browser.
+VexTools JPG to PDF Converter is a free online tool that lets you convert JPG images into PDF documents quickly and easily. You can select one or multiple JPG images, preview them and create a single PDF file.
 </p>
 
-</div>
+<p>
+The converter is designed to work directly in your browser, making it convenient for users who need to turn photos, scanned documents, screenshots or other JPG images into a PDF without installing additional software.
+</p>
+
+</article>
+
+
+<article class="seoCard">
+
+<h2>
+How to Convert JPG to PDF</h2>
+
+<p>
+Converting JPG images into a PDF with VexTools only takes a few simple steps.
+</p>
+
+<ul>
+
+<li>Select one or more JPG images using the upload area.</li>
+
+<li>Preview your selected images before conversion.</li>
+
+<li>Remove any image you do not want to include.</li>
+
+<li>Click the <strong>Convert to PDF</strong> button.</li>
+
+<li>Your PDF file will be generated automatically.</li>
+
+</ul>
+
+</article>
+
+
+<article class="seoCard">
+
+<h2>
+Convert Multiple JPG Images to One PDF
+</h2>
+
+<p>
+Need to combine several JPG images into one document? VexTools supports multiple image selection, allowing you to create a single PDF containing all of your selected JPG files.
+</p>
+
+<p>
+This can be useful for combining scanned pages, photographs, screenshots, receipts and other image files into one convenient PDF document.
+</p>
+
+</article>
+
+
+<article class="seoCard">
+
+<h2>
+JPG to PDF Converter Features
+</h2>
+
+<ul>
+
+<li>Free JPG to PDF conversion</li>
+
+<li>Convert multiple JPG images at once</li>
+
+<li>Combine images into one PDF</li>
+
+<li>Image preview before conversion</li>
+
+<li>Remove unwanted images</li>
+
+<li>A4 PDF page format</li>
+
+<li>Works directly in your browser</li>
+
+<li>No software installation required</li>
+
+<li>Simple and easy-to-use interface</li>
+
+<li>Works on desktop and mobile devices</li>
+
+</ul>
+
+</article>
+
+
+<article class="seoCard">
+
+<h2>
+What Can You Convert from JPG to PDF?
+</h2>
+
+<p>
+A JPG to PDF converter can be useful for many everyday tasks. You can convert photos, scanned pages, screenshots, receipts, notes, certificates and other JPG images into a PDF document.
+</p>
+
+<h3>
+Common Uses
+</h3>
+
+<ul>
+
+<li>Convert scanned documents to PDF</li>
+
+<li>Combine multiple photos into one PDF</li>
+
+<li>Create a PDF from screenshots</li>
+
+<li>Convert receipts and documents to PDF</li>
+
+<li>Combine scanned pages into a single file</li>
+
+<li>Prepare image-based documents for sharing</li>
+
+</ul>
+
+</article>
+
+
+<article class="seoCard">
+
+<h2>
+Why Use VexTools JPG to PDF Converter?
+</h2>
+
+<p>
+VexTools provides a simple way to convert JPG images to PDF without requiring complicated software. The interface is designed to make the conversion process quick and straightforward.
+</p>
+
+<p>
+You can select multiple images, preview them and create a PDF from your browser. This makes VexTools a convenient option when you need a quick JPG to PDF conversion.
+</p>
+
+</article>
+
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="faq">
+
+<h2 class="faqTitle">
+Frequently Asked Questions
+</h2>
+
+
+<details>
+
+<summary>
+How do I convert JPG to PDF?
+</summary>
+
+<p>
+Select one or more JPG images, preview them and click Convert to PDF. VexTools will create a PDF containing your selected images.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Can I convert multiple JPG images into one PDF?
+</summary>
+
+<p>
+Yes. You can select multiple JPG images and combine them into a single PDF document.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Is the JPG to PDF converter free?
+</summary>
+
+<p>
+Yes. VexTools JPG to PDF Converter is free to use online.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Do I need to install software?
+</summary>
+
+<p>
+No. The converter works directly in a modern web browser, so you do not need to install additional conversion software.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+Does the JPG to PDF converter work on mobile?
+</summary>
+
+<p>
+Yes. The page is responsive and can be used on modern mobile browsers as well as desktop browsers.
+</p>
+
+</details>
+
+
+</section>
+
 
 <a
 class="back"
@@ -325,13 +918,24 @@ href="../index.html"
 ← Back to VexTools
 </a>
 
+
 <footer>
-© <span id="year"></span> VexTools — Free Online Tools
+
+© <span id="year"></span>
+VexTools — Free Online Tools
+
 </footer>
+
 
 </div>
 
+
 <script>
+
+
+/* =========================
+   ELEMENTS
+========================= */
 
 const input =
 document.getElementById("files");
@@ -398,12 +1002,14 @@ previewURLs = [];
 
 preview.innerHTML = "";
 
+
 images.forEach((file,index)=>{
 
 const box =
 document.createElement("div");
 
-box.className = "image";
+box.className =
+"image";
 
 
 const img =
@@ -435,6 +1041,12 @@ remove.textContent =
 
 remove.title =
 "Remove image";
+
+remove.setAttribute(
+"aria-label",
+"Remove image"
+);
+
 
 remove.onclick = ()=>{
 
@@ -484,6 +1096,7 @@ convert.disabled = true;
 status.textContent =
 "⏳ Creating PDF...";
 
+
 try{
 
 const {jsPDF} =
@@ -497,7 +1110,11 @@ format:"a4"
 });
 
 
-for(let i=0;i<images.length;i++){
+for(
+let i=0;
+i<images.length;
+i++
+){
 
 status.textContent =
 "⏳ Processing image " +
@@ -520,10 +1137,12 @@ const pageHeight = 297;
 const margin = 10;
 
 const maxWidth =
-pageWidth - margin * 2;
+pageWidth -
+margin * 2;
 
 const maxHeight =
-pageHeight - margin * 2;
+pageHeight -
+margin * 2;
 
 
 let width =
@@ -543,6 +1162,7 @@ maxHeight / height
 
 
 width *= ratio;
+
 height *= ratio;
 
 
@@ -575,6 +1195,7 @@ height
 pdf.save(
 "vextools-jpg-to-pdf.pdf"
 );
+
 
 status.textContent =
 "✅ PDF created successfully!";
@@ -620,7 +1241,9 @@ reader.result
 
 reader.onerror = ()=>{
 reject(
-new Error("Unable to read image.")
+new Error(
+"Unable to read image."
+)
 );
 };
 
@@ -649,7 +1272,9 @@ resolve(img);
 
 img.onerror = ()=>{
 reject(
-new Error("Unable to load image.")
+new Error(
+"Unable to load image."
+)
 );
 };
 
@@ -669,5 +1294,13 @@ new Date().getFullYear();
 
 </script>
 
+
+<!-- jsPDF -->
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+</script>
+
 </body>
+
 </html>
