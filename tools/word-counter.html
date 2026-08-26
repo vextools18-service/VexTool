@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Word Counter - Free Online Word & Character Counter | VexTools</title>
 
 <meta name="description" content="Free online Word Counter by VexTools. Count words, characters, sentences, paragraphs and reading time instantly. Fast, accurate and easy to use.">
+
 <meta name="keywords" content="word counter, online word counter, free word counter, character counter, word count tool, sentence counter, paragraph counter, reading time calculator, text counter, VexTools">
+
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 <meta name="author" content="VexTools">
 <meta name="language" content="English">
 <meta name="theme-color" content="#070b18">
 
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/word-counter.html">
+
+<!-- Open Graph -->
 <meta property="og:title" content="Word Counter - Free Online Word & Character Counter | VexTools">
 <meta property="og:description" content="Count words, characters, sentences, paragraphs and reading time instantly with VexTools Word Counter.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/word-counter.html">
 <meta property="og:site_name" content="VexTools">
 
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Word Counter - VexTools">
 <meta name="twitter:description" content="Free online word counter to count words, characters, sentences, paragraphs and reading time instantly.">
 
-<meta name="googlebot" content="index, follow">
-
+<!-- Structured Data: WebApplication -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "VexTools Word Counter",
+  "url": "https://vextools18-service.github.io/VexTool/tools/word-counter.html",
   "description": "Free online word counter that counts words, characters, sentences, paragraphs and estimated reading time.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "VexTools",
+    "url": "https://vextools18-service.github.io/VexTool/"
   },
   "featureList": [
     "Word counting",
@@ -44,12 +59,95 @@
     "Character counting without spaces",
     "Sentence counting",
     "Paragraph counting",
-    "Reading time estimation"
+    "Reading time estimation",
+    "Copy text",
+    "Clear text"
+  ]
+}
+</script>
+
+<!-- Structured Data: Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "VexTools",
+      "item": "https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Word Counter",
+      "item": "https://vextools18-service.github.io/VexTool/tools/word-counter.html"
+    }
+  ]
+}
+</script>
+
+<!-- Structured Data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a word counter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A word counter is an online tool that counts the number of words in a piece of text. VexTools Word Counter also counts characters, characters without spaces, sentences, paragraphs and estimated reading time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I count words online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paste or type your text into the VexTools Word Counter text box. The tool automatically calculates the word count and other text statistics instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Word Counter count characters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VexTools Word Counter shows the total number of characters and also provides a separate count of characters without spaces."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is reading time calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VexTools estimates reading time using approximately 200 words per minute and rounds the result up to the nearest minute."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is VexTools Word Counter free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VexTools Word Counter is free to use and works directly in your web browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my text uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The word counting calculations are performed directly in your browser. Your text does not need to be uploaded to a server for the counter to work."
+      }
+    }
   ]
 }
 </script>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -139,6 +237,8 @@ body{
         transform:translate(35px,-30px) scale(1.1);
     }
 }
+
+/* HEADER */
 
 header{
     position:fixed;
@@ -244,11 +344,15 @@ body.light header{
     transform:rotate(12deg) scale(1.08);
 }
 
+/* MAIN */
+
 main{
     max-width:950px;
     margin:auto;
     padding:140px 20px 70px;
 }
+
+/* HERO */
 
 .hero{
     text-align:center;
@@ -336,6 +440,8 @@ h1{
     }
 }
 
+/* TOOL */
+
 .toolBox{
     padding:25px;
 
@@ -386,6 +492,8 @@ textarea:focus{
         rgba(124,58,237,.3);
 }
 
+/* BUTTONS */
+
 .actions{
     display:flex;
     gap:12px;
@@ -429,6 +537,8 @@ textarea:focus{
 .copy:hover{
     box-shadow:0 8px 25px rgba(124,58,237,.35);
 }
+
+/* STATS */
 
 .stats{
     display:grid;
@@ -475,6 +585,8 @@ textarea:focus{
     font-weight:bold;
 }
 
+/* INFO */
+
 .info{
     margin-top:35px;
 
@@ -503,6 +615,89 @@ textarea:focus{
     line-height:1.7;
 }
 
+.infoCard strong{
+    color:var(--text);
+}
+
+/* SEO CONTENT */
+
+.seoContent{
+    margin-top:35px;
+
+    padding:30px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    backdrop-filter:blur(15px);
+}
+
+.seoContent h2{
+    margin-bottom:14px;
+    font-size:25px;
+}
+
+.seoContent h3{
+    margin-top:25px;
+    margin-bottom:9px;
+    font-size:19px;
+}
+
+.seoContent p{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.8;
+    margin-bottom:12px;
+}
+
+.seoContent ul{
+    margin:10px 0 15px 22px;
+    color:var(--muted);
+}
+
+.seoContent li{
+    margin-bottom:8px;
+    line-height:1.7;
+}
+
+/* FAQ */
+
+.faq{
+    margin-top:35px;
+}
+
+.faqTitle{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+.faqItem{
+    margin-bottom:12px;
+
+    padding:20px 22px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+    border-radius:16px;
+}
+
+.faqItem h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.faqItem p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
 footer{
     padding:25px 20px;
 
@@ -514,6 +709,8 @@ footer{
 
     font-size:13px;
 }
+
+/* MOBILE */
 
 @media(max-width:800px){
 
@@ -555,7 +752,16 @@ footer{
     .action{
         width:100%;
     }
+
+    .seoContent{
+        padding:22px 18px;
+    }
+
+    .faqTitle{
+        font-size:26px;
+    }
 }
+
 </style>
 </head>
 
@@ -593,6 +799,7 @@ footer{
             class="theme"
             id="theme"
             aria-label="Toggle dark and light mode"
+            type="button"
         >
             🌙
         </button>
@@ -638,6 +845,7 @@ footer{
     <button
         class="action copy"
         id="copy"
+        type="button"
     >
         📋 Copy Text
     </button>
@@ -645,6 +853,7 @@ footer{
     <button
         class="action clear"
         id="clear"
+        type="button"
     >
         🗑️ Clear
     </button>
@@ -710,6 +919,162 @@ footer{
 
 </div>
 
+<!-- SEO CONTENT -->
+
+<section class="seoContent">
+
+    <h2>Free Online Word Counter</h2>
+
+    <p>
+        VexTools Word Counter is a free online tool that helps you
+        quickly count the number of words in any text. Simply type
+        or paste your content into the text box and the tool instantly
+        calculates your word count.
+    </p>
+
+    <p>
+        Along with word counting, this online text counter also shows
+        the total number of characters, characters without spaces,
+        sentences, paragraphs and estimated reading time. Everything
+        works directly in your browser, making the tool fast and easy
+        to use.
+    </p>
+
+    <h3>What Can You Count With This Word Counter?</h3>
+
+    <p>
+        The VexTools Word Counter provides several useful text
+        statistics:
+    </p>
+
+    <ul>
+        <li>Count total words in your text.</li>
+        <li>Count total characters including spaces.</li>
+        <li>Count characters without spaces.</li>
+        <li>Count sentences automatically.</li>
+        <li>Count paragraphs in your text.</li>
+        <li>Estimate reading time based on word count.</li>
+    </ul>
+
+    <h3>Who Can Use an Online Word Counter?</h3>
+
+    <p>
+        A word counter can be useful for students, writers, bloggers,
+        content creators, researchers, teachers and anyone who needs
+        to check the length of written content. It can help you stay
+        within word limits for assignments, articles, essays, social
+        media posts and other types of content.
+    </p>
+
+    <h3>Why Use VexTools Word Counter?</h3>
+
+    <p>
+        VexTools provides a simple and distraction-free word counting
+        experience. There is no complicated setup required. Paste your
+        text and the statistics update instantly as you type.
+    </p>
+
+    <p>
+        The tool is completely free and the calculations are performed
+        directly in your browser. Your text does not need to be sent to
+        a server just to calculate the word count.
+    </p>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="faq">
+
+    <h2 class="faqTitle">
+        Frequently Asked Questions
+    </h2>
+
+    <div class="faqItem">
+
+        <h3>
+            What is a word counter?
+        </h3>
+
+        <p>
+            A word counter is an online tool that counts the number of
+            words in a piece of text. VexTools also counts characters,
+            characters without spaces, sentences, paragraphs and
+            estimated reading time.
+        </p>
+
+    </div>
+
+    <div class="faqItem">
+
+        <h3>
+            How do I count words online?
+        </h3>
+
+        <p>
+            Paste or type your text into the VexTools Word Counter.
+            The tool automatically calculates the word count and other
+            text statistics instantly.
+        </p>
+
+    </div>
+
+    <div class="faqItem">
+
+        <h3>
+            Does the Word Counter count characters?
+        </h3>
+
+        <p>
+            Yes. The tool shows the total number of characters and also
+            provides a separate character count without spaces.
+        </p>
+
+    </div>
+
+    <div class="faqItem">
+
+        <h3>
+            How is reading time calculated?
+        </h3>
+
+        <p>
+            VexTools estimates reading time using approximately
+            200 words per minute and rounds the result up to the
+            nearest minute.
+        </p>
+
+    </div>
+
+    <div class="faqItem">
+
+        <h3>
+            Is VexTools Word Counter free?
+        </h3>
+
+        <p>
+            Yes. VexTools Word Counter is completely free to use
+            directly in your web browser.
+        </p>
+
+    </div>
+
+    <div class="faqItem">
+
+        <h3>
+            Is my text uploaded to a server?
+        </h3>
+
+        <p>
+            The counting calculations are performed directly in your
+            browser. Your text does not need to be uploaded to a server
+            for the counter to work.
+        </p>
+
+    </div>
+
+</section>
+
 </main>
 
 <footer>
@@ -740,6 +1105,10 @@ if(savedTheme === "light"){
     document.body.classList.add("light");
 
     theme.textContent="🌙";
+
+}else{
+
+    theme.textContent="☀️";
 
 }
 
@@ -924,6 +1293,11 @@ document
     }
 
 });
+
+
+/* INITIAL */
+
+updateStats();
 
 </script>
 
