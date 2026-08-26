@@ -4,92 +4,54 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- =========================
-     SEO
-========================= -->
 
 <title>Online Stopwatch — Free Stopwatch Timer | VexTools</title>
 
-<meta
-    name="description"
-    content="Use the free VexTools online stopwatch to accurately measure elapsed time. Simple, fast, and works directly in your browser."
->
+<meta name="description" content="Use VexTools free online stopwatch to accurately measure elapsed time. Start, stop, reset and track time directly in your browser.">
 
-<meta
-    name="keywords"
-    content="online stopwatch, stopwatch timer, free stopwatch, online timer, stopwatch online, time tracker, VexTools"
->
+<meta name="keywords" content="online stopwatch, stopwatch timer, free stopwatch, stopwatch online, online timer, time tracker, VexTools">
 
 <meta name="robots" content="index, follow">
-
 <meta name="author" content="VexTools">
+
+<link rel="canonical" href="https://vextools.github.io/tools/stopwatch.html">
+
+<meta property="og:title" content="Online Stopwatch — Free Stopwatch Timer | VexTools">
+<meta property="og:description" content="Use the free VexTools online stopwatch to measure elapsed time directly in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/tools/stopwatch.html">
+<meta property="og:site_name" content="VexTools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Online Stopwatch — VexTools">
+<meta name="twitter:description" content="A simple and free online stopwatch for measuring elapsed time.">
 
 <meta name="theme-color" content="#070b18">
 
-
-<!-- =========================
-     Open Graph
-========================= -->
-
-<meta property="og:type" content="website">
-
-<meta
-    property="og:title"
-    content="Online Stopwatch — Free Stopwatch Timer | VexTools"
->
-
-<meta
-    property="og:description"
-    content="Use the free VexTools online stopwatch to measure elapsed time directly in your browser."
->
-
-<meta
-    property="og:site_name"
-    content="VexTools"
->
-
-
-<!-- =========================
-     Twitter / X
-========================= -->
-
-<meta name="twitter:card" content="summary">
-
-<meta
-    name="twitter:title"
-    content="Online Stopwatch — VexTools"
->
-
-<meta
-    name="twitter:description"
-    content="A simple and free online stopwatch for measuring elapsed time."
->
-
-
-<!-- =========================
-     Structured Data
-========================= -->
-
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "VexTools Online Stopwatch",
-    "description": "A free online stopwatch for measuring elapsed time directly in your browser.",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires a modern web browser",
-    "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-    }
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Online Stopwatch",
+  "url":"https://vextools.github.io/tools/stopwatch.html",
+  "description":"Free online stopwatch for measuring elapsed time directly in a web browser.",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires a modern web browser with JavaScript enabled",
+  "isAccessibleForFree":true,
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools.github.io/VexTool/"
+  }
 }
 </script>
-
 
 <style>
 
@@ -99,74 +61,133 @@
     padding:0;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#070b18;
-    color:white;
+    color:#f8fafc;
     min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     padding:30px 15px;
+    line-height:1.6;
 }
 
 .container{
-    width:100%;
-    max-width:700px;
-    text-align:center;
+    max-width:800px;
+    margin:auto;
+}
+
+.top-nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
 }
 
 .logo{
-    display:inline-block;
-    color:#a78bfa;
-    font-size:28px;
-    font-weight:900;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:white;
     text-decoration:none;
-    margin-bottom:15px;
+    font-size:21px;
+    font-weight:900;
 }
 
-h1{
-    font-size:38px;
-    margin-bottom:8px;
+.logo-icon{
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    background:linear-gradient(135deg,#7c3aed,#06b6d4);
+    box-shadow:0 0 25px rgba(124,58,237,.3);
 }
 
-.description{
+.home-link{
+    color:#a78bfa;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.home-link:hover{
+    color:white;
+}
+
+.breadcrumb{
     color:#94a3b8;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.breadcrumb a{
+    color:#a78bfa;
+    text-decoration:none;
+}
+
+.breadcrumb span{
+    margin:0 7px;
+}
+
+.header{
+    text-align:center;
     margin-bottom:30px;
 }
 
-.card{
-    background:#111a30;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:20px;
-    padding:30px 20px;
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
+.header h1{
+    font-size:clamp(36px,7vw,52px);
+    line-height:1.1;
+    letter-spacing:-1px;
 }
 
-#time{
-    font-size:70px;
-    font-weight:bold;
+.header h1 span{
+    background:linear-gradient(90deg,#a78bfa,#22d3ee);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.header p{
+    color:#94a3b8;
+    margin-top:12px;
+    font-size:16px;
+}
+
+.card{
+    background:#11192d;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:30px 25px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+.timer{
+    font-size:clamp(48px,10vw,78px);
+    font-weight:900;
     letter-spacing:3px;
-    margin:30px 0;
+    margin:20px 0 30px;
     color:#f8fafc;
     font-variant-numeric:tabular-nums;
+    text-shadow:0 0 25px rgba(124,58,237,.2);
 }
 
 .buttons{
     display:flex;
     gap:10px;
     justify-content:center;
-    flex-wrap:wrap;
 }
 
 button{
-    min-width:130px;
-    padding:14px 25px;
+    flex:1;
+    padding:14px 20px;
     border:0;
     border-radius:10px;
-    background:#7c3aed;
+    background:linear-gradient(90deg,#7c3aed,#06b6d4);
     color:white;
-    font-size:15px;
     font-weight:bold;
     cursor:pointer;
     transition:.2s;
@@ -174,7 +195,11 @@ button{
 
 button:hover{
     transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(124,58,237,.3);
+    box-shadow:0 8px 22px rgba(124,58,237,.3);
+}
+
+button:active{
+    transform:translateY(0);
 }
 
 .stop{
@@ -185,22 +210,147 @@ button:hover{
     background:#475569;
 }
 
-.info{
-    margin-top:25px;
+.status{
+    margin-top:18px;
     color:#94a3b8;
     font-size:14px;
-    line-height:1.6;
+    min-height:22px;
 }
 
-@media(max-width:500px){
+.info-section{
+    margin-top:45px;
+}
 
-    h1{
-        font-size:30px;
+.info-section h2{
+    font-size:27px;
+    margin-bottom:12px;
+}
+
+.info-section p{
+    color:#94a3b8;
+    font-size:15px;
+    line-height:1.8;
+    margin-bottom:14px;
+}
+
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-top:22px;
+}
+
+.benefit{
+    background:rgba(17,25,45,.7);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:15px;
+    padding:18px;
+}
+
+.benefit-icon{
+    font-size:25px;
+    margin-bottom:7px;
+}
+
+.benefit h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.benefit p{
+    font-size:13px;
+    margin:0;
+}
+
+.faq{
+    margin-top:45px;
+}
+
+.faq h2{
+    font-size:27px;
+    margin-bottom:18px;
+}
+
+.faq-item{
+    background:rgba(17,25,45,.7);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:13px;
+    margin-bottom:10px;
+    overflow:hidden;
+}
+
+.faq-item summary{
+    padding:17px;
+    cursor:pointer;
+    font-weight:bold;
+    list-style:none;
+}
+
+.faq-item summary::-webkit-details-marker{
+    display:none;
+}
+
+.faq-item p{
+    padding:0 17px 17px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.related{
+    margin-top:45px;
+}
+
+.related h2{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.related-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.related-links a{
+    color:#c4b5fd;
+    text-decoration:none;
+    padding:9px 13px;
+    border-radius:9px;
+    background:rgba(124,58,237,.1);
+    border:1px solid rgba(255,255,255,.1);
+    font-size:13px;
+}
+
+.related-links a:hover{
+    border-color:#8b5cf6;
+}
+
+.footer{
+    text-align:center;
+    color:#94a3b8;
+    font-size:13px;
+    margin-top:50px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+.footer a{
+    color:#a78bfa;
+    text-decoration:none;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:20px 12px;
     }
 
-    #time{
-        font-size:48px;
-        letter-spacing:2px;
+    .top-nav{
+        margin-bottom:25px;
+    }
+
+    .card{
+        padding:25px 18px;
     }
 
     .buttons{
@@ -211,140 +361,431 @@ button:hover{
         width:100%;
     }
 
+    .benefits{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+        transition:none!important;
+        scroll-behavior:auto!important;
+    }
+
 }
 
 </style>
 
 </head>
 
-
 <body>
 
-<main class="container">
+<div class="container">
 
-    <a
-        class="logo"
-        href="../index.html"
-        aria-label="VexTools Home"
-    >
-        VexTools
-    </a>
+<header class="top-nav">
 
-    <h1>Online Stopwatch</h1>
+<a class="logo" href="../index.html" aria-label="VexTools Home">
 
-    <p class="description">
-        Free online stopwatch to measure elapsed time quickly and accurately.
-    </p>
+<span class="logo-icon">V</span>
 
+VexTools
 
-    <section class="card" aria-label="Stopwatch">
+</a>
 
-        <div
-            id="time"
-            role="timer"
-            aria-live="polite"
-        >
-            00:00:00
-        </div>
+<a class="home-link" href="../index.html">
+All Tools →
+</a>
+
+</header>
 
 
-        <div class="buttons">
+<nav class="breadcrumb" aria-label="Breadcrumb">
 
-            <button
-                type="button"
-                onclick="start()"
-                aria-label="Start stopwatch"
-            >
-                ▶ Start
-            </button>
+<a href="../index.html">VexTools</a>
 
-            <button
-                type="button"
-                class="stop"
-                onclick="stop()"
-                aria-label="Stop stopwatch"
-            >
-                ■ Stop
-            </button>
+<span>›</span>
 
-            <button
-                type="button"
-                class="reset"
-                onclick="reset()"
-                aria-label="Reset stopwatch"
-            >
-                ↻ Reset
-            </button>
+<span>Stopwatch</span>
 
-        </div>
+</nav>
 
 
-        <p class="info">
-            Start the stopwatch to begin measuring time.
-            Your timer runs directly in your browser.
-        </p>
+<header class="header">
 
-    </section>
+<h1>
+Online <span>Stopwatch</span>
+</h1>
+
+<p>
+Measure elapsed time quickly and accurately with our free online stopwatch.
+</p>
+
+</header>
+
+
+<main>
+
+<section class="card" aria-label="Online Stopwatch">
+
+<div
+class="timer"
+id="time"
+role="timer"
+aria-live="off"
+>
+00:00:00
+</div>
+
+
+<div class="buttons">
+
+<button
+type="button"
+id="startBtn"
+onclick="start()"
+>
+▶ Start
+</button>
+
+<button
+type="button"
+class="stop"
+onclick="stop()"
+>
+■ Stop
+</button>
+
+<button
+type="button"
+class="reset"
+onclick="reset()"
+>
+↻ Reset
+</button>
+
+</div>
+
+
+<div
+class="status"
+id="status"
+role="status"
+aria-live="polite"
+>
+Ready to start
+</div>
+
+</section>
+
+
+<section class="info-section">
+
+<h2>
+Free Online Stopwatch
+</h2>
+
+<p>
+VexTools Online Stopwatch is a simple and free browser-based timer
+for measuring elapsed time. Start the stopwatch whenever you need
+to track time and stop it when you are finished.
+</p>
+
+<p>
+The stopwatch works directly in your browser and does not require
+any software installation. It can be useful for workouts, studying,
+cooking, experiments, presentations and everyday time tracking.
+</p>
+
+
+<div class="benefits">
+
+<div class="benefit">
+
+<div class="benefit-icon">⚡</div>
+
+<h3>Fast</h3>
+
+<p>
+Start measuring time instantly with one click.
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-icon">🆓</div>
+
+<h3>Free</h3>
+
+<p>
+Use the stopwatch without registration or payment.
+</p>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-icon">🌐</div>
+
+<h3>Online</h3>
+
+<p>
+Works directly in a modern web browser.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="info-section">
+
+<h2>
+How to Use the Stopwatch
+</h2>
+
+<p>
+<strong>1.</strong>
+Click the Start button to begin measuring elapsed time.
+</p>
+
+<p>
+<strong>2.</strong>
+Click Stop whenever you want to pause the stopwatch.
+</p>
+
+<p>
+<strong>3.</strong>
+Click Start again to continue from the paused time.
+</p>
+
+<p>
+<strong>4.</strong>
+Click Reset to return the stopwatch to zero.
+</p>
+
+</section>
+
+
+<section class="faq">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+
+<details class="faq-item">
+
+<summary>
+Is this online stopwatch free?
+</summary>
+
+<p>
+Yes. VexTools Online Stopwatch is free to use directly in your browser.
+</p>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>
+Do I need to install anything?
+</summary>
+
+<p>
+No. The stopwatch runs directly in a modern web browser.
+</p>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>
+Can I pause and resume the stopwatch?
+</summary>
+
+<p>
+Yes. Click Stop to pause the stopwatch and Start to continue measuring time.
+</p>
+
+</details>
+
+
+<details class="faq-item">
+
+<summary>
+Can I reset the stopwatch?
+</summary>
+
+<p>
+Yes. Click Reset to return the timer to 00:00:00.
+</p>
+
+</details>
+
+</section>
+
+
+<section class="related">
+
+<h2>
+Related Tools
+</h2>
+
+<div class="related-links">
+
+<a href="timer.html">
+Online Timer
+</a>
+
+<a href="date-difference.html">
+Date Difference
+</a>
+
+<a href="age-calculator.html">
+Age Calculator
+</a>
+
+<a href="../index.html">
+More Free Tools
+</a>
+
+</div>
+
+</section>
 
 </main>
 
 
+<footer class="footer">
+
+<p>
+© <span id="year"></span> VexTools. Free online tools for everyone.
+</p>
+
+<p>
+<a href="../index.html">
+VexTools Home
+</a>
+</p>
+
+</footer>
+
+</div>
+
+
 <script>
 
-let sec = 0;
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+let elapsed = 0;
 let timer = null;
+let lastTime = null;
+
+
+function formatTime(ms){
+
+const totalSeconds =
+Math.floor(ms / 1000);
+
+const hours =
+Math.floor(totalSeconds / 3600);
+
+const minutes =
+Math.floor((totalSeconds % 3600) / 60);
+
+const seconds =
+totalSeconds % 60;
+
+return [
+hours,
+minutes,
+seconds
+]
+.map(value => String(value).padStart(2,"0"))
+.join(":");
+
+}
 
 
 function update(){
 
-    const h = Math.floor(sec / 3600);
-
-    const m = Math.floor((sec % 3600) / 60);
-
-    const s = sec % 60;
-
-
-    document.getElementById("time").textContent =
-        [h, m, s]
-        .map(x => String(x).padStart(2, "0"))
-        .join(":");
+document.getElementById("time").textContent =
+formatTime(elapsed);
 
 }
 
 
 function start(){
 
-    if(!timer){
+if(timer !== null){
+return;
+}
 
-        timer = setInterval(() => {
+lastTime = performance.now();
 
-            sec++;
+timer = setInterval(() => {
 
-            update();
+const now = performance.now();
 
-        }, 1000);
+elapsed += now - lastTime;
 
-    }
+lastTime = now;
+
+update();
+
+},50);
+
+document.getElementById("status").textContent =
+"⏱ Stopwatch running";
 
 }
 
 
 function stop(){
 
-    clearInterval(timer);
+if(timer === null){
+return;
+}
 
-    timer = null;
+clearInterval(timer);
+
+timer = null;
+
+document.getElementById("status").textContent =
+"⏸ Stopwatch paused";
 
 }
 
 
 function reset(){
 
-    stop();
+if(timer !== null){
 
-    sec = 0;
+clearInterval(timer);
 
-    update();
+timer = null;
+
+}
+
+elapsed = 0;
+
+lastTime = null;
+
+update();
+
+document.getElementById("status").textContent =
+"Ready to start";
 
 }
 
