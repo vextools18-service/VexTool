@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact VexTools — Get in Touch</title>
+
+<meta name="description" content="Contact VexTools for questions, suggestions, feedback, bug reports or other inquiries about our free online tools.">
+
+<meta name="keywords" content="contact VexTools, VexTools contact, online tools support, VexTools feedback, VexTools help">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="VexTools">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/contact.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact VexTools — Get in Touch">
+<meta property="og:description" content="Contact VexTools for questions, suggestions, feedback and bug reports.">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/contact.html">
+<meta property="og:site_name" content="VexTools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contact VexTools — Get in Touch">
+<meta name="twitter:description" content="Contact VexTools for questions, suggestions, feedback and bug reports.">
+
+<meta name="theme-color" content="#070b18">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ContactPage",
+  "name":"Contact VexTools",
+  "url":"https://vextools18-service.github.io/VexTool/contact.html",
+  "description":"Contact page for VexTools.",
+  "isPartOf":{
+    "@type":"WebSite",
+    "name":"VexTools",
+    "url":"https://vextools18-service.github.io/VexTool/"
+  }
+}
+</script>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#070b18;
+    color:#f8fafc;
+    min-height:100vh;
+    padding:30px 15px;
+    line-height:1.6;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin:25px 0 35px;
+}
+
+.logo{
+    display:inline-block;
+    color:#a78bfa;
+    font-size:30px;
+    font-weight:900;
+    text-decoration:none;
+    margin-bottom:20px;
+}
+
+.header h1{
+    font-size:clamp(34px,6vw,48px);
+    margin-bottom:10px;
+}
+
+.header h1 span{
+    color:#22d3ee;
+}
+
+.header p{
+    color:#94a3b8;
+}
+
+.card{
+    background:#11192d;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.card h2{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#94a3b8;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:14px 15px;
+    border-radius:10px;
+    border:1px solid #27304a;
+    background:#070b18;
+    color:#f8fafc;
+    outline:none;
+    font-size:16px;
+    font-family:Arial,sans-serif;
+}
+
+textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#8b5cf6;
+    box-shadow:0 0 20px rgba(124,58,237,.2);
+}
+
+button{
+    width:100%;
+    padding:14px 20px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(90deg,#7c3aed,#06b6d4);
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+.note{
+    margin-top:15px;
+    padding:15px;
+    background:#0d1427;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:10px;
+    color:#94a3b8;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.success{
+    display:none;
+    margin-top:15px;
+    padding:14px;
+    background:#0d1427;
+    border:1px solid rgba(134,239,172,.2);
+    border-radius:10px;
+    color:#86efac;
+    text-align:center;
+}
+
+.info{
+    margin-top:20px;
+    padding:22px;
+    background:#11192d;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+}
+
+.info h2{
+    margin-bottom:10px;
+}
+
+.info p{
+    color:#94a3b8;
+    line-height:1.8;
+}
+
+.links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.links a{
+    display:inline-block;
+    padding:11px 16px;
+    background:#0d1427;
+    border:1px solid #27304a;
+    border-radius:10px;
+    color:#a78bfa;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.links a:hover{
+    color:#22d3ee;
+    transform:translateY(-2px);
+}
+
+.back{
+    display:inline-block;
+    margin-top:25px;
+    color:#a78bfa;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.back:hover{
+    color:white;
+}
+
+.footer{
+    text-align:center;
+    margin-top:45px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#64748b;
+    font-size:14px;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:20px 12px;
+    }
+
+    .card,
+    .info{
+        padding:20px;
+    }
+
+    .links{
+        flex-direction:column;
+    }
+
+    .links a{
+        text-align:center;
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+        transition:none!important;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+
+<a
+    class="logo"
+    href="index.html"
+    aria-label="VexTools Home">
+    VexTools
+</a>
+
+<h1>
+Contact <span>VexTools</span>
+</h1>
+
+<p>
+Have a question, suggestion or feedback? Get in touch with us.
+</p>
+
+</header>
+
+
+<main>
+
+<section class="card">
+
+<h2>
+Send Us a Message
+</h2>
+
+<p>
+Use the form below to prepare a message for the VexTools
+team.
+</p>
+
+
+<form id="contactForm">
+
+<div class="form-group">
+
+<label for="name">
+Your Name
+</label>
+
+<input
+    id="name"
+    type="text"
+    placeholder="Enter your name"
+    autocomplete="name"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="email">
+Your Email
+</label>
+
+<input
+    id="email"
+    type="email"
+    placeholder="Enter your email address"
+    autocomplete="email"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="subject">
+Subject
+</label>
+
+<select
+    id="subject"
+    required
+>
+
+<option value="">
+Select a subject
+</option>
+
+<option value="General Question">
+General Question
+</option>
+
+<option value="Feedback">
+Feedback
+</option>
+
+<option value="Bug Report">
+Bug Report
+</option>
+
+<option value="Tool Suggestion">
+Tool Suggestion
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="message">
+Message
+</label>
+
+<textarea
+    id="message"
+    placeholder="Write your message here..."
+    required
+></textarea>
+
+</div>
+
+
+<button type="submit">
+📩 Send Message
+</button>
+
+
+<div
+    class="success"
+    id="success"
+    aria-live="polite">
+    Your message has been prepared. Your email application
+    will open shortly.
+</div>
+
+</form>
+
+
+<div class="note">
+
+<strong>Note:</strong>
+This contact form uses your device's email application
+to send the message. Your message is not stored on the
+VexTools website.
+
+</div>
+
+</section>
+
+
+<section class="info">
+
+<h2>
+What Can You Contact Us About?
+</h2>
+
+<p>
+You can contact VexTools about questions regarding our
+online tools, suggestions for new tools, website feedback,
+technical problems or bug reports.
+</p>
+
+<div class="links">
+
+<a href="about.html">
+About VexTools
+</a>
+
+<a href="privacy-policy.html">
+Privacy Policy
+</a>
+
+<a href="index.html">
+Explore VexTools
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<a
+    class="back"
+    href="index.html">
+    ← Back to VexTools
+</a>
+
+
+<footer class="footer">
+
+<p>
+© 2026 VexTools. All rights reserved.
+</p>
+
+</footer>
+
+</div>
+
+
+<script>
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const success =
+    document.getElementById("success");
+
+
+contactForm.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("name").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const subject =
+            document.getElementById("subject").value;
+
+        const message =
+            document.getElementById("message").value.trim();
+
+
+        if(
+            !name ||
+            !email ||
+            !subject ||
+            !message
+        ){
+
+            return;
+
+        }
+
+
+        const emailAddress =
+            "YOUR-EMAIL@example.com";
+
+
+        const mailSubject =
+            encodeURIComponent(
+                "VexTools Contact: " + subject
+            );
+
+
+        const mailBody =
+            encodeURIComponent(
+                "Name: " + name +
+                "\nEmail: " + email +
+                "\n\nMessage:\n" + message
+            );
+
+
+        const mailtoLink =
+            "mailto:" +
+            emailAddress +
+            "?subject=" +
+            mailSubject +
+            "&body=" +
+            mailBody;
+
+
+        success.style.display =
+            "block";
+
+
+        window.location.href =
+            mailtoLink;
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
