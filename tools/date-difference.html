@@ -3,42 +3,290 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Date Difference Calculator — VexTools</title>
+
+<title>Date Difference Calculator - Calculate Days Between Dates | VexTools</title>
+
+<meta name="description" content="Free online date difference calculator. Calculate the exact number of days between two dates quickly and easily with VexTools.">
+
+<meta name="keywords" content="date difference calculator, days between dates, date calculator, calculate days between dates, date difference online, free date calculator, VexTools">
+
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/date-difference.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Date Difference Calculator - VexTools">
+<meta property="og:description" content="Calculate the number of days between two dates with this free online date difference calculator.">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/date-difference.html">
+<meta property="og:site_name" content="VexTools">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Date Difference Calculator - VexTools">
+<meta name="twitter:description" content="Calculate the number of days between two dates quickly and easily.">
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
-.container{max-width:650px;margin:auto}
-input{width:100%;padding:15px;margin:10px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
-button{width:100%;padding:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
-.result{margin-top:20px;padding:20px;background:#111a30;border-radius:10px}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070b18;
+color:white;
+padding:50px 20px;
+min-height:100vh;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:30px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:20px;
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+.card{
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:30px;
+}
+
+label{
+display:block;
+margin:15px 0 8px;
+font-weight:bold;
+}
+
+input{
+width:100%;
+padding:15px;
+background:#0d1427;
+color:white;
+border:1px solid #27304a;
+border-radius:10px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:20px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+font-size:15px;
+cursor:pointer;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+.result{
+margin-top:20px;
+padding:20px;
+background:#0d1427;
+border-radius:12px;
+text-align:center;
+font-size:18px;
+}
+
+.info{
+margin-top:25px;
+padding:25px;
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:18px;
+}
+
+.info h2{
+margin-bottom:10px;
+}
+
+.info p{
+color:#94a3b8;
+line-height:1.7;
+font-size:14px;
+}
+
+.faq{
+margin-top:25px;
+padding:25px;
+background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:18px;
+}
+
+.faq h2{
+margin-bottom:18px;
+}
+
+.faq h3{
+font-size:16px;
+margin:15px 0 7px;
+}
+
+.faq p{
+color:#94a3b8;
+line-height:1.6;
+font-size:14px;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+margin-top:35px;
+color:#64748b;
+font-size:13px;
+}
+
+@media(max-width:600px){
+h1{font-size:30px}
+.card{padding:20px}
+}
 </style>
 </head>
-<body>
-<div class="container">
-<h1>📅 Date Difference</h1>
-<p>Calculate the number of days between two dates.</p>
 
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<a href="../index.html" class="logo">VexTools</a>
+
+<h1>📅 Date Difference Calculator</h1>
+
+<p>
+Calculate the number of days between two dates quickly and easily.
+</p>
+
+</div>
+
+<div class="card">
+
+<label for="date1">Start Date</label>
 <input id="date1" type="date">
+
+<label for="date2">End Date</label>
 <input id="date2" type="date">
 
-<button onclick="calculate()">Calculate Difference</button>
+<button onclick="calculate()">
+Calculate Difference
+</button>
 
-<div class="result" id="result">Result</div>
+<div class="result" id="result">
+Select two dates to calculate the difference.
+</div>
+
+</div>
+
+<div class="info">
+
+<h2>Free Date Difference Calculator</h2>
+
+<p>
+VexTools Date Difference Calculator helps you find the number
+of days between two dates. Simply select a start date and an
+end date, then click the calculate button. The calculation
+runs directly in your browser.
+</p>
+
+</div>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do I calculate the difference between two dates?</h3>
+<p>
+Select the start date and end date, then click Calculate Difference.
+The tool will show the number of days between them.
+</p>
+
+<h3>Is this date calculator free?</h3>
+<p>
+Yes. VexTools provides this date difference calculator completely free.
+</p>
+
+<h3>Do I need to install software?</h3>
+<p>
+No. The calculator works directly in your web browser.
+</p>
+
+</div>
+
+<a href="../index.html" class="back">
+← Back to VexTools
+</a>
+
+<footer>
+© <span id="year"></span> VexTools — Free Online Tools
+</footer>
+
 </div>
 
 <script>
-function calculate(){
-let a=new Date(date1.value);
-let b=new Date(date2.value);
 
-if(isNaN(a)||isNaN(b)){
+function calculate(){
+
+let a=new Date(document.getElementById("date1").value);
+let b=new Date(document.getElementById("date2").value);
+
+const result=document.getElementById("result");
+
+if(isNaN(a.getTime()) || isNaN(b.getTime())){
+
 result.textContent="Please select both dates.";
+
 return;
+
 }
 
 let days=Math.abs(b-a)/(1000*60*60*24);
 
 result.textContent="Difference: "+days+" days";
+
 }
+
+document.getElementById("year").textContent=
+new Date().getFullYear();
+
 </script>
+
 </body>
 </html>
