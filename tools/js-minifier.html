@@ -1,31 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JS Minifier - VexTools</title>
+
+<title>JavaScript Minifier Online Free — VexTools</title>
+
+<meta name="description" content="Minify JavaScript code online for free with VexTools. Remove comments and unnecessary whitespace from JavaScript quickly and easily.">
+
+<meta name="keywords" content="JavaScript minifier, JS minifier, JavaScript minifier online, minify JavaScript, compress JavaScript, JS compressor, free JavaScript minifier">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/js-minifier.html">
+
+<meta property="og:title" content="JavaScript Minifier Online Free — VexTools">
+<meta property="og:description" content="Free online JavaScript minifier. Minify JS code by removing comments and unnecessary whitespace.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/js-minifier.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Minifier Online Free — VexTools">
+<meta name="twitter:description" content="Minify JavaScript code online for free with VexTools.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"JavaScript Minifier",
+  "url":"https://vextools18-service.github.io/VexTool/tools/js-minifier.html",
+  "description":"Free online JavaScript minifier for removing comments and unnecessary whitespace from JavaScript code.",
+  "applicationCategory":"DeveloperApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:30px;text-align:center}
-.box{max-width:900px;margin:auto;background:#111a30;padding:25px;border-radius:20px}
-textarea{width:95%;height:350px;padding:15px;font-family:monospace}
-button{padding:12px 25px;margin:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
+body{
+font-family:Arial;
+background:#070b18;
+color:white;
+padding:30px;
+text-align:center
+}
+
+.box{
+max-width:900px;
+margin:auto;
+background:#111a30;
+padding:25px;
+border-radius:20px
+}
+
+textarea{
+width:95%;
+height:350px;
+padding:15px;
+font-family:monospace;
+background:#0d1427;
+color:white;
+border:1px solid #27304a;
+border-radius:10px;
+resize:vertical
+}
+
+button{
+padding:12px 25px;
+margin:15px;
+background:#7c3aed;
+color:white;
+border:0;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold
+}
+
+button:hover{
+opacity:.9;
+transform:translateY(-2px)
+}
 </style>
+
 </head>
+
 <body>
+
 <div class="box">
+
 <h1>JavaScript Minifier</h1>
-<textarea id="code" placeholder="Paste JavaScript here..."></textarea>
-<br><button onclick="minify()">Minify JS</button>
+
+<p>
+Minify JavaScript code online for free.
+</p>
+
+<textarea
+id="code"
+placeholder="Paste JavaScript here..."
+></textarea>
+
+<br>
+
+<button onclick="minify()">
+Minify JS
+</button>
+
 </div>
+
 <script>
+
 function minify(){
-let x=document.getElementById("code").value;
-x=x.replace(/\/\*[\s\S]*?\*\//g,"")
+
+let x =
+document.getElementById("code").value;
+
+x =
+x.replace(/\/\*[\s\S]*?\*\//g,"")
 .replace(/\/\/.*$/gm,"")
 .replace(/\s+/g," ")
 .trim();
-document.getElementById("code").value=x;
+
+document.getElementById("code").value =
+x;
+
 }
+
 </script>
+
 </body>
 </html>
