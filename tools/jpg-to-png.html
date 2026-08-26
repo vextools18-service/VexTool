@@ -3,7 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JPG to PNG Converter — VexTools</title>
+
+<title>JPG to PNG Converter Online Free — VexTools</title>
+
+<meta name="description" content="Convert JPG images to PNG online for free with VexTools. Fast, secure and easy JPG to PNG converter that works directly in your browser.">
+
+<meta name="keywords" content="JPG to PNG, JPG to PNG converter, convert JPG to PNG, JPG converter, image converter, JPG PNG converter online, free JPG to PNG">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/jpg-to-png.html">
+
+<meta property="og:title" content="JPG to PNG Converter Online Free — VexTools">
+<meta property="og:description" content="Convert JPG images to PNG online for free. Fast and easy image conversion directly in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/jpg-to-png.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JPG to PNG Converter Online Free — VexTools">
+<meta name="twitter:description" content="Free online JPG to PNG converter. Convert your JPG images to PNG quickly and easily.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"JPG to PNG Converter",
+  "url":"https://vextools18-service.github.io/VexTool/tools/jpg-to-png.html",
+  "description":"Free online JPG to PNG converter that converts JPG images into PNG format directly in the browser.",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -77,60 +112,113 @@ font-weight:bold;
 <div class="container">
 
 <div class="header">
-<a class="logo" href="../index.html">VexTools</a>
-<h1>JPG to PNG</h1>
-<p>Convert JPG images to PNG format.</p>
+
+<a class="logo" href="../index.html">
+VexTools
+</a>
+
+<h1>
+JPG to PNG
+</h1>
+
+<p>
+Convert JPG images to PNG format online for free.
+</p>
+
 </div>
 
 <div class="card">
 
-<input id="file" type="file" accept="image/jpeg,image/jpg">
+<input
+id="file"
+type="file"
+accept="image/jpeg,image/jpg"
+>
 
-<button onclick="convert()">Convert to PNG</button>
+<button onclick="convert()">
+Convert to PNG
+</button>
 
 </div>
+
 </div>
 
 <script>
+
 function convert(){
 
-const file=document.getElementById("file").files[0];
+const file =
+document.getElementById("file").files[0];
 
 if(!file){
+
 alert("Please select a JPG image.");
+
 return;
+
 }
 
-const img=new Image();
+const img =
+new Image();
 
-img.onload=()=>{
+img.onload = ()=>{
 
-const canvas=document.createElement("canvas");
+const canvas =
+document.createElement("canvas");
 
-canvas.width=img.width;
-canvas.height=img.height;
+canvas.width =
+img.width;
 
-canvas.getContext("2d").drawImage(img,0,0);
+canvas.height =
+img.height;
+
+canvas
+.getContext("2d")
+.drawImage(
+img,
+0,
+0
+);
 
 canvas.toBlob(blob=>{
 
-const url=URL.createObjectURL(blob);
+const url =
+URL.createObjectURL(blob);
 
-const link=document.createElement("a");
+const old =
+document.querySelector(".download");
 
-link.className="download";
-link.href=url;
-link.download="converted-image.png";
-link.textContent="Download PNG";
+if(old)
+old.remove();
 
-document.querySelector(".card").appendChild(link);
+const link =
+document.createElement("a");
+
+link.className =
+"download";
+
+link.href =
+url;
+
+link.download =
+"converted-image.png";
+
+link.textContent =
+"Download PNG";
+
+document
+.querySelector(".card")
+.appendChild(link);
 
 },"image/png");
 
 };
 
-img.src=URL.createObjectURL(file);
+img.src =
+URL.createObjectURL(file);
+
 }
+
 </script>
 
 </body>
