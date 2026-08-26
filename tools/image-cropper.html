@@ -3,7 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Image Cropper — VexTools</title>
+
+<title>Image Cropper Online - VexTools</title>
+
+<meta name="description" content="Free online image cropper. Crop images directly in your browser quickly and easily with VexTools.">
+<meta name="keywords" content="image cropper, crop image online, image cropper online, crop photo, free image cropper, online photo cropper, VexTools">
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/image-cropper.html">
+
+<meta property="og:title" content="Image Cropper Online - VexTools">
+<meta property="og:description" content="Crop images online for free directly in your browser with VexTools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/image-cropper.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Image Cropper Online - VexTools">
+<meta name="twitter:description" content="Free online image cropper for quickly cropping images in your browser.">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -85,8 +102,12 @@ font-weight:bold;
 
 <div class="header">
 <a class="logo" href="../index.html">VexTools</a>
+
 <h1>Image Cropper</h1>
-<p>Crop an image directly in your browser.</p>
+
+<p>
+Crop images online for free directly in your browser.
+</p>
 </div>
 
 <div class="card">
@@ -95,31 +116,55 @@ font-weight:bold;
 
 <canvas id="canvas"></canvas>
 
-<button onclick="crop()">Crop Center</button>
+<button onclick="crop()">
+Crop Center
+</button>
 
 </div>
 </div>
 
 <script>
-const canvas=document.getElementById("canvas");
-const ctx=canvas.getContext("2d");
 
-let img=null;
+const canvas =
+document.getElementById("canvas");
 
-document.getElementById("file").addEventListener("change",e=>{
+const ctx =
+canvas.getContext("2d");
 
-const file=e.target.files[0];
+let img = null;
 
-if(!file)return;
+let imageURL = null;
+let downloadURL = null;
 
-img=new Image();
 
-img.onload=()=>{
+document
+.getElementById("file")
+.addEventListener("change",e=>{
 
-const size=Math.min(img.width,img.height);
+const file =
+e.target.files[0];
 
-canvas.width=size;
-canvas.height=size;
+if(!file) return;
+
+if(imageURL){
+URL.revokeObjectURL(imageURL);
+}
+
+img = new Image();
+
+imageURL =
+URL.createObjectURL(file);
+
+img.onload = ()=>{
+
+const size =
+Math.min(
+img.width,
+img.height
+);
+
+canvas.width = size;
+canvas.height = size;
 
 ctx.drawImage(
 img,
@@ -135,9 +180,10 @@ size
 
 };
 
-img.src=URL.createObjectURL(file);
+img.src = imageURL;
 
 });
+
 
 function crop(){
 
@@ -146,10 +192,14 @@ alert("Please select an image.");
 return;
 }
 
-const size=Math.min(img.width,img.height);
+const size =
+Math.min(
+img.width,
+img.height
+);
 
-canvas.width=size;
-canvas.height=size;
+canvas.width = size;
+canvas.height = size;
 
 ctx.drawImage(
 img,
@@ -165,23 +215,43 @@ size
 
 canvas.toBlob(blob=>{
 
-const url=URL.createObjectURL(blob);
+if(!blob) return;
 
-const old=document.querySelector(".download");
-if(old)old.remove();
+if(downloadURL){
+URL.revokeObjectURL(downloadURL);
+}
 
-const link=document.createElement("a");
+downloadURL =
+URL.createObjectURL(blob);
 
-link.className="download";
-link.href=url;
-link.download="cropped-image.png";
-link.textContent="Download Cropped Image";
+const old =
+document.querySelector(".download");
 
-document.querySelector(".card").appendChild(link);
+if(old) old.remove();
+
+const link =
+document.createElement("a");
+
+link.className =
+"download";
+
+link.href =
+downloadURL;
+
+link.download =
+"cropped-image.png";
+
+link.textContent =
+"Download Cropped Image";
+
+document
+.querySelector(".card")
+.appendChild(link);
 
 },"image/png");
 
 }
+
 </script>
 
 </body>
