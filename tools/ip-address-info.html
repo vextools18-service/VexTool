@@ -7,11 +7,13 @@
 
 <title>IP Address Info — Check Your IP, Location & ISP | VexTools</title>
 
-<meta name="description" content="Check your public IP address and view your approximate country, city, region, timezone and ISP information with VexTools. Free online IP address lookup tool.">
+<meta name="description" content="Check your public IP address and view approximate country, city, region, timezone and ISP information with VexTools. Free online IP address lookup tool.">
+
+<meta name="keywords" content="IP address info, what is my IP, check my IP, public IP address, IP lookup, IP address lookup, IP location, ISP lookup, VexTools">
+
+<meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
-<meta name="author" content="VexTools">
-<meta name="keywords" content="IP address info, what is my IP, check my IP, public IP address, IP lookup, IP address lookup, IP location, ISP lookup, VexTools">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/ip-address-info.html">
 
@@ -86,7 +88,7 @@ padding:0;
 }
 
 body{
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 background:#070b18;
 color:#f8fafc;
 min-height:100vh;
@@ -102,6 +104,15 @@ margin:auto;
 .header{
 text-align:center;
 margin:20px 0 35px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:20px;
 }
 
 .header h1{
@@ -148,6 +159,7 @@ button:disabled{
 opacity:.6;
 cursor:not-allowed;
 transform:none;
+box-shadow:none;
 }
 
 #result{
@@ -164,7 +176,6 @@ min-height:24px;
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:12px;
-margin-top:20px;
 }
 
 .info{
@@ -257,6 +268,10 @@ margin:0;
 margin-top:35px;
 }
 
+.related h2{
+margin-bottom:10px;
+}
+
 .related a{
 display:inline-block;
 margin:7px 7px 0 0;
@@ -267,14 +282,27 @@ color:#a78bfa;
 text-decoration:none;
 }
 
+.related a:hover{
+background:#202c49;
+}
+
 .back{
 display:inline-block;
 margin-top:25px;
 color:#a78bfa;
 text-decoration:none;
+font-weight:bold;
+}
+
+.back:hover{
+text-decoration:underline;
 }
 
 @media(max-width:600px){
+
+body{
+padding:30px 15px;
+}
 
 .card{
 padding:20px;
@@ -283,6 +311,10 @@ padding:20px;
 .info-grid,
 .features{
 grid-template-columns:1fr;
+}
+
+.header h1{
+font-size:34px;
 }
 
 }
@@ -296,7 +328,13 @@ grid-template-columns:1fr;
 
 <div class="header">
 
-<h1>IP Address <span>Info</span></h1>
+<a href="../index.html" class="logo">
+VexTools
+</a>
+
+<h1>
+IP Address <span>Info</span>
+</h1>
 
 <p>
 Check your public IP address and view available network information.
@@ -322,82 +360,139 @@ Click the button to check your public IP.
 
 <div class="content">
 
-<h2>Free IP Address Lookup</h2>
+<h2>
+Free IP Address Lookup
+</h2>
 
 <p>
 VexTools IP Address Info is a free online tool that helps you check your public IP address and view available information such as country, city, region, timezone and network provider.
 </p>
 
 <p>
-The tool works directly from your browser and does not require you to install additional software. IP-based location information is approximate and should not be considered an exact physical location.
+The tool works directly from your browser. IP-based location information is approximate and should not be considered an exact physical location.
 </p>
 
 <div class="features">
 
 <div class="feature">
 <strong>⚡ Fast</strong>
-<span>Check your public IP with one click.</span>
+<span>
+Check your public IP with one click.
+</span>
 </div>
 
 <div class="feature">
 <strong>🆓 Free</strong>
-<span>Use the IP lookup tool without a paid subscription.</span>
+<span>
+Use the IP lookup tool without a paid subscription.
+</span>
 </div>
 
 <div class="feature">
 <strong>🌐 Online</strong>
-<span>Works directly in a modern web browser.</span>
+<span>
+Works directly in a modern web browser.
+</span>
 </div>
 
 </div>
 
-<h3>How to Check Your IP Address</h3>
+<h3>
+How to Check Your IP Address
+</h3>
 
-<p><strong>1.</strong> Click the “Check My IP” button.</p>
-<p><strong>2.</strong> Wait while the tool retrieves your public IP information.</p>
-<p><strong>3.</strong> Review the IP address, location and network details returned by the service.</p>
+<p>
+<strong>1.</strong> Click the “Check My IP” button.
+</p>
+
+<p>
+<strong>2.</strong> Wait while the tool retrieves your public IP information.
+</p>
+
+<p>
+<strong>3.</strong> Review the IP address, location and network details.
+</p>
 
 <div class="faq">
 
-<h2>Frequently Asked Questions</h2>
+<h2>
+Frequently Asked Questions
+</h2>
 
 <div class="faq-item">
-<h3>How can I check my IP address?</h3>
-<p>Click “Check My IP” and VexTools will retrieve your public IP information.</p>
+
+<h3>
+How can I check my IP address?
+</h3>
+
+<p>
+Click “Check My IP” and VexTools will retrieve your public IP information.
+</p>
+
 </div>
 
 <div class="faq-item">
-<h3>Is the IP Address Info tool free?</h3>
-<p>Yes. VexTools provides this IP address lookup tool for free.</p>
+
+<h3>
+Is the IP Address Info tool free?
+</h3>
+
+<p>
+Yes. VexTools provides this IP address lookup tool for free.
+</p>
+
 </div>
 
 <div class="faq-item">
-<h3>Does this show my exact physical location?</h3>
-<p>No. IP-based location is approximate and can represent a general area rather than an exact physical location.</p>
+
+<h3>
+Does this show my exact physical location?
+</h3>
+
+<p>
+No. IP-based location is approximate and can represent a general area rather than an exact physical location.
+</p>
+
 </div>
 
 </div>
 
 <div class="related">
 
-<h2>Related Tools</h2>
+<h2>
+Related Tools
+</h2>
 
-<a href="timezone-converter.html">Timezone Converter</a>
-<a href="email-validator.html">Email Validator</a>
-<a href="../index.html">More Free Tools</a>
+<a href="timezone-converter.html">
+Timezone Converter
+</a>
+
+<a href="email-validator.html">
+Email Validator
+</a>
+
+<a href="../index.html">
+More Free Tools
+</a>
 
 </div>
 
 </div>
 
-<a class="back" href="../index.html">← Back to VexTools</a>
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
 
 </div>
 
 <script>
 
-const checkBtn = document.getElementById("checkBtn");
-const result = document.getElementById("result");
+const checkBtn =
+document.getElementById("checkBtn");
+
+const result =
+document.getElementById("result");
+
 
 function escapeHTML(value){
 
@@ -410,6 +505,7 @@ return String(value ?? "")
 
 }
 
+
 function showError(){
 
 result.innerHTML = `
@@ -421,21 +517,11 @@ Please try again in a few seconds.
 
 }
 
-async function getIP(){
 
-checkBtn.disabled = true;
-checkBtn.textContent = "⏳ Checking...";
-result.innerHTML = `<div class="status">Getting your public IP information...</div>`;
+async function requestIP(){
 
-try{
-
-/*
-Primary API.
-ipwho.is supports browser requests and returns
-public IP/geolocation information.
-*/
-
-const response = await fetch(
+const response =
+await fetch(
 "https://ipwho.is/",
 {
 method:"GET",
@@ -444,79 +530,180 @@ cache:"no-store"
 );
 
 if(!response.ok){
-throw new Error("IP service returned HTTP " + response.status);
+throw new Error(
+"IP service returned HTTP " +
+response.status
+);
 }
 
-const data = await response.json();
+const data =
+await response.json();
 
 if(!data.success || !data.ip){
 throw new Error("Invalid IP response");
 }
 
-const ip = escapeHTML(data.ip);
-const country = escapeHTML(data.country);
-const region = escapeHTML(data.region);
-const city = escapeHTML(data.city);
-const postal = escapeHTML(data.postal);
-const timezone = escapeHTML(
-data.timezone && data.timezone.id
+return {
+
+ip:data.ip,
+type:data.type,
+country:data.country,
+region:data.region,
+city:data.city,
+postal:data.postal,
+timezone:
+data.timezone &&
+data.timezone.id
 ? data.timezone.id
-: ""
-);
-const isp = escapeHTML(
-data.connection && data.connection.isp
+: "",
+isp:
+data.connection &&
+data.connection.isp
 ? data.connection.isp
-: ""
-);
-const org = escapeHTML(
-data.connection && data.connection.org
+: "",
+org:
+data.connection &&
+data.connection.org
 ? data.connection.org
 : ""
-);
-const type = escapeHTML(data.type);
+
+};
+
+}
+
+
+async function getIP(){
+
+checkBtn.disabled = true;
+
+checkBtn.textContent =
+"⏳ Checking...";
+
+result.innerHTML = `
+<div class="status">
+Getting your public IP information...
+</div>
+`;
+
+try{
+
+const data =
+await requestIP();
+
+const ip =
+escapeHTML(data.ip);
+
+const type =
+escapeHTML(data.type);
+
+const country =
+escapeHTML(data.country);
+
+const region =
+escapeHTML(data.region);
+
+const city =
+escapeHTML(data.city);
+
+const postal =
+escapeHTML(data.postal);
+
+const timezone =
+escapeHTML(data.timezone);
+
+const isp =
+escapeHTML(data.isp || data.org);
+
 
 result.innerHTML = `
 
 <div class="info-grid">
 
 <div class="info">
-<span class="info-label">IP Address</span>
-<span class="info-value">${ip}</span>
+<span class="info-label">
+IP Address
+</span>
+
+<span class="info-value">
+${ip}
+</span>
 </div>
 
-<div class="info">
-<span class="info-label">IP Type</span>
-<span class="info-value">${type || "—"}</span>
-</div>
 
 <div class="info">
-<span class="info-label">Country</span>
-<span class="info-value">${country || "—"}</span>
+<span class="info-label">
+IP Type
+</span>
+
+<span class="info-value">
+${type || "—"}
+</span>
 </div>
 
-<div class="info">
-<span class="info-label">Region</span>
-<span class="info-value">${region || "—"}</span>
-</div>
 
 <div class="info">
-<span class="info-label">City</span>
-<span class="info-value">${city || "—"}</span>
+<span class="info-label">
+Country
+</span>
+
+<span class="info-value">
+${country || "—"}
+</span>
 </div>
 
-<div class="info">
-<span class="info-label">Postal Code</span>
-<span class="info-value">${postal || "—"}</span>
-</div>
 
 <div class="info">
-<span class="info-label">Timezone</span>
-<span class="info-value">${timezone || "—"}</span>
+<span class="info-label">
+Region
+</span>
+
+<span class="info-value">
+${region || "—"}
+</span>
 </div>
 
+
 <div class="info">
-<span class="info-label">ISP</span>
-<span class="info-value">${isp || org || "—"}</span>
+<span class="info-label">
+City
+</span>
+
+<span class="info-value">
+${city || "—"}
+</span>
+</div>
+
+
+<div class="info">
+<span class="info-label">
+Postal Code
+</span>
+
+<span class="info-value">
+${postal || "—"}
+</span>
+</div>
+
+
+<div class="info">
+<span class="info-label">
+Timezone
+</span>
+
+<span class="info-value">
+${timezone || "—"}
+</span>
+</div>
+
+
+<div class="info">
+<span class="info-label">
+ISP
+</span>
+
+<span class="info-value">
+${isp || "—"}
+</span>
 </div>
 
 </div>
@@ -524,23 +711,34 @@ result.innerHTML = `
 <div class="status" style="margin-top:15px">
 ✅ IP information loaded successfully.
 </div>
+
 `;
 
 }catch(error){
 
-console.error("IP lookup error:",error);
+console.error(
+"IP lookup error:",
+error
+);
+
 showError();
 
 }finally{
 
 checkBtn.disabled = false;
-checkBtn.textContent = "🌐 Check My IP";
+
+checkBtn.textContent =
+"🌐 Check My IP";
 
 }
 
 }
 
-checkBtn.addEventListener("click",getIP);
+
+checkBtn.addEventListener(
+"click",
+getIP
+);
 
 </script>
 
