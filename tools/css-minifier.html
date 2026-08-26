@@ -1,31 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>CSS Minifier - VexTools</title>
+
+<meta name="description" content="Free online CSS minifier. Compress and minify CSS code by removing comments, whitespace and unnecessary spaces.">
+
 <style>
 body{font-family:Arial;background:#070b18;color:white;padding:30px;text-align:center}
 .box{max-width:900px;margin:auto;background:#111a30;padding:25px;border-radius:20px}
-textarea{width:95%;height:350px;padding:15px;font-family:monospace}
-button{padding:12px 25px;margin:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
+textarea{width:95%;height:350px;padding:15px;font-family:monospace;background:#0d1427;color:#22d3ee;border:1px solid #27304a;border-radius:12px}
+button{padding:12px 25px;margin:15px;background:#7c3aed;color:white;border:0;border-radius:10px;cursor:pointer}
 </style>
 </head>
+
 <body>
+
 <div class="box">
+
 <h1>CSS Minifier</h1>
+
+<p>Minify and compress your CSS code online for free.</p>
+
 <textarea id="code" placeholder="Paste CSS here..."></textarea>
-<br><button onclick="minify()">Minify CSS</button>
+
+<br>
+
+<button onclick="minify()">Minify CSS</button>
+
 </div>
+
 <script>
 function minify(){
+
 let x=document.getElementById("code").value;
-x=x.replace(/\/\*[\s\S]*?\*\//g,"")
+
+x=x
+.replace(/\/\*[\s\S]*?\*\//g,"")
 .replace(/\s+/g," ")
 .replace(/\s*([{}:;,])\s*/g,"$1")
 .trim();
+
 document.getElementById("code").value=x;
+
 }
 </script>
+
 </body>
 </html>
