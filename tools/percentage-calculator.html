@@ -1,85 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Percentage Calculator Online — Free & Easy | VexTools</title>
+<title>Percentage Calculator Online Free — VexTools</title>
 
-<meta name="description" content="Use VexTools free percentage calculator to quickly calculate percentages of any number online. Simple, fast and accurate percentage calculations.">
+<meta name="description" content="Use the free VexTools Percentage Calculator to calculate percentages quickly and accurately online. Find a percentage of any number instantly.">
 
-<meta name="keywords" content="percentage calculator, percentage calculator online, calculate percentage, percent calculator, free percentage calculator, VexTools">
+<meta name="keywords" content="percentage calculator, percentage calculator online, calculate percentage, percent calculator, free percentage calculator, percentage of a number, VexTools">
 
 <meta name="robots" content="index, follow">
 <meta name="author" content="VexTools">
 
-<link rel="canonical" href="https://vextools.github.io/percentage-calculator/">
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/percentage-calculator.html">
 
-<meta property="og:title" content="Percentage Calculator Online — VexTools">
-<meta property="og:description" content="Calculate percentages quickly and easily with the free VexTools Percentage Calculator.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://vextools.github.io/percentage-calculator/">
+<meta property="og:title" content="Percentage Calculator Online Free — VexTools">
+<meta property="og:description" content="Calculate percentages quickly and accurately with the free VexTools Percentage Calculator.">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/percentage-calculator.html">
+<meta property="og:site_name" content="VexTools">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Percentage Calculator — VexTools">
+<meta name="twitter:title" content="Percentage Calculator Online Free — VexTools">
 <meta name="twitter:description" content="Free online percentage calculator for quick and accurate calculations.">
+
+<meta name="theme-color" content="#070b18">
 
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"WebApplication",
   "name":"Percentage Calculator",
-  "url":"https://vextools.github.io/percentage-calculator/",
-  "description":"Free online percentage calculator for quickly calculating percentages.",
-  "applicationCategory":"Calculator",
-  "operatingSystem":"All"
+  "url":"https://vextools18-service.github.io/VexTool/tools/percentage-calculator.html",
+  "description":"Free online percentage calculator for quickly calculating percentages of numbers.",
+  "applicationCategory":"CalculatorApplication",
+  "operatingSystem":"Any",
+  "isAccessibleForFree":true,
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
 }
 </script>
 
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
-.container{max-width:600px;margin:auto}
-input{width:100%;padding:15px;margin:10px 0;border-radius:10px;border:1px solid #27304a;background:#111a30;color:white}
-button{width:100%;padding:15px;margin-top:10px;background:#7c3aed;color:white;border:0;border-radius:10px;font-weight:bold;cursor:pointer}
-.result{margin-top:20px;padding:20px;background:#111a30;border-radius:12px;font-size:20px}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#070b18;
+    color:#f8fafc;
+    min-height:100vh;
+    padding:30px 15px;
+    line-height:1.6;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin:25px 0 35px;
+}
+
+.logo{
+    display:inline-block;
+    color:#a78bfa;
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+}
+
+.header h1{
+    font-size:clamp(32px,6vw,48px);
+    margin:15px 0 8px;
+}
+
+.header h1 span{
+    color:#22d3ee;
+}
+
+.header p{
+    color:#94a3b8;
+}
+
+.card{
+    background:#11192d;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.field{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #27304a;
+    background:#070b18;
+    color:white;
+    outline:none;
+    font-size:16px;
+}
+
+input:focus{
+    border-color:#8b5cf6;
+    box-shadow:0 0 20px rgba(124,58,237,.2);
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+}
+
+button{
+    flex:1;
+    padding:14px 20px;
+    border:0;
+    border-radius:10px;
+    background:linear-gradient(90deg,#7c3aed,#06b6d4);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+button.secondary{
+    background:#27304a;
+}
+
+.result{
+    margin-top:20px;
+    padding:20px;
+    min-height:70px;
+    background:#070b18;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+    text-align:center;
+    font-size:21px;
+    font-weight:bold;
+    color:#22d3ee;
+    word-break:break-word;
+}
+
+.result.error{
+    color:#fca5a5;
+    font-size:16px;
+}
+
+.info{
+    margin-top:45px;
+}
+
+.info h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.info p{
+    color:#94a3b8;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.examples{
+    margin-top:20px;
+    padding:18px;
+    background:#11192d;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+}
+
+.examples h3{
+    margin-bottom:10px;
+}
+
+.examples p{
+    margin:7px 0;
+    font-size:14px;
+}
+
+.back{
+    display:inline-block;
+    margin-top:25px;
+    color:#a78bfa;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.back:hover{
+    color:white;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:20px 12px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    button{
+        width:100%;
+    }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+        transition:none!important;
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>📊 Percentage Calculator</h1>
+<header class="header">
 
-<p>Calculate percentages quickly and easily.</p>
+<a class="logo" href="../index.html">
+VexTools
+</a>
 
-<input id="percent" type="number" placeholder="Percentage">
+<h1>
+Percentage <span>Calculator</span>
+</h1>
 
-<input id="number" type="number" placeholder="Number">
+<p>
+Calculate percentages quickly and accurately online.
+</p>
 
-<button onclick="calculate()">Calculate</button>
+</header>
 
-<div class="result" id="result">
-Result: —
+<main class="card">
+
+<div class="field">
+
+<label for="percent">
+Percentage (%)
+</label>
+
+<input
+    id="percent"
+    type="number"
+    placeholder="Example: 25"
+    step="any"
+    inputmode="decimal"
+>
+
 </div>
+
+<div class="field">
+
+<label for="number">
+Number
+</label>
+
+<input
+    id="number"
+    type="number"
+    placeholder="Example: 200"
+    step="any"
+    inputmode="decimal"
+>
+
+</div>
+
+<div class="actions">
+
+<button
+    type="button"
+    onclick="calculatePercentage()">
+    📊 Calculate
+</button>
+
+<button
+    type="button"
+    class="secondary"
+    onclick="clearCalculator()">
+    🗑️ Clear
+</button>
+
+</div>
+
+<div
+    class="result"
+    id="result"
+    aria-live="polite">
+    Result: —
+</div>
+
+</main>
+
+<section class="info">
+
+<h2>
+Free Online Percentage Calculator
+</h2>
+
+<p>
+VexTools Percentage Calculator helps you quickly find
+a percentage of any number. Enter the percentage and
+the number, then click Calculate to get the result instantly.
+</p>
+
+<p>
+For example, if you want to calculate 25% of 200,
+enter <strong>25</strong> as the percentage and
+<strong>200</strong> as the number. The result will be
+<strong>50</strong>.
+</p>
+
+<div class="examples">
+
+<h3>
+How Percentage Calculation Works
+</h3>
+
+<p>
+<strong>Formula:</strong>
+Percentage ÷ 100 × Number
+</p>
+
+<p>
+<strong>Example:</strong>
+20% of 500 = 20 ÷ 100 × 500 = 100
+</p>
+
+</div>
+
+</section>
+
+<a
+    class="back"
+    href="../index.html">
+    ← Back to VexTools
+</a>
 
 </div>
 
 <script>
-function calculate(){
 
-let p=Number(document.getElementById("percent").value);
-let n=Number(document.getElementById("number").value);
+const percentInput =
+    document.getElementById("percent");
 
-if(isNaN(p)||isNaN(n)){
-document.getElementById("result").textContent="Please enter valid numbers.";
-return;
+const numberInput =
+    document.getElementById("number");
+
+const result =
+    document.getElementById("result");
+
+function calculatePercentage(){
+
+    const percentValue =
+        percentInput.value.trim();
+
+    const numberValue =
+        numberInput.value.trim();
+
+    result.classList.remove("error");
+
+    if(
+        percentValue === "" ||
+        numberValue === ""
+    ){
+
+        result.textContent =
+            "Please enter both the percentage and number.";
+
+        result.classList.add("error");
+
+        return;
+
+    }
+
+    const percent =
+        Number(percentValue);
+
+    const number =
+        Number(numberValue);
+
+    if(
+        !Number.isFinite(percent) ||
+        !Number.isFinite(number)
+    ){
+
+        result.textContent =
+            "Please enter valid numbers.";
+
+        result.classList.add("error");
+
+        return;
+
+    }
+
+    const answer =
+        (percent / 100) * number;
+
+    result.textContent =
+        "Result: " + formatNumber(answer);
+
 }
 
-document.getElementById("result").textContent=
-"Result: "+(p/100*n);
+function formatNumber(value){
+
+    if(
+        Number.isInteger(value)
+    ){
+
+        return value.toString();
+
+    }
+
+    return value
+        .toFixed(10)
+        .replace(/\.?0+$/,"");
 
 }
+
+function clearCalculator(){
+
+    percentInput.value = "";
+    numberInput.value = "";
+
+    result.textContent =
+        "Result: —";
+
+    result.classList.remove("error");
+
+    percentInput.focus();
+
+}
+
+[percentInput,numberInput].forEach(
+    input => {
+
+        input.addEventListener(
+            "keydown",
+            function(event){
+
+                if(event.key === "Enter"){
+
+                    event.preventDefault();
+
+                    calculatePercentage();
+
+                }
+
+                if(event.key === "Escape"){
+
+                    clearCalculator();
+
+                }
+
+            }
+        );
+
+    }
+);
+
 </script>
 
 </body>
