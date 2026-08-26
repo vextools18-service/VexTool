@@ -3,36 +3,293 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Username Generator — VexTools</title>
+
+<!-- SEO -->
+<title>Username Generator — Free Random Username Ideas | VexTools</title>
+
+<meta name="description" content="Generate random username ideas instantly with the free VexTools Username Generator. Create unique usernames for gaming, social media, websites and more.">
+<meta name="keywords" content="username generator, random username generator, username ideas, unique username generator, gaming username generator, social media username generator, free username generator, VexTools">
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="theme-color" content="#070b18">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://vextools.github.io/tools/username-generator/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Username Generator — Free Random Username Ideas | VexTools">
+<meta property="og:description" content="Generate random username ideas instantly for gaming, social media, websites and more with VexTools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/tools/username-generator/">
+<meta property="og:site_name" content="VexTools">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Username Generator — VexTools">
+<meta name="twitter:description" content="Create random and unique username ideas instantly with the free VexTools Username Generator.">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Username Generator",
+  "url":"https://vextools.github.io/tools/username-generator/",
+  "description":"Free online username generator for creating random username ideas.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:50px 20px;text-align:center}
-.container{max-width:650px;margin:auto}
-input{width:100%;padding:15px;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px;margin:20px 0}
-button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px}
-.result{font-size:24px;margin:25px 0;padding:25px;background:#111a30;border-radius:12px}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:30px 15px;
+min-height:100vh;
+}
+
+.container{
+max-width:650px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:15px;
+}
+
+h1{
+margin:10px 0 8px;
+font-size:34px;
+}
+
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+.card{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:22px;
+}
+
+input{
+width:100%;
+padding:15px;
+background:#111a30;
+color:white;
+border:1px solid #27304a;
+border-radius:10px;
+margin:15px 0;
+font-size:16px;
+outline:none;
+}
+
+input:focus{
+border-color:#7c3aed;
+}
+
+button{
+width:100%;
+padding:14px 25px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
+}
+
+.result{
+font-size:24px;
+margin:25px 0 15px;
+padding:25px;
+background:#111a30;
+border-radius:12px;
+word-break:break-word;
+color:#22d3ee;
+text-align:center;
+}
+
+.copy{
+background:#06b6d4;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+
+.info{
+margin-top:25px;
+padding:20px;
+background:#111a30;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+color:#cbd5e1;
+line-height:1.7;
+}
+
+.info h2{
+color:white;
+font-size:20px;
+margin-bottom:8px;
+}
+
+@media(max-width:600px){
+h1{
+font-size:28px;
+}
+
+.result{
+font-size:20px;
+}
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
+<div class="header">
+
+<a class="logo" href="../index.html">VexTools</a>
+
 <h1>👤 Username Generator</h1>
-<p>Create random username ideas.</p>
-<input id="word" placeholder="Optional word">
-<button onclick="generate()">Generate</button>
-<div class="result" id="result">Your username</div>
+
+<p>
+Create random username ideas instantly for gaming, social media and more.
+</p>
+
+</div>
+
+<div class="card">
+
+<input
+id="word"
+placeholder="Optional word, e.g. Alex"
+autocomplete="off"
+>
+
+<button onclick="generate()">
+Generate Username
+</button>
+
+<div class="result" id="result">
+Your username
+</div>
+
+<button class="copy" onclick="copyUsername()">
+Copy Username
+</button>
+
+</div>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+<div class="info">
+
+<h2>Free Username Generator</h2>
+
+<p>
+Use the VexTools Username Generator to create random username ideas
+quickly. Enter an optional word and generate a username that can be
+used as inspiration for gaming accounts, social media profiles,
+websites and other online platforms.
+</p>
+
+</div>
+
 </div>
 
 <script>
-const adjectives=["Cool","Smart","Epic","Fast","Dark","Pro","Mega","Lucky"];
-const nouns=["Tiger","Wolf","Dragon","Coder","Ninja","Fox","Player","Master"];
+
+const adjectives=[
+"Cool",
+"Smart",
+"Epic",
+"Fast",
+"Dark",
+"Pro",
+"Mega",
+"Lucky"
+];
+
+const nouns=[
+"Tiger",
+"Wolf",
+"Dragon",
+"Coder",
+"Ninja",
+"Fox",
+"Player",
+"Master"
+];
 
 function generate(){
-let base=word.value.trim();
-let a=adjectives[Math.floor(Math.random()*adjectives.length)];
-let n=nouns[Math.floor(Math.random()*nouns.length)];
-let num=Math.floor(Math.random()*9999);
 
-result.textContent=(base||a+n)+num;
+let base=document.getElementById("word").value.trim();
+
+let a=
+adjectives[Math.floor(Math.random()*adjectives.length)];
+
+let n=
+nouns[Math.floor(Math.random()*nouns.length)];
+
+let num=
+Math.floor(Math.random()*9999);
+
+document.getElementById("result").textContent=
+(base || a+n)+num;
+
 }
+
+function copyUsername(){
+
+const username=
+document.getElementById("result").textContent;
+
+if(!username || username==="Your username") return;
+
+navigator.clipboard.writeText(username);
+
+}
+
 </script>
+
 </body>
 </html>
