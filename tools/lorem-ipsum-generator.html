@@ -44,7 +44,7 @@
 *{
 box-sizing:border-box;
 margin:0;
-padding:0
+padding:0;
 }
 
 body{
@@ -56,49 +56,55 @@ padding:30px 15px;
 
 .container{
 max-width:850px;
-margin:auto
+margin:auto;
 }
 
 .header{
 text-align:center;
-margin-bottom:25px
+margin-bottom:25px;
 }
 
 .logo{
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
-text-decoration:none
+text-decoration:none;
 }
 
 h1{
-margin:15px 0 8px
+margin:15px 0 8px;
 }
 
 p{
-color:#94a3b8
+color:#94a3b8;
 }
 
 .card{
 background:rgba(17,25,45,.85);
 border:1px solid rgba(255,255,255,.1);
 border-radius:20px;
-padding:22px
+padding:22px;
 }
 
 .controls{
 display:flex;
 gap:10px;
-margin-bottom:15px
+margin-bottom:15px;
+align-items:center;
 }
 
 input{
-width:100px;
+width:120px;
 padding:12px;
 background:#0d1427;
 color:white;
 border:1px solid #29344f;
-border-radius:10px
+border-radius:10px;
+outline:none;
+}
+
+input:focus{
+border-color:#7c3aed;
 }
 
 button{
@@ -108,12 +114,13 @@ border-radius:10px;
 background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
-cursor:pointer
+cursor:pointer;
+transition:.2s;
 }
 
 button:hover{
 transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(124,58,237,.3)
+box-shadow:0 8px 20px rgba(124,58,237,.3);
 }
 
 textarea{
@@ -125,13 +132,38 @@ color:white;
 border:1px solid #29344f;
 border-radius:14px;
 resize:vertical;
-line-height:1.7
+line-height:1.7;
+font-family:Arial,sans-serif;
+outline:none;
+}
+
+textarea:focus{
+border-color:#7c3aed;
+}
+
+.status{
+margin-top:12px;
+text-align:center;
+color:#94a3b8;
+font-size:13px;
+min-height:18px;
 }
 
 @media(max-width:500px){
+
 .controls{
-flex-wrap:wrap
+flex-direction:column;
+align-items:stretch;
 }
+
+input{
+width:100%;
+}
+
+button{
+width:100%;
+}
+
 }
 </style>
 
@@ -167,13 +199,14 @@ type="number"
 min="1"
 max="100"
 value="3"
+aria-label="Number of paragraphs"
 >
 
-<button onclick="generate()">
+<button type="button" onclick="generate()">
 Generate
 </button>
 
-<button onclick="copyText()">
+<button type="button" onclick="copyText()">
 Copy
 </button>
 
@@ -183,7 +216,10 @@ Copy
 id="output"
 readonly
 placeholder="Generated Lorem Ipsum will appear here..."
+aria-label="Generated Lorem Ipsum"
 ></textarea>
+
+<div id="status" class="status"></div>
 
 </div>
 
@@ -191,87 +227,112 @@ placeholder="Generated Lorem Ipsum will appear here..."
 
 <script>
 
-const words =
-`lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum`
-.split(" ");
-
+const words = `
+lorem ipsum dolor sit amet consectetur adipiscing elit
+sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua ut enim ad minim veniam quis nostrud exercitation
+ullamco laboris nisi ut aliquip ex ea commodo consequat
+duis aute irure dolor in reprehenderit voluptate velit esse
+cillum dolore eu fugiat nulla pariatur excepteur sint occaecat
+cupidatat non proident sunt culpa qui officia deserunt mollit
+anim id est laborum
+`.trim().split(/\s+/);
 
 function generate(){
 
-let paragraphs=[];
+const countInput =
+document.getElementById("count");
+
+const output =
+document.getElementById("output");
+
+const status =
+document.getElementById("status");
 
 let count =
-Math.min(
-100,
-Math.max(
-1,
-Number(
-document.getElementById("count").value
-)
-)
-);
+parseInt(countInput.value,10);
 
+if(isNaN(count)){
+count = 3;
+}
 
-for(
-let p=0;
-p<count;
-p++
-){
+count =
+Math.min(100,Math.max(1,count));
 
-let sentence=[];
+countInput.value = count;
 
-for(
-let i=0;
-i<45;
-i++
-){
+const paragraphs = [];
+
+for(let p=0;p<count;p++){
+
+const sentence = [];
+
+for(let i=0;i<45;i++){
 
 sentence.push(
-words[
-Math.floor(
-Math.random()*words.length
-)
-]
+words[Math.floor(Math.random()*words.length)]
 );
 
 }
 
-let text =
-sentence.join(" ");
+let text = sentence.join(" ");
 
 text =
-text.charAt(0).toUpperCase()
-+
-text.slice(1)
-+
+text.charAt(0).toUpperCase() +
+text.slice(1) +
 ".";
 
 paragraphs.push(text);
 
 }
 
-
-document.getElementById("output").value =
+output.value =
 paragraphs.join("\n\n");
+
+status.textContent =
+count === 1
+? "1 paragraph generated."
+: count + " paragraphs generated.";
 
 }
 
-
-function copyText(){
+async function copyText(){
 
 const output =
 document.getElementById("output");
 
+const status =
+document.getElementById("status");
+
 if(!output.value){
+
+status.textContent =
+"Generate some text first.";
+
 return;
+
 }
 
-navigator.clipboard.writeText(
+try{
+
+await navigator.clipboard.writeText(
 output.value
 );
 
+status.textContent =
+"✓ Text copied successfully!";
+
+}catch(error){
+
+output.select();
+document.execCommand("copy");
+
+status.textContent =
+"✓ Text copied successfully!";
+
 }
 
+}
 
 generate();
 
