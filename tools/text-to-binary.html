@@ -1,31 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Text to Binary — VexTools</title>
-<style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
-.container{max-width:800px;margin:auto}
-textarea{width:100%;height:180px;padding:18px;background:#111a30;color:white;border:1px solid #27304a;border-radius:12px;margin:15px 0}
-button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>🔢 Text to Binary</h1>
-<p>Convert text into binary code.</p>
-<textarea id="input" placeholder="Enter text..."></textarea>
-<button onclick="convert()">Convert</button>
-<textarea id="output" readonly placeholder="Binary result..."></textarea>
-</div>
 
-<script>
-function convert(){
-output.value=[...input.value]
-.map(c=>c.charCodeAt(0).toString(2).padStart(8,"0"))
-.join(" ");
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- =========================
+     SEO
+========================= -->
+
+<title>Text to Binary Converter — Convert Text to Binary Online | VexTools</title>
+
+<meta
+    name="description"
+    content="Free online Text to Binary converter by VexTools. Convert text into binary code instantly and easily directly in your browser."
+>
+
+<meta
+    name="keywords"
+    content="text to binary, text to binary converter, binary converter, convert text to binary, binary code converter, ASCII to binary, online binary converter, VexTools"
+>
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="VexTools">
+
+<meta name="theme-color" content="#070b18">
+
+
+<!-- =========================
+     Open Graph
+========================= -->
+
+<meta property="og:type" content="website">
+
+<meta
+    property="og:title"
+    content="Text to Binary Converter — VexTools"
+>
+
+<meta
+    property="og:description"
+    content="Convert text into binary code instantly with the free VexTools Text to Binary converter."
+>
+
+<meta property="og:site_name" content="VexTools">
+
+
+<!-- =========================
+     Twitter / X
+========================= -->
+
+<meta name="twitter:card" content="summary">
+
+<meta
+    name="twitter:title"
+    content="Text to Binary Converter — VexTools"
+>
+
+<meta
+    name="twitter:description"
+    content="Convert text into binary code quickly with the free VexTools online converter."
+>
+
+
+<!-- =========================
+     Structured Data
+========================= -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VexTools Text to Binary Converter",
+    "description": "A free online tool for converting text into binary code.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    }
 }
 </script>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#070b18;
+    color:white;
+    padding:40px 20px;
+    min-height:100vh;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo{
+    display:inline-block;
+    color:#a78bfa;
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+    margin-bottom:5px;
+}
+
+h1{
+    margin:15px 0 8px;
+    font-size:36px;
+}
+
+.header p{
+    color:#94a3b8;
+    line-height:1.6;
+}
+
+.card{
+    background:rgba(17,25,45,.85);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:22px;
+}
+
+textarea{
+    width:100%;
+    height:180px;
+    padding:18px;
+    background:#0d1427;
+    color:white;
+    border:1px solid #29344f;
+    border-radius:14px;
+    margin:15px 0;
+    resize:vertical;
+    outline:none;
+    font-size:15px;
+    line-height:1.6;
+}
+
+textarea:focus{
+    border-color:#7c3aed;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:linear-gradient(90deg,#7c3aed,#6366f1);
+    color:white;
+    border:0;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+.info{
+    text-align:center;
+    color:#94a3b8;
+    font-size:13px;
+    line-height:1.6;
+    margin-top:18px;
+}
+
+@media(max-width:600px){
+
+    h1{
+        font-size:29px;
+    }
+
+    body{
+        padding:30px 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<main class="container">
+
+<header class="header">
+
+<a
+    class="logo"
+    href="../index.html"
+    aria-label="VexTools Home"
+>
+    VexTools
+</a>
+
+<h1>🔢 Text to Binary</h1>
+
+<p>
+Convert text into binary code instantly.
+</p>
+
+</header>
+
+
+<section
+    class="card"
+    aria-label="Text to Binary Converter"
+>
+
+<textarea
+    id="input"
+    placeholder="Enter text..."
+    aria-label="Text input"
+></textarea>
+
+
+<button
+    type="button"
+    onclick="convert()"
+>
+    Convert to Binary
+</button>
+
+
+<textarea
+    id="output"
+    readonly
+    placeholder="Binary result..."
+    aria-label="Binary output"
+></textarea>
+
+
+<p class="info">
+Convert text to binary directly in your browser.
+Your text is processed locally and is not uploaded to a server.
+</p>
+
+</section>
+
+</main>
+
+
+<script>
+
+function convert(){
+
+    const input =
+        document.getElementById("input");
+
+    const output =
+        document.getElementById("output");
+
+    output.value =
+        [...input.value]
+        .map(c =>
+            c.charCodeAt(0)
+            .toString(2)
+            .padStart(8,"0")
+        )
+        .join(" ");
+
+}
+
+</script>
+
 </body>
+
 </html>
