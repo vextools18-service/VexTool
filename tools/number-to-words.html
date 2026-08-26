@@ -3,40 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Number to Words — VexTools</title>
+
+<title>Number to Words Converter Online Free — VexTools</title>
+
+<meta name="description" content="Convert numbers into English words online for free with VexTools. Easily convert numbers from 0 to 999999 into words instantly.">
+
+<meta name="keywords" content="number to words, number to words converter, number converter online, convert number to words, numbers in English words, number spelling, free number converter">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/number-to-words.html">
+
+<meta property="og:title" content="Number to Words Converter Online Free — VexTools">
+<meta property="og:description" content="Convert numbers into English words instantly with the free VexTools Number to Words Converter.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/number-to-words.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Number to Words Converter Online Free — VexTools">
+<meta name="twitter:description" content="Convert numbers into English words online for free with VexTools.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Number to Words Converter",
+  "url":"https://vextools18-service.github.io/VexTool/tools/number-to-words.html",
+  "description":"Free online number to words converter that converts numbers from 0 to 999999 into English words.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
-.container{max-width:700px;margin:auto}
-input{width:100%;padding:16px;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px;margin:20px 0}
-button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px}
-.result{margin-top:20px;padding:20px;background:#111a30;border-radius:12px}
+body{
+font-family:Arial;
+background:#070b18;
+color:white;
+padding:50px 20px
+}
+
+.container{
+max-width:700px;
+margin:auto
+}
+
+input{
+width:100%;
+padding:16px;
+background:#111a30;
+color:white;
+border:1px solid #27304a;
+border-radius:10px;
+margin:20px 0
+}
+
+button{
+padding:14px 25px;
+background:#7c3aed;
+color:white;
+border:0;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(124,58,237,.3)
+}
+
+.result{
+margin-top:20px;
+padding:20px;
+background:#111a30;
+border-radius:12px;
+line-height:1.7;
+word-wrap:break-word
+}
 </style>
+
 </head>
+
 <body>
+
 <div class="container">
+
 <h1>🔢 Number to Words</h1>
-<p>Convert numbers into English words.</p>
-<input id="number" type="number" placeholder="Enter number">
-<button onclick="convert()">Convert</button>
-<div class="result" id="result"></div>
+
+<p>
+Convert numbers into English words.
+</p>
+
+<input
+id="number"
+type="number"
+placeholder="Enter number"
+>
+
+<button onclick="convert()">
+Convert
+</button>
+
+<div class="result" id="result">
+</div>
+
 </div>
 
 <script>
-const ones=["","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
-const tens=["","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
+
+const ones=[
+"",
+"one",
+"two",
+"three",
+"four",
+"five",
+"six",
+"seven",
+"eight",
+"nine",
+"ten",
+"eleven",
+"twelve",
+"thirteen",
+"fourteen",
+"fifteen",
+"sixteen",
+"seventeen",
+"eighteen",
+"nineteen"
+];
+
+const tens=[
+"",
+"",
+"twenty",
+"thirty",
+"forty",
+"fifty",
+"sixty",
+"seventy",
+"eighty",
+"ninety"
+];
+
 
 function words(n){
-if(n<20)return ones[n];
-if(n<100)return tens[Math.floor(n/10)]+(n%10?" "+ones[n%10]:"");
-if(n<1000)return ones[Math.floor(n/100)]+" hundred"+(n%100?" "+words(n%100):"");
-if(n<1000000)return words(Math.floor(n/1000))+" thousand"+(n%1000?" "+words(n%1000):"");
+
+if(n===0)
+return "zero";
+
+if(n<20)
+return ones[n];
+
+if(n<100)
+return tens[Math.floor(n/10)]
++
+(n%10 ? " "+ones[n%10] : "");
+
+if(n<1000)
+return ones[Math.floor(n/100)]
++
+" hundred"
++
+(n%100 ? " "+words(n%100) : "");
+
+if(n<1000000)
+return words(Math.floor(n/1000))
++
+" thousand"
++
+(n%1000 ? " "+words(n%1000) : "");
+
 return "Number too large";
+
 }
 
+
 function convert(){
-let n=Number(number.value);
-result.textContent=n>=0&&n<1000000?words(n):"Enter a number from 0 to 999999.";
+
+let n =
+Number(
+document.getElementById("number").value
+);
+
+const result =
+document.getElementById("result");
+
+if(
+!Number.isInteger(n) ||
+n<0 ||
+n>=1000000
+){
+
+result.textContent =
+"Enter a number from 0 to 999999.";
+
+return;
+
 }
+
+result.textContent =
+words(n);
+
+}
+
 </script>
+
 </body>
 </html>
