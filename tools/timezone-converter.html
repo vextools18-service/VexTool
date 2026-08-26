@@ -7,16 +7,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <!-- Primary SEO -->
-<title>Timezone Converter — Convert Time Zones Online | VexTools</title>
+<title>Timezone Converter — Convert Time Between Time Zones | VexTools</title>
 
 <meta
 name="description"
-content="Free online Timezone Converter by VexTools. Convert date and time between UTC, Pakistan, India, London, New York, Los Angeles, Tokyo and other time zones."
+content="Free online Timezone Converter by VexTools. Convert date and time between UTC, Pakistan, India, London, New York, Los Angeles, Tokyo and other time zones instantly."
 >
 
 <meta
 name="keywords"
-content="timezone converter, time zone converter, timezone conversion, convert timezone, UTC converter, world time converter, time zone calculator, date time converter, VexTools"
+content="timezone converter, time zone converter, convert time zones, timezone conversion, UTC converter, world time converter, time zone calculator, date time converter, international time converter, VexTools"
 >
 
 <meta name="robots" content="index, follow">
@@ -31,10 +31,13 @@ href="https://vextools.site/tools/timezone-converter.html"
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Timezone Converter — VexTools">
+<meta
+property="og:title"
+content="Timezone Converter — Convert Time Between Time Zones | VexTools"
+>
 <meta
 property="og:description"
-content="Convert date and time between different time zones with the free VexTools Timezone Converter."
+content="Convert date and time between different time zones instantly with the free VexTools Timezone Converter."
 >
 <meta
 property="og:url"
@@ -50,7 +53,7 @@ content="Timezone Converter — VexTools"
 >
 <meta
 name="twitter:description"
-content="Convert date and time between different time zones quickly and easily with VexTools."
+content="Convert date and time between different time zones instantly with VexTools."
 >
 
 <!-- Structured Data -->
@@ -58,13 +61,18 @@ content="Convert date and time between different time zones quickly and easily w
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Timezone Converter",
+  "name": "VexTools Timezone Converter",
   "url": "https://vextools.site/tools/timezone-converter.html",
-  "description": "A free online timezone converter for converting date and time between different time zones.",
-  "applicationCategory": "UtilityApplication",
+  "description": "A free online tool for converting date and time between different time zones.",
+  "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
   "browserRequirements": "Requires a modern web browser",
   "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
   "publisher": {
     "@type": "Organization",
     "name": "VexTools",
@@ -84,7 +92,7 @@ content="Convert date and time between different time zones quickly and easily w
       "name": "What is a timezone converter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A timezone converter changes a date and time from one time zone into the corresponding time in another time zone."
+        "text": "A timezone converter converts a date and time from one time zone into the corresponding local time in another time zone."
       }
     },
     {
@@ -92,7 +100,15 @@ content="Convert date and time between different time zones quickly and easily w
       "name": "How do I convert time between time zones?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Select a date and time, choose the desired time zone, and click Convert to see the corresponding date and time."
+        "text": "Select a date and time, choose the source time zone and destination time zone, then click Convert Time to see the converted result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the timezone converter support daylight saving time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The converter uses the browser's built-in internationalization time zone data to account for applicable daylight saving time rules."
       }
     },
     {
@@ -100,13 +116,12 @@ content="Convert date and time between different time zones quickly and easily w
       "name": "Is the VexTools Timezone Converter free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The VexTools Timezone Converter is free to use online."
+        "text": "Yes. The VexTools Timezone Converter is completely free to use online."
       }
     }
   ]
 }
 </script>
-
 
 <style>
 
@@ -120,20 +135,17 @@ body{
 font-family:Arial,sans-serif;
 background:#070b18;
 color:white;
-text-align:center;
-padding:50px 20px;
+padding:40px 15px;
 }
 
 .container{
-max-width:650px;
+max-width:700px;
 margin:auto;
 }
 
-.box{
-background:rgba(17,25,45,.85);
-border:1px solid rgba(255,255,255,.1);
-padding:30px;
-border-radius:20px;
+.header{
+text-align:center;
+margin-bottom:25px;
 }
 
 .logo{
@@ -142,23 +154,40 @@ color:#a78bfa;
 font-size:28px;
 font-weight:900;
 text-decoration:none;
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
 h1{
-margin:10px 0;
+margin:10px 0 8px;
+font-size:36px;
 }
 
-p{
+.header p{
 color:#94a3b8;
 line-height:1.6;
+}
+
+.card{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+}
+
+label{
+display:block;
+text-align:left;
+color:#cbd5e1;
+font-size:14px;
+font-weight:bold;
+margin:12px 0 6px;
 }
 
 input,
 select{
 width:100%;
 padding:15px;
-margin:8px 0;
+margin-bottom:5px;
 background:#0d1427;
 color:white;
 border:1px solid #29344f;
@@ -175,17 +204,19 @@ border-color:#7c3aed;
 button{
 width:100%;
 padding:14px;
-margin-top:10px;
+margin-top:15px;
 border:0;
 border-radius:10px;
 background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:.2s;
 }
 
 button:hover{
 opacity:.9;
+transform:translateY(-1px);
 }
 
 #result{
@@ -194,7 +225,7 @@ padding:20px;
 background:#0d1427;
 border:1px solid #29344f;
 border-radius:12px;
-font-size:20px;
+font-size:19px;
 line-height:1.6;
 word-break:break-word;
 color:#22d3ee;
@@ -220,18 +251,22 @@ margin-top:18px;
 margin-bottom:6px;
 }
 
+.seo-content p{
+color:#94a3b8;
+}
+
 @media(max-width:600px){
 
 body{
-padding:30px 15px;
+padding:25px 15px;
 }
 
 h1{
-font-size:28px;
+font-size:29px;
 }
 
-.box{
-padding:22px;
+.card{
+padding:20px;
 }
 
 #result{
@@ -247,9 +282,9 @@ font-size:17px;
 
 <body>
 
-<div class="container">
+<main class="container">
 
-<div class="box">
+<header class="header">
 
 <a
 class="logo"
@@ -262,9 +297,20 @@ VexTools
 <h1>🌍 Timezone Converter</h1>
 
 <p>
-Convert date and time between different time zones.
+Convert date and time between different time zones instantly.
 </p>
 
+</header>
+
+
+<section
+class="card"
+aria-label="Timezone Converter"
+>
+
+<label for="date">
+Date and Time
+</label>
 
 <input
 type="datetime-local"
@@ -273,16 +319,40 @@ aria-label="Select date and time"
 >
 
 
+<label for="fromZone">
+From Time Zone
+</label>
+
 <select
-id="zone"
-aria-label="Select timezone"
+id="fromZone"
+aria-label="Select source time zone"
+>
+
+<option value="UTC">UTC</option>
+<option value="Asia/Karachi" selected>Pakistan</option>
+<option value="Asia/Kolkata">India</option>
+<option value="Europe/London">London</option>
+<option value="America/New_York">New York</option>
+<option value="America/Los_Angeles">Los Angeles</option>
+<option value="Asia/Tokyo">Tokyo</option>
+
+</select>
+
+
+<label for="toZone">
+To Time Zone
+</label>
+
+<select
+id="toZone"
+aria-label="Select destination time zone"
 >
 
 <option value="UTC">UTC</option>
 <option value="Asia/Karachi">Pakistan</option>
 <option value="Asia/Kolkata">India</option>
 <option value="Europe/London">London</option>
-<option value="America/New_York">New York</option>
+<option value="America/New_York" selected>New York</option>
 <option value="America/Los_Angeles">Los Angeles</option>
 <option value="Asia/Tokyo">Tokyo</option>
 
@@ -304,7 +374,7 @@ aria-live="polite"
 Result will appear here.
 </div>
 
-</div>
+</section>
 
 
 <!-- SEO Content -->
@@ -314,43 +384,54 @@ Result will appear here.
 <h2>Timezone Converter</h2>
 
 <p>
-Use the VexTools Timezone Converter to convert dates and
-times between different time zones. Select a date and time,
-choose a destination timezone, and get the converted time
-instantly.
+Use the VexTools Timezone Converter to convert a date and
+time from one time zone to another. Select the source
+timezone, destination timezone and date and time to get the
+correct local time instantly.
 </p>
 
 
 <h3>What is a time zone?</h3>
 
 <p>
-A time zone is a region that observes a particular standard
+A time zone is a region that follows a particular standard
 time. Different parts of the world use different time zones,
-which means the same moment can have different local times
-depending on the location.
+so the same moment can have different local times depending
+on the location.
 </p>
 
 
 <h3>How to use the Timezone Converter</h3>
 
 <p>
-Choose a date and time using the date and time field above.
-Then select the destination timezone from the list and
-click the Convert Time button. The converter will display
-the corresponding date and time.
+Select the date and time you want to convert. Choose the
+timezone the original time belongs to in the From Time Zone
+field, then select the destination timezone. Click Convert
+Time to see the corresponding local date and time.
 </p>
 
 
 <h3>Supported time zones</h3>
 
 <p>
-This Timezone Converter includes UTC, Pakistan, India,
-London, New York, Los Angeles and Tokyo. These locations
-cover several commonly used time zones around the world.
+VexTools currently supports commonly used time zones
+including UTC, Pakistan, India, London, New York,
+Los Angeles and Tokyo. The converter also uses standard
+browser timezone rules for accurate local time calculations.
+</p>
+
+
+<h3>Why use a timezone converter?</h3>
+
+<p>
+A timezone converter is useful when scheduling international
+meetings, online events, travel plans, calls and communication
+between people in different parts of the world.
 </p>
 
 
 <h2>Frequently Asked Questions</h2>
+
 
 <h3>Is the Timezone Converter free?</h3>
 
@@ -360,40 +441,133 @@ to use online.
 </p>
 
 
-<h3>Can I convert UTC to local time?</h3>
+<h3>Can I convert Pakistan time to USA time?</h3>
 
 <p>
-Yes. Select UTC as the input reference and choose the
-desired destination timezone to view the corresponding
-local date and time.
+Yes. Select Pakistan as the From Time Zone and choose
+New York or Los Angeles as the destination timezone.
+</p>
+
+
+<h3>Does it support daylight saving time?</h3>
+
+<p>
+Yes. The converter uses the browser's built-in timezone
+database, which accounts for applicable daylight saving
+time rules.
 </p>
 
 
 <h3>Can I use this tool for international meetings?</h3>
 
 <p>
-Yes. A timezone converter can help compare times across
-different locations when planning online meetings,
-events or international communication.
+Yes. The converter makes it easier to compare local times
+when planning meetings, calls and online events across
+different countries.
 </p>
 
 </section>
 
-</div>
+</main>
 
 
 <script>
+
+function getTimeZoneOffset(date, timeZone){
+
+const parts=new Intl.DateTimeFormat(
+"en-US",
+{
+timeZone,
+year:"numeric",
+month:"2-digit",
+day:"2-digit",
+hour:"2-digit",
+minute:"2-digit",
+second:"2-digit",
+hourCycle:"h23"
+}
+).formatToParts(date);
+
+const values={};
+
+parts.forEach(part=>{
+if(part.type!=="literal"){
+values[part.type]=part.value;
+}
+});
+
+const asUTC=Date.UTC(
+Number(values.year),
+Number(values.month)-1,
+Number(values.day),
+Number(values.hour),
+Number(values.minute),
+Number(values.second)
+);
+
+return asUTC-date.getTime();
+
+}
+
+
+function zonedTimeToUTC(dateString,timeZone){
+
+const [datePart,timePart]=dateString.split("T");
+
+const [year,month,day]=datePart
+.split("-")
+.map(Number);
+
+const [hour,minute]=timePart
+.split(":")
+.map(Number);
+
+const guess=Date.UTC(
+year,
+month-1,
+day,
+hour,
+minute
+);
+
+let date=new Date(guess);
+
+let offset=getTimeZoneOffset(
+date,
+timeZone
+);
+
+date=new Date(guess-offset);
+
+const newOffset=getTimeZoneOffset(
+date,
+timeZone
+);
+
+if(newOffset!==offset){
+date=new Date(guess-newOffset);
+}
+
+return date;
+
+}
+
 
 function convert(){
 
 const dateValue=
 document.getElementById("date").value;
 
-const zone=
-document.getElementById("zone").value;
+const fromZone=
+document.getElementById("fromZone").value;
+
+const toZone=
+document.getElementById("toZone").value;
 
 const result=
 document.getElementById("result");
+
 
 if(!dateValue){
 
@@ -404,26 +578,36 @@ return;
 
 }
 
-const x=new Date(dateValue);
 
-if(isNaN(x.getTime())){
+try{
 
-result.textContent=
-"Invalid date or time.";
+const utcDate=
+zonedTimeToUTC(
+dateValue,
+fromZone
+);
 
-return;
 
-}
-
-result.textContent=
-x.toLocaleString(
+const formatted=
+new Intl.DateTimeFormat(
 "en-US",
 {
-timeZone:zone,
+timeZone:toZone,
 dateStyle:"full",
 timeStyle:"long"
 }
-);
+).format(utcDate);
+
+
+result.textContent=
+formatted;
+
+}catch(error){
+
+result.textContent=
+"❌ Unable to convert the selected time.";
+
+}
 
 }
 
