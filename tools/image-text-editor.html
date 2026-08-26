@@ -4,15 +4,1078 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Image Text Editor — VexTools</title>
-<meta name="description" content="Free online image text editor. Add, customize, move and download text on images directly in your browser.">
-<meta name="keywords" content="image text editor, add text to image, text on image, edit image text, online image editor, free image text editor, VexTools">
+<title>Image Text Editor Online — Add Text to Image | VexTools</title>
+
+<meta name="description" content="Free online image text editor. Add, customize, move and download text on images directly in your browser with VexTools.">
+<meta name="keywords" content="image text editor, add text to image, text on image, edit image text, online image editor, free image text editor, add text to photo, VexTools">
+<meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
+
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/image-text-editor.html">
 
-<meta property="og:title" content="Image Text Editor — VexTools">
-<meta property="og:description" content="Add customizable text to images directly in your browser with VexTools.">
+<meta property="og:title" content="Image Text Editor Online — VexTools">
+<meta property="og:description" content="Add customizable text to images directly in your browser with this free online image text editor.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/image-text-editor.html">
+<meta property="og:site_name" content="VexTools">
 
-<!-- Baqi tumhara CSS + JavaScript same rahega -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Image Text Editor Online — VexTools">
+<meta name="twitter:description" content="Free online image text editor for adding and customizing text on images.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"VexTools Image Text Editor",
+  "url":"https://vextools18-service.github.io/VexTool/tools/image-text-editor.html",
+  "description":"Free online image text editor for adding customizable text to images.",
+  "applicationCategory":"MultimediaApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How do I add text to an image?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Upload an image, enter your text, customize the font, size and color, then move the text on the canvas and download the edited image."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is the image text editor free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. VexTools provides this image text editor completely free."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Are my images uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. The editor processes the image directly in your browser."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070b18;
+color:#f8fafc;
+min-height:100vh;
+padding:30px 15px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:15px;
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.header p{
+color:#94a3b8;
+line-height:1.6;
+}
+
+.card{
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:25px;
+}
+
+.file-label{
+display:block;
+border:2px dashed #7c3aed;
+border-radius:15px;
+padding:35px 20px;
+text-align:center;
+cursor:pointer;
+background:rgba(124,58,237,.08);
+transition:.2s;
+}
+
+.file-label:hover{
+background:rgba(124,58,237,.15);
+transform:translateY(-2px);
+}
+
+.file-label strong{
+display:block;
+font-size:18px;
+margin-bottom:8px;
+}
+
+.file-label span{
+color:#94a3b8;
+font-size:14px;
+}
+
+input[type=file]{
+display:none;
+}
+
+.editor{
+display:none;
+margin-top:22px;
+}
+
+.controls{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-bottom:18px;
+}
+
+.control{
+background:#0d1427;
+border:1px solid #27304a;
+border-radius:12px;
+padding:14px;
+}
+
+.control label{
+display:block;
+font-size:13px;
+font-weight:bold;
+color:#cbd5e1;
+margin-bottom:8px;
+}
+
+textarea,
+select,
+input[type=number]{
+width:100%;
+padding:11px;
+background:#111a30;
+color:white;
+border:1px solid #27304a;
+border-radius:8px;
+outline:none;
+font-family:Arial,sans-serif;
+}
+
+textarea{
+height:80px;
+resize:vertical;
+}
+
+textarea:focus,
+select:focus,
+input[type=number]:focus{
+border-color:#7c3aed;
+}
+
+input[type=color]{
+width:100%;
+height:42px;
+padding:3px;
+background:#111a30;
+border:1px solid #27304a;
+border-radius:8px;
+cursor:pointer;
+}
+
+input[type=range]{
+width:100%;
+cursor:pointer;
+}
+
+.range-value{
+display:inline-block;
+margin-top:5px;
+color:#a78bfa;
+font-size:13px;
+}
+
+.canvas-wrapper{
+width:100%;
+overflow:auto;
+padding:15px;
+background:#080d1c;
+border-radius:15px;
+border:1px solid #27304a;
+text-align:center;
+}
+
+canvas{
+max-width:100%;
+height:auto;
+display:block;
+margin:auto;
+cursor:move;
+border-radius:8px;
+}
+
+.hint{
+text-align:center;
+color:#64748b;
+font-size:13px;
+margin-top:10px;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+margin-top:18px;
+}
+
+button{
+flex:1;
+padding:14px;
+border:0;
+border-radius:10px;
+background:linear-gradient(90deg,#7c3aed,#06b6d4);
+color:white;
+font-weight:bold;
+cursor:pointer;
+transition:.2s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+button.secondary{
+background:#27304a;
+}
+
+button.download{
+background:#06b6d4;
+}
+
+.status{
+text-align:center;
+margin-top:15px;
+min-height:20px;
+color:#94a3b8;
+font-size:14px;
+}
+
+.info,
+.faq{
+margin-top:25px;
+padding:25px;
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:18px;
+}
+
+.info h2,
+.faq h2{
+margin-bottom:12px;
+}
+
+.info p,
+.faq p{
+color:#94a3b8;
+line-height:1.7;
+font-size:14px;
+}
+
+.faq h3{
+font-size:16px;
+margin:17px 0 7px;
+}
+
+.related{
+margin-top:25px;
+padding:25px;
+background:#11192d;
+border:1px solid rgba(255,255,255,.1);
+border-radius:18px;
+}
+
+.related h2{
+margin-bottom:12px;
+}
+
+.related a{
+display:inline-block;
+margin:5px 5px 0 0;
+padding:9px 13px;
+background:#18223a;
+color:#a78bfa;
+border-radius:8px;
+text-decoration:none;
+font-size:14px;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+margin-top:30px;
+color:#64748b;
+font-size:13px;
+}
+
+@media(max-width:650px){
+
+body{
+padding:25px 12px;
+}
+
+h1{
+font-size:30px;
+}
+
+.card{
+padding:18px;
+}
+
+.controls{
+grid-template-columns:1fr;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+.file-label{
+padding:28px 15px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<a href="../index.html" class="logo">VexTools</a>
+
+<h1>🖼️ Image Text Editor</h1>
+
+<p>
+Add, customize and move text on your images directly in your browser.
+</p>
+
+</div>
+
+<div class="card">
+
+<label class="file-label" for="file">
+
+<strong>📁 Select an Image</strong>
+
+<span>
+Click here to choose JPG, PNG, WEBP or another image
+</span>
+
+</label>
+
+<input
+id="file"
+type="file"
+accept="image/*"
+>
+
+<div class="editor" id="editor">
+
+<div class="controls">
+
+<div class="control">
+
+<label for="text">
+Text
+</label>
+
+<textarea
+id="text"
+placeholder="Enter your text..."
+>VexTools</textarea>
+
+</div>
+
+<div class="control">
+
+<label for="font">
+Font
+</label>
+
+<select id="font">
+
+<option value="Arial">Arial</option>
+<option value="Helvetica">Helvetica</option>
+<option value="Georgia">Georgia</option>
+<option value="Times New Roman">Times New Roman</option>
+<option value="Verdana">Verdana</option>
+<option value="Courier New">Courier New</option>
+
+</select>
+
+</div>
+
+<div class="control">
+
+<label for="size">
+Text Size
+</label>
+
+<input
+id="size"
+type="range"
+min="10"
+max="150"
+value="50"
+>
+
+<span class="range-value">
+<span id="sizeValue">50</span> px
+</span>
+
+</div>
+
+<div class="control">
+
+<label for="color">
+Text Color
+</label>
+
+<input
+id="color"
+type="color"
+value="#ffffff"
+>
+
+</div>
+
+<div class="control">
+
+<label for="x">
+Horizontal Position
+</label>
+
+<input
+id="x"
+type="range"
+min="0"
+max="100"
+value="50"
+>
+
+<span class="range-value">
+<span id="xValue">50</span>%
+</span>
+
+</div>
+
+<div class="control">
+
+<label for="y">
+Vertical Position
+</label>
+
+<input
+id="y"
+type="range"
+min="0"
+max="100"
+value="50"
+>
+
+<span class="range-value">
+<span id="yValue">50</span>%
+</span>
+
+</div>
+
+</div>
+
+<div class="canvas-wrapper">
+
+<canvas id="canvas"></canvas>
+
+</div>
+
+<div class="hint">
+💡 You can also drag the text directly on the image.
+</div>
+
+<div class="buttons">
+
+<button
+class="secondary"
+id="resetBtn"
+>
+Reset
+</button>
+
+<button
+class="download"
+id="downloadBtn"
+>
+⬇️ Download Image
+</button>
+
+</div>
+
+<div class="status" id="status"></div>
+
+</div>
+
+</div>
+
+<div class="info">
+
+<h2>Free Online Image Text Editor</h2>
+
+<p>
+VexTools Image Text Editor lets you add customizable text to
+images directly in your browser. Upload an image, enter your
+text, choose a font, adjust the text size and color, position
+the text, and download the finished image.
+</p>
+
+<p>
+Your image is processed locally in your browser, so you do not
+need to install additional software or upload your image to a server.
+</p>
+
+</div>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do I add text to an image?</h3>
+
+<p>
+Select an image, enter your text, customize the font, size and
+color, then position the text on the image. Click Download Image
+when you are finished.
+</p>
+
+<h3>Can I move the text?</h3>
+
+<p>
+Yes. You can use the position controls or drag the text directly
+on the image.
+</p>
+
+<h3>Is this image text editor free?</h3>
+
+<p>
+Yes. VexTools provides this online image text editor completely free.
+</p>
+
+<h3>Are my images uploaded to a server?</h3>
+
+<p>
+No. The image editing process runs directly in your browser.
+</p>
+
+</div>
+
+<div class="related">
+
+<h2>Related Image Tools</h2>
+
+<a href="image-compressor.html">
+Image Compressor
+</a>
+
+<a href="image-cropper.html">
+Image Cropper
+</a>
+
+<a href="image-resizer.html">
+Image Resizer
+</a>
+
+<a href="color-picker.html">
+Color Picker
+</a>
+
+<a href="../index.html">
+More Free Tools
+</a>
+
+</div>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+<footer>
+© <span id="year"></span> VexTools — Free Online Tools
+</footer>
+
+</div>
+
+<script>
+
+const fileInput =
+document.getElementById("file");
+
+const editor =
+document.getElementById("editor");
+
+const canvas =
+document.getElementById("canvas");
+
+const ctx =
+canvas.getContext("2d");
+
+const textInput =
+document.getElementById("text");
+
+const fontInput =
+document.getElementById("font");
+
+const sizeInput =
+document.getElementById("size");
+
+const colorInput =
+document.getElementById("color");
+
+const xInput =
+document.getElementById("x");
+
+const yInput =
+document.getElementById("y");
+
+const sizeValue =
+document.getElementById("sizeValue");
+
+const xValue =
+document.getElementById("xValue");
+
+const yValue =
+document.getElementById("yValue");
+
+const status =
+document.getElementById("status");
+
+const resetBtn =
+document.getElementById("resetBtn");
+
+const downloadBtn =
+document.getElementById("downloadBtn");
+
+let image = null;
+let imageURL = null;
+
+let dragging = false;
+
+function draw(){
+
+if(!image) return;
+
+canvas.width = image.naturalWidth;
+canvas.height = image.naturalHeight;
+
+ctx.drawImage(
+image,
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+const text =
+textInput.value;
+
+if(!text) return;
+
+const fontSize =
+Number(sizeInput.value);
+
+const x =
+canvas.width * Number(xInput.value) / 100;
+
+const y =
+canvas.height * Number(yInput.value) / 100;
+
+ctx.font =
+"bold " +
+fontSize +
+"px " +
+fontInput.value;
+
+ctx.fillStyle =
+colorInput.value;
+
+ctx.textAlign =
+"center";
+
+ctx.textBaseline =
+"middle";
+
+ctx.fillText(
+text,
+x,
+y
+);
+
+}
+
+function updateValues(){
+
+sizeValue.textContent =
+sizeInput.value;
+
+xValue.textContent =
+xInput.value;
+
+yValue.textContent =
+yInput.value;
+
+draw();
+
+}
+
+fileInput.addEventListener(
+"change",
+function(){
+
+const file =
+fileInput.files[0];
+
+if(!file) return;
+
+if(!file.type.startsWith("image/")){
+
+status.textContent =
+"❌ Please select a valid image.";
+
+return;
+
+}
+
+if(imageURL){
+URL.revokeObjectURL(imageURL);
+}
+
+imageURL =
+URL.createObjectURL(file);
+
+image =
+new Image();
+
+image.onload =
+function(){
+
+editor.style.display =
+"block";
+
+status.textContent =
+"✅ Image loaded successfully.";
+
+draw();
+
+};
+
+image.onerror =
+function(){
+
+status.textContent =
+"❌ Could not load the selected image.";
+
+};
+
+image.src =
+imageURL;
+
+}
+);
+
+textInput.addEventListener(
+"input",
+draw
+);
+
+fontInput.addEventListener(
+"change",
+draw
+);
+
+colorInput.addEventListener(
+"input",
+draw
+);
+
+sizeInput.addEventListener(
+"input",
+updateValues
+);
+
+xInput.addEventListener(
+"input",
+updateValues
+);
+
+yInput.addEventListener(
+"input",
+updateValues
+);
+
+canvas.addEventListener(
+"mousedown",
+function(event){
+
+if(!image) return;
+
+dragging = true;
+
+moveText(event);
+
+}
+);
+
+canvas.addEventListener(
+"mousemove",
+function(event){
+
+if(!dragging) return;
+
+moveText(event);
+
+}
+);
+
+window.addEventListener(
+"mouseup",
+function(){
+
+dragging = false;
+
+}
+);
+
+canvas.addEventListener(
+"touchstart",
+function(event){
+
+if(!image) return;
+
+dragging = true;
+
+moveText(
+event.touches[0]
+);
+
+event.preventDefault();
+
+},
+{passive:false}
+);
+
+canvas.addEventListener(
+"touchmove",
+function(event){
+
+if(!dragging) return;
+
+moveText(
+event.touches[0]
+);
+
+event.preventDefault();
+
+},
+{passive:false}
+);
+
+window.addEventListener(
+"touchend",
+function(){
+
+dragging = false;
+
+}
+);
+
+function moveText(event){
+
+const rect =
+canvas.getBoundingClientRect();
+
+const scaleX =
+canvas.width / rect.width;
+
+const scaleY =
+canvas.height / rect.height;
+
+let px =
+(event.clientX - rect.left) * scaleX;
+
+let py =
+(event.clientY - rect.top) * scaleY;
+
+px =
+Math.max(
+0,
+Math.min(canvas.width,px)
+);
+
+py =
+Math.max(
+0,
+Math.min(canvas.height,py)
+);
+
+xInput.value =
+Math.round(px / canvas.width * 100);
+
+yInput.value =
+Math.round(py / canvas.height * 100);
+
+xValue.textContent =
+xInput.value;
+
+yValue.textContent =
+yInput.value;
+
+draw();
+
+}
+
+resetBtn.addEventListener(
+"click",
+function(){
+
+textInput.value =
+"VexTools";
+
+fontInput.value =
+"Arial";
+
+sizeInput.value =
+50;
+
+colorInput.value =
+"#ffffff";
+
+xInput.value =
+50;
+
+yInput.value =
+50;
+
+updateValues();
+
+status.textContent =
+"↩️ Settings reset.";
+
+}
+);
+
+downloadBtn.addEventListener(
+"click",
+function(){
+
+if(!image){
+
+status.textContent =
+"Please select an image first.";
+
+return;
+
+}
+
+draw();
+
+canvas.toBlob(
+function(blob){
+
+if(!blob){
+
+status.textContent =
+"❌ Could not create the image.";
+
+return;
+
+}
+
+const url =
+URL.createObjectURL(blob);
+
+const link =
+document.createElement("a");
+
+link.href =
+url;
+
+link.download =
+"image-with-text.png";
+
+document.body.appendChild(link);
+
+link.click();
+
+link.remove();
+
+setTimeout(
+function(){
+URL.revokeObjectURL(url);
+},
+1000
+);
+
+status.textContent =
+"✅ Image downloaded successfully.";
+
+},
+"image/png"
+);
+
+});
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
