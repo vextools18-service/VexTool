@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Date Difference Calculator - Calculate Days Between Dates | VexTools</title>
 
@@ -12,6 +12,7 @@
 
 <meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/date-difference.html">
 
@@ -25,158 +26,252 @@
 <meta name="twitter:title" content="Date Difference Calculator - VexTools">
 <meta name="twitter:description" content="Calculate the number of days between two dates quickly and easily.">
 
+<meta name="theme-color" content="#070b18">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "VexTools Date Difference Calculator",
+  "url": "https://vextools18-service.github.io/VexTool/tools/date-difference.html",
+  "description": "Free online date difference calculator for calculating the number of days between two dates.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate the difference between two dates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select the start date and end date, then click Calculate Difference. The tool will show the number of days between the two dates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this date calculator free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VexTools provides this date difference calculator completely free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the calculator work on mobile devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The VexTools Date Difference Calculator works directly in modern web browsers on desktop and mobile devices."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#070b18;
-color:white;
-padding:50px 20px;
-min-height:100vh;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #070b18;
+    color: white;
+    padding: 50px 20px;
+    min-height: 100vh;
 }
 
-.container{
-max-width:700px;
-margin:auto;
+.container {
+    max-width: 700px;
+    margin: auto;
 }
 
-.header{
-text-align:center;
-margin-bottom:30px;
+.header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.logo{
-display:inline-block;
-color:#a78bfa;
-font-size:28px;
-font-weight:900;
-text-decoration:none;
-margin-bottom:20px;
+.logo {
+    display: inline-block;
+    color: #a78bfa;
+    font-size: 28px;
+    font-weight: 900;
+    text-decoration: none;
+    margin-bottom: 20px;
 }
 
-h1{
-font-size:40px;
-margin-bottom:10px;
+h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
-.header p{
-color:#94a3b8;
-line-height:1.6;
+.header p {
+    color: #94a3b8;
+    line-height: 1.6;
 }
 
-.card{
-background:#111a30;
-border:1px solid rgba(255,255,255,.1);
-border-radius:20px;
-padding:30px;
+.card {
+    background: #111a30;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 30px;
 }
 
-label{
-display:block;
-margin:15px 0 8px;
-font-weight:bold;
+label {
+    display: block;
+    margin: 15px 0 8px;
+    font-weight: bold;
+    color: #e2e8f0;
 }
 
-input{
-width:100%;
-padding:15px;
-background:#0d1427;
-color:white;
-border:1px solid #27304a;
-border-radius:10px;
-font-size:16px;
+input[type="date"] {
+    width: 100%;
+    padding: 15px;
+    background: #0d1427;
+    color: white;
+    border: 1px solid #27304a;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
 }
 
-button{
-width:100%;
-padding:15px;
-margin-top:20px;
-background:linear-gradient(90deg,#7c3aed,#06b6d4);
-color:white;
-border:0;
-border-radius:10px;
-font-weight:bold;
-font-size:15px;
-cursor:pointer;
+input[type="date"]:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124,58,237,.15);
 }
 
-button:hover{
-transform:translateY(-2px);
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #7c3aed, #06b6d4);
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .2s;
 }
 
-.result{
-margin-top:20px;
-padding:20px;
-background:#0d1427;
-border-radius:12px;
-text-align:center;
-font-size:18px;
+button:hover {
+    transform: translateY(-2px);
 }
 
-.info{
-margin-top:25px;
-padding:25px;
-background:#111a30;
-border:1px solid rgba(255,255,255,.1);
-border-radius:18px;
+button:active {
+    transform: translateY(0);
 }
 
-.info h2{
-margin-bottom:10px;
+.result {
+    margin-top: 20px;
+    padding: 22px;
+    background: #0d1427;
+    border: 1px solid #27304a;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #e2e8f0;
 }
 
-.info p{
-color:#94a3b8;
-line-height:1.7;
-font-size:14px;
+.result.success {
+    color: #67e8f9;
 }
 
-.faq{
-margin-top:25px;
-padding:25px;
-background:#111a30;
-border:1px solid rgba(255,255,255,.1);
-border-radius:18px;
+.result.error {
+    color: #fca5a5;
 }
 
-.faq h2{
-margin-bottom:18px;
+.info {
+    margin-top: 25px;
+    padding: 25px;
+    background: #111a30;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 18px;
 }
 
-.faq h3{
-font-size:16px;
-margin:15px 0 7px;
+.info h2 {
+    margin-bottom: 10px;
 }
 
-.faq p{
-color:#94a3b8;
-line-height:1.6;
-font-size:14px;
+.info p {
+    color: #94a3b8;
+    line-height: 1.7;
+    font-size: 14px;
 }
 
-.back{
-display:inline-block;
-margin-top:25px;
-color:#a78bfa;
-text-decoration:none;
-font-weight:bold;
+.faq {
+    margin-top: 25px;
+    padding: 25px;
+    background: #111a30;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 18px;
 }
 
-footer{
-text-align:center;
-margin-top:35px;
-color:#64748b;
-font-size:13px;
+.faq h2 {
+    margin-bottom: 18px;
 }
 
-@media(max-width:600px){
-h1{font-size:30px}
-.card{padding:20px}
+.faq h3 {
+    font-size: 16px;
+    margin: 15px 0 7px;
+}
+
+.faq p {
+    color: #94a3b8;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .info,
+    .faq {
+        padding: 20px;
+    }
 }
 </style>
 </head>
@@ -185,106 +280,173 @@ h1{font-size:30px}
 
 <div class="container">
 
-<div class="header">
+    <div class="header">
 
-<a href="../index.html" class="logo">VexTools</a>
+        <a href="../index.html" class="logo">
+            VexTools
+        </a>
 
-<h1>📅 Date Difference Calculator</h1>
+        <h1>📅 Date Difference Calculator</h1>
 
-<p>
-Calculate the number of days between two dates quickly and easily.
-</p>
+        <p>
+            Calculate the number of days between two dates quickly and easily.
+        </p>
 
-</div>
+    </div>
 
-<div class="card">
+    <div class="card">
 
-<label for="date1">Start Date</label>
-<input id="date1" type="date">
+        <label for="date1">Start Date</label>
 
-<label for="date2">End Date</label>
-<input id="date2" type="date">
+        <input
+            id="date1"
+            type="date"
+            aria-label="Start date"
+        >
 
-<button onclick="calculate()">
-Calculate Difference
-</button>
+        <label for="date2">End Date</label>
 
-<div class="result" id="result">
-Select two dates to calculate the difference.
-</div>
+        <input
+            id="date2"
+            type="date"
+            aria-label="End date"
+        >
 
-</div>
+        <button type="button" onclick="calculate()">
+            Calculate Difference
+        </button>
 
-<div class="info">
+        <div class="result" id="result" aria-live="polite">
+            Select two dates to calculate the difference.
+        </div>
 
-<h2>Free Date Difference Calculator</h2>
+    </div>
 
-<p>
-VexTools Date Difference Calculator helps you find the number
-of days between two dates. Simply select a start date and an
-end date, then click the calculate button. The calculation
-runs directly in your browser.
-</p>
+    <div class="info">
 
-</div>
+        <h2>Free Date Difference Calculator</h2>
 
-<div class="faq">
+        <p>
+            VexTools Date Difference Calculator helps you find the number
+            of days between two dates. Simply select a start date and an
+            end date, then click the calculate button. The calculation
+            runs directly in your browser.
+        </p>
 
-<h2>Frequently Asked Questions</h2>
+    </div>
 
-<h3>How do I calculate the difference between two dates?</h3>
-<p>
-Select the start date and end date, then click Calculate Difference.
-The tool will show the number of days between them.
-</p>
+    <div class="faq">
 
-<h3>Is this date calculator free?</h3>
-<p>
-Yes. VexTools provides this date difference calculator completely free.
-</p>
+        <h2>Frequently Asked Questions</h2>
 
-<h3>Do I need to install software?</h3>
-<p>
-No. The calculator works directly in your web browser.
-</p>
+        <h3>
+            How do I calculate the difference between two dates?
+        </h3>
 
-</div>
+        <p>
+            Select the start date and end date, then click Calculate Difference.
+            The tool will show the number of days between them.
+        </p>
 
-<a href="../index.html" class="back">
-← Back to VexTools
-</a>
+        <h3>
+            Is this date calculator free?
+        </h3>
 
-<footer>
-© <span id="year"></span> VexTools — Free Online Tools
-</footer>
+        <p>
+            Yes. VexTools provides this date difference calculator completely free.
+        </p>
+
+        <h3>
+            Does the calculator work on mobile devices?
+        </h3>
+
+        <p>
+            Yes. The calculator works directly in modern web browsers
+            on desktop and mobile devices.
+        </p>
+
+    </div>
+
+    <a href="../index.html" class="back">
+        ← Back to VexTools
+    </a>
+
+    <footer>
+        © <span id="year"></span> VexTools — Free Online Tools
+    </footer>
 
 </div>
 
 <script>
 
-function calculate(){
+function parseDate(dateString) {
 
-let a=new Date(document.getElementById("date1").value);
-let b=new Date(document.getElementById("date2").value);
+    const parts = dateString.split("-");
 
-const result=document.getElementById("result");
+    if (parts.length !== 3) {
+        return null;
+    }
 
-if(isNaN(a.getTime()) || isNaN(b.getTime())){
+    const year = Number(parts[0]);
+    const month = Number(parts[1]) - 1;
+    const day = Number(parts[2]);
 
-result.textContent="Please select both dates.";
-
-return;
-
+    return new Date(Date.UTC(year, month, day));
 }
 
-let days=Math.abs(b-a)/(1000*60*60*24);
+function calculate() {
 
-result.textContent="Difference: "+days+" days";
+    const date1 = document.getElementById("date1").value;
+    const date2 = document.getElementById("date2").value;
+    const result = document.getElementById("result");
 
+    result.className = "result";
+
+    if (!date1 || !date2) {
+
+        result.textContent = "Please select both dates.";
+        result.classList.add("error");
+
+        return;
+    }
+
+    const startDate = parseDate(date1);
+    const endDate = parseDate(date2);
+
+    if (!startDate || !endDate) {
+
+        result.textContent = "Please enter valid dates.";
+        result.classList.add("error");
+
+        return;
+    }
+
+    const difference =
+        Math.abs(endDate.getTime() - startDate.getTime());
+
+    const days =
+        Math.round(difference / (1000 * 60 * 60 * 24));
+
+    if (days === 0) {
+
+        result.innerHTML =
+            "📅 Both dates are the same.<br><strong>Difference: 0 days</strong>";
+
+    } else {
+
+        result.innerHTML =
+            "📅 Date difference:<br><strong>" +
+            days +
+            (days === 1 ? " day" : " days") +
+            "</strong>";
+
+    }
+
+    result.classList.add("success");
 }
 
-document.getElementById("year").textContent=
-new Date().getFullYear();
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 </script>
 
