@@ -3,48 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Loan Calculator — VexTools</title>
+
+<title>Loan Calculator Online Free — VexTools</title>
+
+<meta name="description" content="Calculate monthly loan payments, total payment and total interest online for free with the VexTools Loan Calculator.">
+
+<meta name="keywords" content="loan calculator, loan calculator online, monthly payment calculator, EMI calculator, interest calculator, loan payment calculator, free loan calculator">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/loan-calculator.html">
+
+<meta property="og:title" content="Loan Calculator Online Free — VexTools">
+<meta property="og:description" content="Free online loan calculator to estimate monthly payments, total payment and total interest.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/loan-calculator.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Loan Calculator Online Free — VexTools">
+<meta name="twitter:description" content="Calculate monthly loan payments and total interest online for free.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Loan Calculator",
+  "url":"https://vextools18-service.github.io/VexTool/tools/loan-calculator.html",
+  "description":"Free online loan calculator for estimating monthly payments, total payment and total interest.",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:50px 20px}
-.container{max-width:650px;margin:auto}
-input{width:100%;padding:15px;margin:8px 0;background:#111a30;color:white;border:1px solid #27304a;border-radius:10px}
-button{width:100%;padding:15px;background:#7c3aed;color:white;border:0;border-radius:10px;margin-top:10px}
-.result{margin-top:20px;padding:20px;background:#111a30;border-radius:10px;line-height:2}
+body{
+font-family:Arial;
+background:#070b18;
+color:white;
+padding:50px 20px
+}
+
+.container{
+max-width:650px;
+margin:auto
+}
+
+input{
+width:100%;
+padding:15px;
+margin:8px 0;
+background:#111a30;
+color:white;
+border:1px solid #27304a;
+border-radius:10px
+}
+
+button{
+width:100%;
+padding:15px;
+background:#7c3aed;
+color:white;
+border:0;
+border-radius:10px;
+margin-top:10px;
+cursor:pointer;
+font-weight:bold
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(124,58,237,.3)
+}
+
+.result{
+margin-top:20px;
+padding:20px;
+background:#111a30;
+border-radius:10px;
+line-height:2
+}
 </style>
+
 </head>
+
 <body>
+
 <div class="container">
+
 <h1>💰 Loan Calculator</h1>
-<p>Estimate monthly loan payments.</p>
 
-<input id="amount" type="number" placeholder="Loan Amount">
-<input id="rate" type="number" placeholder="Annual Interest Rate (%)">
-<input id="months" type="number" placeholder="Loan Term (Months)">
+<p>
+Estimate monthly loan payments.
+</p>
 
-<button onclick="calculate()">Calculate</button>
-<div class="result" id="result">Result</div>
+<input
+id="amount"
+type="number"
+placeholder="Loan Amount"
+>
+
+<input
+id="rate"
+type="number"
+placeholder="Annual Interest Rate (%)"
+>
+
+<input
+id="months"
+type="number"
+placeholder="Loan Term (Months)"
+>
+
+<button onclick="calculate()">
+Calculate
+</button>
+
+<div class="result" id="result">
+Result
+</div>
+
 </div>
 
 <script>
+
 function calculate(){
-let P=Number(amount.value);
-let annual=Number(rate.value);
-let n=Number(months.value);
 
-if(!P||!n){
-result.textContent="Enter valid values.";
+let P =
+Number(document.getElementById("amount").value);
+
+let annual =
+Number(document.getElementById("rate").value);
+
+let n =
+Number(document.getElementById("months").value);
+
+if(!P || !n || annual < 0){
+
+document.getElementById("result").textContent =
+"Enter valid values.";
+
 return;
+
 }
 
-let r=annual/100/12;
-let payment=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-let total=payment*n;
+let r =
+annual / 100 / 12;
 
-result.innerHTML=
-"Monthly Payment: "+payment.toFixed(2)+
-"<br>Total Payment: "+total.toFixed(2)+
-"<br>Total Interest: "+(total-P).toFixed(2);
+let payment =
+r === 0
+? P / n
+: P * r * Math.pow(1+r,n) /
+  (Math.pow(1+r,n)-1);
+
+let total =
+payment * n;
+
+document.getElementById("result").innerHTML =
+"Monthly Payment: " +
+payment.toFixed(2) +
+
+"<br>Total Payment: " +
+total.toFixed(2) +
+
+"<br>Total Interest: " +
+(total-P).toFixed(2);
+
 }
+
 </script>
+
 </body>
 </html>
