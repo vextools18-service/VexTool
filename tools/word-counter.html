@@ -7,32 +7,23 @@
 <title>Word Counter - Free Online Word & Character Counter | VexTools</title>
 
 <meta name="description" content="Free online Word Counter by VexTools. Count words, characters, sentences, paragraphs and reading time instantly. Fast, accurate and easy to use.">
-
 <meta name="keywords" content="word counter, online word counter, free word counter, character counter, word count tool, sentence counter, paragraph counter, reading time calculator, text counter, VexTools">
-
 <meta name="robots" content="index, follow">
-
 <meta name="author" content="VexTools">
-
 <meta name="language" content="English">
-
 <meta name="theme-color" content="#070b18">
 
-<!-- Open Graph -->
 <meta property="og:title" content="Word Counter - Free Online Word & Character Counter | VexTools">
 <meta property="og:description" content="Count words, characters, sentences, paragraphs and reading time instantly with VexTools Word Counter.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VexTools">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Word Counter - VexTools">
 <meta name="twitter:description" content="Free online word counter to count words, characters, sentences, paragraphs and reading time instantly.">
 
-<!-- Search Engine Verification Friendly -->
 <meta name="googlebot" content="index, follow">
 
-<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -98,8 +89,6 @@ body{
     overflow-x:hidden;
 }
 
-/* BACKGROUND */
-
 .background{
     position:fixed;
     inset:0;
@@ -150,8 +139,6 @@ body{
         transform:translate(35px,-30px) scale(1.1);
     }
 }
-
-/* HEADER */
 
 header{
     position:fixed;
@@ -257,15 +244,11 @@ body.light header{
     transform:rotate(12deg) scale(1.08);
 }
 
-/* MAIN */
-
 main{
     max-width:950px;
     margin:auto;
     padding:140px 20px 70px;
 }
-
-/* HERO */
 
 .hero{
     text-align:center;
@@ -353,8 +336,6 @@ h1{
     }
 }
 
-/* TOOL */
-
 .toolBox{
     padding:25px;
 
@@ -405,8 +386,6 @@ textarea:focus{
         rgba(124,58,237,.3);
 }
 
-/* BUTTONS */
-
 .actions{
     display:flex;
     gap:12px;
@@ -450,8 +429,6 @@ textarea:focus{
 .copy:hover{
     box-shadow:0 8px 25px rgba(124,58,237,.35);
 }
-
-/* STATS */
 
 .stats{
     display:grid;
@@ -498,8 +475,6 @@ textarea:focus{
     font-weight:bold;
 }
 
-/* INFO */
-
 .info{
     margin-top:35px;
 
@@ -528,8 +503,6 @@ textarea:focus{
     line-height:1.7;
 }
 
-/* FOOTER */
-
 footer{
     padding:25px 20px;
 
@@ -541,8 +514,6 @@ footer{
 
     font-size:13px;
 }
-
-/* MOBILE */
 
 @media(max-width:800px){
 
@@ -854,15 +825,12 @@ function updateStats(){
 
 
     const paragraphMatches =
-    value
-    .trim()
-    .split(/\n\s*\n/)
-    .filter(Boolean);
+    trimmed
+    ? trimmed.split(/\n\s*\n/).filter(Boolean)
+    : [];
 
     paragraphs.textContent =
-    trimmed
-    ? paragraphMatches.length
-    : 0;
+    paragraphMatches.length;
 
 
     const minutes =
