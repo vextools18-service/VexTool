@@ -3,29 +3,316 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>URL Encoder — VexTools</title>
+
+<!-- SEO -->
+<title>URL Encoder & Decoder Online — Free URL Tool | VexTools</title>
+
+<meta name="description" content="Free online URL Encoder and Decoder tool. Encode URLs, decode URL-encoded text, and safely convert URL parameters instantly with VexTools.">
+<meta name="keywords" content="URL encoder, URL decoder, URL encode online, URL decode online, encode URL, decode URL, URL encoding tool, free URL tools, VexTools">
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+
+<link rel="canonical" href="https://vextools.github.io/tools/url-encoder/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="URL Encoder & Decoder Online — VexTools">
+<meta property="og:description" content="Encode or decode URL text instantly with this free online URL Encoder and Decoder tool.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/tools/url-encoder/">
+<meta property="og:site_name" content="VexTools">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="URL Encoder & Decoder Online — VexTools">
+<meta name="twitter:description" content="Free online URL Encoder and Decoder. Encode and decode URL text instantly.">
+
+<!-- Theme -->
+<meta name="theme-color" content="#070b18">
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
-.container{max-width:800px;margin:auto}
-textarea{width:100%;height:220px;margin:15px 0;padding:20px;background:#111a30;color:white;border:1px solid #27304a;border-radius:12px}
-button{padding:13px 22px;background:#7c3aed;color:white;border:0;border-radius:10px}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#070b18;
+color:white;
+padding:40px 20px;
+min-height:100vh
+}
+
+.container{
+max-width:800px;
+margin:auto
+}
+
+.header{
+text-align:center;
+margin-bottom:25px
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:15px
+}
+
+h1{
+font-size:34px;
+margin-bottom:10px
+}
+
+.header p{
+color:#94a3b8;
+line-height:1.6
+}
+
+.card{
+background:rgba(17,25,45,.85);
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+padding:22px;
+margin-top:25px
+}
+
+textarea{
+width:100%;
+height:220px;
+margin:10px 0;
+padding:20px;
+background:#111a30;
+color:white;
+border:1px solid #27304a;
+border-radius:12px;
+resize:vertical;
+font-family:Arial,sans-serif;
+font-size:15px;
+outline:none
+}
+
+textarea:focus{
+border-color:#7c3aed
+}
+
+.buttons{
+display:flex;
+gap:10px;
+margin:5px 0
+}
+
+button{
+flex:1;
+padding:13px 22px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
+color:white;
+border:0;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+transition:.2s
+}
+
+button:hover{
+opacity:.9;
+transform:translateY(-1px)
+}
+
+.clear{
+background:#27304a
+}
+
+.label{
+display:block;
+color:#cbd5e1;
+font-weight:bold;
+margin-top:5px
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none
+}
+
+.info{
+margin-top:25px;
+padding:20px;
+background:#111a30;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+color:#cbd5e1;
+line-height:1.7
+}
+
+.info h2{
+color:white;
+font-size:20px;
+margin-bottom:8px
+}
+
+@media(max-width:600px){
+body{
+padding:25px 15px
+}
+
+h1{
+font-size:28px
+}
+
+.buttons{
+flex-direction:column
+}
+
+button{
+width:100%
+}
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
-<h1>🔗 URL Encoder</h1>
-<p>Encode or decode URL text safely.</p>
-<textarea id="input" placeholder="Enter URL or text..."></textarea>
-<button onclick="encodeURL()">Encode</button>
-<button onclick="decodeURL()">Decode</button>
-<textarea id="output" placeholder="Result..." readonly></textarea>
+
+<div class="header">
+
+<a class="logo" href="../index.html">VexTools</a>
+
+<h1>🔗 URL Encoder & Decoder</h1>
+
+<p>
+Encode or decode URLs and URL text quickly with our free online tool.
+</p>
+
 </div>
+
+<div class="card">
+
+<label class="label" for="input">
+Input
+</label>
+
+<textarea
+id="input"
+placeholder="Enter URL or text..."
+></textarea>
+
+<div class="buttons">
+
+<button onclick="encodeURL()">
+Encode URL
+</button>
+
+<button onclick="decodeURL()">
+Decode URL
+</button>
+
+</div>
+
+<button
+class="clear"
+onclick="clearText()"
+>
+Clear
+</button>
+
+<label class="label" for="output" style="margin-top:20px">
+Result
+</label>
+
+<textarea
+id="output"
+placeholder="Encoded or decoded result..."
+readonly
+></textarea>
+
+<button onclick="copyResult()">
+Copy Result
+</button>
+
+</div>
+
+<a class="back" href="../index.html">
+← Back to VexTools
+</a>
+
+<div class="info">
+
+<h2>URL Encoder & Decoder</h2>
+
+<p>
+Use the VexTools URL Encoder to convert special characters in URLs
+into URL-safe encoded characters. You can also decode encoded URLs
+back into readable text instantly.
+</p>
+
+</div>
+
+</div>
+
 <script>
-function encodeURL(){output.value=encodeURIComponent(input.value)}
-function decodeURL(){
-try{output.value=decodeURIComponent(input.value)}
-catch(e){output.value="Invalid encoded URL"}
+
+const input=document.getElementById("input");
+const output=document.getElementById("output");
+
+function encodeURL(){
+
+const text=input.value;
+
+if(!text.trim()){
+output.value="Please enter some text or a URL.";
+return;
 }
+
+output.value=encodeURIComponent(text);
+
+}
+
+function decodeURL(){
+
+const text=input.value;
+
+if(!text.trim()){
+output.value="Please enter encoded URL text.";
+return;
+}
+
+try{
+
+output.value=decodeURIComponent(text);
+
+}catch(error){
+
+output.value="Invalid encoded URL.";
+
+}
+
+}
+
+function copyResult(){
+
+if(!output.value.trim())return;
+
+navigator.clipboard.writeText(output.value);
+
+}
+
+function clearText(){
+
+input.value="";
+output.value="";
+
+}
+
 </script>
+
 </body>
 </html>
