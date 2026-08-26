@@ -4,26 +4,79 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Email Validator - Check Email Format Online | VexTools</title>
+<title>Email Validator Online - Check Email Format | VexTools</title>
 
-<meta name="description" content="Free online email validator. Check whether an email address has a valid format instantly with VexTools. Fast, simple and easy to use.">
+<meta name="description" content="Free online email validator. Check whether an email address has a valid format instantly with VexTools. Fast, private and easy to use.">
 
 <meta name="keywords" content="email validator, email checker, email validation, validate email, email format checker, email validator online, free email validator">
 
 <meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/email-validator.html">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Email Validator - VexTools">
+<meta property="og:title" content="Email Validator Online - Check Email Format | VexTools">
 <meta property="og:description" content="Check whether an email address has a valid format with this free online email validator.">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/email-validator.html">
 <meta property="og:site_name" content="VexTools">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Email Validator - VexTools">
+<meta name="twitter:title" content="Email Validator Online - VexTools">
 <meta name="twitter:description" content="Free online tool to check whether an email address has a valid format.">
+
+<meta name="theme-color" content="#070b18">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"VexTools Email Validator",
+  "url":"https://vextools18-service.github.io/VexTool/tools/email-validator.html",
+  "description":"Free online email format validator that checks whether an email address follows a basic valid format.",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How does the email validator work?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter an email address and click Validate Email. The tool checks whether the address follows a basic email format."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is the email validator free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. VexTools provides this email format checker for free."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Does it verify whether the mailbox actually exists?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. This tool checks the email address format only. It does not confirm whether the mailbox or domain can receive email."
+      }
+    }
+  ]
+}
+</script>
 
 <style>
 *{
@@ -35,7 +88,7 @@ padding:0;
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#070b18;
-color:white;
+color:#f8fafc;
 padding:50px 20px;
 min-height:100vh;
 }
@@ -57,6 +110,11 @@ font-size:28px;
 font-weight:900;
 text-decoration:none;
 margin-bottom:20px;
+transition:.2s;
+}
+
+.logo:hover{
+opacity:.85;
 }
 
 h1{
@@ -82,6 +140,10 @@ font-weight:bold;
 margin-bottom:8px;
 }
 
+.input-wrap{
+position:relative;
+}
+
 input{
 width:100%;
 padding:17px;
@@ -92,10 +154,16 @@ border-radius:10px;
 margin:10px 0 15px;
 font-size:16px;
 outline:none;
+transition:.2s;
 }
 
 input:focus{
 border-color:#7c3aed;
+box-shadow:0 0 0 3px rgba(124,58,237,.12);
+}
+
+input::placeholder{
+color:#64748b;
 }
 
 button{
@@ -106,20 +174,42 @@ color:white;
 border:0;
 border-radius:10px;
 font-weight:bold;
+font-size:15px;
 cursor:pointer;
+transition:.2s;
 }
 
 button:hover{
 transform:translateY(-2px);
 }
 
+button:active{
+transform:translateY(0);
+}
+
 .result{
 margin-top:20px;
 padding:20px;
 background:#0d1427;
+border:1px solid #27304a;
 border-radius:10px;
 text-align:center;
 font-size:17px;
+color:#cbd5e1;
+min-height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.result.valid{
+color:#86efac;
+border-color:rgba(34,197,94,.35);
+}
+
+.result.invalid{
+color:#fca5a5;
+border-color:rgba(239,68,68,.35);
 }
 
 .info,
@@ -156,6 +246,10 @@ text-decoration:none;
 font-weight:bold;
 }
 
+.back:hover{
+text-decoration:underline;
+}
+
 footer{
 text-align:center;
 margin-top:30px;
@@ -164,8 +258,24 @@ font-size:13px;
 }
 
 @media(max-width:600px){
-h1{font-size:30px}
-.card{padding:20px}
+
+body{
+padding:35px 15px;
+}
+
+h1{
+font-size:30px;
+}
+
+.card{
+padding:20px;
+}
+
+.info,
+.faq{
+padding:20px;
+}
+
 }
 </style>
 </head>
@@ -176,7 +286,9 @@ h1{font-size:30px}
 
 <div class="header">
 
-<a href="../index.html" class="logo">VexTools</a>
+<a href="../index.html" class="logo">
+VexTools
+</a>
 
 <h1>📧 Email Validator</h1>
 
@@ -188,20 +300,25 @@ Check whether an email address has a valid format.
 
 <div class="card">
 
-<label for="email">Email Address</label>
+<label for="email">
+Email Address
+</label>
 
 <input
 id="email"
 type="email"
 placeholder="example@email.com"
 autocomplete="email"
+inputmode="email"
+spellcheck="false"
+aria-label="Email address"
 >
 
-<button onclick="validate()">
+<button type="button" onclick="validateEmail()">
 Validate Email
 </button>
 
-<div class="result" id="result">
+<div class="result" id="result" aria-live="polite">
 Enter an email address.
 </div>
 
@@ -224,20 +341,26 @@ to a server.
 
 <h2>Frequently Asked Questions</h2>
 
-<h3>How does the email validator work?</h3>
+<h3>
+How does the email validator work?
+</h3>
 
 <p>
 Enter an email address and click Validate Email. The tool
 checks whether the address follows a basic email format.
 </p>
 
-<h3>Is the email validator free?</h3>
+<h3>
+Is the email validator free?
+</h3>
 
 <p>
 Yes. VexTools provides this email format checker for free.
 </p>
 
-<h3>Does it verify whether the mailbox actually exists?</h3>
+<h3>
+Does it verify whether the mailbox actually exists?
+</h3>
 
 <p>
 No. This tool checks the email address format only. It does
@@ -258,16 +381,14 @@ not confirm whether the mailbox or domain can receive email.
 
 <script>
 
-function validate(){
+const emailInput = document.getElementById("email");
+const result = document.getElementById("result");
 
-const email =
-document.getElementById("email").value.trim();
+function validateEmail(){
 
-const result =
-document.getElementById("result");
+const email = emailInput.value.trim();
 
-const pattern =
-/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+result.className = "result";
 
 if(!email){
 
@@ -278,12 +399,47 @@ return;
 
 }
 
+/*
+Basic email format validation.
+This checks the structure only and does not verify
+whether the mailbox or domain actually exists.
+*/
+
+const pattern =
+/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+if(pattern.test(email)){
+
 result.textContent =
-pattern.test(email)
-? "✅ Valid email format"
-: "❌ Invalid email format";
+"✅ Valid email format";
+
+result.classList.add("valid");
+
+}else{
+
+result.textContent =
+"❌ Invalid email format";
+
+result.classList.add("invalid");
 
 }
+
+}
+
+emailInput.addEventListener("keydown",function(event){
+
+if(event.key === "Enter"){
+validateEmail();
+}
+
+});
+
+emailInput.addEventListener("input",function(){
+
+result.className = "result";
+result.textContent = "Enter an email address.";
+
+});
 
 document.getElementById("year").textContent =
 new Date().getFullYear();
