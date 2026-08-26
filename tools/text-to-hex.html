@@ -3,29 +3,222 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Text to Hex — VexTools</title>
+
+<!-- Primary SEO -->
+<title>Text to HEX Converter — Convert Text to Hexadecimal | VexTools</title>
+
+<meta name="description" content="Convert text to hexadecimal instantly with the free Text to HEX Converter by VexTools. Enter text and get its hexadecimal representation quickly and easily.">
+
+<meta name="keywords" content="text to hex, text to hexadecimal, text to hex converter, hex converter, hexadecimal converter, convert text to hex, ASCII to hex, VexTools">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="VexTools">
+<meta name="theme-color" content="#070b18">
+
+<link rel="canonical" href="https://vextools.site/tools/text-to-hex.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Text to HEX Converter — VexTools">
+<meta property="og:description" content="Convert text into hexadecimal instantly with this free online Text to HEX Converter.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.site/tools/text-to-hex.html">
+<meta property="og:site_name" content="VexTools">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Text to HEX Converter — VexTools">
+<meta name="twitter:description" content="Free online tool to convert text into hexadecimal instantly.">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Text to HEX Converter",
+  "url":"https://vextools.site/tools/text-to-hex.html",
+  "description":"A free online tool to convert text into hexadecimal.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools.site/"
+  }
+}
+</script>
+
+<!-- FAQ Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a Text to HEX Converter?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A Text to HEX Converter converts characters from text into their hexadecimal representation."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I convert text to hexadecimal?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter your text into the input box and click the Convert button. The hexadecimal result will appear automatically."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is the Text to HEX Converter free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Text to HEX Converter is free to use online."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:40px 20px}
-.container{max-width:800px;margin:auto}
-textarea{width:100%;height:180px;padding:18px;background:#111a30;color:white;border:1px solid #27304a;border-radius:12px;margin:15px 0}
-button{padding:14px 25px;background:#7c3aed;color:white;border:0;border-radius:10px}
+body{
+font-family:Arial;
+background:#070b18;
+color:white;
+padding:40px 20px
+}
+
+.container{
+max-width:800px;
+margin:auto
+}
+
+textarea{
+width:100%;
+height:180px;
+padding:18px;
+background:#111a30;
+color:white;
+border:1px solid #27304a;
+border-radius:12px;
+margin:15px 0
+}
+
+button{
+padding:14px 25px;
+background:#7c3aed;
+color:white;
+border:0;
+border-radius:10px;
+cursor:pointer
+}
+
+button:hover{
+background:#6d28d9
+}
+
+.info{
+margin-top:30px;
+padding:20px;
+background:#111a30;
+border-radius:12px;
+color:#cbd5e1;
+line-height:1.7
+}
+
+.info h2{
+color:white;
+margin-bottom:10px
+}
+
+.faq{
+margin-top:20px
+}
+
+.faq h3{
+color:#e2e8f0;
+margin-top:15px
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
-<h1>🔣 Text to HEX</h1>
-<p>Convert text into hexadecimal.</p>
-<textarea id="input" placeholder="Enter text..."></textarea>
-<button onclick="convert()">Convert</button>
-<textarea id="output" readonly placeholder="HEX result..."></textarea>
+
+<h1>🔣 Text to HEX Converter</h1>
+
+<p>Convert text into hexadecimal instantly.</p>
+
+<textarea
+id="input"
+placeholder="Enter text..."
+aria-label="Text input"
+></textarea>
+
+<button onclick="convert()">Convert to HEX</button>
+
+<textarea
+id="output"
+readonly
+placeholder="HEX result..."
+aria-label="Hexadecimal output"
+></textarea>
+
+<div class="info">
+
+<h2>Text to HEX Converter</h2>
+
+<p>
+Our free Text to HEX Converter converts normal text into
+hexadecimal values instantly. Simply enter your text and
+click the Convert button to generate the hexadecimal result.
+</p>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What is a Text to HEX Converter?</h3>
+<p>
+A Text to HEX Converter changes text characters into their
+hexadecimal representation.
+</p>
+
+<h3>How do I convert text to hexadecimal?</h3>
+<p>
+Enter your text in the input box and click the Convert to HEX
+button. The hexadecimal output will appear below.
+</p>
+
+<h3>Is this Text to HEX Converter free?</h3>
+<p>
+Yes, VexTools provides this tool completely free to use online.
+</p>
+
+</div>
+
+</div>
+
 </div>
 
 <script>
+
 function convert(){
+
+const input=document.getElementById("input");
+const output=document.getElementById("output");
+
 output.value=[...input.value]
 .map(c=>c.charCodeAt(0).toString(16).padStart(2,"0"))
 .join(" ");
+
 }
+
 </script>
+
 </body>
 </html>
