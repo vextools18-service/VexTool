@@ -4,24 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>JavaScript Minifier Online Free — VexTools</title>
+<title>JavaScript Minifier Online Free - Minify JS Code | VexTools</title>
 
-<meta name="description" content="Minify JavaScript code online for free with VexTools. Remove comments and unnecessary whitespace from JavaScript quickly and easily.">
+<meta name="description" content="Free online JavaScript minifier. Minify and compress JavaScript code by removing comments and unnecessary whitespace directly in your browser with VexTools.">
 
-<meta name="keywords" content="JavaScript minifier, JS minifier, JavaScript minifier online, minify JavaScript, compress JavaScript, JS compressor, free JavaScript minifier">
+<meta name="keywords" content="JavaScript minifier, JS minifier, JavaScript minifier online, minify JavaScript, compress JavaScript, JavaScript compressor, JS compressor, free JavaScript minifier, online JS minifier">
 
+<meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/js-minifier.html">
 
-<meta property="og:title" content="JavaScript Minifier Online Free — VexTools">
-<meta property="og:description" content="Free online JavaScript minifier. Minify JS code by removing comments and unnecessary whitespace.">
 <meta property="og:type" content="website">
+<meta property="og:title" content="JavaScript Minifier Online Free - VexTools">
+<meta property="og:description" content="Minify and compress JavaScript code online for free. Remove comments and unnecessary whitespace directly in your browser.">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/js-minifier.html">
+<meta property="og:site_name" content="VexTools">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript Minifier Online Free — VexTools">
-<meta name="twitter:description" content="Minify JavaScript code online for free with VexTools.">
+<meta name="twitter:title" content="JavaScript Minifier Online Free - VexTools">
+<meta name="twitter:description" content="Free online JavaScript minifier for compressing and cleaning JavaScript code.">
+
+<meta name="theme-color" content="#070b18">
 
 <script type="application/ld+json">
 {
@@ -40,49 +45,226 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a JavaScript minifier?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A JavaScript minifier reduces the size of JavaScript code by removing comments and unnecessary whitespace while keeping the code readable by browsers."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I minify JavaScript code?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Paste your JavaScript code into the editor and click the Minify JS button. The minified code will replace the original code."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is this JavaScript minifier free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. VexTools provides this JavaScript minifier completely free."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is my JavaScript uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. The minification process runs directly in your browser and the code is not uploaded by this tool."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
-body{
-font-family:Arial;
-background:#070b18;
-color:white;
-padding:30px;
-text-align:center
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-.box{
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#070b18;
+color:#f8fafc;
+min-height:100vh;
+padding:40px 15px;
+line-height:1.6;
+}
+
+.container{
 max-width:900px;
 margin:auto;
+}
+
+.header{
+text-align:center;
+margin-bottom:30px;
+}
+
+.logo{
+display:inline-block;
+color:#a78bfa;
+font-size:28px;
+font-weight:900;
+text-decoration:none;
+margin-bottom:20px;
+}
+
+h1{
+font-size:clamp(30px,6vw,42px);
+margin-bottom:10px;
+}
+
+.header p{
+color:#94a3b8;
+}
+
+.card,
+.info,
+.faq{
 background:#111a30;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
 padding:25px;
-border-radius:20px
 }
 
 textarea{
-width:95%;
-height:350px;
-padding:15px;
+display:block;
+width:100%;
+height:380px;
+padding:16px;
 font-family:monospace;
+font-size:14px;
+line-height:1.6;
 background:#0d1427;
-color:white;
+color:#22d3ee;
 border:1px solid #27304a;
-border-radius:10px;
-resize:vertical
+border-radius:12px;
+resize:vertical;
+outline:none;
+}
+
+textarea:focus{
+border-color:#7c3aed;
+}
+
+.buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:15px;
 }
 
 button{
-padding:12px 25px;
-margin:15px;
-background:#7c3aed;
+flex:1;
+min-width:140px;
+padding:13px 20px;
+background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 border:0;
 border-radius:10px;
 cursor:pointer;
-font-weight:bold
+font-weight:bold;
+transition:.2s;
 }
 
 button:hover{
-opacity:.9;
-transform:translateY(-2px)
+transform:translateY(-2px);
+opacity:.95;
+}
+
+button:active{
+transform:translateY(0);
+}
+
+button.secondary{
+background:#18223a;
+}
+
+button.clear{
+background:#ef4444;
+}
+
+.status{
+margin-top:15px;
+text-align:center;
+color:#94a3b8;
+font-size:14px;
+min-height:22px;
+}
+
+.info,
+.faq{
+margin-top:25px;
+}
+
+.info h2,
+.faq h2{
+margin-bottom:12px;
+}
+
+.info p,
+.faq p{
+color:#94a3b8;
+font-size:14px;
+line-height:1.7;
+}
+
+.faq h3{
+font-size:16px;
+margin:18px 0 7px;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+color:#a78bfa;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+margin-top:30px;
+color:#64748b;
+font-size:13px;
+}
+
+@media(max-width:600px){
+
+body{
+padding:25px 12px;
+}
+
+.card,
+.info,
+.faq{
+padding:18px;
+}
+
+textarea{
+height:300px;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+button{
+width:100%;
+}
+
 }
 </style>
 
@@ -90,44 +272,280 @@ transform:translateY(-2px)
 
 <body>
 
-<div class="box">
+<div class="container">
+
+<div class="header">
+
+<a href="../index.html" class="logo">
+VexTools
+</a>
 
 <h1>JavaScript Minifier</h1>
 
 <p>
-Minify JavaScript code online for free.
+Minify and compress JavaScript code online for free.
 </p>
+
+</div>
+
+<div class="card">
 
 <textarea
 id="code"
-placeholder="Paste JavaScript here..."
+spellcheck="false"
+placeholder="Paste your JavaScript code here..."
 ></textarea>
 
-<br>
+<div class="buttons">
 
 <button onclick="minify()">
-Minify JS
+⚡ Minify JS
 </button>
+
+<button class="secondary" onclick="copyCode()">
+📋 Copy
+</button>
+
+<button class="clear" onclick="clearCode()">
+Clear
+</button>
+
+</div>
+
+<div class="status" id="status">
+Paste JavaScript code above to get started.
+</div>
+
+</div>
+
+<div class="info">
+
+<h2>Free Online JavaScript Minifier</h2>
+
+<p>
+VexTools JavaScript Minifier helps you reduce the size of
+JavaScript code by removing comments and unnecessary whitespace.
+The tool runs directly in your browser, making it quick and
+easy to clean up JavaScript code without uploading it to a server.
+</p>
+
+</div>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What is a JavaScript minifier?</h3>
+
+<p>
+A JavaScript minifier reduces unnecessary characters such as
+comments and extra whitespace from JavaScript code to make it
+smaller and easier to transfer.
+</p>
+
+<h3>How do I minify JavaScript code?</h3>
+
+<p>
+Paste your JavaScript code into the editor and click
+Minify JS. The minified code will replace the original code.
+</p>
+
+<h3>Is this JavaScript minifier free?</h3>
+
+<p>
+Yes. VexTools provides this JavaScript minifier completely free.
+</p>
+
+<h3>Is my JavaScript uploaded to a server?</h3>
+
+<p>
+No. The minification process runs directly in your browser.
+Your JavaScript code is not uploaded by this tool.
+</p>
+
+</div>
+
+<a href="../index.html" class="back">
+← Back to VexTools
+</a>
+
+<footer>
+© <span id="year"></span> VexTools — Free Online Tools
+</footer>
 
 </div>
 
 <script>
 
+const code =
+document.getElementById("code");
+
+const status =
+document.getElementById("status");
+
 function minify(){
 
-let x =
-document.getElementById("code").value;
+const input =
+code.value;
 
-x =
-x.replace(/\/\*[\s\S]*?\*\//g,"")
-.replace(/\/\/.*$/gm,"")
-.replace(/\s+/g," ")
-.trim();
+if(!input.trim()){
 
-document.getElementById("code").value =
-x;
+status.textContent =
+"Please enter JavaScript code first.";
+
+return;
 
 }
+
+try{
+
+let result = "";
+let i = 0;
+let quote = null;
+
+while(i < input.length){
+
+const char = input[i];
+const next = input[i + 1];
+
+if(quote){
+
+result += char;
+
+if(char === "\\" && i + 1 < input.length){
+
+result += input[i + 1];
+i += 2;
+continue;
+
+}
+
+if(char === quote){
+
+quote = null;
+
+}
+
+i++;
+continue;
+
+}
+
+if(
+char === "'" ||
+char === '"' ||
+char === "`"
+){
+
+quote = char;
+result += char;
+i++;
+continue;
+
+}
+
+if(char === "/" && next === "*"){
+
+const end =
+input.indexOf("*/",i + 2);
+
+if(end === -1){
+
+status.textContent =
+"❌ Invalid comment syntax.";
+
+return;
+
+}
+
+i = end + 2;
+continue;
+
+}
+
+if(char === "/" && next === "/"){
+
+const newline =
+input.indexOf("\n",i + 2);
+
+if(newline === -1){
+
+break;
+
+}
+
+i = newline + 1;
+continue;
+
+}
+
+result += char;
+i++;
+
+}
+
+result =
+result
+.replace(/\s+/g," ")
+.replace(/\s*([{}()[\];,:])\s*/g,"$1")
+.replace(/\s*([=+\-*%<>!?&|])\s*/g,"$1")
+.trim();
+
+code.value = result;
+
+status.textContent =
+"✅ JavaScript minified successfully.";
+
+}catch(error){
+
+status.textContent =
+"❌ Unable to minify the JavaScript code.";
+
+}
+
+}
+
+async function copyCode(){
+
+if(!code.value.trim()){
+
+status.textContent =
+"Please enter or minify some JavaScript first.";
+
+return;
+
+}
+
+try{
+
+await navigator.clipboard.writeText(code.value);
+
+status.textContent =
+"✅ Minified code copied to clipboard.";
+
+}catch(error){
+
+code.select();
+document.execCommand("copy");
+
+status.textContent =
+"✅ Code copied to clipboard.";
+
+}
+
+}
+
+function clearCode(){
+
+code.value = "";
+
+status.textContent =
+"Editor cleared.";
+
+}
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
 </script>
 
