@@ -3,7 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Image to Base64 — VexTools</title>
+
+<title>Image to Base64 Converter — VexTools</title>
+
+<meta name="description" content="Free online Image to Base64 converter. Convert images to Base64 strings instantly in your browser without uploading your files.">
+
+<meta name="keywords" content="image to base64, image base64 converter, convert image to base64, base64 image, online base64 converter, VexTools">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/image-to-base64.html">
+
+<meta property="og:title" content="Image to Base64 Converter — VexTools">
+<meta property="og:description" content="Convert images to Base64 strings instantly and securely in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/image-to-base64.html">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -79,22 +93,34 @@ cursor:pointer;
 
 <div class="header">
 <a class="logo" href="../index.html">VexTools</a>
-<h1>Image to Base64</h1>
-<p>Convert an image into a Base64 string.</p>
+
+<h1>Image to Base64 Converter</h1>
+
+<p>
+Convert an image into a Base64 string directly in your browser.
+</p>
 </div>
 
 <div class="card">
 
 <input id="file" type="file" accept="image/*">
 
-<textarea id="output" readonly placeholder="Base64 output will appear here..."></textarea>
+<textarea
+id="output"
+readonly
+placeholder="Base64 output will appear here..."
+></textarea>
 
-<button onclick="copyText()">Copy Base64</button>
+<button onclick="copyText()">
+Copy Base64
+</button>
 
 </div>
+
 </div>
 
 <script>
+
 document.getElementById("file").addEventListener("change",e=>{
 
 const file=e.target.files[0];
@@ -111,11 +137,26 @@ reader.readAsDataURL(file);
 
 });
 
+
 function copyText(){
-navigator.clipboard.writeText(
-document.getElementById("output").value
-);
+
+const output=
+document.getElementById("output");
+
+if(!output.value){
+
+alert("Please convert an image first.");
+
+return;
+
 }
+
+navigator.clipboard.writeText(output.value);
+
+alert("Base64 copied!");
+
+}
+
 </script>
 
 </body>
