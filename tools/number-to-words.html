@@ -12,6 +12,8 @@
 <meta name="keywords" content="number to words, number to words converter, number converter online, convert number to words, numbers in English words, number spelling, free number converter">
 
 <meta name="robots" content="index, follow">
+<meta name="author" content="VexTools">
+<meta name="theme-color" content="#070b18">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/number-to-words.html">
 
@@ -25,6 +27,7 @@
 <meta name="twitter:title" content="Number to Words Converter Online Free — VexTools">
 <meta name="twitter:description" content="Convert numbers into English words online for free with VexTools.">
 
+<!-- WebApplication Schema -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -34,11 +37,90 @@
   "description":"Free online number to words converter that converts numbers from 0 to 999999 into English words.",
   "applicationCategory":"UtilityApplication",
   "operatingSystem":"Any",
+  "browserRequirements":"Requires a modern web browser",
+  "isAccessibleForFree":true,
   "offers":{
     "@type":"Offer",
     "price":"0",
     "priceCurrency":"USD"
+  },
+  "author":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools18-service.github.io/VexTool/"
   }
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"VexTools",
+      "item":"https://vextools18-service.github.io/VexTool/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"Number to Words Converter",
+      "item":"https://vextools18-service.github.io/VexTool/tools/number-to-words.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a Number to Words Converter?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A Number to Words Converter changes a numeric value into its equivalent English words. For example, 123 becomes One hundred twenty three."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I convert a number into words?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter a whole number between 0 and 999999 into the converter and click the Convert button. The number will instantly be displayed in English words."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What numbers does this converter support?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"The VexTools Number to Words Converter supports whole numbers from 0 to 999999."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is this Number to Words Converter free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Number to Words Converter is completely free to use and works directly in your web browser."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Does the converter upload my number to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. The conversion is performed directly in your browser, so the number you enter is not uploaded to a server."
+      }
+    }
+  ]
 }
 </script>
 
@@ -178,6 +260,58 @@ button.secondary{
     margin-bottom:15px;
 }
 
+/* FAQ */
+
+.faq{
+    margin-top:45px;
+}
+
+.faq h2{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.faq-item{
+    background:#11192d;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;
+    margin-bottom:12px;
+    overflow:hidden;
+}
+
+.faq-item summary{
+    padding:18px 20px;
+    cursor:pointer;
+    font-weight:700;
+    color:#f8fafc;
+    list-style:none;
+    position:relative;
+    padding-right:45px;
+}
+
+.faq-item summary::-webkit-details-marker{
+    display:none;
+}
+
+.faq-item summary::after{
+    content:"+";
+    position:absolute;
+    right:20px;
+    top:14px;
+    font-size:24px;
+    color:#a78bfa;
+}
+
+.faq-item[open] summary::after{
+    content:"−";
+}
+
+.faq-answer{
+    padding:0 20px 18px;
+    color:#94a3b8;
+    line-height:1.7;
+}
+
 .back{
     display:inline-block;
     margin-top:25px;
@@ -206,6 +340,11 @@ button.secondary{
 
     button{
         width:100%;
+    }
+
+    .faq h2,
+    .info h2{
+        font-size:24px;
     }
 
 }
@@ -299,10 +438,59 @@ software installation.
 
 <p>
 Enter a whole number and click Convert to instantly see
-the number written in English words. The tool also supports
-keyboard shortcuts and includes a clear button for quickly
-starting a new conversion.
+the number written in English words. The conversion happens
+locally in your browser.
 </p>
+
+</section>
+
+<!-- FAQ SECTION -->
+
+<section class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<details class="faq-item">
+<summary>What is a Number to Words Converter?</summary>
+<div class="faq-answer">
+A Number to Words Converter changes a numeric value into
+its equivalent English words. For example, 123 becomes
+"One hundred twenty three."
+</div>
+</details>
+
+<details class="faq-item">
+<summary>How do I convert a number into words?</summary>
+<div class="faq-answer">
+Enter a whole number between 0 and 999999 into the converter
+and click the Convert button. The number will instantly be
+displayed in English words.
+</div>
+</details>
+
+<details class="faq-item">
+<summary>What numbers does this converter support?</summary>
+<div class="faq-answer">
+The VexTools Number to Words Converter supports whole numbers
+from 0 to 999999.
+</div>
+</details>
+
+<details class="faq-item">
+<summary>Is this Number to Words Converter free?</summary>
+<div class="faq-answer">
+Yes. The VexTools Number to Words Converter is completely
+free to use and works directly in your web browser.
+</div>
+</details>
+
+<details class="faq-item">
+<summary>Does the converter upload my number to a server?</summary>
+<div class="faq-answer">
+No. The conversion is performed directly in your browser,
+so the number you enter is not uploaded to a server.
+</div>
+</details>
 
 </section>
 
@@ -431,11 +619,12 @@ function convertNumber(){
 
     }
 
+    const converted =
+        numberToWords(n);
+
     result.textContent =
-        numberToWords(n)
-            .charAt(0)
-            .toUpperCase() +
-        numberToWords(n).slice(1) +
+        converted.charAt(0).toUpperCase() +
+        converted.slice(1) +
         ".";
 
 }
