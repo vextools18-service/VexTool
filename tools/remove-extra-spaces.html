@@ -3,7 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Remove Extra Spaces — VexTools</title>
+
+<title>Remove Extra Spaces Online — VexTools</title>
+
+<meta name="description" content="Remove extra spaces from text online for free with VexTools. Clean unnecessary spaces, tabs and formatting from your text quickly and easily.">
+
+<meta name="keywords" content="remove extra spaces, extra spaces remover, remove spaces from text, space remover, text cleaner, clean text online, remove unnecessary spaces">
+
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools.github.io/tools/remove-extra-spaces.html">
+
+<meta property="og:title" content="Remove Extra Spaces Online — VexTools">
+<meta property="og:description" content="Clean unnecessary spaces and formatting from your text quickly and easily.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools.github.io/tools/remove-extra-spaces.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Remove Extra Spaces — VexTools">
+<meta name="twitter:description" content="Clean extra spaces from your text online for free.">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -79,40 +98,72 @@ cursor:pointer;
 <div class="container">
 
 <div class="header">
-<a class="logo" href="../index.html">VexTools</a>
+
+<a class="logo" href="../index.html">
+VexTools
+</a>
+
 <h1>Remove Extra Spaces</h1>
-<p>Clean unnecessary spaces from your text.</p>
+
+<p>
+Clean unnecessary spaces from your text quickly and easily.
+</p>
+
 </div>
 
 <div class="card">
 
-<textarea id="text" placeholder="Paste text here..."></textarea>
+<textarea
+id="text"
+placeholder="Paste text here..."
+></textarea>
 
 <div class="buttons">
-<button onclick="clean()">Remove Spaces</button>
-<button onclick="copyText()">Copy</button>
-<button onclick="clearText()">Clear</button>
+
+<button onclick="clean()">
+Remove Spaces
+</button>
+
+<button onclick="copyText()">
+Copy
+</button>
+
+<button onclick="clearText()">
+Clear
+</button>
+
 </div>
 
 </div>
 </div>
 
 <script>
+
 function clean(){
+
 const box=document.getElementById("text");
+
 box.value=box.value
 .replace(/[ \t]+/g," ")
 .replace(/\n\s+/g,"\n")
 .trim();
+
 }
 
 function copyText(){
-navigator.clipboard.writeText(document.getElementById("text").value);
+
+navigator.clipboard.writeText(
+document.getElementById("text").value
+);
+
 }
 
 function clearText(){
+
 document.getElementById("text").value="";
+
 }
+
 </script>
 
 </body>
