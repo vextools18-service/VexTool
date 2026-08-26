@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -8,7 +9,7 @@
 <title>BMI Calculator Online — Calculate Your BMI | VexTools</title>
 
 <meta name="description"
-content="Use the free VexTools BMI Calculator to calculate BMI from height and weight. Get your BMI result instantly with this simple online calculator.">
+content="Use the free VexTools BMI Calculator to calculate Body Mass Index from height and weight. Get your BMI result instantly with this simple online calculator.">
 
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
@@ -63,6 +64,7 @@ content="Free online BMI calculator for calculating Body Mass Index from height 
   "description": "A free online BMI calculator for calculating Body Mass Index from height and weight.",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern web browser",
   "isAccessibleForFree": true,
   "author": {
     "@type": "Organization",
@@ -114,6 +116,7 @@ min-height:100vh;
 .container{
 max-width:600px;
 margin:auto;
+text-align:center;
 }
 
 h1{
@@ -126,10 +129,22 @@ color:#94a3b8;
 line-height:1.6;
 }
 
+.form{
+margin-top:20px;
+text-align:left;
+}
+
+label{
+display:block;
+margin:14px 0 7px;
+color:#cbd5e1;
+font-size:14px;
+font-weight:bold;
+}
+
 input{
 width:100%;
 padding:15px;
-margin:10px 0;
 background:#111a30;
 color:white;
 border:1px solid #27304a;
@@ -140,12 +155,17 @@ font-size:16px;
 input:focus{
 outline:none;
 border-color:#7c3aed;
+box-shadow:0 0 0 2px rgba(124,58,237,.15);
+}
+
+input::placeholder{
+color:#64748b;
 }
 
 button{
 width:100%;
 padding:15px;
-margin-top:10px;
+margin-top:18px;
 background:linear-gradient(90deg,#7c3aed,#06b6d4);
 color:white;
 border:0;
@@ -153,6 +173,7 @@ border-radius:10px;
 font-weight:bold;
 cursor:pointer;
 transition:.25s;
+font-size:16px;
 }
 
 button:hover{
@@ -160,12 +181,37 @@ transform:translateY(-2px);
 box-shadow:0 8px 25px rgba(124,58,237,.3);
 }
 
+button:active{
+transform:translateY(0);
+}
+
 .result{
 margin-top:20px;
 padding:20px;
 background:#111a30;
+border:1px solid rgba(255,255,255,.08);
 border-radius:10px;
 line-height:1.7;
+color:#e2e8f0;
+min-height:65px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.result.success{
+border-color:rgba(6,182,212,.3);
+}
+
+.result.error{
+border-color:rgba(248,113,113,.3);
+color:#fca5a5;
+}
+
+.note{
+margin-top:15px;
+font-size:13px;
+color:#64748b;
 }
 
 .back{
@@ -177,6 +223,18 @@ text-decoration:none;
 
 .back:hover{
 color:#c4b5fd;
+}
+
+@media(max-width:600px){
+
+body{
+padding:30px 15px;
+}
+
+h1{
+font-size:32px;
+}
+
 }
 
 </style>
@@ -195,38 +253,58 @@ Calculate your BMI from your height and weight instantly.
 </p>
 
 
+<div class="form">
+
+<label for="weight">
+Weight (kg)
+</label>
+
 <input
 id="weight"
 type="number"
-min="0"
+min="0.1"
 step="0.1"
-placeholder="Weight (kg)"
+inputmode="decimal"
+placeholder="Enter your weight in kg"
 aria-label="Weight in kilograms"
 >
 
 
+<label for="height">
+Height (cm)
+</label>
+
 <input
 id="height"
 type="number"
-min="0"
+min="0.1"
 step="0.1"
-placeholder="Height (cm)"
+inputmode="decimal"
+placeholder="Enter your height in cm"
 aria-label="Height in centimeters"
 >
 
 
-<button onclick="calculate()">
+<button
+type="button"
+onclick="calculateBMI()">
 Calculate BMI
 </button>
+
+</div>
 
 
 <div
 class="result"
 id="result"
-aria-live="polite"
->
-Result
+aria-live="polite">
+Enter your height and weight to calculate BMI.
 </div>
+
+
+<p class="note">
+BMI is a general mathematical measure and is not a diagnosis or a substitute for professional health advice.
+</p>
 
 
 <a class="back" href="../index.html">
@@ -238,38 +316,105 @@ Result
 
 <script>
 
-function calculate(){
+const weightInput =
+document.getElementById("weight");
 
-const w =
-Number(document.getElementById("weight").value);
+const heightInput =
+document.getElementById("height");
 
-const hCm =
-Number(document.getElementById("height").value);
+const result =
+document.getElementById("result");
 
 
-if(!w || !hCm || w <= 0 || hCm <= 0){
+function calculateBMI(){
 
-document.getElementById("result").textContent =
+const weight =
+Number(weightInput.value);
+
+const heightCm =
+Number(heightInput.value);
+
+
+result.classList.remove(
+"success",
+"error"
+);
+
+
+if(
+!Number.isFinite(weight) ||
+!Number.isFinite(heightCm) ||
+weight <= 0 ||
+heightCm <= 0
+){
+
+result.textContent =
 "Please enter valid height and weight values.";
+
+result.classList.add("error");
 
 return;
 
 }
 
 
-const h =
-hCm / 100;
+const heightMeters =
+heightCm / 100;
+
 
 const bmi =
-w / (h * h);
+weight /
+(heightMeters * heightMeters);
 
 
-document.getElementById("result").textContent =
-"BMI: " + bmi.toFixed(2);
+if(
+!Number.isFinite(bmi) ||
+bmi <= 0
+){
+
+result.textContent =
+"Unable to calculate BMI. Please check your values.";
+
+result.classList.add("error");
+
+return;
 
 }
+
+
+result.textContent =
+"BMI: " + bmi.toFixed(2);
+
+result.classList.add("success");
+
+}
+
+
+/* Allow Enter key to calculate */
+
+weightInput.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Enter"){
+calculateBMI();
+}
+
+});
+
+
+heightInput.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Enter"){
+calculateBMI();
+}
+
+});
 
 </script>
 
 </body>
+
 </html>
