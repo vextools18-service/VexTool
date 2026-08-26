@@ -4,9 +4,8 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Primary SEO -->
 <title>Text to Slug Generator — Create URL Slugs Online | VexTools</title>
 
 <meta
@@ -23,13 +22,11 @@ content="text to slug, slug generator, text to slug generator, URL slug generato
 <meta name="author" content="VexTools">
 <meta name="theme-color" content="#070b18">
 
-<!-- Canonical -->
 <link
 rel="canonical"
 href="https://vextools.site/tools/text-to-slug.html"
 >
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Text to Slug Generator — VexTools">
 <meta
@@ -42,7 +39,6 @@ content="https://vextools.site/tools/text-to-slug.html"
 >
 <meta property="og:site_name" content="VexTools">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta
 name="twitter:title"
@@ -53,54 +49,54 @@ name="twitter:description"
 content="Generate clean, SEO-friendly and URL-friendly slugs instantly with VexTools."
 >
 
-<!-- Structured Data -->
+
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Text to Slug Generator",
-  "url": "https://vextools.site/tools/text-to-slug.html",
-  "description": "A free online tool for generating clean and URL-friendly slugs from text.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Any",
-  "browserRequirements": "Requires a modern web browser",
-  "isAccessibleForFree": true,
-  "publisher": {
-    "@type": "Organization",
-    "name": "VexTools",
-    "url": "https://vextools.site/"
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Text to Slug Generator",
+  "url":"https://vextools.site/tools/text-to-slug.html",
+  "description":"A free online tool for generating clean and URL-friendly slugs from text.",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "browserRequirements":"Requires a modern web browser",
+  "isAccessibleForFree":true,
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools.site/"
   }
 }
 </script>
 
-<!-- FAQ Structured Data -->
+
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
     {
-      "@type": "Question",
-      "name": "What is a URL slug?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A URL slug is the readable part of a web page URL that identifies a specific page. Slugs usually contain lowercase words separated by hyphens."
+      "@type":"Question",
+      "name":"What is a URL slug?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A URL slug is the readable part of a web page URL that identifies a specific page. Slugs usually contain lowercase words separated by hyphens."
       }
     },
     {
-      "@type": "Question",
-      "name": "How do I create a slug from text?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Enter your title or text into the Text to Slug Generator and it will automatically convert it into a clean URL-friendly slug."
+      "@type":"Question",
+      "name":"How do I create a slug from text?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter your title or text into the Text to Slug Generator and it will automatically convert it into a clean URL-friendly slug."
       }
     },
     {
-      "@type": "Question",
-      "name": "Is the Text to Slug Generator free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The VexTools Text to Slug Generator is free to use online."
+      "@type":"Question",
+      "name":"Is the Text to Slug Generator free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Text to Slug Generator is free to use online."
       }
     }
   ]
@@ -113,7 +109,7 @@ content="Generate clean, SEO-friendly and URL-friendly slugs instantly with VexT
 *{
 box-sizing:border-box;
 margin:0;
-padding:0
+padding:0;
 }
 
 body{
@@ -121,27 +117,31 @@ font-family:Arial,sans-serif;
 background:#070b18;
 color:white;
 padding:30px 15px;
+min-height:100vh;
 }
 
 .container{
 max-width:750px;
-margin:auto
+margin:auto;
 }
 
 .header{
 text-align:center;
-margin-bottom:25px
+margin-bottom:25px;
 }
 
 .logo{
+display:inline-block;
 color:#a78bfa;
 font-size:28px;
 font-weight:900;
 text-decoration:none;
+margin-bottom:5px;
 }
 
 h1{
-margin:15px 0 8px
+margin:15px 0 8px;
+font-size:36px;
 }
 
 p{
@@ -175,15 +175,24 @@ border-color:#7c3aed;
 margin-top:15px;
 padding:18px;
 background:#0d1427;
+border:1px solid rgba(255,255,255,.08);
 border-radius:12px;
 word-break:break-all;
 color:#22d3ee;
 min-height:55px;
+display:flex;
+align-items:center;
+}
+
+.buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:15px;
 }
 
 button{
 width:100%;
-margin-top:15px;
 padding:13px;
 border:0;
 border-radius:10px;
@@ -191,10 +200,24 @@ background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:.2s;
 }
 
 button:hover{
-opacity:.9;
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(124,58,237,.3);
+}
+
+button.secondary{
+background:#334155;
+}
+
+.status{
+text-align:center;
+color:#94a3b8;
+font-size:13px;
+margin-top:12px;
+min-height:18px;
 }
 
 .seo-content{
@@ -215,6 +238,17 @@ margin-top:18px;
 margin-bottom:5px;
 }
 
+.seo-content p{
+color:#94a3b8;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+color:#a78bfa;
+text-decoration:none;
+}
+
 @media(max-width:600px){
 
 body{
@@ -222,7 +256,11 @@ padding:25px 15px;
 }
 
 h1{
-font-size:28px;
+font-size:29px;
+}
+
+.buttons{
+grid-template-columns:1fr;
 }
 
 }
@@ -234,9 +272,9 @@ font-size:28px;
 
 <body>
 
-<div class="container">
+<main class="container">
 
-<div class="header">
+<header class="header">
 
 <a
 class="logo"
@@ -246,19 +284,23 @@ aria-label="VexTools Home"
 VexTools
 </a>
 
-<h1>Text to Slug Generator</h1>
+<h1>🔗 Text to Slug Generator</h1>
 
 <p>
 Create clean and SEO-friendly URL slugs from your text.
 </p>
 
-</div>
+</header>
 
 
-<div class="card">
+<section
+class="card"
+aria-label="Text to Slug Generator"
+>
 
 <input
 id="input"
+type="text"
 placeholder="Enter your title..."
 aria-label="Enter text to generate a slug"
 autocomplete="off"
@@ -272,17 +314,35 @@ aria-live="polite"
 Your slug will appear here
 </div>
 
+
+<div class="buttons">
+
 <button
-onclick="copySlug()"
 type="button"
+onclick="copySlug()"
 >
 Copy Slug
+</button>
+
+<button
+type="button"
+class="secondary"
+onclick="clearText()"
+>
+Clear
 </button>
 
 </div>
 
 
-<!-- SEO Content -->
+<div
+class="status"
+id="status"
+aria-live="polite"
+></div>
+
+</section>
+
 
 <section class="seo-content">
 
@@ -310,7 +370,7 @@ easy to read and usually uses hyphens between words.
 
 <p>
 Enter your title or text in the input field above. The
-VexTools slug generator will automatically create a
+VexTools slug generator automatically creates a
 URL-friendly version of your text. You can then copy the
 generated slug and use it in your website URL.
 </p>
@@ -327,12 +387,14 @@ the topic of a web page.
 
 <h2>Frequently Asked Questions</h2>
 
+
 <h3>Is this Text to Slug Generator free?</h3>
 
 <p>
 Yes. The VexTools Text to Slug Generator is completely
 free to use online.
 </p>
+
 
 <h3>Can I use generated slugs for SEO?</h3>
 
@@ -344,46 +406,118 @@ web pages and SEO-friendly URLs.
 
 </section>
 
-</div>
+
+<a
+class="back"
+href="../index.html"
+>
+← Back to VexTools
+</a>
+
+</main>
 
 
 <script>
 
-const input=document.getElementById("input");
-const result=document.getElementById("result");
+const input =
+document.getElementById("input");
 
-input.addEventListener("input",generate);
+const result =
+document.getElementById("result");
+
+const status =
+document.getElementById("status");
+
+
+input.addEventListener(
+"input",
+generate
+);
+
+
+/* =========================
+   GENERATE SLUG
+========================= */
 
 function generate(){
 
-let slug=input.value
+const text =
+input.value.trim();
+
+let slug =
+text
+.normalize("NFKD")
+.replace(/[\u0300-\u036f]/g,"")
 .toLowerCase()
-.trim()
 .replace(/[^a-z0-9\s-]/g,"")
 .replace(/\s+/g,"-")
-.replace(/-+/g,"-");
+.replace(/-+/g,"-")
+.replace(/^-+|-+$/g,"");
 
-result.textContent=
+
+result.textContent =
 slug || "Your slug will appear here";
 
 }
 
-function copySlug(){
 
-const slug=result.textContent;
+/* =========================
+   COPY SLUG
+========================= */
+
+async function copySlug(){
+
+const slug =
+result.textContent;
 
 if(
 !slug ||
-slug==="Your slug will appear here"
+slug === "Your slug will appear here"
 ){
 return;
 }
 
-navigator.clipboard.writeText(slug);
+
+try{
+
+await navigator.clipboard.writeText(slug);
+
+status.textContent =
+"✓ Slug copied!";
+
+setTimeout(()=>{
+status.textContent="";
+},2000);
+
+}catch{
+
+status.textContent =
+"Unable to copy slug.";
+
+}
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearText(){
+
+input.value="";
+
+result.textContent=
+"Your slug will appear here";
+
+status.textContent="";
+
+input.focus();
 
 }
 
 </script>
 
 </body>
+
 </html>
