@@ -1,35 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HTML Formatter - VexTools</title>
+
+<title>HTML Formatter Online - VexTools</title>
+
+<meta name="description" content="Free online HTML formatter and beautifier. Format and beautify HTML code into clean, readable code instantly.">
+<meta name="keywords" content="HTML formatter, HTML beautifier, format HTML online, beautify HTML, HTML code formatter, free HTML formatter, VexTools">
+<meta name="author" content="VexTools">
+
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/html-formatter.html">
+
+<meta property="og:title" content="HTML Formatter Online - VexTools">
+<meta property="og:description" content="Format and beautify HTML code online for free with VexTools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/html-formatter.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML Formatter Online - VexTools">
+<meta name="twitter:description" content="Free online HTML formatter and beautifier for clean, readable HTML code.">
+
 <style>
-body{font-family:Arial;background:#070b18;color:white;padding:30px;text-align:center}
-.box{max-width:900px;margin:auto;background:#111a30;padding:25px;border-radius:20px}
-textarea{width:95%;height:400px;padding:15px;font-family:monospace}
-button{padding:12px 25px;margin:15px;background:#7c3aed;color:white;border:0;border-radius:10px}
+body{
+font-family:Arial;
+background:#070b18;
+color:white;
+padding:30px;
+text-align:center
+}
+
+.box{
+max-width:900px;
+margin:auto;
+background:#111a30;
+padding:25px;
+border-radius:20px
+}
+
+textarea{
+width:95%;
+height:400px;
+padding:15px;
+font-family:monospace;
+background:#0d1427;
+color:white;
+border:1px solid #27304a;
+border-radius:10px;
+resize:vertical
+}
+
+button{
+padding:12px 25px;
+margin:15px;
+background:#7c3aed;
+color:white;
+border:0;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold
+}
+
+button:hover{
+background:#6d28d9
+}
+
+.description{
+max-width:750px;
+margin:25px auto;
+color:#94a3b8;
+line-height:1.7
+}
 </style>
 </head>
+
 <body>
+
 <div class="box">
+
 <h1>HTML Formatter</h1>
-<textarea id="code" placeholder="Paste HTML here..."></textarea>
+
+<p class="description">
+Format and beautify HTML code online for free.
+Make your HTML easier to read and organize.
+</p>
+
+<textarea
+id="code"
+placeholder="Paste HTML here..."
+></textarea>
+
 <br>
+
 <button onclick="format()">Format HTML</button>
+
 </div>
+
 <script>
 function format(){
+
 let s=document.getElementById("code").value;
+
+if(!s.trim()){
+return;
+}
+
 let out="",level=0;
-s=s.replace(/>\s*</g,"><").replace(/</g,"\n<").trim();
+
+s=s
+.replace(/>\s*</g,"><")
+.replace(/</g,"\n<")
+.trim();
+
 s.split("\n").forEach(x=>{
-if(/^<\/\w/.test(x))level--;
+
+if(/^<\/\w/.test(x)){
+level--;
+}
+
 out+="  ".repeat(Math.max(level,0))+x+"\n";
-if(/^<\w[^>]*[^\/]>$/.test(x)&&!/<\/\w+>/.test(x)&&!/^<!(--)?/.test(x))level++;
+
+if(
+/^<\w[^>]*[^\/]>$/.test(x) &&
+!/<\/\w+>/.test(x) &&
+!/^<!(--)?/.test(x)
+){
+level++;
+}
+
 });
+
 document.getElementById("code").value=out.trim();
 }
 </script>
+
 </body>
 </html>
