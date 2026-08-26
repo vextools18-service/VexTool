@@ -3,7 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Image Compressor — VexTools</title>
+
+<title>Image Compressor Online - VexTools</title>
+
+<meta name="description" content="Free online image compressor. Compress JPG, PNG and other images directly in your browser while controlling image quality.">
+<meta name="keywords" content="image compressor, compress image online, image compressor online, reduce image size, JPG compressor, PNG compressor, free image compressor, VexTools">
+<meta name="author" content="VexTools">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/image-compressor.html">
+
+<meta property="og:title" content="Image Compressor Online - VexTools">
+<meta property="og:description" content="Compress images online for free directly in your browser with VexTools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/image-compressor.html">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Image Compressor Online - VexTools">
+<meta name="twitter:description" content="Free online image compressor with adjustable quality.">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -67,9 +84,14 @@ font-weight:bold;
 cursor:pointer;
 }
 
+button:hover{
+opacity:.9;
+}
+
 #info{
 margin-top:15px;
 color:#94a3b8;
+text-align:center;
 }
 
 a.download{
@@ -92,8 +114,12 @@ font-weight:bold;
 
 <div class="header">
 <a class="logo" href="../index.html">VexTools</a>
+
 <h1>Image Compressor</h1>
-<p>Compress images directly in your browser.</p>
+
+<p>
+Compress images online for free directly in your browser.
+</p>
 </div>
 
 <div class="card">
@@ -105,9 +131,17 @@ Quality:
 <span id="qualityValue">70%</span>
 </label>
 
-<input id="quality" type="range" min="10" max="100" value="70">
+<input
+id="quality"
+type="range"
+min="10"
+max="100"
+value="70"
+>
 
-<button onclick="compress()">Compress Image</button>
+<button onclick="compress()">
+Compress Image
+</button>
 
 <div id="info"></div>
 
@@ -115,63 +149,133 @@ Quality:
 </div>
 
 <script>
-const quality=document.getElementById("quality");
-const qualityValue=document.getElementById("qualityValue");
+
+const quality =
+document.getElementById("quality");
+
+const qualityValue =
+document.getElementById("qualityValue");
 
 quality.addEventListener("input",()=>{
-qualityValue.textContent=quality.value+"%";
+qualityValue.textContent =
+quality.value+"%";
 });
+
 
 function compress(){
 
-const file=document.getElementById("file").files[0];
+const file =
+document.getElementById("file").files[0];
 
 if(!file){
 alert("Please select an image first.");
 return;
 }
 
-const img=new Image();
+const img = new Image();
 
-img.onload=()=>{
+const sourceURL =
+URL.createObjectURL(file);
 
-const canvas=document.createElement("canvas");
-canvas.width=img.width;
-canvas.height=img.height;
+img.onload = ()=>{
 
-const ctx=canvas.getContext("2d");
-ctx.drawImage(img,0,0);
+const canvas =
+document.createElement("canvas");
+
+canvas.width =
+img.width;
+
+canvas.height =
+img.height;
+
+const ctx =
+canvas.getContext("2d");
+
+ctx.drawImage(
+img,
+0,
+0
+);
 
 canvas.toBlob(blob=>{
 
-const url=URL.createObjectURL(blob);
+if(!blob){
+document.getElementById("info").textContent =
+"❌ Compression failed.";
+URL.revokeObjectURL(sourceURL);
+return;
+}
 
-const old=document.querySelector(".download");
-if(old)old.remove();
+const url =
+URL.createObjectURL(blob);
 
-const link=document.createElement("a");
-link.className="download";
-link.href=url;
-link.download="compressed-image.jpg";
-link.textContent="Download Compressed Image";
+const old =
+document.querySelector(".download");
 
-document.querySelector(".card").appendChild(link);
+if(old){
+URL.revokeObjectURL(old.href);
+old.remove();
+}
 
-document.getElementById("info").textContent=
-"Original: "+format(file.size)+" | Compressed: "+format(blob.size);
+const link =
+document.createElement("a");
 
-}, "image/jpeg", Number(quality.value)/100);
+link.className =
+"download";
+
+link.href =
+url;
+
+link.download =
+"compressed-image.jpg";
+
+link.textContent =
+"Download Compressed Image";
+
+document
+.querySelector(".card")
+.appendChild(link);
+
+document.getElementById("info").textContent =
+"Original: "+
+format(file.size)+
+" | Compressed: "+
+format(blob.size);
+
+URL.revokeObjectURL(sourceURL);
+
+},
+"image/jpeg",
+Number(quality.value)/100
+);
 
 };
 
-img.src=URL.createObjectURL(file);
+img.onerror = ()=>{
+URL.revokeObjectURL(sourceURL);
+
+document.getElementById("info").textContent =
+"❌ Could not read the selected image.";
+};
+
+img.src =
+sourceURL;
+
 }
 
+
 function format(bytes){
-if(bytes<1024)return bytes+" B";
-if(bytes<1024*1024)return (bytes/1024).toFixed(1)+" KB";
+
+if(bytes < 1024)
+return bytes+" B";
+
+if(bytes < 1024*1024)
+return (bytes/1024).toFixed(1)+" KB";
+
 return (bytes/1024/1024).toFixed(2)+" MB";
+
 }
+
 </script>
 
 </body>
