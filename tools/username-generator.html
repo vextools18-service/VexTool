@@ -1,69 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<!-- SEO -->
+<!-- =========================
+     PRIMARY SEO
+========================= -->
+
 <title>Username Generator — Free Random Username Ideas | VexTools</title>
 
-<meta name="description" content="Generate random username ideas instantly with the free VexTools Username Generator. Create unique usernames for gaming, social media, websites and more.">
-<meta name="keywords" content="username generator, random username generator, username ideas, unique username generator, gaming username generator, social media username generator, free username generator, VexTools">
+<meta
+name="description"
+content="Free online Username Generator by VexTools. Generate random, creative and unique username ideas for gaming, social media, websites and online profiles instantly."
+>
+
+<meta
+name="keywords"
+content="username generator, random username generator, username ideas, unique username generator, gaming username generator, social media username generator, cool username generator, online username generator, free username generator, VexTools"
+>
+
 <meta name="author" content="VexTools">
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
 <meta name="theme-color" content="#070b18">
 
 <!-- Canonical -->
-<link rel="canonical" href="https://vextools.github.io/tools/username-generator/">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Username Generator — Free Random Username Ideas | VexTools">
-<meta property="og:description" content="Generate random username ideas instantly for gaming, social media, websites and more with VexTools.">
+<link
+rel="canonical"
+href="https://vextools.site/tools/username-generator.html"
+>
+
+<!-- =========================
+     OPEN GRAPH
+========================= -->
+
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://vextools.github.io/tools/username-generator/">
+
+<meta
+property="og:title"
+content="Username Generator — Free Random Username Ideas | VexTools"
+>
+
+<meta
+property="og:description"
+content="Generate random username ideas instantly for gaming, social media, websites and online profiles with the free VexTools Username Generator."
+>
+
+<meta
+property="og:url"
+content="https://vextools.site/tools/username-generator.html"
+>
+
 <meta property="og:site_name" content="VexTools">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Username Generator — VexTools">
-<meta name="twitter:description" content="Create random and unique username ideas instantly with the free VexTools Username Generator.">
+<!-- =========================
+     TWITTER
+========================= -->
 
-<!-- Structured Data -->
+<meta name="twitter:card" content="summary">
+
+<meta
+name="twitter:title"
+content="Username Generator — VexTools"
+>
+
+<meta
+name="twitter:description"
+content="Create random and creative username ideas instantly with the free VexTools Username Generator."
+>
+
+<!-- =========================
+     STRUCTURED DATA
+========================= -->
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"WebApplication",
-  "name":"Username Generator",
-  "url":"https://vextools.github.io/tools/username-generator/",
-  "description":"Free online username generator for creating random username ideas.",
-  "applicationCategory":"UtilityApplication",
+  "name":"VexTools Username Generator",
+  "url":"https://vextools.site/tools/username-generator.html",
+  "description":"A free online username generator for creating random and creative username ideas.",
+  "applicationCategory":"UtilitiesApplication",
   "operatingSystem":"Any",
+  "browserRequirements":"Requires a modern web browser",
+  "isAccessibleForFree":true,
   "offers":{
     "@type":"Offer",
     "price":"0",
     "priceCurrency":"USD"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"VexTools",
+    "url":"https://vextools.site/"
   }
 }
 </script>
 
+<!-- =========================
+     FAQ STRUCTURED DATA
+========================= -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a username generator?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A username generator creates random and creative username ideas that can be used for gaming, social media, websites and other online profiles."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do I generate a username?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Enter an optional word and click Generate Username. The VexTools Username Generator will create a random username idea instantly."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I use the generated username for gaming?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. Generated usernames can be used as inspiration for gaming profiles, social media accounts and other online platforms."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is the Username Generator free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. The VexTools Username Generator is completely free to use online."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
+
 *{
 box-sizing:border-box;
 margin:0;
-padding:0
+padding:0;
 }
 
 body{
 font-family:Arial,sans-serif;
 background:#070b18;
 color:white;
-padding:30px 15px;
+padding:40px 15px;
 min-height:100vh;
 }
 
 .container{
-max-width:650px;
+max-width:700px;
 margin:auto;
 }
 
@@ -81,9 +181,13 @@ text-decoration:none;
 margin-bottom:15px;
 }
 
+.logo:hover{
+text-decoration:underline;
+}
+
 h1{
-margin:10px 0 8px;
 font-size:34px;
+margin:10px 0 8px;
 }
 
 .header p{
@@ -95,7 +199,15 @@ line-height:1.6;
 background:rgba(17,25,45,.85);
 border:1px solid rgba(255,255,255,.1);
 border-radius:20px;
-padding:22px;
+padding:24px;
+}
+
+label{
+display:block;
+text-align:left;
+color:#cbd5e1;
+font-weight:bold;
+margin-bottom:8px;
 }
 
 input{
@@ -105,7 +217,6 @@ background:#111a30;
 color:white;
 border:1px solid #27304a;
 border-radius:10px;
-margin:15px 0;
 font-size:16px;
 outline:none;
 }
@@ -117,31 +228,44 @@ border-color:#7c3aed;
 button{
 width:100%;
 padding:14px 25px;
+margin-top:15px;
 background:linear-gradient(90deg,#7c3aed,#6366f1);
 color:white;
 border:0;
 border-radius:10px;
 font-weight:bold;
+font-size:15px;
 cursor:pointer;
+transition:.2s;
 }
 
 button:hover{
 opacity:.9;
+transform:translateY(-1px);
 }
 
 .result{
 font-size:24px;
-margin:25px 0 15px;
+margin:20px 0 0;
 padding:25px;
 background:#111a30;
+border:1px solid #27304a;
 border-radius:12px;
 word-break:break-word;
 color:#22d3ee;
 text-align:center;
+min-height:75px;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .copy{
 background:#06b6d4;
+}
+
+.copy:hover{
+background:#0891b2;
 }
 
 .back{
@@ -151,10 +275,14 @@ color:#a78bfa;
 text-decoration:none;
 }
 
+.back:hover{
+text-decoration:underline;
+}
+
 .info{
 margin-top:25px;
-padding:20px;
-background:#111a30;
+padding:22px;
+background:rgba(17,25,45,.85);
 border:1px solid rgba(255,255,255,.08);
 border-radius:14px;
 color:#cbd5e1;
@@ -163,78 +291,172 @@ line-height:1.7;
 
 .info h2{
 color:white;
-font-size:20px;
+font-size:21px;
+margin-bottom:10px;
+}
+
+.info h3{
+color:white;
+font-size:17px;
+margin-top:20px;
+margin-bottom:6px;
+}
+
+.info p{
 margin-bottom:8px;
 }
 
 @media(max-width:600px){
+
+body{
+padding:30px 15px;
+}
+
 h1{
 font-size:28px;
 }
 
 .result{
 font-size:20px;
+padding:20px;
 }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
+<main class="container">
 
-<div class="header">
+<header class="header">
 
-<a class="logo" href="../index.html">VexTools</a>
+<a
+class="logo"
+href="../index.html"
+aria-label="VexTools Home"
+>
+VexTools
+</a>
 
 <h1>👤 Username Generator</h1>
 
 <p>
-Create random username ideas instantly for gaming, social media and more.
+Create random username ideas instantly for gaming,
+social media, websites and more.
 </p>
 
-</div>
+</header>
 
-<div class="card">
+
+<section
+class="card"
+aria-label="Username Generator"
+>
+
+<label for="word">
+Optional word
+</label>
 
 <input
 id="word"
-placeholder="Optional word, e.g. Alex"
+placeholder="e.g. Alex, Shadow, Gamer"
 autocomplete="off"
+aria-label="Optional word for username"
 >
 
-<button onclick="generate()">
+<button
+id="generateBtn"
+type="button"
+>
 Generate Username
 </button>
 
-<div class="result" id="result">
+
+<div
+class="result"
+id="result"
+aria-live="polite"
+>
 Your username
 </div>
 
-<button class="copy" onclick="copyUsername()">
+
+<button
+class="copy"
+id="copyBtn"
+type="button"
+>
 Copy Username
 </button>
 
-</div>
+</section>
 
-<a class="back" href="../index.html">
+
+<a
+class="back"
+href="../index.html"
+>
 ← Back to VexTools
 </a>
 
-<div class="info">
+
+<section class="info">
 
 <h2>Free Username Generator</h2>
 
 <p>
-Use the VexTools Username Generator to create random username ideas
-quickly. Enter an optional word and generate a username that can be
-used as inspiration for gaming accounts, social media profiles,
-websites and other online platforms.
+Use the VexTools Username Generator to create random,
+creative and unique username ideas quickly. Enter an
+optional word and generate a username for inspiration
+when creating an online profile.
 </p>
 
-</div>
 
-</div>
+<h3>What is a username generator?</h3>
+
+<p>
+A username generator is a tool that creates username
+ideas automatically. It can be useful when you need
+a new name for gaming, social media, websites or other
+online platforms.
+</p>
+
+
+<h3>How to generate a username</h3>
+
+<p>
+Enter an optional word in the input box and click
+Generate Username. The tool will instantly create a
+random username using the supplied word or randomly
+selected words.
+</p>
+
+
+<h3>Where can I use these username ideas?</h3>
+
+<p>
+You can use the generated ideas as inspiration for
+gaming profiles, social media accounts, websites,
+forums and other online platforms. Availability of a
+specific username depends on the platform.
+</p>
+
+
+<h3>Is the Username Generator free?</h3>
+
+<p>
+Yes. The VexTools Username Generator is completely
+free to use online.
+</p>
+
+</section>
+
+</main>
+
 
 <script>
 
@@ -246,8 +468,17 @@ const adjectives=[
 "Dark",
 "Pro",
 "Mega",
-"Lucky"
+"Lucky",
+"Swift",
+"Silent",
+"Cyber",
+"Neon",
+"Shadow",
+"Wild",
+"Frost",
+"Hyper"
 ];
+
 
 const nouns=[
 "Tiger",
@@ -257,39 +488,181 @@ const nouns=[
 "Ninja",
 "Fox",
 "Player",
-"Master"
+"Master",
+"Hunter",
+"Knight",
+"Raven",
+"Storm",
+"Phoenix",
+"Legend",
+"Ghost",
+"Falcon"
 ];
+
+
+const wordInput=
+document.getElementById("word");
+
+const result=
+document.getElementById("result");
+
 
 function generate(){
 
-let base=document.getElementById("word").value.trim();
+let base=
+wordInput.value
+.trim()
+.replace(/\s+/g,"");
 
-let a=
-adjectives[Math.floor(Math.random()*adjectives.length)];
 
-let n=
-nouns[Math.floor(Math.random()*nouns.length)];
+let adjective=
+adjectives[
+Math.floor(
+Math.random()*adjectives.length
+)
+];
 
-let num=
-Math.floor(Math.random()*9999);
 
-document.getElementById("result").textContent=
-(base || a+n)+num;
+let noun=
+nouns[
+Math.floor(
+Math.random()*nouns.length
+)
+];
+
+
+let number=
+Math.floor(
+Math.random()*10000
+);
+
+
+let username;
+
+
+if(base){
+
+username=
+base.charAt(0).toUpperCase()+
+base.slice(1)+
+adjective+
+number;
+
+}else{
+
+username=
+adjective+
+noun+
+number;
 
 }
 
-function copyUsername(){
+
+result.textContent=
+username;
+
+}
+
+
+async function copyUsername(){
 
 const username=
-document.getElementById("result").textContent;
+result.textContent;
 
-if(!username || username==="Your username") return;
+if(
+!username ||
+username==="Your username"
+){
 
-navigator.clipboard.writeText(username);
+return;
 
 }
+
+
+try{
+
+if(
+navigator.clipboard &&
+window.isSecureContext
+){
+
+await navigator.clipboard.writeText(
+username
+);
+
+}else{
+
+const temp=
+document.createElement("textarea");
+
+temp.value=username;
+
+document.body.appendChild(temp);
+
+temp.select();
+
+document.execCommand("copy");
+
+temp.remove();
+
+}
+
+const original=
+document.getElementById("copyBtn")
+.textContent;
+
+document.getElementById("copyBtn")
+.textContent="Copied!";
+
+setTimeout(()=>{
+
+document.getElementById("copyBtn")
+.textContent=original;
+
+},1200);
+
+}catch(error){
+
+console.error(
+"Copy failed:",
+error
+);
+
+}
+
+}
+
+
+document
+.getElementById("generateBtn")
+.addEventListener(
+"click",
+generate
+);
+
+
+document
+.getElementById("copyBtn")
+.addEventListener(
+"click",
+copyUsername
+);
+
+
+wordInput.addEventListener(
+"keydown",
+function(event){
+
+if(event.key==="Enter"){
+
+generate();
+
+}
+
+});
 
 </script>
 
 </body>
+
 </html>
