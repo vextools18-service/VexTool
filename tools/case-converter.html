@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Case Converter Online — Uppercase, Lowercase & Title Case | VexTools</title>
 
@@ -19,7 +19,6 @@ content="case converter, text case converter, uppercase converter, lowercase con
 
 <link rel="canonical"
 href="https://vextools18-service.github.io/VexTool/tools/case-converter.html">
-
 
 <!-- OPEN GRAPH -->
 
@@ -37,7 +36,6 @@ content="https://vextools18-service.github.io/VexTool/tools/case-converter.html"
 <meta property="og:site_name"
 content="VexTools">
 
-
 <!-- TWITTER / X -->
 
 <meta name="twitter:card" content="summary">
@@ -48,9 +46,7 @@ content="Case Converter Online — VexTools">
 <meta name="twitter:description"
 content="Free online text case converter for uppercase, lowercase, title case, sentence case and more.">
 
-
 <meta name="theme-color" content="#070b18">
-
 
 <!-- STRUCTURED DATA -->
 
@@ -72,7 +68,6 @@ content="Free online text case converter for uppercase, lowercase, title case, s
 }
 </script>
 
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -93,7 +88,6 @@ content="Free online text case converter for uppercase, lowercase, title case, s
   ]
 }
 </script>
-
 
 <style>
 
@@ -137,6 +131,7 @@ h1{
 
 .header p{
     color:#94a3b8;
+    line-height:1.6;
 }
 
 .card{
@@ -158,6 +153,7 @@ textarea{
     color:white;
     font-size:16px;
     line-height:1.6;
+    font-family:Arial,sans-serif;
 }
 
 textarea:focus{
@@ -184,11 +180,25 @@ button{
 
 button:hover{
     transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(124,58,237,.25);
+}
+
+button:active{
+    transform:translateY(0);
+}
+
+.status{
+    min-height:22px;
+    margin-top:12px;
+    text-align:center;
+    color:#94a3b8;
+    font-size:14px;
 }
 
 .stats{
     display:flex;
     justify-content:space-between;
+    gap:15px;
     margin-top:15px;
     color:#94a3b8;
     font-size:14px;
@@ -207,12 +217,31 @@ button:hover{
 
 @media(max-width:600px){
 
-    .buttons{
-        grid-template-columns:1fr 1fr;
+    body{
+        padding:25px 12px;
     }
 
     h1{
         font-size:28px;
+    }
+
+    .card{
+        padding:15px;
+    }
+
+    textarea{
+        min-height:250px;
+        font-size:15px;
+    }
+
+    .buttons{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats{
+        flex-direction:column;
+        text-align:center;
+        gap:5px;
     }
 
 }
@@ -221,89 +250,93 @@ button:hover{
 
 </head>
 
-
 <body>
 
 <div class="container">
 
+    <div class="header">
 
-<div class="header">
+        <a class="logo" href="../index.html">
+            VexTools
+        </a>
 
-<a class="logo" href="../index.html">
-VexTools
-</a>
+        <h1>Case Converter</h1>
 
-<h1>Case Converter</h1>
+        <p>
+            Convert your text into different cases instantly.
+        </p>
 
-<p>
-Convert your text into different cases instantly.
-</p>
-
-</div>
-
-
-<div class="card">
+    </div>
 
 
-<textarea
-id="text"
-placeholder="Type or paste your text here..."
-aria-label="Text to convert"
-></textarea>
+    <div class="card">
+
+        <textarea
+            id="text"
+            placeholder="Type or paste your text here..."
+            aria-label="Text to convert"
+            spellcheck="false"
+        ></textarea>
 
 
-<div class="buttons">
+        <div class="buttons">
 
-<button onclick="upper()">
-UPPERCASE
-</button>
+            <button type="button" onclick="upper()">
+                UPPERCASE
+            </button>
 
-<button onclick="lower()">
-lowercase
-</button>
+            <button type="button" onclick="lower()">
+                lowercase
+            </button>
 
-<button onclick="titleCase()">
-Title Case
-</button>
+            <button type="button" onclick="titleCase()">
+                Title Case
+            </button>
 
-<button onclick="sentenceCase()">
-Sentence case
-</button>
+            <button type="button" onclick="sentenceCase()">
+                Sentence case
+            </button>
 
-<button onclick="alternate()">
-aLtErNaTe CaSe
-</button>
+            <button type="button" onclick="alternate()">
+                aLtErNaTe CaSe
+            </button>
 
-<button onclick="copyText()">
-Copy Text
-</button>
+            <button type="button" onclick="copyText()">
+                Copy Text
+            </button>
 
-<button onclick="clearText()">
-Clear
-</button>
+            <button type="button" onclick="clearText()">
+                Clear
+            </button>
 
-</div>
-
-
-<div class="stats">
-
-<span id="words">
-Words: 0
-</span>
-
-<span id="chars">
-Characters: 0
-</span>
-
-</div>
-
-</div>
+        </div>
 
 
-<a class="back" href="../index.html">
-← Back to VexTools
-</a>
+        <div
+            class="status"
+            id="status"
+            aria-live="polite">
+        </div>
 
+
+        <div class="stats">
+
+            <span id="words">
+                Words: 0
+            </span>
+
+            <span id="chars">
+                Characters: 0
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <a class="back" href="../index.html">
+        ← Back to VexTools
+    </a>
 
 </div>
 
@@ -311,131 +344,245 @@ Characters: 0
 <script>
 
 const text =
-document.getElementById("text");
+    document.getElementById("text");
 
+const status =
+    document.getElementById("status");
+
+const words =
+    document.getElementById("words");
+
+const chars =
+    document.getElementById("chars");
+
+
+/* UPPERCASE */
 
 function upper(){
 
     text.value =
         text.value.toUpperCase();
 
+    showStatus("✓ Text converted to uppercase.");
+
     update();
 
 }
 
+
+/* LOWERCASE */
 
 function lower(){
 
     text.value =
         text.value.toLowerCase();
 
+    showStatus("✓ Text converted to lowercase.");
+
     update();
 
 }
 
+
+/* TITLE CASE */
 
 function titleCase(){
 
+    const value =
+        text.value.toLowerCase();
+
     text.value =
-        text.value
-        .toLowerCase()
-        .replace(/\b\w/g,c =>
-            c.toUpperCase()
+        value.replace(
+            /(^|[\s-])([a-z])/g,
+            function(match, separator, letter){
+
+                return separator +
+                    letter.toUpperCase();
+
+            }
         );
+
+    showStatus("✓ Text converted to Title Case.");
 
     update();
 
 }
 
+
+/* SENTENCE CASE */
 
 function sentenceCase(){
 
-    text.value =
-        text.value
-        .toLowerCase()
-        .replace(
-            /(^\s*\w|[.!?]\s+\w)/g,
-            c => c.toUpperCase()
+    let value =
+        text.value.toLowerCase();
+
+    value =
+        value.replace(
+            /(^\s*[a-z])|([.!?]\s+[a-z])/g,
+            function(match){
+
+                return match.toUpperCase();
+
+            }
         );
+
+    text.value = value;
+
+    showStatus("✓ Text converted to Sentence case.");
 
     update();
 
 }
 
+
+/* ALTERNATE CASE */
 
 function alternate(){
 
+    let index = 0;
+
     text.value =
         [...text.value]
-        .map(
-            (c,i) =>
-            i % 2
-            ? c.toLowerCase()
-            : c.toUpperCase()
-        )
+        .map(function(character){
+
+            if(/[a-zA-Z]/.test(character)){
+
+                const result =
+                    index % 2 === 0
+                    ? character.toUpperCase()
+                    : character.toLowerCase();
+
+                index++;
+
+                return result;
+
+            }
+
+            return character;
+
+        })
         .join("");
+
+    showStatus("✓ Alternate case applied.");
 
     update();
 
 }
 
 
-function copyText(){
+/* COPY */
+
+async function copyText(){
 
     if(!text.value){
+
+        showStatus("⚠️ There is no text to copy.");
 
         return;
 
     }
 
-    navigator.clipboard
-        .writeText(text.value);
+    try{
+
+        await navigator.clipboard.writeText(
+            text.value
+        );
+
+        showStatus(
+            "✓ Text copied to clipboard."
+        );
+
+    }
+    catch(error){
+
+        /* Fallback for browsers where Clipboard API is unavailable */
+
+        text.select();
+        text.setSelectionRange(
+            0,
+            text.value.length
+        );
+
+        try{
+
+            document.execCommand("copy");
+
+            showStatus(
+                "✓ Text copied to clipboard."
+            );
+
+        }
+        catch(error){
+
+            showStatus(
+                "❌ Unable to copy text."
+            );
+
+        }
+
+        window.getSelection().removeAllRanges();
+
+    }
 
 }
 
 
+/* CLEAR */
+
 function clearText(){
 
-    text.value="";
+    text.value = "";
+
+    showStatus("✓ Text cleared.");
 
     update();
 
 }
 
+
+/* STATUS */
+
+function showStatus(message){
+
+    status.textContent = message;
+
+}
+
+
+/* WORD + CHARACTER COUNTER */
 
 function update(){
 
     const value =
         text.value.trim();
 
+    const wordCount =
+        value
+        ? value.split(/\s+/).length
+        : 0;
 
-    document
-        .getElementById("words")
-        .textContent =
-        "Words: " +
-        (
-            value
-            ? value.split(/\s+/).length
-            : 0
-        );
+    words.textContent =
+        "Words: " + wordCount;
 
-
-    document
-        .getElementById("chars")
-        .textContent =
-        "Characters: " +
-        text.value.length;
+    chars.textContent =
+        "Characters: " + text.value.length;
 
 }
 
+
+/* LIVE COUNTER */
 
 text.addEventListener(
     "input",
     update
 );
 
-</script>
 
+/* INITIAL COUNTER */
+
+update();
+
+</script>
 
 </body>
 </html>
