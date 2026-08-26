@@ -11,237 +11,499 @@
 <meta name="keywords" content="color picker, online color picker, HEX color picker, RGB color picker, color picker online free, HEX RGB converter, VexTools">
 
 <meta name="author" content="VexTools">
-
 <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://vextools18-service.github.io/VexTool/tools/color-picker.html">
 
-<meta property="og:title" content="Color Picker Online — HEX & RGB | VexTools">
-<meta property="og:description" content="Pick a color online and instantly get its HEX and RGB values with VexTools.">
+<!-- Open Graph -->
+<meta property="og:title" content="Color Picker Online — HEX & RGB Color Picker | VexTools">
+<meta property="og:description" content="Pick any color online and instantly get its HEX and RGB values with the free VexTools Color Picker.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vextools18-service.github.io/VexTool/tools/color-picker.html">
+<meta property="og:site_name" content="VexTools">
 
+<!-- Twitter -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Color Picker Online — VexTools">
+<meta name="twitter:title" content="Color Picker Online — HEX & RGB | VexTools">
 <meta name="twitter:description" content="Free online color picker for HEX and RGB color values.">
 
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an online color picker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An online color picker is a browser-based tool that lets you select a color and view its color values, such as HEX and RGB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I use the VexTools Color Picker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Select a color using the color picker. VexTools will instantly display the HEX and RGB values for the selected color."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the VexTools Color Picker free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The VexTools Color Picker is completely free to use online and works directly in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I copy the HEX color value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Click the Copy HEX button to copy the selected HEX color value to your clipboard."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
 body{
-font-family:Arial,sans-serif;
-background:#070b18;
-color:white;
-padding:40px 20px;
-min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#070b18;
+    color:white;
+    padding:40px 20px;
+    min-height:100vh;
 }
 
 .container{
-max-width:700px;
-margin:auto;
-text-align:center;
+    max-width:700px;
+    margin:auto;
+    text-align:center;
 }
 
 .logo{
-display:inline-block;
-color:#a78bfa;
-font-size:28px;
-font-weight:900;
-text-decoration:none;
-margin-bottom:25px;
+    display:inline-block;
+    color:#a78bfa;
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+    margin-bottom:25px;
 }
 
 h1{
-font-size:42px;
-margin-bottom:10px;
+    font-size:42px;
+    margin-bottom:10px;
 }
 
 .subtitle{
-color:#94a3b8;
-margin-bottom:25px;
-font-size:16px;
+    color:#94a3b8;
+    margin-bottom:25px;
+    font-size:16px;
+    line-height:1.6;
 }
 
 .card{
-background:#111a30;
-border:1px solid rgba(255,255,255,.1);
-border-radius:20px;
-padding:30px;
+    background:#111a30;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
-input[type=color]{
-width:180px;
-height:180px;
-border:0;
-background:none;
-cursor:pointer;
-margin:20px;
+.color-picker-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+input[type="color"]{
+    width:180px;
+    height:180px;
+    border:0;
+    background:none;
+    cursor:pointer;
+    margin:20px;
+    padding:0;
 }
 
 .box{
-padding:25px;
-background:#0d1427;
-border:1px solid #27304a;
-border-radius:15px;
+    width:100%;
+    padding:25px;
+    background:#0d1427;
+    border:1px solid #27304a;
+    border-radius:15px;
 }
 
 .box h2{
-font-size:30px;
-margin-bottom:10px;
+    font-size:30px;
+    margin-bottom:10px;
+    word-break:break-word;
 }
 
 .box p{
-color:#94a3b8;
-margin-bottom:20px;
+    color:#94a3b8;
+    margin-bottom:20px;
+    font-size:16px;
 }
 
 button{
-padding:13px 25px;
-background:linear-gradient(90deg,#7c3aed,#6366f1);
-color:white;
-border:0;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
+    padding:13px 25px;
+    background:linear-gradient(90deg,#7c3aed,#6366f1);
+    color:white;
+    border:0;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    transition:.2s;
 }
 
 button:hover{
-transform:translateY(-2px);
+    transform:translateY(-2px);
+}
+
+button:active{
+    transform:translateY(0);
 }
 
 .info{
-margin-top:25px;
-padding:25px;
-background:#111a30;
-border:1px solid rgba(255,255,255,.1);
-border-radius:18px;
-text-align:left;
+    margin-top:25px;
+    padding:25px;
+    background:#111a30;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    text-align:left;
 }
 
 .info h2{
-margin-bottom:10px;
+    margin-bottom:10px;
+    font-size:21px;
 }
 
 .info p{
-color:#94a3b8;
-line-height:1.7;
+    color:#94a3b8;
+    line-height:1.7;
+    font-size:14px;
+}
+
+.faq{
+    margin-top:25px;
+    padding:25px;
+    background:#111a30;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    text-align:left;
+}
+
+.faq h2{
+    margin-bottom:15px;
+}
+
+.faq-item{
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.faq-item:last-child{
+    border-bottom:0;
+    padding-bottom:0;
+}
+
+.faq-item h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.faq-item p{
+    color:#94a3b8;
+    line-height:1.6;
+    font-size:14px;
 }
 
 .back{
-display:inline-block;
-margin-top:25px;
-color:#a78bfa;
-text-decoration:none;
-font-weight:bold;
+    display:inline-block;
+    margin-top:25px;
+    color:#a78bfa;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    color:#64748b;
+    font-size:13px;
+    margin-top:35px;
+    padding:20px;
 }
 
 @media(max-width:600px){
-h1{font-size:32px}
 
-.card{
-padding:20px;
-}
+    body{
+        padding:25px 15px;
+    }
 
-input[type=color]{
-width:140px;
-height:140px;
-}
+    h1{
+        font-size:32px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    input[type="color"]{
+        width:140px;
+        height:140px;
+    }
+
+    .box{
+        padding:20px;
+    }
+
+    .box h2{
+        font-size:26px;
+    }
+
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<a class="logo" href="../index.html">VexTools</a>
+    <a class="logo" href="../index.html">
+        VexTools
+    </a>
 
-<h1>🎨 Color Picker</h1>
+    <h1>🎨 Color Picker</h1>
 
-<p class="subtitle">
-Pick a color and instantly get its HEX and RGB values.
-</p>
+    <p class="subtitle">
+        Pick a color and instantly get its HEX and RGB values.
+    </p>
 
-<div class="card">
+    <main>
 
-<input id="color" type="color" value="#7c3aed" aria-label="Choose a color">
+        <section class="card">
 
-<div class="box">
+            <div class="color-picker-wrapper">
 
-<h2 id="hex">#7C3AED</h2>
+                <input
+                    id="color"
+                    type="color"
+                    value="#7c3aed"
+                    aria-label="Choose a color"
+                >
 
-<p id="rgb">RGB: 124, 58, 237</p>
+                <div class="box">
 
-<button id="copyBtn" onclick="copyHex()">
-Copy HEX
-</button>
+                    <h2 id="hex">#7C3AED</h2>
+
+                    <p id="rgb">
+                        RGB: 124, 58, 237
+                    </p>
+
+                    <button
+                        id="copyBtn"
+                        type="button"
+                    >
+                        Copy HEX
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="info">
+
+            <h2>Free Online Color Picker</h2>
+
+            <p>
+                VexTools Color Picker is a free online tool that lets
+                you select any color and instantly view its HEX and RGB
+                values. It works directly in your browser without
+                requiring any software installation.
+            </p>
+
+        </section>
+
+
+        <section class="faq">
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+
+                <h3>
+                    What is an online color picker?
+                </h3>
+
+                <p>
+                    An online color picker lets you select a color and
+                    view its color values, such as HEX and RGB.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    How do I use the VexTools Color Picker?
+                </h3>
+
+                <p>
+                    Select a color using the color picker and VexTools
+                    will instantly display its HEX and RGB values.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    Is the VexTools Color Picker free?
+                </h3>
+
+                <p>
+                    Yes. The VexTools Color Picker is completely free
+                    to use online and works directly in your browser.
+                </p>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <h3>
+                    Can I copy the HEX color value?
+                </h3>
+
+                <p>
+                    Yes. Click the Copy HEX button to copy the selected
+                    HEX color value to your clipboard.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <a class="back" href="../index.html">
+        ← Back to VexTools
+    </a>
+
+    <footer>
+        © <span id="year"></span> VexTools — Free Online Tools
+    </footer>
 
 </div>
 
-</div>
-
-<div class="info">
-
-<h2>Free Online Color Picker</h2>
-
-<p>
-VexTools Color Picker is a free online tool that lets you select
-any color and instantly view its HEX and RGB values. It works
-directly in your browser without requiring any software installation.
-</p>
-
-</div>
-
-<a class="back" href="../index.html">
-← Back to VexTools
-</a>
-
-</div>
 
 <script>
 
-const color = document.getElementById("color");
-const hex = document.getElementById("hex");
-const rgb = document.getElementById("rgb");
+const colorInput = document.getElementById("color");
+const hexDisplay = document.getElementById("hex");
+const rgbDisplay = document.getElementById("rgb");
 const copyBtn = document.getElementById("copyBtn");
 
-color.addEventListener("input", update);
 
-function update(){
+function updateColor(){
 
-let c = color.value.toUpperCase();
+    const colorValue =
+        colorInput.value.toUpperCase();
 
-hex.textContent = c;
+    hexDisplay.textContent =
+        colorValue;
 
-let r = parseInt(c.slice(1,3),16);
-let g = parseInt(c.slice(3,5),16);
-let b = parseInt(c.slice(5,7),16);
 
-rgb.textContent = `RGB: ${r}, ${g}, ${b}`;
+    const r =
+        parseInt(colorValue.slice(1,3),16);
+
+    const g =
+        parseInt(colorValue.slice(3,5),16);
+
+    const b =
+        parseInt(colorValue.slice(5,7),16);
+
+
+    rgbDisplay.textContent =
+        `RGB: ${r}, ${g}, ${b}`;
 
 }
+
 
 async function copyHex(){
 
-try{
+    const value =
+        colorInput.value.toUpperCase();
 
-await navigator.clipboard.writeText(color.value.toUpperCase());
+    try{
 
-let old = copyBtn.textContent;
+        await navigator.clipboard.writeText(value);
 
-copyBtn.textContent = "✅ HEX Copied!";
+        const oldText =
+            copyBtn.textContent;
 
-setTimeout(()=>{
-copyBtn.textContent = old;
-},1500);
+        copyBtn.textContent =
+            "✅ HEX Copied!";
 
-}catch(e){
+        setTimeout(()=>{
 
-alert("Could not copy HEX value.");
+            copyBtn.textContent =
+                oldText;
+
+        },1500);
+
+    }catch(error){
+
+        copyBtn.textContent =
+            "Copy failed";
+
+        setTimeout(()=>{
+
+            copyBtn.textContent =
+                "Copy HEX";
+
+        },1500);
+
+    }
 
 }
 
-}
+
+colorInput.addEventListener(
+    "input",
+    updateColor
+);
+
+
+copyBtn.addEventListener(
+    "click",
+    copyHex
+);
+
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+updateColor();
 
 </script>
 
